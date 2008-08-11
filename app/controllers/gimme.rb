@@ -1,6 +1,6 @@
 require 'youtube_g'
 class Gimme < Application
-  # cache_action :index, 1#(60 * 24)
+  cache_page :index
   
   def index
     client = YouTubeG::Client.new
