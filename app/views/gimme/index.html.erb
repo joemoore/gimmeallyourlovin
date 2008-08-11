@@ -8,10 +8,7 @@
         <div class="row">  
           <%=  partial :video, :with => video, :as => :vid %>
         <% else %>
-          <div class="video left">
-            <h2><%= video.title %></h2>
-            <%= video.embed_html %>
-          </div>
+          <%=  partial :video, :with => video, :as => :vid %>
           <div style="clear:both"></div>
         <div class="ad"> ad goes here</div>
         </div>
