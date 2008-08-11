@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add host <tt>host_name</tt> that belongs to <tt>roles</tt>. Extra arguments may be specified for the host as a hash as the last argument.
+- !ruby/struct:SM::Flow::P 
+  body: "host is the inversion of role:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  host 'db1.example.com', :db, :master_db\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Is equivalent to:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  role :db, 'db1.example.com'\n  role :master_db, 'db1.example.com'\n"
+full_name: Rake::RemoteTask::host
+is_singleton: true
+name: host
+params: (host_name, *roles)
+visibility: public

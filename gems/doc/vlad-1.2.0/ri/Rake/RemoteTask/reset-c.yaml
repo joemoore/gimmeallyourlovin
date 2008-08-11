@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Resets vlad, restoring all roles, tasks and environment variables to the defaults.
+full_name: Rake::RemoteTask::reset
+is_singleton: true
+name: reset
+params: ()
+visibility: public

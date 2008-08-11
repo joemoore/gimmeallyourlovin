@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Reads value of inheritable attributes.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/struct:SM::Flow::P 
+  body: Inheritable attribute value. Subclasses store copies of values.
+full_name: Class#read_inheritable_attribute
+is_singleton: false
+name: read_inheritable_attribute
+params: (key)
+visibility: public

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: considerations.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>considerations.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>considerations.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <ul>
+<li>might we want per connection values?
+
+</li>
+<li>:except =&gt; {:no_release =&gt; true}
+
+<p>
+It is common to configure tasks to &#8216;announce&#8217; deployments in
+IRC, Campfire, etc. If you have 6 app servers, you don&#8216;t want to see
+6 announcements. In Capistrano, this is handled via the :no_release =&gt;
+true flag. Various tasks only execute on the &#8216;release&#8217; servers.
+</p>
+<p>
+An easier way to meet this would be to introduce a :release role in the
+default setup
+</p>
+<pre>
+  role :release, &quot;app1.example.com&quot;
+
+  remote_task :announce_in_irc, :roles =&gt; :release ...
+</pre>
+<p>
+Drawback: Yet another thing to change when you migrate a project from cap
+to vlad
+</p>
+</li>
+<li>&#8216;dynamic deployments&#8216;
+
+<pre>
+  role :app, &quot;app1.example.com&quot;
+  role :app, &quot;app2.example.com&quot;
+</pre>
+<p>
+Let&#8216;s say that app1 and app2 need slightly different monit
+configurations.
+</p>
+<p>
+In Capistrano, you might approach this by making two additional roles, and
+splitting your &#8216;push a monit config&#8217; task into two. This sucks.
+</p>
+<p>
+<a href="../classes/Vlad.html">Vlad</a> makes the &#8216;execution
+context&#8217; of a task available. In <a
+href="../classes/Vlad.html">Vlad</a>, you would:
+</p>
+<pre>
+  remote_task :update_monit, :roles =&gt; :app
+    rsync &quot;templates/#{target_host}.monitrc&quot;, &quot;/etc/monitrc&quot;
+  end
+</pre>
+</li>
+<li>fine-grained tasks
+
+<pre>
+  remote_task :update
+  remote_task :symlink
+  remote_task :migrate
+  remote_task :deploy =&gt; [:update, :symlink, :migrate, :restart]
+</pre>
+<p>
+Let&#8216;s assume that this is a multi-server config with shared deploy
+path. The user wants to do only a single checkout. If we make
+&quot;update&quot; be one big task body that includes the update, symlink,
+and migrate steps, it is difficult for the user to override the roles for
+the particular steps they need to change.
+</p>
+<p>
+If we break these into separate tasks, they can say:
+</p>
+<pre>
+  Rake::Task[&quot;migrate&quot;].options[:roles] = :master_db
+</pre>
+<p>
+and the migrations will only run on the master db
+</p>
+</li>
+<li>sudo / via how? and if we call it via I will stab ppl. &quot;user&quot; is
+sufficient.
+
+</li>
+<li>handling &#8216;use_sudo&#8216;
+
+<ol>
+<li>Check for this inside the &#8216;run&#8217; command, and preface the
+command with &#8216;sudo&#8217; if necessary
+
+</li>
+<li>Default this to &#8216;false&#8217; in the reset method, and check for it
+in the default tasks that we provide:
+
+<pre>
+  if use_sudo then
+    sudo &quot;blah&quot;
+  else
+    run &quot;blah&quot;
+  end
+</pre>
+</li>
+</ol>
+<p>
+Option 2 has fewer moving parts, but clutters up the tasks that care about
+this.
+</p>
+</li>
+<li>Dependencies
+
+<p>
+Task dependencies aren&#8216;t settable when creating a <a
+href="../classes/Rake/RemoteTask.html">Rake::RemoteTask</a>.
+</p>
+</li>
+<li>Apache configuration
+
+<p>
+Pull in railsmachine/rails/recipes/apache.rb&#8216;s apache configuration.
+Needs erb to work.
+</p>
+</li>
+<li>I really like tasks with naming &lt;cmd&gt;_&lt;role&gt; (eg setup_app,
+start_web). We could easily make the front end remote_task command look for
+such a convention and apply the :role =&gt; x automatically.
+
+</li>
+<li>from bousquet: get a couple of server environment recipes that prepare your
+machine that would be the golden ticket:
+
+<pre>
+  rake vlad:prepare TYPE=accelerator | ubuntu | osx | osxserver | site5 | ...
+</pre>
+<p>
+and have people maintaining those setups who depend on them
+</p>
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

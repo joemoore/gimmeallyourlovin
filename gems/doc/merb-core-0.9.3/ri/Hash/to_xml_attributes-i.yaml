@@ -1,0 +1,25 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: to_html_attributes
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: The hash as attributes for an XML tag.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  { :one =&gt; 1, &quot;two&quot;=&gt;&quot;TWO&quot; }.to_xml_attributes\n    #=&gt; 'one=&quot;1&quot; two=&quot;TWO&quot;'\n"
+full_name: Hash#to_xml_attributes
+is_singleton: false
+name: to_xml_attributes
+params: ()
+visibility: public

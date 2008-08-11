@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (RubiGen::Scripts::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/scripts.rb, line 16</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">args</span> = [], <span class="ruby-identifier">runtime_options</span> = {})
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">runtime_options</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-comment cmt"># Don't cry, script. Generators want what you think is invalid.</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Generator name is the only required option.</span>
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:generator</span>]
+          <span class="ruby-identifier">usage</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:generator</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Look up generator instance and invoke command on it.</span>
+        <span class="ruby-constant">RubiGen</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">instance</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:generator</span>], <span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">command</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>]).<span class="ruby-identifier">invoke!</span>
+      <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;  #{e.backtrace.join(&quot;\n  &quot;)}\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:backtrace</span>]
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">SystemExit</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

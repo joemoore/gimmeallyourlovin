@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Create#file_copy_each
+is_singleton: false
+name: file_copy_each
+params: (files, path=nil, options = {})
+visibility: public

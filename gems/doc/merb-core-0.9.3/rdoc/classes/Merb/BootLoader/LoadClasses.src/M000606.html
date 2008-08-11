@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>load_classes_with_requirements (Merb::BootLoader::LoadClasses)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-core/bootloader.rb, line 339</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_classes_with_requirements</span>(<span class="ruby-identifier">klasses</span>)
+      <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">uniq!</span>
+
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment cmt"># Note size to make sure things are loading</span>
+        <span class="ruby-identifier">size_at_start</span> = <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">size</span>
+
+        <span class="ruby-comment cmt"># List of failed classes</span>
+        <span class="ruby-identifier">failed_classes</span> = []
+        <span class="ruby-comment cmt"># Map classes to exceptions</span>
+        <span class="ruby-identifier">error_map</span> = {}
+
+        <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">klass</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">klass</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-identifier">load_file</span> <span class="ruby-identifier">klass</span>
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NameError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ne</span>
+            <span class="ruby-identifier">error_map</span>[<span class="ruby-identifier">klass</span>] = <span class="ruby-identifier">ne</span>
+            <span class="ruby-identifier">failed_classes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">klass</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Keep list of classes unique</span>
+        <span class="ruby-identifier">failed_classes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">k</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>) }
+
+        <span class="ruby-comment cmt"># Stop processing if nothing loads or if everything has loaded</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">size_at_start</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+          <span class="ruby-comment cmt"># Write all remaining failed classes and their exceptions to the log</span>
+          <span class="ruby-identifier">error_map</span>.<span class="ruby-identifier">only</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">failed_classes</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">klass</span>, <span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+            <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">fatal!</span> <span class="ruby-node">&quot;Could not load #{klass}:\n\n#{e.message} - (#{e.class})\n\n#{(e.backtrace || []).join(&quot;\n&quot;)}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">LoadError</span>, <span class="ruby-node">&quot;Could not load #{failed_classes.inspect} (see log for details).&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">size_at_start</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">klasses</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

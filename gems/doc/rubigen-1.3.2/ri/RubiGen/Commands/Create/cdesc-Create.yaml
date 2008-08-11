@@ -1,0 +1,45 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create is the premier generator command. It copies files, creates directories, renders templates, and more.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYNONYM_LOOKUP_URI
+  value: "\"http://wordnet.princeton.edu/cgi-bin/webwn2.0?stage=2&word=%s&posnumber=1&searchtypenumber=2&senses=&showglosses=1\""
+full_name: RubiGen::Commands::Create
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: class_collisions
+- !ruby/object:RI::MethodSummary 
+  name: complex_template
+- !ruby/object:RI::MethodSummary 
+  name: directory
+- !ruby/object:RI::MethodSummary 
+  name: file
+- !ruby/object:RI::MethodSummary 
+  name: file_copy_each
+- !ruby/object:RI::MethodSummary 
+  name: folder
+- !ruby/object:RI::MethodSummary 
+  name: identical?
+- !ruby/object:RI::MethodSummary 
+  name: migration_template
+- !ruby/object:RI::MethodSummary 
+  name: readme
+- !ruby/object:RI::MethodSummary 
+  name: route_resources
+- !ruby/object:RI::MethodSummary 
+  name: template
+- !ruby/object:RI::MethodSummary 
+  name: template_copy_each
+- !ruby/object:RI::MethodSummary 
+  name: write_manifest
+name: Create
+superclass: Base

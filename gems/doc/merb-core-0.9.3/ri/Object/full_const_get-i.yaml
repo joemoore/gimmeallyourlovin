@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name<String>:"
+    body: The name of the constant to get, e.g. &quot;Merb::Router&quot;.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Object:"
+    body: The constant corresponding to the name.
+  type: :NOTE
+full_name: Object#full_const_get
+is_singleton: false
+name: full_const_get
+params: (name)
+visibility: public

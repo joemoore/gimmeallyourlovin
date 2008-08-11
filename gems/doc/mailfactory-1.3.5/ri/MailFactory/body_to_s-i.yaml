@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: returns the body as a properly formatted string
+full_name: MailFactory#body_to_s
+is_singleton: false
+name: body_to_s
+params: ()
+visibility: protected

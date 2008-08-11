@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: History.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>History.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>History.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>1.1.1 / 2008-01-14</h2>
+<ul>
+<li>5 major enhancements:
+
+<ul>
+<li>Support for <a href="../classes/Rake.html">Rake</a> 0.8. Should still work
+for <a href="../classes/Rake.html">Rake</a> 0.7.
+
+</li>
+<li>Added git support (contributed by Garry Dolley).
+
+<ul>
+<li>Reviewed for accuracy by Evan Phoenix.
+
+</li>
+</ul>
+</li>
+<li>Added lighttpd.rb
+
+</li>
+<li>Added automatic client setup for perforce.
+
+</li>
+<li>Added mercurial SCM support patch. Closes ticket 13475.
+
+</li>
+</ul>
+</li>
+<li>6 minor enhancements:
+
+<ul>
+<li>Added put method that wraps up Tempfile/rsync pattern.
+
+</li>
+<li>Added automatic p4 client setup for perforce.
+
+</li>
+<li>Added vladdemo.sh
+
+</li>
+<li>Moved everything over to put.
+
+</li>
+<li>Moved generic app setup to core from mongrel.
+
+</li>
+<li>Parameterized &#8216;head&#8217; into &#8216;revision&#8217; variable (with
+head as default).
+
+</li>
+</ul>
+</li>
+<li>1 bug fix
+
+<ul>
+<li>Fixed cleanup to actually properly clean up.
+
+</li>
+</ul>
+</li>
+</ul>
+<h2>1.1.0 / 2007-09-12</h2>
+<ul>
+<li>3 major enhancements:
+
+<ul>
+<li><a href="../classes/Vlad.html#M000010">Vlad.load</a> now takes a hash of
+recipe overrides, eg: <a href="../classes/Vlad.html#M000010">Vlad.load</a>
+:web =&gt; :nginx. See rdoc for defaults.
+
+</li>
+<li>Removed vlad_tasks.rb and split into vlad/apache.rb, vlad/mongrel.rb, and
+vlad/core.rb.
+
+</li>
+<li>The flog ratio between capistrano+deps / vlad+deps is pi (or, damn close)!
+
+</li>
+</ul>
+</li>
+<li>12 minor enhancements:
+
+<ul>
+<li>Added $TRACE to make it more available and cleaner to read.
+
+</li>
+<li>Added :svn_cmd variable.
+
+</li>
+<li>Added <a href="../classes/Rake.html#M000024">Rake.clear_tasks</a>
+*str_or_regexp
+
+</li>
+<li>Added debug and mana_from_heaven tasks to Rakefile.
+
+</li>
+<li>Added more documentation.
+
+</li>
+<li>Added :rsync_cmd and :rsync_flags.
+
+</li>
+<li>Added :ssh_cmd and :ssh_flags.
+
+</li>
+<li>Added variable expansion to vlad:debug task.
+
+</li>
+<li>Removed :scm variable. Now a <a
+href="../classes/Vlad.html#M000010">Vlad.load</a>
+component/flavor/need-a-word-here.
+
+</li>
+<li>Removed :application var. Use it if you want it. We don&#8216;t require it.
+
+</li>
+<li>Renamed :p4cmd to :p4_cmd.
+
+</li>
+<li>Renamed :rake var to :rake_cmd.
+
+</li>
+</ul>
+</li>
+<li>2 (important) bug fixes:
+
+<ul>
+<li>HUGE: Fixed sudo hang bug 13072. Fix suggested by Chris Van Pelt.
+
+</li>
+<li>HUGE: <a href="../classes/Vlad.html#M000010">Vlad.load</a> calls user
+config last, allowing variable overrides. ACK! Sorry!
+
+</li>
+</ul>
+</li>
+</ul>
+<h2>1.0.0 / 2007-08-04</h2>
+<ul>
+<li>1 major enhancement
+
+<ul>
+<li>Birthday!
+
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

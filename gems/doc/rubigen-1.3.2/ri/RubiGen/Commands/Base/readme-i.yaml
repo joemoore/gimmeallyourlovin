@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Does nothing for all commands except Create.
+full_name: RubiGen::Commands::Base#readme
+is_singleton: false
+name: readme
+params: (*args)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: When creating a migration, it knows to find the first available file in db/migrate and use the migration.rb template.
+full_name: RubiGen::Commands::Create#migration_template
+is_singleton: false
+name: migration_template
+params: (relative_source, relative_destination, template_options = {})
+visibility: public

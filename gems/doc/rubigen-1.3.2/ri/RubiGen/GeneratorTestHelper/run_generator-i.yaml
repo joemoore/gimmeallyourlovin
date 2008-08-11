@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Runs the create command (like the command line does)
+full_name: RubiGen::GeneratorTestHelper#run_generator
+is_singleton: false
+name: run_generator
+params: (name, params, sources, options = {})
+visibility: public

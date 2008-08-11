@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: RubiGen</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">RubiGen</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/rubigen/base_rb.html">
+                lib/rubigen/base.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/commands_rb.html">
+                lib/rubigen/commands.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/generated_attribute_rb.html">
+                lib/rubigen/generated_attribute.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/helpers/generator_test_helper_rb.html">
+                lib/rubigen/helpers/generator_test_helper.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/lookup_rb.html">
+                lib/rubigen/lookup.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/manifest_rb.html">
+                lib/rubigen/manifest.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/options_rb.html">
+                lib/rubigen/options.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/scripts_rb.html">
+                lib/rubigen/scripts.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/simple_logger_rb.html">
+                lib/rubigen/simple_logger.rb
+                </a>
+        <br />
+                <a href="../files/lib/rubigen/spec_rb.html">
+                lib/rubigen/spec.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="RubiGen.html">RubiGen</a> is a code generation platform Ruby
+frameworks. Generators are easily invoked within Ruby framework instances
+to add and remove components such as library and test files.
+</p>
+<p>
+New generators are easy to create and may be distributed within RubyGems,
+user home directory, or within each Ruby framework that uses <a
+href="RubiGen.html">RubiGen</a>.
+</p>
+<p>
+For example, newgem uses <a href="RubiGen.html">RubiGen</a> to generate new
+RubyGems. Those generated RubyGems can then use <a
+href="RubiGen.html">RubiGen</a> (via a generated script/generate
+application) to generate tests and executable apps, etc, for the RubyGem.
+</p>
+<p>
+Generators may subclass other generators to provide variations that require
+little or no new logic but replace the template files.
+</p>
+<p>
+For a RubyGem, put your generator classes and templates within subfolders
+of the <tt>generators</tt> directory.
+</p>
+<p>
+The layout of generator files can be seen in the built-in
+<tt>test_unit</tt> generator:
+</p>
+<pre>
+  test_unit_generators/
+    test_unit/
+      test_unit_generator.rb
+      templates/
+        test_unit.rb
+</pre>
+<p>
+The directory name (<tt>test_unit</tt>) matches the name of the generator
+file (test_unit_generator.rb) and class (<tt>TestUnitGenerator</tt>). The
+files that will be copied or used as templates are stored in the
+<tt>templates</tt> directory.
+</p>
+<p>
+The filenames of the templates don&#8216;t matter, but choose something
+that will be self-explatatory since you will be referencing these in the
+<tt>manifest</tt> method inside your generator subclass.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="RubiGen/Commands.html" class="link">RubiGen::Commands</a><br />
+Module <a href="RubiGen/GeneratorTestHelper.html" class="link">RubiGen::GeneratorTestHelper</a><br />
+Module <a href="RubiGen/Lookup.html" class="link">RubiGen::Lookup</a><br />
+Module <a href="RubiGen/Options.html" class="link">RubiGen::Options</a><br />
+Module <a href="RubiGen/Scripts.html" class="link">RubiGen::Scripts</a><br />
+Class <a href="RubiGen/AbstractGemSource.html" class="link">RubiGen::AbstractGemSource</a><br />
+Class <a href="RubiGen/Base.html" class="link">RubiGen::Base</a><br />
+Class <a href="RubiGen/GemPathSource.html" class="link">RubiGen::GemPathSource</a><br />
+Class <a href="RubiGen/GeneratedAttribute.html" class="link">RubiGen::GeneratedAttribute</a><br />
+Class <a href="RubiGen/GeneratorError.html" class="link">RubiGen::GeneratorError</a><br />
+Class <a href="RubiGen/Manifest.html" class="link">RubiGen::Manifest</a><br />
+Class <a href="RubiGen/PathFilteredSource.html" class="link">RubiGen::PathFilteredSource</a><br />
+Class <a href="RubiGen/PathSource.html" class="link">RubiGen::PathSource</a><br />
+Class <a href="RubiGen/Source.html" class="link">RubiGen::Source</a><br />
+Class <a href="RubiGen/Spec.html" class="link">RubiGen::Spec</a><br />
+Class <a href="RubiGen/UsageError.html" class="link">RubiGen::UsageError</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

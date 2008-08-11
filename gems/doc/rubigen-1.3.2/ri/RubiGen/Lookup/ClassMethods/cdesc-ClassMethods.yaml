@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: RubiGen::Lookup::ClassMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: append_sources
+- !ruby/object:RI::MethodSummary 
+  name: application_sources
+- !ruby/object:RI::MethodSummary 
+  name: filtered_sources
+- !ruby/object:RI::MethodSummary 
+  name: instance
+- !ruby/object:RI::MethodSummary 
+  name: lookup
+- !ruby/object:RI::MethodSummary 
+  name: prepend_sources
+- !ruby/object:RI::MethodSummary 
+  name: reset_sources
+- !ruby/object:RI::MethodSummary 
+  name: sources
+- !ruby/object:RI::MethodSummary 
+  name: use_application_sources!
+- !ruby/object:RI::MethodSummary 
+  name: use_component_sources!
+name: ClassMethods
+superclass: 

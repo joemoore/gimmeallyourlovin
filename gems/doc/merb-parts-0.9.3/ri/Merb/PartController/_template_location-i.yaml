@@ -1,0 +1,34 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "action<~to_s>:"
+    body: The name of the action that will be rendered.
+  - !ruby/struct:SM::Flow::LI 
+    label: "type<~to_s>:"
+    body: The mime-type of the template that will be rendered. Defaults to nil.
+  - !ruby/struct:SM::Flow::LI 
+    label: "controller<~to_s>:"
+    body: The name of the controller that will be rendered. Defaults to controller_name.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: The template location, i.e. &quot;:controller/:action.:type&quot;.
+  type: :NOTE
+full_name: Merb::PartController#_template_location
+is_singleton: false
+name: _template_location
+params: (action, type = nil, controller = controller_name)
+visibility: public

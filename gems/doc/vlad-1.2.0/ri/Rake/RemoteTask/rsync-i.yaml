@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use rsync to send <tt>local</tt> to <tt>remote</tt> on target_host.
+full_name: Rake::RemoteTask#rsync
+is_singleton: false
+name: rsync
+params: (local, remote)
+visibility: public

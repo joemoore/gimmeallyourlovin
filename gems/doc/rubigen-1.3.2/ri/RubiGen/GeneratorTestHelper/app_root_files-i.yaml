@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::GeneratorTestHelper#app_root_files
+is_singleton: false
+name: app_root_files
+params: ()
+visibility: public

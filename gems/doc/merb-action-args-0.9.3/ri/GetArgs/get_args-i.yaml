@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Array:"
+    body: Method arguments and their default values.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Example\n    def hello(one,two=&quot;two&quot;,three)\n    end\n\n    def goodbye\n    end\n  end\n\n  Example.instance_method(:hello).get_args\n    #=&gt; [[:one], [:two, &quot;two&quot;], [:three, &quot;three&quot;]]\n  Example.instance_method(:goodbye).get_args  #=&gt; nil\n"
+full_name: GetArgs#get_args
+is_singleton: false
+name: get_args
+params: ()
+visibility: public

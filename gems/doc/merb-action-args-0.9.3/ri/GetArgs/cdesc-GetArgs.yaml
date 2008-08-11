@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Used in mapping controller arguments to the params hash. NOTE: You must have the 'ruby2ruby' gem installed for this to work."
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # In PostsController\n  def show(id)  #=&gt; id is the same as params[:id]\n"
+constants: []
+
+full_name: GetArgs
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: get_args
+name: GetArgs
+superclass: 

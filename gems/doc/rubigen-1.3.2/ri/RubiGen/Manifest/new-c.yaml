@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: self if block_given?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Take a default action target. Yield self if block given.
+full_name: RubiGen::Manifest::new
+is_singleton: true
+name: new
+params: (target = nil) {|self if block_given?| ...}
+visibility: public

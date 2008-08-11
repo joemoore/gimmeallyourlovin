@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mail
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "You'll need a simple config like this in init.rb if you want to actually send mail:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Merb::Mailer.config = {\n    :host   =&gt; 'smtp.yourserver.com',\n    :port   =&gt; '25',\n    :user   =&gt; 'user',\n    :pass   =&gt; 'pass',\n    :auth   =&gt; :plain # :plain, :login, :cram_md5, the default is no auth\n    :domain =&gt; &quot;localhost.localdomain&quot; # the HELO domain provided by the client to the server\n  }\n\n  or\n\n  Merb::Mailer.config = {:sendmail_path =&gt; '/somewhere/odd'}\n  Merb::Mailer.delivery_method = :sendmail\n"
+- !ruby/struct:SM::Flow::P 
+  body: You could send mail manually like this (but it's better to use a MailController instead).
+- !ruby/struct:SM::Flow::VERB 
+  body: "  m = Merb::Mailer.new :to =&gt; 'foo@bar.com',\n                       :from =&gt; 'bar@foo.com',\n                       :subject =&gt; 'Welcome to whatever!',\n                       :body =&gt; partial(:sometemplate)\n  m.deliver!\n"
+constants: []
+
+full_name: Merb::Mailer
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: attach
+- !ruby/object:RI::MethodSummary 
+  name: deliver!
+- !ruby/object:RI::MethodSummary 
+  name: net_smtp
+- !ruby/object:RI::MethodSummary 
+  name: sendmail
+- !ruby/object:RI::MethodSummary 
+  name: test_send
+name: Mailer
+superclass: Object

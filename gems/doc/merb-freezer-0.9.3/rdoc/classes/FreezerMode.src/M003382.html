@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>submodules_freeze (FreezerMode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-freezer/freezer_mode.rb, line 15</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">submodules_freeze</span>
+    <span class="ruby-comment cmt"># Ensure that required git commands are available</span>
+    <span class="ruby-node">%w(git-pull git-submodule)</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bin</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">in_path?</span>(<span class="ruby-identifier">bin</span>)
+      <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ERROR: #{bin} must be avaible in PATH - you might want to freeze using MODE=rubygems&quot;</span>
+      <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># Create directory to receive the frozen components</span>
+    <span class="ruby-identifier">create_freezer_dir</span>(<span class="ruby-identifier">freezer_dir</span>)
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">managed?</span>(<span class="ruby-ivar">@component</span>)
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@component} seems to be already managed by git-submodule.&quot;</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@update</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Trying to update #{@component} ...&quot;</span>
+        <span class="ruby-node">`cd #{freezer_dir}/#{@component} &amp;&amp; git-pull`</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;you might want to call this rake task using UPDATE=true if you wish to update the frozen gems using this task&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Creating submodule for #{@component} ...&quot;</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">framework_component?</span>
+        <span class="ruby-node">`cd #{Dir.pwd} &amp; git-submodule --quiet add #{Freezer.components[@component.gsub(&quot;merb-&quot;, '')]} #{File.basename(freezer_dir)}/#{@component}`</span> 
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-node">`cd #{Dir.pwd} &amp; git-submodule --quiet add #{@component} gems/submodules/#{@component.match(/.*\/(.*)\..{3}$/)[1]}`</span> 
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">success?</span>
+        <span class="ruby-value">`git-submodule init`</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-comment cmt"># Should this instead be a raise?</span>
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;ERROR: unable to create submodule for #{@component} - you might want to freeze using MODE=rubygems&quot;</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

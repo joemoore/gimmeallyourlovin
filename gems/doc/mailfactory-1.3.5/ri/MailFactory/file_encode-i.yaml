@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: returns a base64 encoded version of the contents of str
+full_name: MailFactory#file_encode
+is_singleton: false
+name: file_encode
+params: (str)
+visibility: protected

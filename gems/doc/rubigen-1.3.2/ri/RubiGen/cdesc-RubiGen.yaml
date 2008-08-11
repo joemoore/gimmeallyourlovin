@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: RubiGen is a code generation platform Ruby frameworks. Generators are easily invoked within Ruby framework instances to add and remove components such as library and test files.
+- !ruby/struct:SM::Flow::P 
+  body: New generators are easy to create and may be distributed within RubyGems, user home directory, or within each Ruby framework that uses RubiGen.
+- !ruby/struct:SM::Flow::P 
+  body: For example, newgem uses RubiGen to generate new RubyGems. Those generated RubyGems can then use RubiGen (via a generated script/generate application) to generate tests and executable apps, etc, for the RubyGem.
+- !ruby/struct:SM::Flow::P 
+  body: Generators may subclass other generators to provide variations that require little or no new logic but replace the template files.
+- !ruby/struct:SM::Flow::P 
+  body: For a RubyGem, put your generator classes and templates within subfolders of the <tt>generators</tt> directory.
+- !ruby/struct:SM::Flow::P 
+  body: "The layout of generator files can be seen in the built-in <tt>test_unit</tt> generator:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  test_unit_generators/\n    test_unit/\n      test_unit_generator.rb\n      templates/\n        test_unit.rb\n"
+- !ruby/struct:SM::Flow::P 
+  body: The directory name (<tt>test_unit</tt>) matches the name of the generator file (test_unit_generator.rb) and class (<tt>TestUnitGenerator</tt>). The files that will be copied or used as templates are stored in the <tt>templates</tt> directory.
+- !ruby/struct:SM::Flow::P 
+  body: The filenames of the templates don't matter, but choose something that will be self-explatatory since you will be referencing these in the <tt>manifest</tt> method inside your generator subclass.
+constants: []
+
+full_name: RubiGen
+includes: []
+
+instance_methods: []
+
+name: RubiGen
+superclass: 

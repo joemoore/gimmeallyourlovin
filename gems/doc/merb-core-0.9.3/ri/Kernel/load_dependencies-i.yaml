@@ -1,0 +1,43 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Loads both gem and library dependencies that are passed in as arguments.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*args<String, Hash, Array>:"
+    body: The dependencies to load.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: "Each argument can be:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: Single dependency.
+  - !ruby/struct:SM::Flow::LI 
+    label: "Hash:"
+    body: Multiple dependencies where the keys are names and the values versions.
+  - !ruby/struct:SM::Flow::LI 
+    label: "Array:"
+    body: Multiple string dependencies.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::P 
+  body: "dependencies &quot;RedCloth&quot; # Loads the the RedCloth gem dependencies &quot;RedCloth&quot;, &quot;merb_helpers&quot; # Loads RedCloth and merb_helpers dependencies &quot;RedCloth&quot; =&gt; &quot;3.0&quot; # Loads RedCloth 3.0"
+full_name: Kernel#load_dependencies
+is_singleton: false
+name: load_dependencies
+params: (*args)
+visibility: public

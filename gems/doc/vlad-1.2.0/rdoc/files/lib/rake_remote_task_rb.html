@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: rake_remote_task.rb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>rake_remote_task.rb</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>lib/rake_remote_task.rb
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+    <div id="requires-list">
+      <h3 class="section-bar">Required files</h3>
+
+      <div class="name-list">
+      rubygems&nbsp;&nbsp;
+      open4&nbsp;&nbsp;
+      rake&nbsp;&nbsp;
+      vlad&nbsp;&nbsp;
+      </div>
+    </div>
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000001">host</a>&nbsp;&nbsp;
+      <a href="#M000002">put</a>&nbsp;&nbsp;
+      <a href="#M000003">remote_task</a>&nbsp;&nbsp;
+      <a href="#M000004">role</a>&nbsp;&nbsp;
+      <a href="#M000006">rsync</a>&nbsp;&nbsp;
+      <a href="#M000005">run</a>&nbsp;&nbsp;
+      <a href="#M000007">set</a>&nbsp;&nbsp;
+      <a href="#M000008">target_host</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000001.html');return false;">
+          <span class="method-name">host</span><span class="method-args">(host_name, *roles)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare a remote <a href="rake_remote_task_rb.html#M000001">host</a> and
+its roles. Equivalent to <tt><a
+href="rake_remote_task_rb.html#M000004">role</a></tt>, but shorter for
+multiple roles.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000002.html');return false;">
+          <span class="method-name">put</span><span class="method-args">(remote_path, base_name = 'vlad.unknown') {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Copy a (usually generated) file to <tt>remote_path</tt>. Contents of block
+are copied to <tt>remote_path</tt> and you may specify an optional
+base_name for the tempfile (aids in debugging).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000003.html');return false;">
+          <span class="method-name">remote_task</span><span class="method-args">(name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare a <a href="../../classes/Vlad.html">Vlad</a> task that will execute
+on all hosts by default. To limit that task to specific roles, use:
+</p>
+<pre>
+    remote_task :example, :roles =&gt; [:app, :web] do
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000004.html');return false;">
+          <span class="method-name">role</span><span class="method-args">(role_name, host, args = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare a <a href="rake_remote_task_rb.html#M000004">role</a> and assign a
+remote <a href="rake_remote_task_rb.html#M000001">host</a> to it.
+Equivalent to the <tt><a
+href="rake_remote_task_rb.html#M000001">host</a></tt> method; provided for
+capistrano compatibility.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000006.html');return false;">
+          <span class="method-name">rsync</span><span class="method-args">(local, remote)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="rake_remote_task_rb.html#M000006">rsync</a> the given files to
+<tt><a href="rake_remote_task_rb.html#M000008">target_host</a></tt>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000005.html');return false;">
+          <span class="method-name">run</span><span class="method-args">(*args, &amp;b)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Execute the given command on the <tt><a
+href="rake_remote_task_rb.html#M000008">target_host</a></tt> for the
+current task.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000007.html');return false;">
+          <span class="method-name">set</span><span class="method-args">(name, val = nil, &amp;b)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare a variable called <tt>name</tt> and assign it a value. A
+globally-visible method with the name of the variable is defined. If a
+block is given, it will be called when the variable is first accessed.
+Subsequent references to the variable will always return the same value.
+Raises <tt>ArgumentError</tt> if the <tt>name</tt> would conflict with an
+existing method.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="rake_remote_task_rb.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('rake_remote_task_rb.src/M000008.html');return false;">
+          <span class="method-name">target_host</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the name of the <a href="rake_remote_task_rb.html#M000001">host</a>
+that the current task is executing on. <tt><a
+href="rake_remote_task_rb.html#M000008">target_host</a></tt> can uniquely
+identify a particular task/host combination.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

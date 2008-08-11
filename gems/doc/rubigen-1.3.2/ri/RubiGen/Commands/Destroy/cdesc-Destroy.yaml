@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Undo the actions performed by a generator. Rewind the action manifest and attempt to completely erase the results of each action.
+constants: []
+
+full_name: RubiGen::Commands::Destroy
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: complex_template
+- !ruby/object:RI::MethodSummary 
+  name: directory
+- !ruby/object:RI::MethodSummary 
+  name: file
+- !ruby/object:RI::MethodSummary 
+  name: migration_template
+- !ruby/object:RI::MethodSummary 
+  name: route_resources
+- !ruby/object:RI::MethodSummary 
+  name: template
+name: Destroy
+superclass: RewindBase

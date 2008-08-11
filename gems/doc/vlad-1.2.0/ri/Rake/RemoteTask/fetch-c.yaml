@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Fetches environment variable <tt>name</tt> from the environment using default <tt>default</tt>.
+full_name: Rake::RemoteTask::fetch
+is_singleton: true
+name: fetch
+params: (name, default = nil)
+visibility: public

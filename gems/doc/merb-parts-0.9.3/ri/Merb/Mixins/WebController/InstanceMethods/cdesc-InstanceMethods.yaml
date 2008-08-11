@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Merb::Mixins::WebController::InstanceMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cookies
+- !ruby/object:RI::MethodSummary 
+  name: headers
+- !ruby/object:RI::MethodSummary 
+  name: request
+- !ruby/object:RI::MethodSummary 
+  name: response
+- !ruby/object:RI::MethodSummary 
+  name: route
+- !ruby/object:RI::MethodSummary 
+  name: session
+- !ruby/object:RI::MethodSummary 
+  name: url
+name: InstanceMethods
+superclass: 

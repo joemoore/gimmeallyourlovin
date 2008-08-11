@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: use_mutex
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: handle
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_ERROR_TEMPLATE
+  value: File.expand_path(File.dirname(__FILE__) / 'exceptions.html')
+full_name: Merb::Dispatcher
+includes: []
+
+instance_methods: []
+
+name: Dispatcher
+superclass: Object

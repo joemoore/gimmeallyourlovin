@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>load (Vlad)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/vlad.rb, line 59</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">options</span> = {}
+    <span class="ruby-identifier">options</span> = {<span class="ruby-identifier">:config</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>} <span class="ruby-keyword kw">if</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">options</span>
+
+    <span class="ruby-identifier">recipes</span> = {
+      <span class="ruby-identifier">:app</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:mongrel</span>,
+      <span class="ruby-identifier">:config</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'config/deploy.rb'</span>,
+      <span class="ruby-identifier">:core</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:core</span>,
+      <span class="ruby-identifier">:scm</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:subversion</span>,
+      <span class="ruby-identifier">:web</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:apache</span>,
+    }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+
+    <span class="ruby-identifier">recipes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">flavor</span>, <span class="ruby-identifier">recipe</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">recipe</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">flavor</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:config</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-node">&quot;vlad/#{recipe}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">recipes</span>[<span class="ruby-identifier">:config</span>]
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

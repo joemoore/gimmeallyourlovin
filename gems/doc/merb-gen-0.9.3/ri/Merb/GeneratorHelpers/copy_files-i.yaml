@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Copies all files within each directory of the template layout
+full_name: Merb::GeneratorHelpers#copy_files
+is_singleton: false
+name: copy_files
+params: ()
+visibility: public

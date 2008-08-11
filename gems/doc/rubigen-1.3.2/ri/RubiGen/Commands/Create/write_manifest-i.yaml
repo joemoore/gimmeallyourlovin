@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Display a README.
+full_name: RubiGen::Commands::Create#write_manifest
+is_singleton: false
+name: write_manifest
+params: (relative_destination)
+visibility: public

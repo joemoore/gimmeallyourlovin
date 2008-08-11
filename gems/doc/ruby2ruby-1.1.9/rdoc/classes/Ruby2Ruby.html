@@ -1,0 +1,1690 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Ruby2Ruby</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Ruby2Ruby</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/ruby2ruby_rb.html">
+                lib/ruby2ruby.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                SexpProcessor
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M002302">cond_loop</a>&nbsp;&nbsp;
+      <a href="#M002306">indent</a>&nbsp;&nbsp;
+      <a href="#M002207">new</a>&nbsp;&nbsp;
+      <a href="#M002208">process</a>&nbsp;&nbsp;
+      <a href="#M002209">process_alias</a>&nbsp;&nbsp;
+      <a href="#M002210">process_and</a>&nbsp;&nbsp;
+      <a href="#M002212">process_arglist</a>&nbsp;&nbsp;
+      <a href="#M002211">process_args</a>&nbsp;&nbsp;
+      <a href="#M002213">process_argscat</a>&nbsp;&nbsp;
+      <a href="#M002214">process_argspush</a>&nbsp;&nbsp;
+      <a href="#M002215">process_array</a>&nbsp;&nbsp;
+      <a href="#M002216">process_attrasgn</a>&nbsp;&nbsp;
+      <a href="#M002217">process_back_ref</a>&nbsp;&nbsp;
+      <a href="#M002218">process_begin</a>&nbsp;&nbsp;
+      <a href="#M002219">process_block</a>&nbsp;&nbsp;
+      <a href="#M002220">process_block_arg</a>&nbsp;&nbsp;
+      <a href="#M002221">process_block_pass</a>&nbsp;&nbsp;
+      <a href="#M002222">process_break</a>&nbsp;&nbsp;
+      <a href="#M002223">process_call</a>&nbsp;&nbsp;
+      <a href="#M002224">process_case</a>&nbsp;&nbsp;
+      <a href="#M002225">process_cdecl</a>&nbsp;&nbsp;
+      <a href="#M002226">process_class</a>&nbsp;&nbsp;
+      <a href="#M002227">process_colon2</a>&nbsp;&nbsp;
+      <a href="#M002228">process_colon3</a>&nbsp;&nbsp;
+      <a href="#M002229">process_const</a>&nbsp;&nbsp;
+      <a href="#M002230">process_cvar</a>&nbsp;&nbsp;
+      <a href="#M002231">process_cvasgn</a>&nbsp;&nbsp;
+      <a href="#M002232">process_cvdecl</a>&nbsp;&nbsp;
+      <a href="#M002234">process_dasgn</a>&nbsp;&nbsp;
+      <a href="#M002233">process_dasgn_curr</a>&nbsp;&nbsp;
+      <a href="#M002235">process_defined</a>&nbsp;&nbsp;
+      <a href="#M002236">process_defn</a>&nbsp;&nbsp;
+      <a href="#M002237">process_defs</a>&nbsp;&nbsp;
+      <a href="#M002238">process_dot2</a>&nbsp;&nbsp;
+      <a href="#M002239">process_dot3</a>&nbsp;&nbsp;
+      <a href="#M002240">process_dregx</a>&nbsp;&nbsp;
+      <a href="#M002241">process_dregx_once</a>&nbsp;&nbsp;
+      <a href="#M002242">process_dstr</a>&nbsp;&nbsp;
+      <a href="#M002243">process_dsym</a>&nbsp;&nbsp;
+      <a href="#M002244">process_dvar</a>&nbsp;&nbsp;
+      <a href="#M002245">process_dxstr</a>&nbsp;&nbsp;
+      <a href="#M002246">process_ensure</a>&nbsp;&nbsp;
+      <a href="#M002247">process_evstr</a>&nbsp;&nbsp;
+      <a href="#M002248">process_false</a>&nbsp;&nbsp;
+      <a href="#M002249">process_fcall</a>&nbsp;&nbsp;
+      <a href="#M002250">process_flip2</a>&nbsp;&nbsp;
+      <a href="#M002251">process_flip3</a>&nbsp;&nbsp;
+      <a href="#M002252">process_for</a>&nbsp;&nbsp;
+      <a href="#M002253">process_gasgn</a>&nbsp;&nbsp;
+      <a href="#M002254">process_gvar</a>&nbsp;&nbsp;
+      <a href="#M002255">process_hash</a>&nbsp;&nbsp;
+      <a href="#M002256">process_iasgn</a>&nbsp;&nbsp;
+      <a href="#M002257">process_if</a>&nbsp;&nbsp;
+      <a href="#M002258">process_iter</a>&nbsp;&nbsp;
+      <a href="#M002259">process_ivar</a>&nbsp;&nbsp;
+      <a href="#M002260">process_lasgn</a>&nbsp;&nbsp;
+      <a href="#M002261">process_lit</a>&nbsp;&nbsp;
+      <a href="#M002262">process_lvar</a>&nbsp;&nbsp;
+      <a href="#M002264">process_masgn</a>&nbsp;&nbsp;
+      <a href="#M002265">process_match</a>&nbsp;&nbsp;
+      <a href="#M002266">process_match2</a>&nbsp;&nbsp;
+      <a href="#M002267">process_match3</a>&nbsp;&nbsp;
+      <a href="#M002268">process_module</a>&nbsp;&nbsp;
+      <a href="#M002269">process_next</a>&nbsp;&nbsp;
+      <a href="#M002270">process_nil</a>&nbsp;&nbsp;
+      <a href="#M002271">process_not</a>&nbsp;&nbsp;
+      <a href="#M002272">process_nth_ref</a>&nbsp;&nbsp;
+      <a href="#M002273">process_op_asgn1</a>&nbsp;&nbsp;
+      <a href="#M002274">process_op_asgn2</a>&nbsp;&nbsp;
+      <a href="#M002276">process_op_asgn_and</a>&nbsp;&nbsp;
+      <a href="#M002275">process_op_asgn_or</a>&nbsp;&nbsp;
+      <a href="#M002277">process_or</a>&nbsp;&nbsp;
+      <a href="#M002278">process_postexe</a>&nbsp;&nbsp;
+      <a href="#M002279">process_redo</a>&nbsp;&nbsp;
+      <a href="#M002280">process_resbody</a>&nbsp;&nbsp;
+      <a href="#M002281">process_rescue</a>&nbsp;&nbsp;
+      <a href="#M002282">process_retry</a>&nbsp;&nbsp;
+      <a href="#M002283">process_return</a>&nbsp;&nbsp;
+      <a href="#M002284">process_sclass</a>&nbsp;&nbsp;
+      <a href="#M002285">process_scope</a>&nbsp;&nbsp;
+      <a href="#M002286">process_self</a>&nbsp;&nbsp;
+      <a href="#M002287">process_splat</a>&nbsp;&nbsp;
+      <a href="#M002288">process_str</a>&nbsp;&nbsp;
+      <a href="#M002289">process_super</a>&nbsp;&nbsp;
+      <a href="#M002290">process_svalue</a>&nbsp;&nbsp;
+      <a href="#M002291">process_to_ary</a>&nbsp;&nbsp;
+      <a href="#M002292">process_true</a>&nbsp;&nbsp;
+      <a href="#M002293">process_undef</a>&nbsp;&nbsp;
+      <a href="#M002294">process_until</a>&nbsp;&nbsp;
+      <a href="#M002295">process_valias</a>&nbsp;&nbsp;
+      <a href="#M002296">process_when</a>&nbsp;&nbsp;
+      <a href="#M002297">process_while</a>&nbsp;&nbsp;
+      <a href="#M002298">process_xstr</a>&nbsp;&nbsp;
+      <a href="#M002299">process_yield</a>&nbsp;&nbsp;
+      <a href="#M002300">process_zarray</a>&nbsp;&nbsp;
+      <a href="#M002301">process_zsuper</a>&nbsp;&nbsp;
+      <a href="#M002303">rewrite_rescue</a>&nbsp;&nbsp;
+      <a href="#M002263">splat</a>&nbsp;&nbsp;
+      <a href="#M002206">translate</a>&nbsp;&nbsp;
+      <a href="#M002304">util_dthing</a>&nbsp;&nbsp;
+      <a href="#M002305">util_module_or_class</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">UnifiedRuby</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">'1.1.9'</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">LINE_LENGTH</td>
+          <td>=</td>
+          <td class="context-item-value">78</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ASSIGN_NODES</td>
+          <td>=</td>
+          <td class="context-item-value">[                   :dasgn,                   :flip2,                   :flip3,                   :lasgn,                   :masgn,                   :op_asgn1,                   :op_asgn2,                   :op_asgn_and,                   :op_asgn_or,                   :return,                  ]</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Nodes that represent assignment and probably need () around them.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M002207" class="method-detail">
+        <a name="M002207"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002207.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002207.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002206" class="method-detail">
+        <a name="M002206"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002206.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002206.html');return false;">
+          <span class="method-name">translate</span><span class="method-args">(klass_or_str, method = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M002302" class="method-detail">
+        <a name="M002302"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002302.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002302.html');return false;">
+          <span class="method-name">cond_loop</span><span class="method-args">(exp, name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002306" class="method-detail">
+        <a name="M002306"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002306.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002306.html');return false;">
+          <span class="method-name">indent</span><span class="method-args">(s)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002208" class="method-detail">
+        <a name="M002208"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002208.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002208.html');return false;">
+          <span class="method-name">process</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002209" class="method-detail">
+        <a name="M002209"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002209.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002209.html');return false;">
+          <span class="method-name">process_alias</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Processors
+</p>
+        </div>
+      </div>
+
+      <div id="method-M002210" class="method-detail">
+        <a name="M002210"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002210.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002210.html');return false;">
+          <span class="method-name">process_and</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002212" class="method-detail">
+        <a name="M002212"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002212.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002212.html');return false;">
+          <span class="method-name">process_arglist</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002211" class="method-detail">
+        <a name="M002211"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002211.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002211.html');return false;">
+          <span class="method-name">process_args</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002213" class="method-detail">
+        <a name="M002213"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002213.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002213.html');return false;">
+          <span class="method-name">process_argscat</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002214" class="method-detail">
+        <a name="M002214"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002214.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002214.html');return false;">
+          <span class="method-name">process_argspush</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002215" class="method-detail">
+        <a name="M002215"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002215.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002215.html');return false;">
+          <span class="method-name">process_array</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002216" class="method-detail">
+        <a name="M002216"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002216.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002216.html');return false;">
+          <span class="method-name">process_attrasgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002217" class="method-detail">
+        <a name="M002217"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002217.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002217.html');return false;">
+          <span class="method-name">process_back_ref</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002218" class="method-detail">
+        <a name="M002218"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002218.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002218.html');return false;">
+          <span class="method-name">process_begin</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002219" class="method-detail">
+        <a name="M002219"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002219.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002219.html');return false;">
+          <span class="method-name">process_block</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002220" class="method-detail">
+        <a name="M002220"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002220.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002220.html');return false;">
+          <span class="method-name">process_block_arg</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002221" class="method-detail">
+        <a name="M002221"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002221.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002221.html');return false;">
+          <span class="method-name">process_block_pass</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002222" class="method-detail">
+        <a name="M002222"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002222.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002222.html');return false;">
+          <span class="method-name">process_break</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002223" class="method-detail">
+        <a name="M002223"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002223.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002223.html');return false;">
+          <span class="method-name">process_call</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002224" class="method-detail">
+        <a name="M002224"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002224.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002224.html');return false;">
+          <span class="method-name">process_case</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002225" class="method-detail">
+        <a name="M002225"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002225.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002225.html');return false;">
+          <span class="method-name">process_cdecl</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002226" class="method-detail">
+        <a name="M002226"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002226.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002226.html');return false;">
+          <span class="method-name">process_class</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002227" class="method-detail">
+        <a name="M002227"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002227.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002227.html');return false;">
+          <span class="method-name">process_colon2</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002228" class="method-detail">
+        <a name="M002228"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002228.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002228.html');return false;">
+          <span class="method-name">process_colon3</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002229" class="method-detail">
+        <a name="M002229"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002229.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002229.html');return false;">
+          <span class="method-name">process_const</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002230" class="method-detail">
+        <a name="M002230"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002230.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002230.html');return false;">
+          <span class="method-name">process_cvar</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002231" class="method-detail">
+        <a name="M002231"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002231.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002231.html');return false;">
+          <span class="method-name">process_cvasgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002232" class="method-detail">
+        <a name="M002232"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002232.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002232.html');return false;">
+          <span class="method-name">process_cvdecl</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002234" class="method-detail">
+        <a name="M002234"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002234.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002234.html');return false;">
+          <span class="method-name">process_dasgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002233" class="method-detail">
+        <a name="M002233"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002233.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002233.html');return false;">
+          <span class="method-name">process_dasgn_curr</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+(a, lit1) =&gt; &quot;a = 1&quot; (a, (b, lit2)) =&gt; &quot;a = b =
+2&quot; (a, (b)) =&gt; &quot;&quot;
+</p>
+        </div>
+      </div>
+
+      <div id="method-M002235" class="method-detail">
+        <a name="M002235"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002235.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002235.html');return false;">
+          <span class="method-name">process_defined</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002236" class="method-detail">
+        <a name="M002236"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002236.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002236.html');return false;">
+          <span class="method-name">process_defn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002237" class="method-detail">
+        <a name="M002237"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002237.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002237.html');return false;">
+          <span class="method-name">process_defs</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002238" class="method-detail">
+        <a name="M002238"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002238.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002238.html');return false;">
+          <span class="method-name">process_dot2</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002239" class="method-detail">
+        <a name="M002239"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002239.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002239.html');return false;">
+          <span class="method-name">process_dot3</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002240" class="method-detail">
+        <a name="M002240"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002240.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002240.html');return false;">
+          <span class="method-name">process_dregx</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002241" class="method-detail">
+        <a name="M002241"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002241.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002241.html');return false;">
+          <span class="method-name">process_dregx_once</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002242" class="method-detail">
+        <a name="M002242"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002242.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002242.html');return false;">
+          <span class="method-name">process_dstr</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002243" class="method-detail">
+        <a name="M002243"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002243.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002243.html');return false;">
+          <span class="method-name">process_dsym</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002244" class="method-detail">
+        <a name="M002244"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002244.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002244.html');return false;">
+          <span class="method-name">process_dvar</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002245" class="method-detail">
+        <a name="M002245"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002245.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002245.html');return false;">
+          <span class="method-name">process_dxstr</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002246" class="method-detail">
+        <a name="M002246"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002246.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002246.html');return false;">
+          <span class="method-name">process_ensure</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002247" class="method-detail">
+        <a name="M002247"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002247.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002247.html');return false;">
+          <span class="method-name">process_evstr</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002248" class="method-detail">
+        <a name="M002248"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002248.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002248.html');return false;">
+          <span class="method-name">process_false</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002249" class="method-detail">
+        <a name="M002249"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002249.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002249.html');return false;">
+          <span class="method-name">process_fcall</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+TODO: remove for unified
+</p>
+        </div>
+      </div>
+
+      <div id="method-M002250" class="method-detail">
+        <a name="M002250"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002250.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002250.html');return false;">
+          <span class="method-name">process_flip2</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002251" class="method-detail">
+        <a name="M002251"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002251.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002251.html');return false;">
+          <span class="method-name">process_flip3</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002252" class="method-detail">
+        <a name="M002252"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002252.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002252.html');return false;">
+          <span class="method-name">process_for</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002253" class="method-detail">
+        <a name="M002253"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002253.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002253.html');return false;">
+          <span class="method-name">process_gasgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002254" class="method-detail">
+        <a name="M002254"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002254.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002254.html');return false;">
+          <span class="method-name">process_gvar</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002255" class="method-detail">
+        <a name="M002255"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002255.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002255.html');return false;">
+          <span class="method-name">process_hash</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002256" class="method-detail">
+        <a name="M002256"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002256.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002256.html');return false;">
+          <span class="method-name">process_iasgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002257" class="method-detail">
+        <a name="M002257"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002257.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002257.html');return false;">
+          <span class="method-name">process_if</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002258" class="method-detail">
+        <a name="M002258"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002258.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002258.html');return false;">
+          <span class="method-name">process_iter</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002259" class="method-detail">
+        <a name="M002259"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002259.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002259.html');return false;">
+          <span class="method-name">process_ivar</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002260" class="method-detail">
+        <a name="M002260"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002260.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002260.html');return false;">
+          <span class="method-name">process_lasgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002261" class="method-detail">
+        <a name="M002261"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002261.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002261.html');return false;">
+          <span class="method-name">process_lit</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002262" class="method-detail">
+        <a name="M002262"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002262.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002262.html');return false;">
+          <span class="method-name">process_lvar</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002264" class="method-detail">
+        <a name="M002264"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002264.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002264.html');return false;">
+          <span class="method-name">process_masgn</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002265" class="method-detail">
+        <a name="M002265"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002265.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002265.html');return false;">
+          <span class="method-name">process_match</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002266" class="method-detail">
+        <a name="M002266"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002266.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002266.html');return false;">
+          <span class="method-name">process_match2</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002267" class="method-detail">
+        <a name="M002267"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002267.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002267.html');return false;">
+          <span class="method-name">process_match3</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002268" class="method-detail">
+        <a name="M002268"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002268.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002268.html');return false;">
+          <span class="method-name">process_module</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002269" class="method-detail">
+        <a name="M002269"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002269.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002269.html');return false;">
+          <span class="method-name">process_next</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002270" class="method-detail">
+        <a name="M002270"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002270.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002270.html');return false;">
+          <span class="method-name">process_nil</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002271" class="method-detail">
+        <a name="M002271"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002271.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002271.html');return false;">
+          <span class="method-name">process_not</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002272" class="method-detail">
+        <a name="M002272"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002272.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002272.html');return false;">
+          <span class="method-name">process_nth_ref</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002273" class="method-detail">
+        <a name="M002273"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002273.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002273.html');return false;">
+          <span class="method-name">process_op_asgn1</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002274" class="method-detail">
+        <a name="M002274"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002274.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002274.html');return false;">
+          <span class="method-name">process_op_asgn2</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002276" class="method-detail">
+        <a name="M002276"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002276.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002276.html');return false;">
+          <span class="method-name">process_op_asgn_and</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002275" class="method-detail">
+        <a name="M002275"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002275.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002275.html');return false;">
+          <span class="method-name">process_op_asgn_or</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002277" class="method-detail">
+        <a name="M002277"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002277.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002277.html');return false;">
+          <span class="method-name">process_or</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002278" class="method-detail">
+        <a name="M002278"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002278.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002278.html');return false;">
+          <span class="method-name">process_postexe</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002279" class="method-detail">
+        <a name="M002279"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002279.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002279.html');return false;">
+          <span class="method-name">process_redo</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002280" class="method-detail">
+        <a name="M002280"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002280.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002280.html');return false;">
+          <span class="method-name">process_resbody</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002281" class="method-detail">
+        <a name="M002281"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002281.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002281.html');return false;">
+          <span class="method-name">process_rescue</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002282" class="method-detail">
+        <a name="M002282"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002282.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002282.html');return false;">
+          <span class="method-name">process_retry</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002283" class="method-detail">
+        <a name="M002283"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002283.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002283.html');return false;">
+          <span class="method-name">process_return</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002284" class="method-detail">
+        <a name="M002284"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002284.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002284.html');return false;">
+          <span class="method-name">process_sclass</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002285" class="method-detail">
+        <a name="M002285"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002285.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002285.html');return false;">
+          <span class="method-name">process_scope</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002286" class="method-detail">
+        <a name="M002286"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002286.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002286.html');return false;">
+          <span class="method-name">process_self</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002287" class="method-detail">
+        <a name="M002287"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002287.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002287.html');return false;">
+          <span class="method-name">process_splat</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002288" class="method-detail">
+        <a name="M002288"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002288.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002288.html');return false;">
+          <span class="method-name">process_str</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002289" class="method-detail">
+        <a name="M002289"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002289.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002289.html');return false;">
+          <span class="method-name">process_super</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002290" class="method-detail">
+        <a name="M002290"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002290.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002290.html');return false;">
+          <span class="method-name">process_svalue</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002291" class="method-detail">
+        <a name="M002291"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002291.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002291.html');return false;">
+          <span class="method-name">process_to_ary</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002292" class="method-detail">
+        <a name="M002292"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002292.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002292.html');return false;">
+          <span class="method-name">process_true</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002293" class="method-detail">
+        <a name="M002293"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002293.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002293.html');return false;">
+          <span class="method-name">process_undef</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002294" class="method-detail">
+        <a name="M002294"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002294.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002294.html');return false;">
+          <span class="method-name">process_until</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002295" class="method-detail">
+        <a name="M002295"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002295.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002295.html');return false;">
+          <span class="method-name">process_valias</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002296" class="method-detail">
+        <a name="M002296"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002296.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002296.html');return false;">
+          <span class="method-name">process_when</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002297" class="method-detail">
+        <a name="M002297"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002297.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002297.html');return false;">
+          <span class="method-name">process_while</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002298" class="method-detail">
+        <a name="M002298"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002298.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002298.html');return false;">
+          <span class="method-name">process_xstr</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002299" class="method-detail">
+        <a name="M002299"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002299.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002299.html');return false;">
+          <span class="method-name">process_yield</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002300" class="method-detail">
+        <a name="M002300"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002300.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002300.html');return false;">
+          <span class="method-name">process_zarray</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002301" class="method-detail">
+        <a name="M002301"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002301.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002301.html');return false;">
+          <span class="method-name">process_zsuper</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002303" class="method-detail">
+        <a name="M002303"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002303.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002303.html');return false;">
+          <span class="method-name">rewrite_rescue</span><span class="method-args">(exp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Rewriters:
+</p>
+        </div>
+      </div>
+
+      <div id="method-M002263" class="method-detail">
+        <a name="M002263"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002263.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002263.html');return false;">
+          <span class="method-name">splat</span><span class="method-args">(sym)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002304" class="method-detail">
+        <a name="M002304"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002304.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002304.html');return false;">
+          <span class="method-name">util_dthing</span><span class="method-args">(exp, regx = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Utility Methods:
+</p>
+        </div>
+      </div>
+
+      <div id="method-M002305" class="method-detail">
+        <a name="M002305"></a>
+
+        <div class="method-heading">
+          <a href="Ruby2Ruby.src/M002305.html" target="Code" class="method-signature"
+            onclick="popupCode('Ruby2Ruby.src/M002305.html');return false;">
+          <span class="method-name">util_module_or_class</span><span class="method-args">(exp, is_class=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

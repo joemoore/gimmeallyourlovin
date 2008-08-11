@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FreezerMode#create_freezer_dir
+is_singleton: false
+name: create_freezer_dir
+params: (path)
+visibility: public

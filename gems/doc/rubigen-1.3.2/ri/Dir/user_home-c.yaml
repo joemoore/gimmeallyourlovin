@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: User home directory lookup adapted from RubyGems.
+full_name: Dir::user_home
+is_singleton: true
+name: user_home
+params: ()
+visibility: public

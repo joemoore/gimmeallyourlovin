@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Raised when an environment variable hasn't been set.
+constants: []
+
+full_name: Vlad::FetchError
+includes: []
+
+instance_methods: []
+
+name: FetchError
+superclass: Error

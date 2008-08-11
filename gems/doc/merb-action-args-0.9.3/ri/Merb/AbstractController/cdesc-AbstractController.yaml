@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: action_argument_list
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: inherited
+comment: 
+constants: []
+
+full_name: Merb::AbstractController
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: _call_action
+name: AbstractController
+superclass: Object

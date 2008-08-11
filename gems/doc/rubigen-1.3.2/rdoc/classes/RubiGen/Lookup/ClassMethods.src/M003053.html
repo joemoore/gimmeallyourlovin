@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>filtered_sources (RubiGen::Lookup::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/lookup.rb, line 136</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">filtered_sources</span>(<span class="ruby-identifier">filters</span>)
+        <span class="ruby-identifier">new_sources</span> = []
+        <span class="ruby-identifier">new_sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">PathFilteredSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:user</span>, <span class="ruby-node">&quot;#{Dir.user_home}/.rubigen/&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filters</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">:Gem</span>)
+          <span class="ruby-identifier">new_sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">GemPathSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">filters</span>)
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">new_sources</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

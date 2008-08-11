@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Jul 30 21:54:23 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>merb-cache</h1>
+<p>
+A plugin for the Merb framework that provides caching
+</p>
+<p>
+Currently supported methods:
+</p>
+<ul>
+<li>page caching:
+
+</li>
+<li>action caching
+
+</li>
+<li>fragment caching
+
+</li>
+<li>object caching
+
+</li>
+</ul>
+<p>
+Implemented cache stores:
+</p>
+<ul>
+<li>memory
+
+</li>
+<li>memcache
+
+</li>
+<li>file
+
+</li>
+<li>database (sequel, datamapper, activerecord)
+
+</li>
+</ul>
+<h2>Quick intro</h2>
+<pre>
+  With fragment caching, you can mix dynamic and static content.
+
+  With action caching, the whole template is cached
+  but the before filters are still processed.
+
+  With page caching, the whole template is put in html files in a special
+  directory in order to be handled directly without triggering Merb.
+</pre>
+<h2>Quick API</h2>
+<h3>Merb::Controller class methods</h3>
+<pre>
+  cache_action(action, expiration)
+  cache_actions(action, [action, expiration], ...)
+  cache_page(action, expiration)
+  cache_pages(action, [action, expiration], ...)
+</pre>
+<h3>Merb::Controller instance methods</h3>
+<pre>
+  expire_page(key)
+  cached_page?(key)
+  expire_all_pages()
+
+  expire_action(key)
+  cached_action?(key)
+
+  cached?(key)
+  cache_get(key)
+  cache_set(key, data, expiration)
+  expire(key)
+  expire_all()
+</pre>
+<h3>Inside your template</h3>
+<pre>
+  cache(key, expiration) do ... end
+
+  # expiration is given in minutes
+
+  # key can be a string or a hash
+  # possible keys when it's a hash:
+  # :key (full key)
+  # :params (array of params to be added to the key)
+  # :action, :controller
+  # :match (true or partial key)
+
+  # Don't forget to look at the specs !!
+</pre>
+<h2>Specs</h2>
+<pre>
+  $ rake specs:&lt;cache_store&gt;
+  example:
+  $ rake specs:memory
+  $ rake specs:file
+  or just:
+  $ cd spec
+  $ STORE=&lt;cache_store&gt; spec merb-cache_spec.rb
+  # cache_store can be:
+  #   memory, memcache, file, sequel, datamapper, activerecord
+</pre>
+<h2>Sample configuration</h2>
+<pre>
+  Merb::Plugins.config[:merb_cache] = {
+    :cache_html_directory =&gt; Merb.dir_for(:public) / &quot;cache&quot;,
+
+    #:store =&gt; &quot;database&quot;,
+    #:table_name =&gt; &quot;merb_cache&quot;,
+
+    #:disable =&gt; &quot;development&quot;, # disable merb-cache in development
+    #:disable =&gt; true, # disable merb-cache in all environments
+
+    :store =&gt; &quot;file&quot;,
+    :cache_directory =&gt; Merb.root_path(&quot;tmp/cache&quot;),
+
+    #:store =&gt; &quot;memcache&quot;,
+    #:host =&gt; &quot;127.0.0.1:11211&quot;,
+    #:namespace =&gt; &quot;merb_cache&quot;,
+    #:no_tracking =&gt; &quot;false&quot;,
+
+    #:store =&gt; &quot;memory&quot;,
+    # store could be: file, memcache, memory, database, dummy, ...
+  }
+</pre>
+<h2>Quick Example</h2>
+<h4>controller part</h4>
+<pre>
+  class Users &lt; Merb::Controller
+    cache_page :action_name
+    # this will cache the action in public/cache/something.html
+    # this cache entry will never expire (no expiration provided)
+    # for permanent caching you could set your lighty/nginx so as to handle
+    # the .html file directly
+    # for multiple page caching:
+    # cache_pages :action_name, [:another_action, 5], :some_action
+
+    cache_action :another_action, 10
+    # this will cache the action using the cache store
+    # this cache entry will expire in 10 minutes
+    # for multiple action caching:
+    # cache_actions :action_name, [:another_action, 5], :some_action
+
+    def list
+      unless @users = cache_get(&quot;active_users&quot;)
+        @users = User.all(:active =&gt; true)
+        cache_set(&quot;active_users&quot;, @users)
+        # object caching can be used to avoid pulling huge amounts of data
+        # from the database.
+        # you could have calle cache_set with an expiration time as well:
+        # cache_set(&quot;active_users&quot;, @users, 10)
+      end
+      render
+    end
+
+    def some_action_that_invalidates_cache
+      expire_page(:action_name)
+      expire_action(:another_action)
+      render
+    end
+
+    def delete
+      expire(&quot;active_users&quot;)
+      render
+    end
+
+    def archives
+      @archives = User.archives unless cached?(&quot;users_archives&quot;)
+      render
+    end
+
+    def index
+      render
+    end
+  end
+</pre>
+<h4>views/users/index.html.erb</h4>
+<pre>
+  # this entry will expire in 10 minutes
+  &lt;%- cache &quot;users_index&quot;, 10 do %&gt;
+   &lt;div&gt;some big template&lt;/div&gt;
+  &lt;% end -%&gt;
+</pre>
+<h4>views/users/archive.html.erb</h4>
+<pre>
+  &lt;%- cache &quot;users_archives&quot; do %&gt;
+   &lt;div&gt;some big template&lt;/div&gt;
+  &lt;% end -%&gt;
+</pre>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

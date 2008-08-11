@@ -1,0 +1,217 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/CompositeSexpProcessor.html#M002070"><< (CompositeSexpProcessor)</a><br />
+    <a href="classes/SexpAny.html#M002104">== (SexpAny)</a><br />
+    <a href="classes/Sexp.html#M002179">=== (Sexp)</a><br />
+    <a href="classes/SexpAny.html#M002105">=== (SexpAny)</a><br />
+    <a href="classes/Sexp.html#M002180">=~ (Sexp)</a><br />
+    <a href="classes/SexpMatchSpecials.html#M002198">ANY (SexpMatchSpecials)</a><br />
+    <a href="classes/Examples.html#M002171">a_method (Examples)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002052">add_test (ParseTreeTestCase)</a><br />
+    <a href="classes/Examples.html#M002172">an_alias (Examples)</a><br />
+    <a href="classes/Sexp.html#M002181">array_type? (Sexp)</a><br />
+    <a href="classes/SexpProcessor.html#M002151">assert_empty (SexpProcessor)</a><br />
+    <a href="classes/SexpProcessor.html#M002154">assert_type (SexpProcessor)</a><br />
+    <a href="classes/Something.html#M002148">bbegin (Something)</a><br />
+    <a href="classes/Something.html#M002149">bbegin_no_exception (Something)</a><br />
+    <a href="classes/Something.html#M002143">classmethod (Something)</a><br />
+    <a href="classes/Object.html#M002173">deep_clone (Object)</a><br />
+    <a href="classes/TestProcessorDefault.html#M002044">def_method (TestProcessorDefault)</a><br />
+    <a href="classes/FakeProcessor1.html#M002170">default_processor (FakeProcessor1)</a><br />
+    <a href="classes/Something.html#M002147">determine_args (Something)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002116">doit (TestUnifiedRuby)</a><br />
+    <a href="classes/Sexp.html#M002182">each_of_type (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002183">find_and_replace_all (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002177">for (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002178">from_array (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002184">gsub (Sexp)</a><br />
+    <a href="classes/ParseTree.html#M002112">has_alloca (ParseTree)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002055">inherited (ParseTreeTestCase)</a><br />
+    <a href="classes/SexpAny.html#M002106">inspect (SexpAny)</a><br />
+    <a href="classes/TestSexp/SexpFor.html#M002103">method (TestSexp::SexpFor)</a><br />
+    <a href="classes/Sexp.html#M002185">method_missing (Sexp)</a><br />
+    <a href="classes/Module.html#M002069">modules (Module)</a><br />
+    <a href="classes/Class.html#M002114">modules (Class)</a><br />
+    <a href="classes/Something.html#M002145">multi_args (Something)</a><br />
+    <a href="classes/FakeProcessor1.html#M002169">new (FakeProcessor1)</a><br />
+    <a href="classes/Sexp.html#M002176">new (Sexp)</a><br />
+    <a href="classes/TestProcessorDefault.html#M002043">new (TestProcessorDefault)</a><br />
+    <a href="classes/SexpProcessor.html#M002150">new (SexpProcessor)</a><br />
+    <a href="classes/SomethingWithInitialize.html#M002067">new (SomethingWithInitialize)</a><br />
+    <a href="classes/ParseTree.html#M002108">new (ParseTree)</a><br />
+    <a href="classes/Unique.html#M002175">next (Unique)</a><br />
+    <a href="classes/SexpProcessor.html#M002155">on_error_in (SexpProcessor)</a><br />
+    <a href="classes/CompositeSexpProcessor.html#M002072">on_error_in (CompositeSexpProcessor)</a><br />
+    <a href="classes/Something.html#M002144">opt_args (Something)</a><br />
+    <a href="classes/ParseTree.html#M002109">parse_tree (ParseTree)</a><br />
+    <a href="classes/ParseTree.html#M002110">parse_tree_for_method (ParseTree)</a><br />
+    <a href="classes/ParseTree.html#M002111">parse_tree_for_string (ParseTree)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002054">previous (ParseTreeTestCase)</a><br />
+    <a href="classes/ParseTree.html#M002113">process (ParseTree)</a><br />
+    <a href="classes/SexpProcessor.html#M002153">process (SexpProcessor)</a><br />
+    <a href="classes/CompositeSexpProcessor.html#M002071">process (CompositeSexpProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002056">process_acc1 (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002057">process_acc2 (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002061">process_broken (TestProcessor)</a><br />
+    <a href="classes/SexpProcessor.html#M002156">process_dummy (SexpProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002062">process_expected (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002060">process_nonempty (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002065">process_rewritable (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002058">process_specific (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002063">process_string (TestProcessor)</a><br />
+    <a href="classes/TestProcessor.html#M002059">process_strip (TestProcessor)</a><br />
+    <a href="classes/SomethingWithInitialize.html#M002068">protected_meth (SomethingWithInitialize)</a><br />
+    <a href="classes/Unique.html#M002174">reset (Unique)</a><br />
+    <a href="classes/SexpProcessor.html#M002152">rewrite (SexpProcessor)</a><br />
+    <a href="classes/UnifiedRuby.html#M002190">rewrite_bmethod (UnifiedRuby)</a><br />
+    <a href="classes/UnifiedRuby.html#M002191">rewrite_call (UnifiedRuby)</a><br />
+    <a href="classes/UnifiedRuby.html#M002192">rewrite_defn (UnifiedRuby)</a><br />
+    <a href="classes/UnifiedRuby.html#M002193">rewrite_defs (UnifiedRuby)</a><br />
+    <a href="classes/UnifiedRuby.html#M002194">rewrite_dmethod (UnifiedRuby)</a><br />
+    <a href="classes/UnifiedRuby.html#M002195">rewrite_fcall (UnifiedRuby)</a><br />
+    <a href="classes/TestProcessor.html#M002066">rewrite_major_rewrite (TestProcessor)</a><br />
+    <a href="classes/UnifiedRuby.html#M002196">rewrite_resbody (UnifiedRuby)</a><br />
+    <a href="classes/TestProcessor.html#M002064">rewrite_rewritable (TestProcessor)</a><br />
+    <a href="classes/UnifiedRuby.html#M002197">rewrite_vcall (UnifiedRuby)</a><br />
+    <a href="files/lib/sexp_rb.html#M002008">s (lib/sexp.rb)</a><br />
+    <a href="classes/TestCompositeSexpProcessor.html#M002137">setup (TestCompositeSexpProcessor)</a><br />
+    <a href="classes/TestParseTree.html#M002160">setup (TestParseTree)</a><br />
+    <a href="classes/TestSexpAny.html#M002157">setup (TestSexpAny)</a><br />
+    <a href="classes/SexpTestCase.html#M002047">setup (SexpTestCase)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002051">setup (ParseTreeTestCase)</a><br />
+    <a href="classes/TestSexp.html#M002074">setup (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002009">setup (TestSexpProcessor)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002115">setup (TestUnifiedRuby)</a><br />
+    <a href="classes/Sexp.html#M002186">sexp_body (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002187">shift (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002188">structure (Sexp)</a><br />
+    <a href="classes/Sexp.html#M002189">sub (Sexp)</a><br />
+    <a href="classes/TestCompositeSexpProcessor.html#M002142">test_append (TestCompositeSexpProcessor)</a><br />
+    <a href="classes/TestSexp.html#M002078">test_array_type_eh (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002030">test_assert_type_hit (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002031">test_assert_type_miss (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002033">test_auto_shift_type (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002034">test_auto_shift_type_equal (TestSexpProcessor)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002117">test_call_args (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002118">test_call_array_args (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002119">test_call_no_args (TestUnifiedRuby)</a><br />
+    <a href="classes/TestSexp.html#M002075">test_class_for (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002076">test_class_from_array (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002077">test_class_index (TestSexp)</a><br />
+    <a href="classes/TestParseTree.html#M002161">test_class_initialize (TestParseTree)</a><br />
+    <a href="classes/TestParseTree.html#M002162">test_class_translate_string (TestParseTree)</a><br />
+    <a href="classes/TestParseTree.html#M002163">test_class_translate_string_method (TestParseTree)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002039">test_debug (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002040">test_debug= (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002035">test_default_method (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002036">test_default_method= (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexp.html#M002079">test_each_of_type (TestSexp)</a><br />
+    <a href="classes/TestSexpAny.html#M002158">test_equals (TestSexpAny)</a><br />
+    <a href="classes/TestSexp.html#M002080">test_equals2_array (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002081">test_equals2_not_body (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002082">test_equals2_sexp (TestSexp)</a><br />
+    <a href="classes/TestSexpAny.html#M002159">test_equals3 (TestSexpAny)</a><br />
+    <a href="classes/TestSexp.html#M002083">test_equals3_any (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002084">test_equals3_full_match (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002085">test_equals3_mismatch (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002086">test_equals3_subset_match (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002087">test_equalstilde_fancy (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002088">test_equalstilde_plain (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002037">test_expected (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002038">test_expected= (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexp.html#M002089">test_find_and_replace_all (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002032">test_generate (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexp.html#M002090">test_gsub (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002091">test_inspect (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002092">test_method_missing (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002093">test_method_missing_ambigious (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002094">test_method_missing_deep (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002095">test_method_missing_delete (TestSexp)</a><br />
+    <a href="classes/TestParseTree.html#M002167">test_missing (TestParseTree)</a><br />
+    <a href="classes/TestParseTree.html#M002166">test_parse_tree_for_str (TestParseTree)</a><br />
+    <a href="classes/TestParseTree.html#M002164">test_parse_tree_for_string (TestParseTree)</a><br />
+    <a href="classes/TestParseTree.html#M002165">test_parse_tree_for_string_with_newlines (TestParseTree)</a><br />
+    <a href="classes/TestSexp.html#M002096">test_pretty_print (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002012">test_process_default (TestSexpProcessor)</a><br />
+    <a href="classes/TestCompositeSexpProcessor.html#M002138">test_process_default (TestCompositeSexpProcessor)</a><br />
+    <a href="classes/TestCompositeSexpProcessor.html#M002139">test_process_fake1 (TestCompositeSexpProcessor)</a><br />
+    <a href="classes/TestCompositeSexpProcessor.html#M002140">test_process_fake1_twice (TestCompositeSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002011">test_process_generic (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002013">test_process_not_sexp (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002026">test_process_rewrite (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002027">test_process_rewrite_deep (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002029">test_process_rewrite_depth_first (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002010">test_process_specific (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002021">test_process_strip (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002014">test_process_unsupported_wrong (TestSexpProcessor)</a><br />
+    <a href="classes/TestCompositeSexpProcessor.html#M002141">test_processors (TestCompositeSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002020">test_require_empty= (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002018">test_require_empty_false (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002019">test_require_empty_true (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002022">test_rewrite (TestSexpProcessor)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002120">test_rewrite_bmethod (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002121">test_rewrite_bmethod_noargs (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002122">test_rewrite_bmethod_splat (TestUnifiedRuby)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002024">test_rewrite_deep (TestSexpProcessor)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002123">test_rewrite_defn (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002124">test_rewrite_defn_attr (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002125">test_rewrite_defn_block_arg (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002126">test_rewrite_defn_bmethod_alias (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002127">test_rewrite_defn_ivar (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002128">test_rewrite_defs (TestUnifiedRuby)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002028">test_rewrite_depth_first (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002023">test_rewrite_different_type (TestSexpProcessor)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002129">test_rewrite_dmethod (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002130">test_rewrite_fcall (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002131">test_rewrite_fcall_loop (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002132">test_rewrite_fcall_splat (TestUnifiedRuby)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002025">test_rewrite_not_empty (TestSexpProcessor)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002133">test_rewrite_resbody (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002134">test_rewrite_resbody_empty (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002135">test_rewrite_resbody_lasgn (TestUnifiedRuby)</a><br />
+    <a href="classes/TestUnifiedRuby.html#M002136">test_rewrite_vcall (TestUnifiedRuby)</a><br />
+    <a href="classes/TestSexp.html#M002097">test_sexp_body (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002098">test_shift (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002016">test_strict (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002017">test_strict= (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexp.html#M002099">test_structure (TestSexp)</a><br />
+    <a href="classes/SexpTestCase.html#M002048">test_stupid (SexpTestCase)</a><br />
+    <a href="classes/TestSexp.html#M002100">test_sub (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002101">test_to_a (TestSexp)</a><br />
+    <a href="classes/TestSexp.html#M002102">test_to_s (TestSexp)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002015">test_unsupported_equal (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002041">test_warn_on_default (TestSexpProcessor)</a><br />
+    <a href="classes/TestSexpProcessor.html#M002042">test_warn_on_default= (TestSexpProcessor)</a><br />
+    <a href="classes/TestParseTree.html#M002168">test_whole_class (TestParseTree)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002049">testcase_order (ParseTreeTestCase)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002050">testcases (ParseTreeTestCase)</a><br />
+    <a href="classes/ParseTree.html#M002107">translate (ParseTree)</a><br />
+    <a href="classes/Something.html#M002146">unknown_args (Something)</a><br />
+    <a href="classes/ParseTreeTestCase.html#M002053">unsupported_tests (ParseTreeTestCase)</a><br />
+    <a href="classes/SexpTestCase.html#M002045">util_equals (SexpTestCase)</a><br />
+    <a href="classes/SexpTestCase.html#M002046">util_equals3 (SexpTestCase)</a><br />
+    <a href="classes/TestSexp.html#M002073">util_pretty_print (TestSexp)</a><br />
+  </div>
+</div>
+</body>
+</html>

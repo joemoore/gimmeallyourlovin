@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: History.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>History.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>History.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Jul 30 21:54:12 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>1.3.2 2008-05-19</h2>
+<ul>
+<li>app_gen/bin - includes #!/usr/bin/env ruby
+
+</li>
+<li>added examples of file_copy_each and template_copy_each to generators
+
+</li>
+</ul>
+<h2>1.3.1 2008-04-25</h2>
+<ul>
+<li>Fixed the require statements in generated tests for rails/merb generators
+
+</li>
+<li>Rails::Generator::Base is a valid generator superclass
+
+</li>
+<li>Rails generators have alternate template (based on standard NamedBase)
+
+</li>
+<li>test helpers define RAILS_ROOT for rails generators
+
+</li>
+</ul>
+<h2>1.3.0 2008-04-25</h2>
+<ul>
+<li>component_generator: specific subclasses for rails + merb generators, not
+the generic <a href="../classes/RubiGen/Base.html">RubiGen::Base</a>
+
+</li>
+</ul>
+<h2>1.2.3 2008-02-22</h2>
+<ul>
+<li>Remove -wKU flags from install_rubigen_scripts + ruby_app apps
+
+</li>
+</ul>
+<h2>1.2.2 2008-02-20</h2>
+<ul>
+<li>Removing one File.expand_path
+
+</li>
+</ul>
+<h2>1.2.1 2008-02-19</h2>
+<ul>
+<li>Fixed rake post_news/email output bug (&quot;\n\n&quot;)
+
+</li>
+<li>removed bad \&quot; from generator banner strings
+
+</li>
+<li>destination_path/root have File.expand_path applied to them to ensure
+base_name gives useful term
+
+</li>
+<li>generate/destroy set APP_ROOT with expand_path too
+
+</li>
+</ul>
+<h2>1.2.0 2008-02-14</h2>
+<ul>
+<li>application_generator&#8216;s bin now looks for generator within local
+source, not within an install gem - so the bin/foo can be run in
+development without requiring installation.
+
+</li>
+<li>New collision option <b>i</b> - ignore all collisions; works like <b>a</b>
+which forces all collisions to overwrite existing files; i skips all
+collisions.
+
+</li>
+<li>Supported test scope for install_rubigen_scripts: javascript_test
+
+</li>
+</ul>
+<h2>1.1.1 2007-11-08</h2>
+<ul>
+<li>active_support is now a dependency of this gem on install (it was being
+used but wasn&#8216;t a dependency)
+
+</li>
+</ul>
+<h2>1.1.0 2007-11-05</h2>
+<ul>
+<li>Promoted &#8216;application_generator&#8217; and
+&#8216;component_generator&#8217; to Rubigen
+
+</li>
+</ul>
+<p>
+from NewGem project (they are available even if newgem not installed)
+</p>
+<ul>
+<li>install_rubigen_scripts default test fixed by mapping scopes to strings
+
+</li>
+<li>version.js uploaded to website
+
+</li>
+</ul>
+<h2>1.0.8 2007-11-03</h2>
+<ul>
+<li>install_rubigen_scripts adds &#8216;test_unit&#8217; to scopes unless a
+test-related scope is added
+
+</li>
+<li>remove examples directory because it&#8216;s redundant. See rails gem.
+[Winston Tsang]
+
+</li>
+<li>Add missing template empty_log. [Winston Tsang]
+
+</li>
+<li>Moved test_unit generator to test_unit scope (instead of global scope)
+
+</li>
+<li>generator_full_paths now returns the sources in reverse order [thx hassox]
+
+</li>
+</ul>
+<h2>1.0.7 2007-11-02</h2>
+<ul>
+<li>Moved test_unit generator to test_unit scope (instead of global scope)
+
+</li>
+</ul>
+<h2>1.0.6 2007-10-18</h2>
+<ul>
+<li>Templates can end with .erb (e.g. model.rb.erb) and template_copy_each will
+remove the .erb extension (create model.rb)
+
+</li>
+</ul>
+<h2>1.0.5 2007-10-08</h2>
+<ul>
+<li>Added Jeremy Kemper to license/copyright/gem author list.
+
+</li>
+</ul>
+<h2>1.0.4 2007-09-07</h2>
+<ul>
+<li>New manifest actions:
+
+<ul>
+<li>m.folder - copies over all files in folder into target path
+
+</li>
+</ul>
+</li>
+<li>helper run_generator returns generator instance (so you can assert instance
+variables/methods etc)
+
+</li>
+<li>base_name method for generators - returns basename of destination_root,
+unless its trunk/tags/branches
+
+</li>
+</ul>
+<h2>1.0.3 2007-08-22</h2>
+<ul>
+<li>/generators folder is automatically picked up by all component/app
+generators [bug fix]
+
+</li>
+</ul>
+<h2>1.0.2 2007-08-22</h2>
+<ul>
+<li>Renamed rubigen_install_script -&gt; install_rubigen_script
+
+</li>
+<li>install_rubigen_script is now a component generator so can be reused by
+other generators to create script/generate
+
+</li>
+<li>Added &quot;Thanks to Jeremy Kemper&quot; into website
+
+</li>
+<li>Cleaned up USAGE for test_unit
+
+</li>
+<li>If a generator does not have a USAGE file, then it is invisible from lists
+of available generators. This will be the mechanism for having hidden
+generators (e.g. install_rubigen_scripts)
+
+</li>
+</ul>
+<h2>1.0.1 2007-08-20</h2>
+<ul>
+<li>Moved builtin generators into root folders, away from lib folder, to
+protected them from ri/rdocs processes (which didn&#8216;t like ERb &lt;%=
+%&gt; inside Ruby files)
+
+</li>
+<li>New app: rubigen_install_script
+
+<ul>
+<li>adds script/generate and script/destroy to current folder
+
+</li>
+</ul>
+</li>
+</ul>
+<h2>1.0.0 2007-08-17</h2>
+<ul>
+<li>1 major enhancement:
+
+<ul>
+<li>Initial release
+
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

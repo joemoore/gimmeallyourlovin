@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Jul 30 21:54:12 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/RubiGen.html">RubiGen</a> - Ruby Generator Framework</h1>
+<p>
+A framework to allow Ruby applications to generate file/folder stubs (like
+the `rails` command does for Ruby on Rails, and the
+&#8216;script/generate&#8217; command within a Rails application during
+development).
+</p>
+<h2>Background</h2>
+<p>
+<a href="../classes/RubiGen.html">RubiGen</a> is originally extracted from
+Ruby on Rails (specifically the rails_generator from its railties gem).
+</p>
+<p>
+The rails_generator was hardcoded with Rails-specific dependencies
+(`RAILS_ROOT`), Rails generators (&#8216;app&#8217; = Rails application;
+&#8216;model&#8217; = Rails model+tests+migration), and generally assumed
+it was the only generator framework within the Ruby world (it was). So, any
+RubyGem whose name ended with &#8216;_generator&#8217; was assumed to be a
+generator for a Rails application.
+</p>
+<p>
+But if you are developing a Merb application, then you may want a different
+set of generators. If you are developing a RubyGem, then you will want a
+different set of generators.
+</p>
+<p>
+<a href="../classes/RubiGen.html">RubiGen</a> exists to give different
+development environments their own generator framework.
+</p>
+<h3>Thanks go to&#8230;</h3>
+<p>
+Jeremy Kemper wrote the original Rails Generator, which is 95% of the basis
+of <a href="../classes/RubiGen.html">RubiGen</a>. He&#8216;s awesome.
+</p>
+<h2>Installation</h2>
+<p>
+<a href="../classes/RubiGen.html">RubiGen</a> is only required at
+development time, and normally isn&#8216;t required at deployment time
+(unless your application uses it to generate files etc for its users).
+</p>
+<p>
+On your development machine:
+</p>
+<pre>
+    gem install rubigen -y
+</pre>
+<h2>Usage</h2>
+<p>
+<a href="../classes/RubiGen.html">RubiGen</a> will be normally integrated
+into another RubyGem, such as `newgem` or `merb` or `camping`, rather than
+be used on its own.
+</p>
+<p>
+These frameworks might use <a href="../classes/RubiGen.html">RubiGen</a>
+for two reasons:
+</p>
+<ol>
+<li>To generate an initial stub for developers, e.g. `rails` generated a stub
+to write a Rails application. `newgem` generates a stub to write a RubyGem.
+BTW - <a href="../classes/RubiGen.html">RubiGen</a> has a builtin
+application `ruby_app` which generates a bare-bones Ruby application stub
+(lib, test, and script folders, plus a Rakefile, and a script/generate
+script)
+
+</li>
+<li>To generate components within their development areas, e.g. Rails had its
+`script/generate` script within each Rails application, which hooked back
+into the rails_generator to lookup and execute generators.
+
+</li>
+</ol>
+<p>
+So, there are two steps to integrating <a
+href="../classes/RubiGen.html">RubiGen</a> into your framework:
+</p>
+<ol>
+<li>Use it to generate an initial stub for the developers of your framework.
+This would create the folders (`lib/app`, `test`, `script`, `doc`, `log`,
+etc) and starting files (`Rakefile`, `README.txt`, `test/test_helper.rb`
+etc). Importantly, it would generate a `script/generate` file. The
+`script/generate` file (example below) will allow developers of your
+framework to generate components/extensions within the framework. <a
+href="../classes/RubiGen.html">RubiGen</a> allows you to restrict which
+generators are available. For example, within RubyGem development
+environment (as generated by `newgem`), the `script/generator` only shows
+`rubygem`-related generators. Merb could restrict `script/generator` to
+only show Merb related generators (or perhaps Merb and/or Rails generators)
+
+</li>
+<li>Your framework RubyGem (e.g. `newgem` or `merb` RubyGems) needs to add
+`rubigen` as a dependency, so that users of your RubyGem can access the
+generator framework.
+
+</li>
+</ol>
+<h1>Creating generators</h1>
+<p>
+There are two types of generators:
+</p>
+<ol>
+<li>Application Generators - used by developers of your framework to get
+started. Generally, you will create one Application Generator for your
+framework. It generates a base stub (such as the `rails` stub for new Rails
+applications) for your framework users.
+
+</li>
+<li>Component Generators - used by developers to extend their application. You
+may include 1+ built-in generators with your framework. Developers can also
+write generators for your framework, and like Rails&#8217; generator
+install them in various places and have access to their via <a
+href="../classes/RubiGen.html">RubiGen</a>.
+
+</li>
+</ol>
+<h2>Creating an Application Generator for your Framework</h2>
+<p>
+Without <a href="../classes/RubiGen.html">RubiGen</a>, to give your users a
+head start and create a stub for them, you will copiously use `mkdir_p` and
+`File.open`. Your script will either be primitive (only create the bare
+folders and very few files) or it will be very long and unreadable (ok,
+perhaps I&#8216;m just talking about the `newgem` script, which I am
+dubiously responsible for&#8230; :P).
+</p>
+<p>
+With <a href="../classes/RubiGen.html">RubiGen</a>, you can create stubs
+using powerful, yet simple, syntax. Templates are extracted into a
+`templates` folder, and activating the generator from a script requires
+only a few lines of code.
+</p>
+<p>
+These are the `newgem` files related to its Application Generator.
+</p>
+<pre>
+    bin/
+      bin/newgem        # Appliction Generator script; Usage: newgem gemname [options]
+    app_generators/
+      app_generators/newgem/
+        app_generators/newgem/newgem_generator.rb
+        app_generators/newgem/USAGE
+        app_generators/newgem/templates/
+          app_generators/newgem/templates/app.rb
+          app_generators/newgem/templates/History.txt
+          app_generators/newgem/templates/... lots and lots of templates
+</pre>
+<p>
+The `bin/newgem` script is very simple, and looks like:
+</p>
+<pre>
+    require 'rubygems'
+    require 'rubigen'
+
+    if %w(-v --version).include? ARGV.first
+      require 'newgem/version'
+      puts &quot;#{File.basename($0)} #{Newgem::VERSION::STRING}&quot;
+      exit(0)
+    end
+
+    require 'rubigen/scripts/generate'
+    RubiGen::Base.use_application_sources!
+    RubiGen::Scripts::Generate.new.run(ARGV, :generator =&gt; 'newgem')
+</pre>
+<p>
+You can copy and paste this for your own generator script, and place it in
+your RubyGem&#8216;s `bin` folder. Change `newgem` to your RubyGem&#8216;s
+name in the script above (and in all the folders listed above too)
+</p>
+<p>
+NOTE: If you leave `newgem` there, then it will execute the
+`newgem_generator.rb` generator; as the generators are loaded from all
+RubyGem&#8216;s having `/app_generators` folders.
+</p>
+<p>
+So, for your RubyGem, you need to keep the `/app_generators` folder (as you
+are creating an Application Generator, not a Component Generator), but
+change `newgem` to `your gem name` in all the subfolders and files.
+ESPECIALLY `newgem_generator.rb` -&gt; `yourgem_generator.rb`, as this is
+how the generator is discovered (via
+`RubiGen::Base.use_application_sources!`).
+</p>
+<p>
+All the generator work is performed within `yourgem_generator.rb`. A stub
+for it will be:
+</p>
+<pre>
+    require 'rbconfig'
+
+    class YourgemGenerator &lt; RubiGen::Base
+      DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'],
+                                  Config::CONFIG['ruby_install_name'])
+
+      default_options   :shebang =&gt; DEFAULT_SHEBANG,
+                        :an_option =&gt; 'some_default'
+
+      attr_reader :app_name, :module_name
+
+      def initialize(runtime_args, runtime_options = {})
+        super
+        usage if args.empty?
+        @destination_root = args.shift
+        @app_name     = File.basename(File.expand_path(@destination_root))
+        @module_name  = app_name.camelize
+        extract_options
+      end
+
+      def manifest
+        # Use /usr/bin/env if no special shebang was specified
+        script_options     = { :chmod =&gt; 0755, :shebang =&gt; options[:shebang] == DEFAULT_SHEBANG ? nil : options[:shebang] }
+        windows            = (RUBY_PLATFORM =~ /dos|win32|cygwin/i) || (RUBY_PLATFORM =~ /(:?mswin|mingw)/)
+
+        record do |m|
+          # Root directory and all subdirectories.
+          m.directory ''
+          BASEDIRS.each { |path| m.directory path }
+
+          # Root
+          m.template_copy_each %w( Rakefile )
+          m.file_copy_each     %w( README.txt )
+
+          # Test helper
+          m.template   &quot;test_helper.rb&quot;,        &quot;test/test_helper.rb&quot;
+
+          # Scripts
+          %w( generate ).each do |file|
+            m.template &quot;script/#{file}&quot;,        &quot;script/#{file}&quot;, script_options
+            m.template &quot;script/win_script.cmd&quot;, &quot;script/#{file}.cmd&quot;,
+              :assigns =&gt; { :filename =&gt; file } if windows
+          end
+
+        end
+      end
+
+      protected
+        def banner
+          &lt;&lt;-EOS
+    Create a stub for #{File.basename $0} to get started.
+
+    Usage: #{File.basename $0} /path/to/your/app [options]&quot;
+    EOS
+        end
+
+        def add_options!(opts)
+          opts.separator ''
+          opts.separator &quot;#{File.basename $0} options:&quot;
+          opts.on(&quot;-v&quot;, &quot;--version&quot;, &quot;Show the #{File.basename($0)} version number and quit.&quot;)
+        end
+
+      # Installation skeleton.  Intermediate directories are automatically
+      # created so don't sweat their absence here.
+      BASEDIRS = %w(
+        doc
+        lib
+        log
+        script
+        test
+        tmp
+      )
+    end
+</pre>
+<p>
+Easy peasy.
+</p>
+<h2>Creating a Component Generator for your Framework</h2>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

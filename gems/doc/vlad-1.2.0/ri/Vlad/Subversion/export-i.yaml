@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the command that will export <tt>revision</tt> from the repository into the directory <tt>destination</tt>.
+full_name: Vlad::Subversion#export
+is_singleton: false
+name: export
+params: (revision_or_source, destination)
+visibility: public

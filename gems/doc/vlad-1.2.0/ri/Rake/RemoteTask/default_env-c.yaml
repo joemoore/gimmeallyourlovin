@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The default environment values. Used for resetting (mostly for tests).
+full_name: Rake::RemoteTask::default_env
+is_singleton: true
+name: default_env
+params: ()
+visibility: public

@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_xml
+comment: 
+constants: []
+
+full_name: Hash
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_html_class!
+- !ruby/object:RI::MethodSummary 
+  name: environmentize_keys!
+- !ruby/object:RI::MethodSummary 
+  name: except
+- !ruby/object:RI::MethodSummary 
+  name: only
+- !ruby/object:RI::MethodSummary 
+  name: protect_keys!
+- !ruby/object:RI::MethodSummary 
+  name: to_html_attributes
+- !ruby/object:RI::MethodSummary 
+  name: to_mash
+- !ruby/object:RI::MethodSummary 
+  name: to_params
+- !ruby/object:RI::MethodSummary 
+  name: to_xml_attributes
+- !ruby/object:RI::MethodSummary 
+  name: unprotect_keys!
+name: Hash
+superclass: Object

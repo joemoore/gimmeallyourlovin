@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set environment variable <tt>name</tt> to <tt>value</tt> or <tt>default_block</tt>.
+- !ruby/struct:SM::Flow::P 
+  body: If <tt>default_block</tt> is defined, the block will be executed the first time the variable is fetched, and the value will be used for every subsequent fetch.
+full_name: Rake::RemoteTask::set
+is_singleton: true
+name: set
+params: (name, value = nil, &default_block)
+visibility: public

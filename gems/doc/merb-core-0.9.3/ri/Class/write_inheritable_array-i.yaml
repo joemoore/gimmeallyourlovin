@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the array attribute which copy is available to subclasses.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<~to_s, String, Symbol>:"
+    body: inheritable attribute name
+  - !ruby/struct:SM::Flow::LI 
+    label: "value<Array>:"
+    body: value of inheritable attribute
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: Inheritable array is re-created on each write.
+full_name: Class#write_inheritable_array
+is_singleton: false
+name: write_inheritable_array
+params: (key, elements)
+visibility: public

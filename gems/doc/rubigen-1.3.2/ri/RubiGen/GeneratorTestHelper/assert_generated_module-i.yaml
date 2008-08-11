@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: body if block_given?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: asserts that the given module source file was generated. It takes a path without the <tt>.rb</tt> part. the contents of the class source file is passed to a block.
+full_name: RubiGen::GeneratorTestHelper#assert_generated_module
+is_singleton: false
+name: assert_generated_module
+params: (path) {|body if block_given?| ...}
+visibility: public

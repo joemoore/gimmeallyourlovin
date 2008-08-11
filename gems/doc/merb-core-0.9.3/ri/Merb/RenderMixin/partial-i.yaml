@@ -1,0 +1,49 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Render a partial template.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "template<~to_s>:"
+    body: The path to the template, relative to the current controller or the template root. If the template contains a &quot;/&quot;, Merb will search for it relative to the template root; otherwise, Merb will search for it relative to the current controller.
+  - !ruby/struct:SM::Flow::LI 
+    label: "opts<Hash>:"
+    body: A hash of options (see below)
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Options (opts)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":with<Object, Array>:"
+    body: An object or an array of objects that will be passed into the partial.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":as<~to_sym>:"
+    body: The local name of the :with Object inside of the partial.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":format<Symbol>:"
+    body: The mime format that you want the partial to be in (:js, :html, etc.)
+  - !ruby/struct:SM::Flow::LI 
+    label: "others:"
+    body: A Hash object names and values that will be the local names and values inside the partial.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Example
+- !ruby/struct:SM::Flow::VERB 
+  body: "  partial :foo, :hello =&gt; @object\n"
+- !ruby/struct:SM::Flow::P 
+  body: The &quot;_foo&quot; partial will be called, relative to the current controller, with a local variable of <tt>hello</tt> inside of it, assigned to @object.
+full_name: Merb::RenderMixin#partial
+is_singleton: false
+name: partial
+params: (template, opts={})
+visibility: public

@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the attribute which copy is available to subclasses.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<~to_s, String, Symbol>:"
+    body: inheritable attribute name
+  - !ruby/struct:SM::Flow::LI 
+    label: "value<Anything but Array or Hash>:"
+    body: value of inheritable attribute
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: If inheritable attributes storage has it's default value, a new frozen hash, it is set to new Hash that is not frozen.
+full_name: Class#write_inheritable_attribute
+is_singleton: false
+name: write_inheritable_attribute
+params: (key, value)
+visibility: public

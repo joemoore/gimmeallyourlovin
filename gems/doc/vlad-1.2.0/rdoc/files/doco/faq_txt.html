@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: faq.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>faq.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doco/faq.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2><a href="../../classes/Rake.html">Rake</a> &amp; Recipes</h2>
+<h3>Q: Why is there no vlad:restart?</h3>
+<h3>A: It is cleaner!</h3>
+<p>
+We don&#8216;t want to have to think about what state we&#8216;re in and
+where. So vlad:start does a restart if necessary. Restart is just
+&quot;start again&quot; after all&#8230; That is what start does.
+</p>
+<h3>Q: Why are there no before_action and after_action hooks?</h3>
+<h3>A: Because we use rake!</h3>
+<p>
+<a href="../../classes/Rake.html">Rake</a> don&#8216;t need no
+stinkin&#8217; hooks! They&#8216;re too clever. Last I checked
+before_after_before_start worked in cap&#8230; how? why? I dunno&#8230;
+</p>
+<p>
+To extend a task (adding something after), just define it again:
+</p>
+<pre>
+  task :action1 do
+    puts &quot;one fish, two fish&quot;
+  end
+
+  task :action1 do
+    puts &quot;red fish, blue fish&quot;
+  end
+</pre>
+<p>
+To prepend on a task, add a dependency:
+</p>
+<pre>
+  task :action2 do
+    puts &quot;red fish, blue fish&quot;
+  end
+
+  task :myaction do
+    puts &quot;one fish, two fish&quot;
+  end
+
+  task :action2 =&gt; :myaction
+</pre>
+<h3>Q: How do I invoke another rule?</h3>
+<h3>A: The easiest way is via dependencies.</h3>
+<pre>
+  task :shazam! =&gt; [:action1, :action2]
+
+ The other way is to look it up and call invoke:
+
+  task :shazam! do
+    Rake::Task[:action1].invoke
+    Rake::Task[:action2].invoke
+  end
+</pre>
+<p>
+(Or, cheat and call out to rake again: sh &quot;rake action1&quot;)
+</p>
+<h2>Using SSH</h2>
+<h3>Q: Is there any way to set the ssh user?</h3>
+<h3>A: Yes, using ~/.ssh/config</h3>
+<pre>
+  Host example.com
+    User fluffy_bunny
+</pre>
+<p>
+OR: Alternatively, you can do this within your recipes like so:
+</p>
+<pre>
+  set :user, &quot;fluffy_bunny&quot;
+  set :domain, &quot;#{user}@example.com&quot;
+</pre>
+<h3>Q: Is there any way to speed up ssh connections?</h3>
+<h3>A: Yes, add to your Host entry in ~/.ssh/config:</h3>
+<pre>
+  ControlMaster auto
+  ControlPath ~/.ssh/master-%r@%h:%p
+</pre>
+<h3>Q: I&#8216;m tired of typing in my password!</h3>
+<h3>A: Me too!</h3>
+<p>
+Put a password on your key, distribute your public key to the server and
+then use ssh-agent.
+</p>
+<p>
+Check out this tiny tutorial at LBL: A brief ssh-agent tutorial &lt;<a
+href="http://upc.lbl.gov/docs/user/sshagent.html">upc.lbl.gov/docs/user/sshagent.html</a>&gt;
+</p>
+<p>
+If you&#8216;re on a mac, use SSHKeychain, we love it. &lt;<a
+href="http://www.sshkeychain.org">www.sshkeychain.org</a>/&gt;
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Merb::Cache::FileStore
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cache
+- !ruby/object:RI::MethodSummary 
+  name: cache_get
+- !ruby/object:RI::MethodSummary 
+  name: cache_set
+- !ruby/object:RI::MethodSummary 
+  name: cache_store_type
+- !ruby/object:RI::MethodSummary 
+  name: cached?
+- !ruby/object:RI::MethodSummary 
+  name: expire
+- !ruby/object:RI::MethodSummary 
+  name: expire_all
+- !ruby/object:RI::MethodSummary 
+  name: expire_match
+- !ruby/object:RI::MethodSummary 
+  name: prepare
+name: FileStore
+superclass: Object

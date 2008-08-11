@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: Spec.new(File.basename(generator).sub(/_generator.rb$/, ''), File.dirname(generator), label)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Yield each generator within rails_generator subdirectories.
+full_name: RubiGen::GemPathSource#each
+is_singleton: false
+name: each
+params: () {|Spec.new(File.basename(generator).sub(/_generator.rb$/, ''), File.dirname(generator), label)| ...}
+visibility: public

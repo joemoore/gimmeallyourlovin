@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Remove each directory in the given path from right to left. Remove each subdirectory if it exists and is a directory.
+full_name: RubiGen::Commands::Destroy#directory
+is_singleton: false
+name: directory
+params: (relative_path)
+visibility: public

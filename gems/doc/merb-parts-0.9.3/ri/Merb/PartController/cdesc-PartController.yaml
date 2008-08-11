@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: params
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: inherited
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: subclasses_list
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Merb::PartController is a light weight way to share logic and templates amongst controllers. Merb::PartControllers work just like Merb::controller. There is a filter stack, layouts (if needed) all the render functions, and url generation.
+- !ruby/struct:SM::Flow::P 
+  body: Cookies, params, and even the request object are shared with the web controller
+constants: []
+
+full_name: Merb::PartController
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Merb::Mixins::WebController
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: _dispatch
+- !ruby/object:RI::MethodSummary 
+  name: _template_location
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+name: PartController
+superclass: AbstractController

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convert the given character to quoted printable format see http://tools.ietf.org/html/rfc2047
+full_name: MailFactory#quoted_printable_encode_header
+is_singleton: false
+name: quoted_printable_encode_header
+params: (text)
+visibility: protected

@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Provides direct acccess to the buffer for this view context
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "the_binding<Binding>:"
+    body: The binding to pass to the buffer.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/struct:SM::Flow::P 
+  body: DOC
+full_name: Merb::Template::Erubis::Mixin#_erb_buffer
+is_singleton: false
+name: _erb_buffer
+params: ( the_binding )
+visibility: public

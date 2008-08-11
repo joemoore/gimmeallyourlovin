@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RubiGen::Commands::Base</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RubiGen::Commands::Base</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/rubigen/commands_rb.html">
+                lib/rubigen/commands.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                DelegateClass(RubiGen::Base)
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Generator commands delegate <a href="../Base.html">RubiGen::Base</a> and
+implement a standard set of actions. Their behavior is defined by the way
+they respond to these actions: <a href="Create.html">Create</a> brings
+life; <a href="Destroy.html">Destroy</a> brings death; <a
+href="List.html">List</a> passively observes.
+</p>
+<p>
+<a href="../Commands.html">Commands</a> are invoked by replaying (or
+rewinding) the generator&#8216;s manifest of actions. See <a
+href="../Manifest.html">RubiGen::Manifest</a> and RubiGen::Base#manifest
+method that generator subclasses are required to override.
+</p>
+<p>
+<a href="../Commands.html">Commands</a> allows generators to &quot;plug
+in&quot; invocation behavior, which corresponds to the GoF Strategy
+pattern.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003009">class_collisions</a>&nbsp;&nbsp;
+      <a href="#M003014">current_migration_number</a>&nbsp;&nbsp;
+      <a href="#M003008">dependency</a>&nbsp;&nbsp;
+      <a href="#M003012">existing_migrations</a>&nbsp;&nbsp;
+      <a href="#M003017">gsub_file</a>&nbsp;&nbsp;
+      <a href="#M003007">invoke!</a>&nbsp;&nbsp;
+      <a href="#M003011">migration_directory</a>&nbsp;&nbsp;
+      <a href="#M003013">migration_exists?</a>&nbsp;&nbsp;
+      <a href="#M003015">next_migration_number</a>&nbsp;&nbsp;
+      <a href="#M003016">next_migration_string</a>&nbsp;&nbsp;
+      <a href="#M003010">readme</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003009" class="method-detail">
+        <a name="M003009"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003009.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003009.html');return false;">
+          <span class="method-name">class_collisions</span><span class="method-args">(*class_names)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Does nothing for all commands except <a href="Create.html">Create</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003008" class="method-detail">
+        <a name="M003008"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003008.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003008.html');return false;">
+          <span class="method-name">dependency</span><span class="method-args">(generator_name, args, runtime_options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003007" class="method-detail">
+        <a name="M003007"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003007.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003007.html');return false;">
+          <span class="method-name">invoke!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Replay action manifest. <a href="RewindBase.html">RewindBase</a> subclass
+rewinds manifest.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003010" class="method-detail">
+        <a name="M003010"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003010.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003010.html');return false;">
+          <span class="method-name">readme</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Does nothing for all commands except <a href="Create.html">Create</a>.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M003014" class="method-detail">
+        <a name="M003014"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003014.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003014.html');return false;">
+          <span class="method-name">current_migration_number</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003012" class="method-detail">
+        <a name="M003012"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003012.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003012.html');return false;">
+          <span class="method-name">existing_migrations</span><span class="method-args">(file_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003017" class="method-detail">
+        <a name="M003017"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003017.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003017.html');return false;">
+          <span class="method-name">gsub_file</span><span class="method-args">(relative_destination, regexp, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003011" class="method-detail">
+        <a name="M003011"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003011.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003011.html');return false;">
+          <span class="method-name">migration_directory</span><span class="method-args">(relative_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003013" class="method-detail">
+        <a name="M003013"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003013.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003013.html');return false;">
+          <span class="method-name">migration_exists?</span><span class="method-args">(file_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003015" class="method-detail">
+        <a name="M003015"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003015.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003015.html');return false;">
+          <span class="method-name">next_migration_number</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003016" class="method-detail">
+        <a name="M003016"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003016.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003016.html');return false;">
+          <span class="method-name">next_migration_string</span><span class="method-args">(padding = 3)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

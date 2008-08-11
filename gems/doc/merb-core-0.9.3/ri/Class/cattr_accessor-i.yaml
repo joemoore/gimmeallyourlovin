@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Defines class-level (and optionally instance-level) attribute accessor.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*syms<Array>:"
+    body: Array of attributes to define accessor for.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Options
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ":instance_writer<Boolean>:"
+    body: if true, instance-level attribute writer is defined.
+  type: :NOTE
+full_name: Class#cattr_accessor
+is_singleton: false
+name: cattr_accessor
+params: (*syms)
+visibility: public

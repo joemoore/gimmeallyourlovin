@@ -1,0 +1,43 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Matches a <tt>path</tt> and any number of optional request methods as conditions of a route. Alternatively, <tt>path</tt> can be a hash of conditions, in which case <tt>conditions</tt> ignored.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "path<String, Regexp>:"
+    body: "When passing a string as <tt>path</tt> you're defining a literal definition for your route. Using a colon, ex.: &quot;:login&quot;, defines both a capture and a named param. When passing a regular expression you can define captures explicitly within the regular expression syntax. <tt>path</tt> is optional."
+  - !ruby/struct:SM::Flow::LI 
+    label: "conditions<Hash>:"
+    body: This optional hash helps refine the settings for the route. When combined with a block it can help keep your routes DRY
+  - !ruby/struct:SM::Flow::LI 
+    label: "&block:"
+    body: Passes a new instance of a Behavior object into the optional block so that sub-matching and routes nesting may occur.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Behavior:"
+    body: A new instance of Behavior with the specified path and conditions.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>Tip</tt>: When nesting always make sure the most inner sub-match registers a Route and doesn't just returns new Behaviors."
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # registers /foo/bar to controller =&gt; &quot;foo&quot;, :action =&gt; &quot;bar&quot;\n  # and /foo/baz to controller =&gt; &quot;foo&quot;, :action =&gt; &quot;caz&quot;\n  r.match &quot;/foo&quot;, :controller =&gt; &quot;foo&quot; do |f|\n    f.match(&quot;/bar&quot;).to(:action =&gt; &quot;bar&quot;)\n    f.match(&quot;/baz&quot;).to(:action =&gt; &quot;caz&quot;)\n  end\n\n  r.match &quot;/foo&quot;, :controller =&gt; &quot;foo&quot; do |f|\n    f.match(&quot;/bar&quot;, :action =&gt; &quot;bar&quot;)\n    f.match(&quot;/baz&quot;, :action =&gt; &quot;caz&quot;)\n  end # =&gt; doesn't register any routes at all\n\n  # match also takes regular expressions\n  r.match(%r[/account/([a-z]{4,6})]).to(:controller =&gt; &quot;account&quot;,\n     :action =&gt; &quot;show&quot;, :id =&gt; &quot;[1]&quot;)\n"
+full_name: Merb::Router::Behavior#match
+is_singleton: false
+name: match
+params: (path = '', conditions = {}, &block)
+visibility: public

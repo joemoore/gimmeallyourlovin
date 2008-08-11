@@ -1,0 +1,33 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters ====
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "other<String>:"
+    body: Base path to calculate against
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns ====
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: Relative path from between the two
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Example ====
+- !ruby/struct:SM::Flow::P 
+  body: "&quot;/opt/local/lib&quot;.relative_path_from(&quot;/opt/local/lib/ruby/site_ruby&quot;) # =&gt; &quot;../..&quot;"
+full_name: String#relative_path_from
+is_singleton: false
+name: relative_path_from
+params: (other)
+visibility: public

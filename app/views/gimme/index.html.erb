@@ -1,0 +1,21 @@
+<div id="container">
+  <div id=header-container><%= image_tag('header.jpg', :class => 'center') %>
+    <h1 id='title' class="center">Gimme All Your Lovin!</h1>
+  </div>
+  <div id="main-container">
+    <% @videos.each_with_index do |video, index| %>
+      <%  if index % 2 == 0 %>
+        <div class="row">  
+          <%=  partial :video, :with => video, :as => :vid %>
+        <% else %>
+          <div class="video left">
+            <h2><%= video.title %></h2>
+            <%= video.embed_html %>
+          </div>
+          <div style="clear:both"></div>
+        <div class="ad"> ad goes here</div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

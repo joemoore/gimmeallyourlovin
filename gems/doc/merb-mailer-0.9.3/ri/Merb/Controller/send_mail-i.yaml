@@ -1,0 +1,35 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sends mail via a MailController (a tutorial can be found in the MailController docs).
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "klass<Class>:"
+    body: The mailer class.
+  - !ruby/struct:SM::Flow::LI 
+    label: "method<~to_s>:"
+    body: The method to call on the mailer.
+  - !ruby/struct:SM::Flow::LI 
+    label: "mail_params<Hash>:"
+    body: Mailing parameters, e.g. :to and :cc. See Merb::MailController#dispatch_and_deliver for details.
+  - !ruby/struct:SM::Flow::LI 
+    label: "send_params<Hash>:"
+    body: Params to send to the mailer. Defaults to the params of the current controller.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # Send an email via the FooMailer's bar method.\n  send_mail FooMailer, :bar, :from =&gt; &quot;foo@bar.com&quot;, :to =&gt; &quot;baz@bat.com&quot;\n"
+full_name: Merb::Controller#send_mail
+is_singleton: false
+name: send_mail
+params: (klass, method, mail_params, send_params = nil)
+visibility: public

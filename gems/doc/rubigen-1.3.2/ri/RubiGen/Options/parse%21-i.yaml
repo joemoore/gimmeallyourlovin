@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Parse arguments into the options hash. Classes may customize parsing behavior by overriding these methods:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  #banner                 Usage: ./script/generate [options]\n  #add_options!           Options:\n                            some options..\n  #add_general_options!   General Options:\n                            general options..\n"
+full_name: RubiGen::Options#parse!
+is_singleton: false
+name: parse!
+params: (args, runtime_options = {})
+visibility: protected

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Parses an HTML string, making an HTML fragment based on the options used to create the container document.
+full_name: Hpricot::Traverse#make
+is_singleton: false
+name: make
+params: (input = nil, &blk)
+visibility: public

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>use_component_sources! (RubiGen::Lookup::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/lookup.rb, line 124</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">use_component_sources!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">filters</span>)
+        <span class="ruby-identifier">reset_sources</span>
+        <span class="ruby-identifier">new_sources</span> = []
+        <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span> <span class="ruby-operator">::</span><span class="ruby-constant">APP_ROOT</span>
+          <span class="ruby-identifier">new_sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">PathSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:root</span>, <span class="ruby-node">&quot;#{::APP_ROOT}/generators&quot;</span>)
+          <span class="ruby-identifier">new_sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">PathSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:vendor</span>, <span class="ruby-node">&quot;#{::APP_ROOT}/vendor/generators&quot;</span>)
+          <span class="ruby-identifier">new_sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">PathSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:plugins</span>, <span class="ruby-node">&quot;#{::APP_ROOT}/vendor/plugins/*/**/generators&quot;</span>)
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">new_sources</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">filtered_sources</span>(<span class="ruby-identifier">filters</span>)
+        <span class="ruby-identifier">write_inheritable_attribute</span>(<span class="ruby-identifier">:sources</span>, <span class="ruby-identifier">new_sources</span>.<span class="ruby-identifier">flatten</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

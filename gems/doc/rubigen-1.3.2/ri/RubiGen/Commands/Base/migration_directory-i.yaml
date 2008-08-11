@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Base#migration_directory
+is_singleton: false
+name: migration_directory
+params: (relative_path)
+visibility: protected

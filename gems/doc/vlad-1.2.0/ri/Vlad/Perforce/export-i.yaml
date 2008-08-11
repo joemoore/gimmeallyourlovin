@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the p4 command that will export <tt>revision</tt> into the directory <tt>directory</tt>.
+full_name: Vlad::Perforce#export
+is_singleton: false
+name: export
+params: (revision_or_source, destination)
+visibility: public

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>capture_erb (Merb::Template::Erubis::Mixin)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-core/controller/template.rb, line 161</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">capture_erb</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-comment cmt"># get the buffer from the block's binding</span>
+        <span class="ruby-identifier">buffer</span> = <span class="ruby-identifier">_erb_buffer</span>( <span class="ruby-identifier">block</span>.<span class="ruby-identifier">binding</span> ) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+
+        <span class="ruby-comment cmt"># If there is no buffer, just call the block and get the contents</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-comment cmt"># If there is a buffer, execute the block, then extract its contents</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">pos</span> = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">length</span>
+          <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+
+          <span class="ruby-comment cmt"># extract the block</span>
+          <span class="ruby-identifier">data</span> = <span class="ruby-identifier">buffer</span>[<span class="ruby-identifier">pos</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+
+          <span class="ruby-comment cmt"># replace it in the original with empty string</span>
+          <span class="ruby-identifier">buffer</span>[<span class="ruby-identifier">pos</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] = <span class="ruby-value str">''</span>
+
+          <span class="ruby-identifier">data</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

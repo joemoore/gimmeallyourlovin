@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>start (Merb::Cache)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-cache/merb-cache.rb, line 40</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-ivar">@config</span> = <span class="ruby-constant">DEFAULT_CONFIG</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Plugins</span>.<span class="ruby-identifier">config</span>[<span class="ruby-identifier">:merb_cache</span>] <span class="ruby-operator">||</span> {})
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:disable</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">environment</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:disable</span>]
+      <span class="ruby-identifier">config</span>[<span class="ruby-identifier">:disable_page_caching</span>] = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-identifier">config</span>[<span class="ruby-identifier">:store</span>] = <span class="ruby-value str">&quot;dummy&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:cache_html_directory</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">dir_for</span>(<span class="ruby-identifier">:public</span>) <span class="ruby-operator">/</span> <span class="ruby-value str">&quot;cache&quot;</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-node">&quot;merb-cache/cache-store/#{@config[:store]}&quot;</span>
+    <span class="ruby-ivar">@store</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-node">&quot;#{@config[:store].capitalize}Store&quot;</span>).<span class="ruby-identifier">new</span>
+    <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;Using #{@config[:store]} cache&quot;</span>)
+  <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span><span class="ruby-operator">::</span><span class="ruby-constant">StoreNotFound</span>, <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:store</span>].<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

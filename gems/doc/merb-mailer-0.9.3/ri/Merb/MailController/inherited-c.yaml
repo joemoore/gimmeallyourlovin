@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the template root to the default mailer view directory.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "klass<Class>:"
+    body: The Merb::MailController inheriting from the base class.
+  type: :NOTE
+full_name: Merb::MailController::inherited
+is_singleton: true
+name: inherited
+params: (klass)
+visibility: public

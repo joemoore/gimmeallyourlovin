@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a source to the end of the list.
+full_name: RubiGen::Lookup::ClassMethods#append_sources
+is_singleton: false
+name: append_sources
+params: (*args)
+visibility: public

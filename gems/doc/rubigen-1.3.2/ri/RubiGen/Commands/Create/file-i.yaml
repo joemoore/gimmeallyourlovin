@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Copy a file from source to destination with collision checking.
+- !ruby/struct:SM::Flow::P 
+  body: "The file_options hash accepts :chmod and :shebang and :collision options. :chmod sets the permissions of the destination file:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  file 'config/empty.log', 'log/test.log', :chmod =&gt; 0664\n"
+- !ruby/struct:SM::Flow::P 
+  body: ":shebang sets the #!/usr/bin/ruby line for scripts"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  file 'bin/generate.rb', 'script/generate', :chmod =&gt; 0755, :shebang =&gt; '/usr/bin/env ruby'\n"
+- !ruby/struct:SM::Flow::P 
+  body: ":collision sets the collision option only for the destination file:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  file 'settings/server.yml', 'config/server.yml', :collision =&gt; :skip\n"
+- !ruby/struct:SM::Flow::P 
+  body: Collisions are handled by checking whether the destination file exists and either skipping the file, forcing overwrite, or asking the user what to do.
+full_name: RubiGen::Commands::Create#file
+is_singleton: false
+name: file
+params: (relative_source, relative_destination, file_options = {}, &block)
+visibility: public

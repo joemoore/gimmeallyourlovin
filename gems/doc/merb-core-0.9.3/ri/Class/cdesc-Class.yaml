@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows attributes to be shared within an inheritance hierarchy, but where each descendant gets a copy of their parents' attributes, instead of just a pointer to the same. This means that the child can add elements to, for example, an array without those additions being shared with either their parent, siblings, or children, which is unlike the regular class-level attributes that are shared across the entire hierarchy.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Prevent this constant from being created multiple times
+  name: EMPTY_INHERITABLE_ATTRIBUTES
+  value: "{}.freeze unless const_defined?(:EMPTY_INHERITABLE_ATTRIBUTES)"
+full_name: Class
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cattr_accessor
+- !ruby/object:RI::MethodSummary 
+  name: cattr_reader
+- !ruby/object:RI::MethodSummary 
+  name: cattr_writer
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_accessor
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_array
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_array_writer
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_hash
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_hash_writer
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_reader
+- !ruby/object:RI::MethodSummary 
+  name: class_inheritable_writer
+- !ruby/object:RI::MethodSummary 
+  name: inheritable_attributes
+- !ruby/object:RI::MethodSummary 
+  name: read_inheritable_attribute
+- !ruby/object:RI::MethodSummary 
+  name: reset_inheritable_attributes
+- !ruby/object:RI::MethodSummary 
+  name: write_inheritable_array
+- !ruby/object:RI::MethodSummary 
+  name: write_inheritable_attribute
+- !ruby/object:RI::MethodSummary 
+  name: write_inheritable_hash
+name: Class
+superclass: Object

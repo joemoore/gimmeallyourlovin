@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Look up the generator class. Require its class file, find the class in ObjectSpace, tag it with this spec, and return.
+full_name: RubiGen::Spec#klass
+is_singleton: false
+name: klass
+params: ()
+visibility: public

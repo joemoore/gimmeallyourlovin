@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Example
+- !ruby/struct:SM::Flow::VERB 
+  body: "  In your view:\n  &lt;%- cache(&quot;my_key&quot;) do -%&gt;\n    &lt;%= partial :test, :collection =&gt; @test %&gt;\n  &lt;%- end -%&gt;\n"
+full_name: Merb::Cache::ControllerInstanceMethods#cache
+is_singleton: false
+name: cache
+params: (options, from_now = nil, &block)
+visibility: public

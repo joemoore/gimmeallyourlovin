@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Reset the source list.
+full_name: RubiGen::Lookup::ClassMethods#reset_sources
+is_singleton: false
+name: reset_sources
+params: ()
+visibility: public

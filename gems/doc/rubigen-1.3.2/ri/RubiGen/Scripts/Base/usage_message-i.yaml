@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Scripts::Base#usage_message
+is_singleton: false
+name: usage_message
+params: ()
+visibility: protected

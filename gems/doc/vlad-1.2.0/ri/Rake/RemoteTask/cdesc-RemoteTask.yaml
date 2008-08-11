@@ -1,0 +1,75 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Options for execution of this task.
+  name: options
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: An Array of Actions this host will perform during execution. Use enhance to add new actions to a task.
+  name: remote_actions
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The host this task is running on during execution.
+  name: target_host
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: all_hosts
+- !ruby/object:RI::MethodSummary 
+  name: default_env
+- !ruby/object:RI::MethodSummary 
+  name: env
+- !ruby/object:RI::MethodSummary 
+  name: fetch
+- !ruby/object:RI::MethodSummary 
+  name: host
+- !ruby/object:RI::MethodSummary 
+  name: hosts_for
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: remote_task
+- !ruby/object:RI::MethodSummary 
+  name: reset
+- !ruby/object:RI::MethodSummary 
+  name: role
+- !ruby/object:RI::MethodSummary 
+  name: roles
+- !ruby/object:RI::MethodSummary 
+  name: set
+- !ruby/object:RI::MethodSummary 
+  name: set_defaults
+- !ruby/object:RI::MethodSummary 
+  name: task
+- !ruby/object:RI::MethodSummary 
+  name: tasks
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Rake::RemoteTask is a subclass of Rake::Task that adds remote_actions that execute in parallel on multiple hosts via ssh.
+constants: []
+
+full_name: Rake::RemoteTask
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Open4
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: enhance
+- !ruby/object:RI::MethodSummary 
+  name: execute
+- !ruby/object:RI::MethodSummary 
+  name: rsync
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: sudo
+- !ruby/object:RI::MethodSummary 
+  name: target_hosts
+name: RemoteTask
+superclass: Rake::Task

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>cache_pages (Merb::Cache::ControllerClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-cache/cache-page.rb, line 31</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cache_pages</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">pages</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">pages</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span>.<span class="ruby-identifier">cached_pages</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">controller_name</span>)
+      <span class="ruby-identifier">before</span>(<span class="ruby-identifier">:cache_page_before</span>)
+      <span class="ruby-identifier">after</span>(<span class="ruby-identifier">:cache_page_after</span>)
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">pages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span>, <span class="ruby-identifier">from_now</span><span class="ruby-operator">|</span> 
+      <span class="ruby-identifier">_pages</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span>.<span class="ruby-identifier">cached_pages</span>[<span class="ruby-identifier">controller_name</span>] <span class="ruby-operator">||=</span> {}
+      <span class="ruby-identifier">_pages</span>[<span class="ruby-identifier">action</span>] = [<span class="ruby-identifier">from_now</span>, <span class="ruby-value">0</span>]
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

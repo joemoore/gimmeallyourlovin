@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used in Merb.root/config/init.rb to tell Merb which testing framework to use. Currently Merb has plugins to support RSpec and Test::Unit.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "test_framework<Symbol>:"
+    body: The test framework to use. Currently only supports :rspec and :test_unit.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # This line goes in dependencies.yml\n  use_test :rspec\n\n  # This will now use the RSpec generator for tests\n  $ ruby script/generate controller MyController\n"
+full_name: Kernel#use_test
+is_singleton: false
+name: use_test
+params: (test_framework, *test_dependencies)
+visibility: public

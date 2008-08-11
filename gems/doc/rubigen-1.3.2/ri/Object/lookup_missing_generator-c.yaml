@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Lookup missing generators using const_missing. This allows any generator to reference another without having to know its location: RubyGems, ~/.rubigen/generators, and APP_ROOT/generators."
+full_name: Object::lookup_missing_generator
+is_singleton: true
+name: lookup_missing_generator
+params: (class_id)
+visibility: public

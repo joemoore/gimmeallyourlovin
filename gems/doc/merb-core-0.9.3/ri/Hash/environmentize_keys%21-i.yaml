@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Destructively and non-recursively convert each key to an uppercase string, deleting nil values along the way.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Hash:"
+    body: The newly environmentized hash.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  { :name =&gt; &quot;Bob&quot;, :contact =&gt; { :email =&gt; &quot;bob@bob.com&quot; } }.environmentize_keys!\n    #=&gt; { &quot;NAME&quot; =&gt; &quot;Bob&quot;, &quot;CONTACT&quot; =&gt; { :email =&gt; &quot;bob@bob.com&quot; } }\n"
+full_name: Hash#environmentize_keys!
+is_singleton: false
+name: environmentize_keys!
+params: ()
+visibility: public

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>lookup (RubiGen::Lookup::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/lookup.rb, line 147</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">generator_name</span>)
+        <span class="ruby-ivar">@found</span> <span class="ruby-operator">||=</span> {}
+        <span class="ruby-identifier">generator_name</span> = <span class="ruby-identifier">generator_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+        <span class="ruby-ivar">@found</span>[<span class="ruby-identifier">generator_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">generator_name</span> }
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@found</span>[<span class="ruby-identifier">generator_name</span>] 
+          <span class="ruby-identifier">chars</span> = <span class="ruby-identifier">generator_name</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/./</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span><span class="ruby-node">&quot;#{c}.*?&quot;</span>}
+          <span class="ruby-identifier">rx</span> = <span class="ruby-node">/^#{chars}$/</span>
+          <span class="ruby-identifier">gns</span> = <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">rx</span> }
+          <span class="ruby-ivar">@found</span>[<span class="ruby-identifier">generator_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">gns</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">gns</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">GeneratorError</span>, <span class="ruby-node">&quot;Pattern '#{generator_name}' matches more than one generator: #{gns.map{|sp|sp.name}.join(', ')}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">gns</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@found</span>[<span class="ruby-identifier">generator_name</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">GeneratorError</span>, <span class="ruby-node">&quot;Couldn't find '#{generator_name}' generator&quot;</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

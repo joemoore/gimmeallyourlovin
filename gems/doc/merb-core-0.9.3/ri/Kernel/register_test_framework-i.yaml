@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Register test framework at generator scope. Currently Merb has plugins to support RSpec and Test::Unit.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "test_framework<Symbol>:"
+    body: The test framework to check. Currently only supports :rspec and :test_unit but the check is performed before registration if you use API.
+  type: :NOTE
+full_name: Kernel#register_test_framework
+is_singleton: false
+name: register_test_framework
+params: (test_framework)
+visibility: public

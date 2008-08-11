@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>buildattachmentboundary (MailFactory)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mailfactory.rb, line 365</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">buildattachmentboundary</span>(<span class="ruby-identifier">attachment</span>)
+    <span class="ruby-identifier">disposition</span> = <span class="ruby-node">&quot;Content-Disposition: inline; filename=\&quot;#{attachment['filename']}\&quot;&quot;</span>
+    <span class="ruby-identifier">boundary</span> = <span class="ruby-node">&quot;--#{@attachmentboundary}\r\nContent-Type: #{attachment['mimetype']}; name=\&quot;#{attachment['filename']}\&quot;\r\nContent-Transfer-Encoding: base64\r\n#{disposition}&quot;</span>
+    <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">attachment</span>[<span class="ruby-value str">'headers'</span>])
+      <span class="ruby-identifier">boundary</span> = <span class="ruby-identifier">boundary</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;\r\n#{attachment['headers'].join(&quot;\r\n&quot;)}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+    
+    <span class="ruby-keyword kw">return</span>(<span class="ruby-identifier">boundary</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

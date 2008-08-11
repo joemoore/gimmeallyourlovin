@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::GeneratorTestHelper#bare_setup
+is_singleton: false
+name: bare_setup
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Override with your own script usage banner.
+full_name: RubiGen::Scripts::Base#banner
+is_singleton: false
+name: banner
+params: ()
+visibility: protected

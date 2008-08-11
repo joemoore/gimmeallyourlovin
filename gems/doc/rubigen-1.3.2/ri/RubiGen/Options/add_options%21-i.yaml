@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Override to add your options to the parser:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  def add_options!(opt)\n    opt.on('-v', '--verbose') { |value| options[:verbose] = value }\n  end\n"
+full_name: RubiGen::Options#add_options!
+is_singleton: false
+name: add_options!
+params: (opt)
+visibility: protected

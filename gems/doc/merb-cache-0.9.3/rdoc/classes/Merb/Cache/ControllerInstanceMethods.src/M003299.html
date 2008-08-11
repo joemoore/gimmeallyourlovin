@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>expire_page (Merb::Cache::ControllerInstanceMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-cache/cache-page.rb, line 75</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_page</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-identifier">config_dir</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>.<span class="ruby-identifier">_cache</span>.<span class="ruby-identifier">config</span>[<span class="ruby-identifier">:cache_html_directory</span>]
+    <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>.<span class="ruby-identifier">_cache</span>.<span class="ruby-identifier">expire_key_for</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">controller_name</span>, <span class="ruby-keyword kw">true</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">match</span>
+        <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">config_dir</span> <span class="ruby-operator">/</span> <span class="ruby-node">&quot;#{key}*&quot;</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">extension</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:extension</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_PAGE_EXTENSION</span>
+        <span class="ruby-identifier">files</span> = <span class="ruby-identifier">config_dir</span> <span class="ruby-operator">/</span> <span class="ruby-node">&quot;#{key}.#{extension}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">files</span>)
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Overwrite this so that a gem of the same name and version won't push one from the gems directory out entirely.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "gem_spec<Gem::Specification>:"
+    body: The specification of the gem to add.
+  type: :NOTE
+full_name: Gem::SourceIndex#add_spec
+is_singleton: false
+name: add_spec
+params: (gem_spec)
+visibility: public

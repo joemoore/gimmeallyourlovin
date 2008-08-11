@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: implement method missing to provide helper methods for setting and getting headers. Headers with '-' characters may be set/gotten as 'x_mailer' or 'XMailer' (splitting will occur between capital letters or on '_' chracters)
+full_name: MailFactory#method_missing
+is_singleton: false
+name: method_missing
+params: (methId, *args)
+visibility: public

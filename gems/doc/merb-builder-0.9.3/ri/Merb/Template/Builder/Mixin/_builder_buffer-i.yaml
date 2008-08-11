@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Merb::Template::Builder::Mixin#_builder_buffer
+is_singleton: false
+name: _builder_buffer
+params: (the_binding)
+visibility: public

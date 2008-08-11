@@ -1,0 +1,99 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: base_controller
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mail
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mailer
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: params
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: session
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: dispatch_and_deliver
+- !ruby/object:RI::MethodSummary 
+  name: inherited
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Sending mail from a controller involves three steps:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Set mail settings in merb_init.rb (Not shown here...see the Mailer docs).
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Create a MailController subclass with actions and templates.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Call the MailController from another Controller via the send_mail method.
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: First, create a file in app/mailers that subclasses Merb::MailController. The actions in this controller will do nothing but render mail.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # app/mailers/article_mailer.rb\n  class ArticleMailer &lt; Merb::MailController\n\n    def notify\n      @user = params[:user]\n      render_mail\n    end\n\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: You also can access the params hash for values passed with the Controller.send_mail method. See also the documentation for render_mail to see all the ways it can be called.
+- !ruby/struct:SM::Flow::P 
+  body: "Create a template in a subdirectory of app/mailers/views that corresponds to the controller and action name. Put plain text and ERB tags here:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # app/mailers/views/article_mailer/notify.text.erb\n  Hey, &lt;%= @user.name %&gt;,\n\n  We're running a sale on dog bones!\n"
+- !ruby/struct:SM::Flow::P 
+  body: Finally, call the Controller.send_mail method from a standard Merb controller.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Articles &lt; Application\n\n    def index\n      @user = User.find_by_name('louie')\n\n      send_mail(ArticleMailer, :notify, {\n        :from =&gt; &quot;me@example.com&quot;,\n        :to =&gt; &quot;louie@example.com&quot;,\n        :subject =&gt; &quot;Sale on Dog Bones!&quot;\n      }, { :user =&gt; @user })\n      render\n    end\n\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Note: If you don't pass a fourth argument to Controller.send_mail, the controller's params will be sent to the MailController subclass as params. However, you can explicitly send a hash of objects that will populate the params hash instead. In either case, you must set instance variables in the MailController's actions if you want to use them in the MailController's views."
+- !ruby/struct:SM::Flow::P 
+  body: "The MailController class is very powerful. You can:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Send multipart email with a single call to render_mail.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Attach files.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Render layouts and other templates.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Use any template engine supported by Merb.
+  type: :BULLET
+constants: []
+
+full_name: Merb::MailController
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: _template_location
+- !ruby/object:RI::MethodSummary 
+  name: absolute_url
+- !ruby/object:RI::MethodSummary 
+  name: attach
+- !ruby/object:RI::MethodSummary 
+  name: dispatch_and_deliver
+- !ruby/object:RI::MethodSummary 
+  name: filters_halted
+- !ruby/object:RI::MethodSummary 
+  name: render_mail
+- !ruby/object:RI::MethodSummary 
+  name: route
+name: MailController
+superclass: AbstractController

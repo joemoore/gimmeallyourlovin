@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: getting_started.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>getting_started.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doco/getting_started.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Quick Start for a 1-Server Solution:</h2>
+<h3>Setup</h3>
+<ul>
+<li>Create a deploy file, usually in &quot;config/deploy.rb&quot;:
+
+<pre>
+  set :application, &quot;project&quot;
+  set :domain, &quot;example.com&quot;
+  set :deploy_to, &quot;/path/to/install&quot;
+  set :repository, 'http://svn.example.com/project/branches/stable/'
+</pre>
+</li>
+</ul>
+<p>
+This defaults to using &#8216;svn export&#8217; from <tt>repository</tt>,
+and a single server for <tt>app</tt>, <tt>db</tt>, and <tt>www</tt>. If you
+need to tweak these things, refer to the variable documentation.
+</p>
+<ul>
+<li>Add the following to your Rakefile:
+
+<pre>
+  begin
+    require 'vlad'
+    Vlad.load
+  rescue LoadError
+    # do nothing
+  end
+</pre>
+</li>
+</ul>
+<p>
+<a href="../../classes/Vlad.html#M000010">Vlad.load</a> has a lot of
+flexibility. See the rdoc for full information.
+</p>
+<p>
+You don&#8216;t need the begin/rescue/end block if you ensure that <a
+href="../../classes/Vlad.html">Vlad</a> is installed on all your servers.
+To be lazy, you can install vlad via:
+</p>
+<pre>
+    % rake vlad:invoke COMMAND='sudo gem install vlad -y'
+</pre>
+<h3>Initial Launch</h3>
+<ul>
+<li>Run <tt>rake vlad:setup vlad:update vlad:migrate vlad:start</tt>
+
+</li>
+</ul>
+<h3>Subsequent Updates:</h3>
+<ul>
+<li><tt>rake vlad:update vlad:migrate vlad:start</tt>
+
+</li>
+</ul>
+<p>
+Each step may be run separately.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

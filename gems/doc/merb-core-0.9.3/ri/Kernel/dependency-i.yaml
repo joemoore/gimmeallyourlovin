@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Loads the given string as a gem. Execution is deferred to the Merb::BootLoader::Dependencies.run during bootup.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name<String>:"
+    body: The name of the gem to load.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*ver<Gem::Requirement, Gem::Version, Array, ~to_str>:"
+    body: Version requirements to be passed to Gem.activate.
+  type: :NOTE
+full_name: Kernel#dependency
+is_singleton: false
+name: dependency
+params: (name, *ver)
+visibility: public

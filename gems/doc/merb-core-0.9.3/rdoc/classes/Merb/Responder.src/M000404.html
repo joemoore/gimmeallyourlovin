@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse (Merb::Responder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-core/controller/mixins/responder.rb, line 371</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">accept_header</span>)
+      <span class="ruby-identifier">list</span> = <span class="ruby-identifier">accept_header</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/,/</span>).<span class="ruby-identifier">enum_for</span>(<span class="ruby-identifier">:each_with_index</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">AcceptType</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">entry</span>,<span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>)
+      <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">uniq</span>
+      <span class="ruby-comment cmt"># firefox (and possibly other browsers) send broken default accept headers.</span>
+      <span class="ruby-comment cmt"># fix them up by sorting alternate xml forms (namely application/xhtml+xml)</span>
+      <span class="ruby-comment cmt"># ahead of pure xml types (application/xml,text/xml).</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">app_xml</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">detect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">super_range</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'application/xml'</span>}
+        <span class="ruby-identifier">list</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\+xml/</span>}.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">acc_type</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">list</span>[<span class="ruby-identifier">list</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">acc_type</span>)],<span class="ruby-identifier">list</span>[<span class="ruby-identifier">list</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">app_xml</span>)] = 
+            <span class="ruby-identifier">list</span>[<span class="ruby-identifier">list</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">app_xml</span>)],<span class="ruby-identifier">list</span>[<span class="ruby-identifier">list</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">acc_type</span>)] }
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">list</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>copy_files (Merb::GeneratorHelpers)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-gen/helpers.rb, line 29</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_files</span>
+    <span class="ruby-identifier">select_template_directories</span>(<span class="ruby-keyword kw">true</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment cmt"># Remove &quot;template/&quot; from the glob filename</span>
+      <span class="ruby-identifier">dir</span> = <span class="ruby-identifier">relative</span>(<span class="ruby-identifier">file</span>)
+      
+      <span class="ruby-comment cmt"># Get all the files under the directory that are not directories or in </span>
+      <span class="ruby-comment cmt"># the list of excluded templates above.</span>
+      <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{file.empty? ? &quot;.&quot; : file}/*&quot;</span>].<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">f</span>) }
+      
+      <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">files</span>.<span class="ruby-identifier">empty?</span>
+      
+      <span class="ruby-comment cmt"># We want to templatize any files that contain &lt;% %&gt; characters</span>
+      <span class="ruby-comment cmt">#--</span>
+      <span class="ruby-comment cmt"># This is old code, should we need it: </span>
+      <span class="ruby-comment cmt"># templates, to_copy = files.partition {|file| !(file =~ /\.erb$/) &amp;&amp; File.read(file) =~ /&lt;%.*%&gt;/}</span>
+      <span class="ruby-identifier">templates</span>, <span class="ruby-identifier">to_copy</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">partition</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>) <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/&lt;%.*%&gt;/</span> }
+      
+      <span class="ruby-comment cmt"># Make the paths relative to the directory we're inspecting</span>
+      [<span class="ruby-identifier">to_copy</span>, <span class="ruby-identifier">templates</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">paths</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relative</span>(<span class="ruby-identifier">f</span>, <span class="ruby-identifier">dir</span>) }
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-comment cmt"># Copy the files over</span>
+      <span class="ruby-identifier">to_copy</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">m</span>.<span class="ruby-identifier">file</span>(
+          <span class="ruby-identifier">file_name</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">filename</span>), 
+          <span class="ruby-identifier">file_name</span>(<span class="ruby-identifier">interpolate_path</span>(<span class="ruby-identifier">dir</span>), <span class="ruby-identifier">filename</span>)
+        )
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-comment cmt"># Copy the templates over</span>
+      <span class="ruby-identifier">templates</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">m</span>.<span class="ruby-identifier">template</span>(
+          <span class="ruby-identifier">file_name</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">filename</span>), 
+          <span class="ruby-identifier">file_name</span>(<span class="ruby-identifier">interpolate_path</span>(<span class="ruby-identifier">dir</span>), <span class="ruby-identifier">interpolate_path</span>(<span class="ruby-identifier">filename</span>))
+        )
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

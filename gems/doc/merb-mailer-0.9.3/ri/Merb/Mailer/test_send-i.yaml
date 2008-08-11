@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Tests mail sending by adding the mail to deliveries.
+full_name: Merb::Mailer#test_send
+is_singleton: false
+name: test_send
+params: ()
+visibility: public

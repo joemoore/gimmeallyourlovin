@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Raise a usage error. Override usage_message to provide a blurb after the option parser summary.
+full_name: RubiGen::Options#usage
+is_singleton: false
+name: usage
+params: (message = usage_message)
+visibility: protected

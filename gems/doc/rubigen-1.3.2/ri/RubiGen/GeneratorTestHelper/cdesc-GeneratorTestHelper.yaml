@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: RubiGen::GeneratorTestHelper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: app_root_files
+- !ruby/object:RI::MethodSummary 
+  name: assert_directory_exists
+- !ruby/object:RI::MethodSummary 
+  name: assert_file_exists
+- !ruby/object:RI::MethodSummary 
+  name: assert_generated_class
+- !ruby/object:RI::MethodSummary 
+  name: assert_generated_file
+- !ruby/object:RI::MethodSummary 
+  name: assert_generated_module
+- !ruby/object:RI::MethodSummary 
+  name: assert_generated_test_for
+- !ruby/object:RI::MethodSummary 
+  name: assert_has_method
+- !ruby/object:RI::MethodSummary 
+  name: bare_setup
+- !ruby/object:RI::MethodSummary 
+  name: bare_teardown
+- !ruby/object:RI::MethodSummary 
+  name: build_generator
+- !ruby/object:RI::MethodSummary 
+  name: rubygem_folders
+- !ruby/object:RI::MethodSummary 
+  name: rubygems_setup
+- !ruby/object:RI::MethodSummary 
+  name: rubygems_teardown
+- !ruby/object:RI::MethodSummary 
+  name: run_generator
+- !ruby/object:RI::MethodSummary 
+  name: silence_generator
+name: GeneratorTestHelper
+superclass: 

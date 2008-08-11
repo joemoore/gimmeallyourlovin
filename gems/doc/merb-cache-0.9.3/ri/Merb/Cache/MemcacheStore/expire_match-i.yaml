@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Expire the cache entries matching the given key
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameter
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<Sting>:"
+    body: The key matching the cache entries
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Additional info
+- !ruby/struct:SM::Flow::VERB 
+  body: "  In memcache this requires to keep track of all keys (on by default).\n  If you don't need this, set :no_tracking =&gt; true in the config.\n"
+full_name: Merb::Cache::MemcacheStore#expire_match
+is_singleton: false
+name: expire_match
+params: (key)
+visibility: public

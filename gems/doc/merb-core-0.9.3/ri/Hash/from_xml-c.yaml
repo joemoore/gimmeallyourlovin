@@ -1,0 +1,86 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Converts valid XML into a Ruby Hash structure.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Paramters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "xml<String>:"
+    body: A string representation of valid XML.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Mixed content is treated as text and any tags in it are left unparsed
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Any attributes other than type on a node containing a text node will be discarded
+  type: :BULLET
+- !ruby/struct:SM::Flow::H 
+  level: 5
+  text: Typecasting
+- !ruby/struct:SM::Flow::P 
+  body: "Typecasting is performed on elements that have a <tt>type</tt> attribute: integer::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "boolean:"
+    body: Anything other than &quot;true&quot; evaluates to false.
+  - !ruby/struct:SM::Flow::LI 
+    label: "datetime:"
+    body: Returns a Time object. See Time documentation for valid Time strings.
+  - !ruby/struct:SM::Flow::LI 
+    label: "date:"
+    body: Returns a Date object. See Date documentation for valid Date strings.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: Keys are automatically converted to <tt>snake_case</tt>
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::H 
+  level: 5
+  text: Standard
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &lt;user gender='m'&gt;\n    &lt;age type='integer'&gt;35&lt;/age&gt;\n    &lt;name&gt;Home Simpson&lt;/name&gt;\n    &lt;dob type='date'&gt;1988-01-01&lt;/dob&gt;\n    &lt;joined-at type='datetime'&gt;2000-04-28 23:01&lt;/joined-at&gt;\n    &lt;is-cool type='boolean'&gt;true&lt;/is-cool&gt;\n  &lt;/user&gt;\n"
+- !ruby/struct:SM::Flow::P 
+  body: evaluates to
+- !ruby/struct:SM::Flow::VERB 
+  body: "  { &quot;user&quot; =&gt; {\n      &quot;gender&quot;    =&gt; &quot;m&quot;,\n      &quot;age&quot;       =&gt; 35,\n      &quot;name&quot;      =&gt; &quot;Home Simpson&quot;,\n      &quot;dob&quot;       =&gt; DateObject( 1998-01-01 ),\n      &quot;joined_at&quot; =&gt; TimeObject( 2000-04-28 23:01),\n      &quot;is_cool&quot;   =&gt; true\n    }\n  }\n"
+- !ruby/struct:SM::Flow::H 
+  level: 5
+  text: Mixed Content
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &lt;story&gt;\n    A Quick <em>brown</em> Fox\n  &lt;/story&gt;\n"
+- !ruby/struct:SM::Flow::P 
+  body: evaluates to
+- !ruby/struct:SM::Flow::VERB 
+  body: "  { &quot;story&quot; =&gt; &quot;A Quick <em>brown</em> Fox&quot; }\n"
+- !ruby/struct:SM::Flow::H 
+  level: 6
+  text: Attributes other than type on a node containing text
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &lt;story is-good='false'&gt;\n    A Quick <em>brown</em> Fox\n  &lt;/story&gt;\n"
+- !ruby/struct:SM::Flow::P 
+  body: evaluates to
+- !ruby/struct:SM::Flow::VERB 
+  body: "  { &quot;story&quot; =&gt; &quot;A Quick <em>brown</em> Fox&quot; }\n\n  &lt;bicep unit='inches' type='integer'&gt;60&lt;/bicep&gt;\n"
+- !ruby/struct:SM::Flow::P 
+  body: evaluates with a typecast to an integer. But unit attribute is ignored.
+- !ruby/struct:SM::Flow::VERB 
+  body: "   { &quot;bicep&quot; =&gt; 60 }\n"
+full_name: Hash::from_xml
+is_singleton: true
+name: from_xml
+params: ( xml )
+visibility: public

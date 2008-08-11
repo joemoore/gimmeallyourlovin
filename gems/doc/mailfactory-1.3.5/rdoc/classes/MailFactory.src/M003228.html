@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>html= (MailFactory)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mailfactory.rb, line 108</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">html=</span>(<span class="ruby-identifier">newhtml</span>)
+    <span class="ruby-ivar">@html</span> = <span class="ruby-node">&quot;&lt;html&gt;\n&lt;head&gt;\n&lt;meta content=\&quot;text/html;charset=#{@charset}\&quot; http-equiv=\&quot;Content-Type\&quot;&gt;\n&lt;/head&gt;\n&lt;body bgcolor=\&quot;#ffffff\&quot; text=\&quot;#000000\&quot;&gt;\n#{newhtml}\n&lt;/body&gt;\n&lt;/html&gt;&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,76 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An easy class for creating a mail message
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "'1.3.5'"
+full_name: MailFactory
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_attachment
+- !ruby/object:RI::MethodSummary 
+  name: add_attachment_as
+- !ruby/object:RI::MethodSummary 
+  name: add_header
+- !ruby/object:RI::MethodSummary 
+  name: attach
+- !ruby/object:RI::MethodSummary 
+  name: attach_as
+- !ruby/object:RI::MethodSummary 
+  name: body_to_s
+- !ruby/object:RI::MethodSummary 
+  name: buildattachmentboundary
+- !ruby/object:RI::MethodSummary 
+  name: buildbodyboundary
+- !ruby/object:RI::MethodSummary 
+  name: construct
+- !ruby/object:RI::MethodSummary 
+  name: file_encode
+- !ruby/object:RI::MethodSummary 
+  name: generate_boundary
+- !ruby/object:RI::MethodSummary 
+  name: get_header
+- !ruby/object:RI::MethodSummary 
+  name: headers_to_s
+- !ruby/object:RI::MethodSummary 
+  name: html=
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: multipart?
+- !ruby/object:RI::MethodSummary 
+  name: quote_address_if_necessary
+- !ruby/object:RI::MethodSummary 
+  name: quote_if_necessary
+- !ruby/object:RI::MethodSummary 
+  name: quoted_printable_encode
+- !ruby/object:RI::MethodSummary 
+  name: quoted_printable_encode_header
+- !ruby/object:RI::MethodSummary 
+  name: quoted_printable_with_instruction
+- !ruby/object:RI::MethodSummary 
+  name: rawhtml=
+- !ruby/object:RI::MethodSummary 
+  name: remove_header
+- !ruby/object:RI::MethodSummary 
+  name: replyto
+- !ruby/object:RI::MethodSummary 
+  name: replyto=
+- !ruby/object:RI::MethodSummary 
+  name: set_header
+- !ruby/object:RI::MethodSummary 
+  name: text=
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: MailFactory
+superclass: Object

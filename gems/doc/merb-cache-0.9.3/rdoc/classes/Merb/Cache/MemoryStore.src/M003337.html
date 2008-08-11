@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>cache_set (Merb::Cache::MemoryStore)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-cache/cache-store/memory.rb, line 73</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cache_set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">from_now</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">_expire</span> = <span class="ruby-identifier">from_now</span> <span class="ruby-value">? </span><span class="ruby-identifier">from_now</span>.<span class="ruby-identifier">minutes</span>.<span class="ruby-identifier">from_now</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">cache_write</span>(<span class="ruby-identifier">key</span>, [<span class="ruby-identifier">data</span>, <span class="ruby-identifier">_expire</span>])
+    <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;cache: set (#{key})&quot;</span>)
+    <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

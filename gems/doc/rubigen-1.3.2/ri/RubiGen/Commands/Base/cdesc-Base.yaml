@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Generator commands delegate RubiGen::Base and implement a standard set of actions. Their behavior is defined by the way they respond to these actions: Create brings life; Destroy brings death; List passively observes."
+- !ruby/struct:SM::Flow::P 
+  body: Commands are invoked by replaying (or rewinding) the generator's manifest of actions. See RubiGen::Manifest and RubiGen::Base#manifest method that generator subclasses are required to override.
+- !ruby/struct:SM::Flow::P 
+  body: Commands allows generators to &quot;plug in&quot; invocation behavior, which corresponds to the GoF Strategy pattern.
+constants: []
+
+full_name: RubiGen::Commands::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: class_collisions
+- !ruby/object:RI::MethodSummary 
+  name: current_migration_number
+- !ruby/object:RI::MethodSummary 
+  name: dependency
+- !ruby/object:RI::MethodSummary 
+  name: existing_migrations
+- !ruby/object:RI::MethodSummary 
+  name: gsub_file
+- !ruby/object:RI::MethodSummary 
+  name: invoke!
+- !ruby/object:RI::MethodSummary 
+  name: migration_directory
+- !ruby/object:RI::MethodSummary 
+  name: migration_exists?
+- !ruby/object:RI::MethodSummary 
+  name: next_migration_number
+- !ruby/object:RI::MethodSummary 
+  name: next_migration_string
+- !ruby/object:RI::MethodSummary 
+  name: readme
+name: Base
+superclass: DelegateClass(RubiGen::Base)

@@ -1,0 +1,38 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*args:"
+    body: Arguments to pass to the block.
+  - !ruby/struct:SM::Flow::LI 
+    label: "&block:"
+    body: The template block to call.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: The output of the block.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::P 
+  body: "Capture being used in a .html.erb page:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @foo = capture do\n    xml.instruct!\n    xml.foo do\n      xml.bar &quot;baz&quot;\n    end\n    xml.target!\n  end\n"
+full_name: Merb::Template::Builder::Mixin#capture_builder
+is_singleton: false
+name: capture_builder
+params: (*args, &block)
+visibility: public

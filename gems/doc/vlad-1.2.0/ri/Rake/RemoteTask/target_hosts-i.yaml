@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The hosts this task will execute on. The hosts are determined from the role this task belongs to.
+- !ruby/struct:SM::Flow::P 
+  body: "The target hosts may be overridden by providing a comma-separated list of commands to the HOSTS environment variable:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  rake my_task HOSTS=app1.example.com,app2.example.com\n"
+full_name: Rake::RemoteTask#target_hosts
+is_singleton: false
+name: target_hosts
+params: ()
+visibility: public

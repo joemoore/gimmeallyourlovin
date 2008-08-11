@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Freezes a component
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "component<String>:"
+    body: The component to freeze, it needs to be defined in @@components
+  - !ruby/struct:SM::Flow::LI 
+    label: "update<Boolean>:"
+    body: An optional value to tell the freezer to update the previously frozen or not, this will default to false
+  - !ruby/struct:SM::Flow::LI 
+    label: "mode<String>:"
+    body: An optional value to tell the freezer what freezer mode to use (submodules or rubygems), this will default to submodules
+  type: :NOTE
+full_name: Freezer::freeze
+is_singleton: true
+name: freeze
+params: (component, update, mode)
+visibility: public

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Merb::Cache</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Merb::Cache</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/merb-cache/cache-action_rb.html">
+                lib/merb-cache/cache-action.rb
+                </a>
+        <br />
+                <a href="../../files/lib/merb-cache/cache-page_rb.html">
+                lib/merb-cache/cache-page.rb
+                </a>
+        <br />
+                <a href="../../files/lib/merb-cache/merb-cache_rb.html">
+                lib/merb-cache/merb-cache.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003284">expire_key_for</a>&nbsp;&nbsp;
+      <a href="#M003285">key_for</a>&nbsp;&nbsp;
+      <a href="#M003283">start</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Cache/ControllerClassMethods.html" class="link">Merb::Cache::ControllerClassMethods</a><br />
+Module <a href="Cache/ControllerInstanceMethods.html" class="link">Merb::Cache::ControllerInstanceMethods</a><br />
+Module <a href="Cache/DatabaseStore.html" class="link">Merb::Cache::DatabaseStore</a><br />
+Class <a href="Cache/DatabaseStore.html" class="link">Merb::Cache::DatabaseStore</a><br />
+Class <a href="Cache/DummyStore.html" class="link">Merb::Cache::DummyStore</a><br />
+Class <a href="Cache/FileStore.html" class="link">Merb::Cache::FileStore</a><br />
+Class <a href="Cache/MemcacheStore.html" class="link">Merb::Cache::MemcacheStore</a><br />
+Class <a href="Cache/MemoryStore.html" class="link">Merb::Cache::MemoryStore</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_CONFIG</td>
+          <td>=</td>
+          <td class="context-item-value">{     :cache_html_directory =&gt; Merb.dir_for(:public) / &quot;cache&quot;,      #:store =&gt; &quot;database&quot;,     #:table_name =&gt; &quot;merb_cache&quot;,      #:disable =&gt; &quot;development&quot;, # disable merb-cache in development     #:disable =&gt; true, # disable merb-cache in all environments      :store =&gt; &quot;file&quot;,     :cache_directory =&gt; Merb.root_path(&quot;tmp/cache&quot;),      #:store =&gt; &quot;memcache&quot;,     #:host =&gt; &quot;127.0.0.1:11211&quot;,     #:namespace =&gt; &quot;merb_cache&quot;,     #:track_keys =&gt; true,      #:store =&gt; &quot;memory&quot;,     # store could be: file, memcache, memory, database, dummy, ...   }</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">config</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">store</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003284" class="method-detail">
+        <a name="M003284"></a>
+
+        <div class="method-heading">
+          <a href="Cache.src/M003284.html" target="Code" class="method-signature"
+            onclick="popupCode('Cache.src/M003284.html');return false;">
+          <span class="method-name">expire_key_for</span><span class="method-args">(options, controller, controller_based = false) {|key, !options[:match].nil?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Compute a cache key and yield it to the given block It is used by the
+expire_page, expire_action and expire methods.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">options&lt;String, Hash&gt;:</td><td>The key or the Hash that will be used to build the key
+
+</td></tr>
+<tr><td valign="top">controller&lt;String&gt;:</td><td>The name of the controller
+
+</td></tr>
+<tr><td valign="top">controller_based&lt;Boolean&gt;:</td><td>only used by action and page caching
+
+</td></tr>
+</table>
+<h4>Options (options)</h4>
+<table>
+<tr><td valign="top">:key&lt;String&gt;:</td><td>The complete or partial key that will be computed.
+
+</td></tr>
+<tr><td valign="top">:action&lt;String&gt;:</td><td>The action name that will be used to compute the key
+
+</td></tr>
+<tr><td valign="top">:controller&lt;String&gt;:</td><td>The controller name that will be part of the key
+
+</td></tr>
+<tr><td valign="top">:params&lt;Array[String]&gt;:</td><td>The params will be joined together (with &#8217;/&#8217;) and added to the
+key
+
+</td></tr>
+<tr><td valign="top">:match&lt;Boolean, String&gt;:</td><td>true, it will try to match multiple cache entries string, shortcut for
+{:key =&gt; &quot;mykey&quot;, :match =&gt; true}
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  expire(:key =&gt; &quot;root_key&quot;, :params =&gt; [session[:me], params[:id]])
+  expire(:match =&gt; &quot;root_key&quot;)
+  expire_action(:action =&gt; 'list')
+  expire_page(:action =&gt; 'show', :controller =&gt; 'news')
+</pre>
+<h4>Returns</h4>
+<p>
+The result of the given block
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003285" class="method-detail">
+        <a name="M003285"></a>
+
+        <div class="method-heading">
+          <a href="Cache.src/M003285.html" target="Code" class="method-signature"
+            onclick="popupCode('Cache.src/M003285.html');return false;">
+          <span class="method-name">key_for</span><span class="method-args">(options, controller, controller_based = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Compute a cache key based on the given parameters Only used by the
+cached_page?, cached_action?, cached?, cache, cache_get and cache_set
+methods
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">options&lt;String, Hash&gt;:</td><td>The key or the Hash that will be used to build the key
+
+</td></tr>
+<tr><td valign="top">controller&lt;String&gt;:</td><td>The name of the controller
+
+</td></tr>
+<tr><td valign="top">controller_based&lt;Boolean&gt;:</td><td>only used by action and page caching
+
+</td></tr>
+</table>
+<h4>Options (options)</h4>
+<table>
+<tr><td valign="top">:key&lt;String&gt;:</td><td>The complete or partial key that will be computed.
+
+</td></tr>
+<tr><td valign="top">:action&lt;String&gt;:</td><td>The action name that will be used to compute the key
+
+</td></tr>
+<tr><td valign="top">:controller&lt;String&gt;:</td><td>The controller name that will be part of the key
+
+</td></tr>
+<tr><td valign="top">:params&lt;Array[String]&gt;:</td><td>The params will be joined together (with &#8217;/&#8217;) and added to the
+key
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  cache_set(&quot;my_key&quot;, @data)
+  cache_get(:key =&gt; &quot;root_key&quot;, :params =&gt; [session[:me], params[:id]])
+</pre>
+<h4>Returns</h4>
+<p>
+The computed key
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003283" class="method-detail">
+        <a name="M003283"></a>
+
+        <div class="method-heading">
+          <a href="Cache.src/M003283.html" target="Code" class="method-signature"
+            onclick="popupCode('Cache.src/M003283.html');return false;">
+          <span class="method-name">start</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called in the after_app_loads loop and instantiate the right backend
+</p>
+<h4>Raises</h4>
+<table>
+<tr><td valign="top">Store#NotFound:</td><td>If the cache_store mentionned in the config is unknown
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

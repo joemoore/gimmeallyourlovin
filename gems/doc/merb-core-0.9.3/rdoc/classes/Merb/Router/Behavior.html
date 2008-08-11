@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Merb::Router::Behavior</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Merb::Router::Behavior</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/merb-core/dispatch/router/behavior_rb.html">
+                lib/merb-core/dispatch/router/behavior.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="Behavior.html">Behavior</a> class is an interim route-building
+class that ties pattern-matching <tt>conditions</tt> <a
+href="Behavior.html#M000551">to</a> output parameters, <tt>params</tt>.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000547">add</a>&nbsp;&nbsp;
+      <a href="#M000572">ancestors</a>&nbsp;&nbsp;
+      <a href="#M000545">array_to_code</a>&nbsp;&nbsp;
+      <a href="#M000575">compiled_conditions</a>&nbsp;&nbsp;
+      <a href="#M000576">compiled_params</a>&nbsp;&nbsp;
+      <a href="#M000544">concat_without_endcaps</a>&nbsp;&nbsp;
+      <a href="#M000570">copy_original_conditions</a>&nbsp;&nbsp;
+      <a href="#M000543">count_parens_up_to</a>&nbsp;&nbsp;
+      <a href="#M000571">deduce_placeholders</a>&nbsp;&nbsp;
+      <a href="#M000553">default_routes</a>&nbsp;&nbsp;
+      <a href="#M000552">defer_to</a>&nbsp;&nbsp;
+      <a href="#M000563">inspect</a>&nbsp;&nbsp;
+      <a href="#M000568">many_behaviors_to</a>&nbsp;&nbsp;
+      <a href="#M000548">match</a>&nbsp;&nbsp;
+      <a href="#M000549">match_without_path</a>&nbsp;&nbsp;
+      <a href="#M000560">merged_conditions</a>&nbsp;&nbsp;
+      <a href="#M000559">merged_original_conditions</a>&nbsp;&nbsp;
+      <a href="#M000561">merged_params</a>&nbsp;&nbsp;
+      <a href="#M000562">merged_placeholders</a>&nbsp;&nbsp;
+      <a href="#M000554">namespace</a>&nbsp;&nbsp;
+      <a href="#M000565">namespace_to_name_prefix</a>&nbsp;&nbsp;
+      <a href="#M000546">new</a>&nbsp;&nbsp;
+      <a href="#M000573">path_captures</a>&nbsp;&nbsp;
+      <a href="#M000564">regexp?</a>&nbsp;&nbsp;
+      <a href="#M000556">resource</a>&nbsp;&nbsp;
+      <a href="#M000567">resource_behaviors</a>&nbsp;&nbsp;
+      <a href="#M000555">resources</a>&nbsp;&nbsp;
+      <a href="#M000566">resources_behaviors</a>&nbsp;&nbsp;
+      <a href="#M000569">stringify_conditions</a>&nbsp;&nbsp;
+      <a href="#M000551">to</a>&nbsp;&nbsp;
+      <a href="#M000558">to_resource</a>&nbsp;&nbsp;
+      <a href="#M000557">to_resources</a>&nbsp;&nbsp;
+      <a href="#M000550">to_route</a>&nbsp;&nbsp;
+      <a href="#M000574">total_previous_captures</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">conditions</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">params</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parent</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">placeholders</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000545" class="method-detail">
+        <a name="M000545"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000545.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000545.html');return false;">
+          <span class="method-name">array_to_code</span><span class="method-args">(arr)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">arr&lt;Array&gt;:</td><td>The array <a href="Behavior.html#M000551">to</a> convert <a
+href="Behavior.html#M000551">to</a> a code string.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../String.html">String</a>:</td><td>The arr&#8216;s elements converted <a href="Behavior.html#M000551">to</a>
+string and joined with &quot; + &quot;, with any string elements surrounded
+by quotes.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000544" class="method-detail">
+        <a name="M000544"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000544.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000544.html');return false;">
+          <span class="method-name">concat_without_endcaps</span><span class="method-args">(string1, string2)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">string1&lt;<a href="../../String.html">String</a>&gt;:</td><td>The string <a href="Behavior.html#M000551">to</a> concatenate with.
+
+</td></tr>
+<tr><td valign="top">string2&lt;<a href="../../String.html">String</a>&gt;:</td><td>The string <a href="Behavior.html#M000551">to</a> concatenate.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../String.html">String</a>:</td><td>the concatenated string with regexp end caps removed.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000543" class="method-detail">
+        <a name="M000543"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000543.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000543.html');return false;">
+          <span class="method-name">count_parens_up_to</span><span class="method-args">(string, pos)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">string&lt;<a href="../../String.html">String</a>&gt;:</td><td>The string in which <a href="Behavior.html#M000551">to</a> count
+parentheses.
+
+</td></tr>
+<tr><td valign="top">pos&lt;Fixnum&gt;:</td><td>The last character for counting.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Fixnum:</td><td>The number of open parentheses in string, up <a
+href="Behavior.html#M000551">to</a> and including pos.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000546" class="method-detail">
+        <a name="M000546"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000546.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000546.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(conditions = {}, params = {}, parent = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">conditions&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Conditions <a href="Behavior.html#M000551">to</a> be met for this behavior
+<a href="Behavior.html#M000551">to</a> take effect.
+
+</td></tr>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td><a href="../../Hash.html">Hash</a> describing the course action <a
+href="Behavior.html#M000551">to</a> take (<a
+href="Behavior.html">Behavior</a>) when the conditions <a
+href="Behavior.html#M000548">match</a>. The values of the <tt>params</tt>
+keys must be Strings.
+
+</td></tr>
+<tr><td valign="top">parent&lt;<a href="Behavior.html">Behavior</a>, Nil&gt;:</td><td>The parent of this <a href="Behavior.html">Behavior</a>. Defaults <a
+href="Behavior.html#M000551">to</a> nil.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000547" class="method-detail">
+        <a name="M000547"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000547.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000547.html');return false;">
+          <span class="method-name">add</span><span class="method-args">(path, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Register a <a href="Behavior.html#M000546">new</a> route.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">path&lt;<a href="../../String.html">String</a>, Regex&gt;:</td><td>The url path <a href="Behavior.html#M000551">to</a> <a
+href="Behavior.html#M000548">match</a>
+
+</td></tr>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>The parameters the <a href="Behavior.html#M000546">new</a> routes maps <a
+href="Behavior.html#M000551">to</a>.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Route.html">Route</a>:</td><td>The resulting <a href="Route.html">Route</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000553" class="method-detail">
+        <a name="M000553"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000553.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000553.html');return false;">
+          <span class="method-name">default_routes</span><span class="method-args">(params = {}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates the most common routes /:controller/:action/:id.format when called
+with no arguments. You can pass a hash or a block <a
+href="Behavior.html#M000551">to</a> <a href="Behavior.html#M000547">add</a>
+parameters or override the default behavior.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>This optional hash can be used <a href="Behavior.html#M000551">to</a>
+augment the default settings
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>When passing a block a <a href="Behavior.html#M000546">new</a> behavior is
+yielded and more refinement is possible.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Route.html">Route</a>:</td><td>the default route
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  # Passing an extra parameter &quot;mode&quot; to all matches
+  r.default_routes :mode =&gt; &quot;default&quot;
+
+  # specifying exceptions within a block
+  r.default_routes do |nr|
+    nr.defer_to do |request, params|
+      nr.match(:protocol =&gt; &quot;http://&quot;).to(:controller =&gt; &quot;login&quot;,
+        :action =&gt; &quot;new&quot;) if request.env[&quot;REQUEST_URI&quot;] =~ /\/private\//
+    end
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000552" class="method-detail">
+        <a name="M000552"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000552.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000552.html');return false;">
+          <span class="method-name">defer_to</span><span class="method-args">(params = {}, &amp;conditional_block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Takes a block and stores it for deferred conditional routes. The block
+takes the <tt>request</tt> object and the <tt>params</tt> hash as
+parameters.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Parameters and conditions associated with this behavior.
+
+</td></tr>
+<tr><td valign="top">&amp;conditional_block:</td><td>A block with the conditions <a href="Behavior.html#M000551">to</a> be met
+for the behavior <a href="Behavior.html#M000551">to</a> take effect.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Route.html">Route</a> :</td><td>The default route.
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  r.defer_to do |request, params|
+    params.merge :controller =&gt; 'here',
+      :action =&gt; 'there' if request.xhr?
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000563" class="method-detail">
+        <a name="M000563"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000563.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000563.html');return false;">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../String.html">String</a>:</td><td>A human readable form of the behavior.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000548" class="method-detail">
+        <a name="M000548"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000548.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000548.html');return false;">
+          <span class="method-name">match</span><span class="method-args">(path = '', conditions = {}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Matches a <tt>path</tt> and any number of optional request methods as
+conditions of a route. Alternatively, <tt>path</tt> can be a hash of
+conditions, in which case <tt>conditions</tt> ignored.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">path&lt;<a href="../../String.html">String</a>, Regexp&gt;:</td><td>When passing a string as <tt>path</tt> you&#8216;re defining a literal
+definition for your route. Using a colon, ex.: &quot;:login&quot;, defines
+both a capture and a named param. When passing a regular expression you can
+define captures explicitly within the regular expression syntax.
+<tt>path</tt> is optional.
+
+</td></tr>
+<tr><td valign="top">conditions&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>This optional hash helps refine the settings for the route. When combined
+with a block it can help keep your routes DRY
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>Passes a <a href="Behavior.html#M000546">new</a> instance of a <a
+href="Behavior.html">Behavior</a> object into the optional block so that
+sub-matching and routes nesting may occur.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Behavior.html">Behavior</a>:</td><td>A <a href="Behavior.html#M000546">new</a> instance of <a
+href="Behavior.html">Behavior</a> with the specified path and conditions.
+
+</td></tr>
+</table>
+<p>
+<tt>Tip</tt>: When nesting always make sure the most inner sub-<a
+href="Behavior.html#M000548">match</a> registers a <a
+href="Route.html">Route</a> and doesn&#8216;t just returns <a
+href="Behavior.html#M000546">new</a> Behaviors.
+</p>
+<h4>Examples</h4>
+<pre>
+  # registers /foo/bar to controller =&gt; &quot;foo&quot;, :action =&gt; &quot;bar&quot;
+  # and /foo/baz to controller =&gt; &quot;foo&quot;, :action =&gt; &quot;caz&quot;
+  r.match &quot;/foo&quot;, :controller =&gt; &quot;foo&quot; do |f|
+    f.match(&quot;/bar&quot;).to(:action =&gt; &quot;bar&quot;)
+    f.match(&quot;/baz&quot;).to(:action =&gt; &quot;caz&quot;)
+  end
+
+  r.match &quot;/foo&quot;, :controller =&gt; &quot;foo&quot; do |f|
+    f.match(&quot;/bar&quot;, :action =&gt; &quot;bar&quot;)
+    f.match(&quot;/baz&quot;, :action =&gt; &quot;caz&quot;)
+  end # =&gt; doesn't register any routes at all
+
+  # match also takes regular expressions
+  r.match(%r[/account/([a-z]{4,6})]).to(:controller =&gt; &quot;account&quot;,
+     :action =&gt; &quot;show&quot;, :id =&gt; &quot;[1]&quot;)
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000549" class="method-detail">
+        <a name="M000549"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000549.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000549.html');return false;">
+          <span class="method-name">match_without_path</span><span class="method-args">(conditions = {}) {|new_behavior if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generates a <a href="Behavior.html#M000546">new</a> child behavior without
+the path if the path matches an empty string. Yields the <a
+href="Behavior.html#M000546">new</a> behavior <a
+href="Behavior.html#M000551">to</a> a block.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">conditions&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Optional conditions <a href="Behavior.html#M000551">to</a> pass <a
+href="Behavior.html#M000551">to</a> the <a
+href="Behavior.html#M000546">new</a> route.
+
+</td></tr>
+</table>
+<h4>Block parameters</h4>
+<table>
+<tr><td valign="top">new_behavior&lt;<a href="Behavior.html">Behavior</a>&gt;:</td><td>The child behavior.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Behavior.html">Behavior</a>:</td><td>The <a href="Behavior.html#M000546">new</a> behavior.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000560" class="method-detail">
+        <a name="M000560"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000560.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000560.html');return false;">
+          <span class="method-name">merged_conditions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../Hash.html">Hash</a>:</td><td>The conditions of this behavior merged with the conditions of all its <a
+href="Behavior.html#M000572">ancestors</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000559" class="method-detail">
+        <a name="M000559"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000559.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000559.html');return false;">
+          <span class="method-name">merged_original_conditions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../Hash.html">Hash</a>:</td><td>The original conditions of this behavior merged with the original
+conditions of all its <a href="Behavior.html#M000572">ancestors</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000561" class="method-detail">
+        <a name="M000561"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000561.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000561.html');return false;">
+          <span class="method-name">merged_params</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../Hash.html">Hash</a>:</td><td>The params of this behavior merged with the params of all its <a
+href="Behavior.html#M000572">ancestors</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000562" class="method-detail">
+        <a name="M000562"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000562.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000562.html');return false;">
+          <span class="method-name">merged_placeholders</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../Hash.html">Hash</a>:</td><td>The route placeholders, e.g. :controllers, of this behavior merged with the
+placeholders of all its <a href="Behavior.html#M000572">ancestors</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000554" class="method-detail">
+        <a name="M000554"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000554.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000554.html');return false;">
+          <span class="method-name">namespace</span><span class="method-args">(name_or_path, options={}) {|r| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Behavior.html#M000554">namespace</a> for a route. This
+way you can have logical separation <a href="Behavior.html#M000551">to</a>
+your routes.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">name_or_path&lt;<a href="../../String.html">String</a>, Symbol&gt;:</td><td>The name or path of the <a href="Behavior.html#M000554">namespace</a>.
+
+</td></tr>
+<tr><td valign="top">options&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Optional hash, set :path if you want <a href="Behavior.html#M000551">to</a>
+override what appears on the url
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>A <a href="Behavior.html#M000546">new</a> <a
+href="Behavior.html">Behavior</a> instance is yielded in the block for
+nested <a href="Behavior.html#M000555">resources</a>.
+
+</td></tr>
+</table>
+<h4>Block parameters</h4>
+<table>
+<tr><td valign="top">r&lt;<a href="Behavior.html">Behavior</a>&gt;:</td><td>The <a href="Behavior.html#M000554">namespace</a> behavior object.
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  r.namespace :admin do |admin|
+    admin.resources :accounts
+    admin.resource :email
+  end
+
+  # /super_admin/accounts
+  r.namespace(:admin, :path=&gt;&quot;super_admin&quot;) do |admin|
+    admin.resources :accounts
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000564" class="method-detail">
+        <a name="M000564"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000564.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000564.html');return false;">
+          <span class="method-name">regexp?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top">Boolean:</td><td>True if this behavior has a regexp.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000556" class="method-detail">
+        <a name="M000556"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000556.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000556.html');return false;">
+          <span class="method-name">resource</span><span class="method-args">(name, options = {}) {|next_level| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Behavior.html">Behavior</a>#<tt><a
+href="Behavior.html#M000556">resource</a></tt> is a route helper for
+defining a singular RESTful <a href="Behavior.html#M000556">resource</a>.
+It yields <a href="Behavior.html#M000551">to</a> a block for child routes.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">name&lt;<a href="../../String.html">String</a>, Symbol&gt;:</td><td>The name of the <a href="Behavior.html#M000556">resource</a>.
+
+</td></tr>
+<tr><td valign="top">options&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Overides and parameters <a href="Behavior.html#M000551">to</a> be
+associated with the route.
+
+</td></tr>
+</table>
+<h4>Options (options)</h4>
+<p>
+:<a href="Behavior.html#M000554">namespace</a>&lt;~to_s&gt;: The <a
+href="Behavior.html#M000554">namespace</a> for this route.
+:name_prefix&lt;~to_s&gt;:
+</p>
+<pre>
+  A prefix for the named routes. If a namespace is passed and there
+  isn't a name prefix, the namespace will become the prefix.
+</pre>
+<p>
+:controller&lt;~to_s&gt;: The controller for this route
+</p>
+<h4>Block parameters</h4>
+<table>
+<tr><td valign="top">next_level&lt;<a href="Behavior.html">Behavior</a>&gt;:</td><td>The child behavior.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>Routes which define a RESTful single <a
+href="Behavior.html#M000556">resource</a>.
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+ r.resources :account # will result in the typical RESTful CRUD
+   # GET     /account/new                :action =&gt; &quot;new&quot;
+   # POST    /account/?(\.:format)?,     :action =&gt; &quot;create&quot;
+   # GET     /account/(\.:format)?       :action =&gt; &quot;show&quot;
+   # GET     /account/[;/]edit           :action =&gt; &quot;edit&quot;
+   # PUT     /account/(\.:format)?       :action =&gt; &quot;update&quot;
+   # GET     /account/[;/]delete         :action =&gt; &quot;delete&quot;
+   # DELETE  /account/(\.:format)?       :action =&gt; &quot;destroy&quot;
+</pre>
+<p>
+You can optionally pass :<a href="Behavior.html#M000554">namespace</a> and
+:controller <a href="Behavior.html#M000551">to</a> refine the routing or
+pass a block <a href="Behavior.html#M000551">to</a> nest <a
+href="Behavior.html#M000555">resources</a>.
+</p>
+<pre>
+  r.resource :account, :namespace =&gt; &quot;admin&quot; do |account|
+    account.resources :preferences, :controller =&gt; &quot;settings&quot;
+  end
+</pre>
+<hr size="1"></hr><p>
+@public
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000555" class="method-detail">
+        <a name="M000555"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000555.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000555.html');return false;">
+          <span class="method-name">resources</span><span class="method-args">(name, options = {}) {|next_level.match(&quot;/| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Behavior.html">Behavior</a>#<tt><a
+href="Behavior.html#M000555">resources</a></tt> is a route helper for
+defining a collection of RESTful <a
+href="Behavior.html#M000555">resources</a>. It yields <a
+href="Behavior.html#M000551">to</a> a block for child routes.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">name&lt;<a href="../../String.html">String</a>, Symbol&gt;:</td><td>The name of the <a href="Behavior.html#M000555">resources</a>
+
+</td></tr>
+<tr><td valign="top">options&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Ovverides and parameters <a href="Behavior.html#M000551">to</a> be
+associated with the route
+
+</td></tr>
+</table>
+<h4>Options (options)</h4>
+<p>
+:<a href="Behavior.html#M000554">namespace</a>&lt;~to_s&gt;: The <a
+href="Behavior.html#M000554">namespace</a> for this route.
+:name_prefix&lt;~to_s&gt;:
+</p>
+<pre>
+  A prefix for the named routes. If a namespace is passed and there
+  isn't a name prefix, the namespace will become the prefix.
+</pre>
+<p>
+:controller&lt;~to_s&gt;: The controller for this route
+:collection&lt;~to_s&gt;: Special settings for the collections routes
+:member&lt;<a href="../../Hash.html">Hash</a>&gt;:
+</p>
+<pre>
+  Special settings and resources related to a specific member of this
+  resource.
+</pre>
+<p>
+:keys&lt;Array&gt;:
+</p>
+<pre>
+  A list of the keys to be used instead of :id with the resource in the order of the url.
+</pre>
+<h4>Block parameters</h4>
+<table>
+<tr><td valign="top">next_level&lt;<a href="Behavior.html">Behavior</a>&gt;:</td><td>The child behavior.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>Routes which will define the specified RESTful collection of <a
+href="Behavior.html#M000555">resources</a>
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+ r.resources :posts # will result in the typical RESTful CRUD
+   # GET     /posts/?(\.:format)?      :action =&gt; &quot;index&quot;
+   # GET     /posts/index(\.:format)?  :action =&gt; &quot;index&quot;
+   # GET     /posts/new                :action =&gt; &quot;new&quot;
+   # POST    /posts/?(\.:format)?,     :action =&gt; &quot;create&quot;
+   # GET     /posts/:id(\.:format)?    :action =&gt; &quot;show&quot;
+   # GET     /posts/:id[;/]edit        :action =&gt; &quot;edit&quot;
+   # PUT     /posts/:id(\.:format)?    :action =&gt; &quot;update&quot;
+   # GET     /posts/:id[;/]delete      :action =&gt; &quot;delete&quot;
+   # DELETE  /posts/:id(\.:format)?    :action =&gt; &quot;destroy&quot;
+
+ # Nesting resources
+ r.resources :posts do |posts|
+   posts.resources :comments
+ end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000551" class="method-detail">
+        <a name="M000551"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000551.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000551.html');return false;">
+          <span class="method-name">to</span><span class="method-args">(params = {}) {|new_behavior if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Route.html">Route</a> from one or more <a
+href="Behavior.html">Behavior</a> objects, unless a <tt>block</tt> is
+passed in.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>The parameters the route maps <a href="Behavior.html#M000551">to</a>.
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>Optional block. A <a href="Behavior.html#M000546">new</a> <a
+href="Behavior.html">Behavior</a> object is yielded and further <a
+href="Behavior.html#M000551">to</a> operations may be called in the block.
+
+</td></tr>
+</table>
+<h4>Block parameters</h4>
+<table>
+<tr><td valign="top">new_behavior&lt;<a href="Behavior.html">Behavior</a>&gt;:</td><td>The child behavior.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Route.html">Route</a>:</td><td>It registers a <a href="Behavior.html#M000546">new</a> route and returns
+it.
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  r.match('/:controller/:id).to(:action =&gt; 'show')
+
+  r.to :controller =&gt; 'simple' do |s|
+    s.match('/test').to(:action =&gt; 'index')
+    s.match('/other').to(:action =&gt; 'other')
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000558" class="method-detail">
+        <a name="M000558"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000558.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000558.html');return false;">
+          <span class="method-name">to_resource</span><span class="method-args">(params = {}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Optional params for generating the RESTful routes.
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>Optional block for the route generation.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>Routes matching the RESTful singular <a
+href="Behavior.html#M000556">resource</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000557" class="method-detail">
+        <a name="M000557"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000557.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000557.html');return false;">
+          <span class="method-name">to_resources</span><span class="method-args">(params = {}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Optional params for generating the RESTful routes.
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>Optional block for the route generation.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>Routes matching the RESTful <a href="Behavior.html#M000556">resource</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000550" class="method-detail">
+        <a name="M000550"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000550.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000550.html');return false;">
+          <span class="method-name">to_route</span><span class="method-args">(params = {}, &amp;conditional_block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Optional additional parameters for generating the route.
+
+</td></tr>
+<tr><td valign="top">&amp;conditional_block:</td><td>A conditional block <a href="Behavior.html#M000551">to</a> be passed <a
+href="Behavior.html#M000551">to</a> <a
+href="Route.html#M000582">Route.new</a>.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Route.html">Route</a>:</td><td>A <a href="Behavior.html#M000546">new</a> route based on this behavior.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000572" class="method-detail">
+        <a name="M000572"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000572.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000572.html');return false;">
+          <span class="method-name">ancestors</span><span class="method-args">(list = [])</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">list&lt;Array&gt;:</td><td>A list <a href="Behavior.html#M000551">to</a> which the <a
+href="Behavior.html#M000572">ancestors</a> should be added.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>All the ancestor behaviors of this behavior.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000575" class="method-detail">
+        <a name="M000575"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000575.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000575.html');return false;">
+          <span class="method-name">compiled_conditions</span><span class="method-args">(conditions = merged_conditions)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">conditions&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>The conditions <a href="Behavior.html#M000551">to</a> compile. Defaults <a
+href="Behavior.html#M000551">to</a> <a
+href="Behavior.html#M000560">merged_conditions</a>.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../Hash.html">Hash</a>:</td><td>The compiled conditions, with each value as a Regexp object.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000576" class="method-detail">
+        <a name="M000576"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000576.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000576.html');return false;">
+          <span class="method-name">compiled_params</span><span class="method-args">(params = merged_params, placeholders = merged_placeholders)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>The params <a href="Behavior.html#M000551">to</a> compile. Defaults <a
+href="Behavior.html#M000551">to</a> <a
+href="Behavior.html#M000561">merged_params</a>.
+
+</td></tr>
+<tr><td valign="top">placeholders&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>The route placeholders for this behavior. Defaults <a
+href="Behavior.html#M000551">to</a> <a
+href="Behavior.html#M000562">merged_placeholders</a>.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../String.html">String</a>:</td><td>The params hash in an eval&#8216;able form.
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  compiled_params({ :controller =&gt; &quot;admin/:controller&quot; })
+    # =&gt; { :controller =&gt; &quot;'admin/' + matches[:path][1]&quot; }
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000570" class="method-detail">
+        <a name="M000570"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000570.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000570.html');return false;">
+          <span class="method-name">copy_original_conditions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store the conditions as original conditions.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000571" class="method-detail">
+        <a name="M000571"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000571.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000571.html');return false;">
+          <span class="method-name">deduce_placeholders</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Calculate the behaviors from the conditions and store them.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000568" class="method-detail">
+        <a name="M000568"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000568.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000568.html');return false;">
+          <span class="method-name">many_behaviors_to</span><span class="method-args">(behaviors, params = {}, &amp;conditional_block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">behaviors&lt;Array&gt;:</td><td>The behaviors <a href="Behavior.html#M000551">to</a> create routes from.
+
+</td></tr>
+<tr><td valign="top">params&lt;<a href="../../Hash.html">Hash</a>&gt;:</td><td>Optional params for the route generation.
+
+</td></tr>
+<tr><td valign="top">&amp;conditional_block:</td><td>Optional block for the route generation.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>The routes matching the behaviors.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000565" class="method-detail">
+        <a name="M000565"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000565.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000565.html');return false;">
+          <span class="method-name">namespace_to_name_prefix</span><span class="method-args">(name_or_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">name_or_path&lt;~to_s&gt;:</td><td>The name or path <a href="Behavior.html#M000551">to</a> convert <a
+href="Behavior.html#M000551">to</a> a form suitable for a prefix.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../../String.html">String</a>:</td><td>The prefix.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000573" class="method-detail">
+        <a name="M000573"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000573.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000573.html');return false;">
+          <span class="method-name">path_captures</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top">Fixnum:</td><td>Number of regexp captures in the :path condition.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000567" class="method-detail">
+        <a name="M000567"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000567.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000567.html');return false;">
+          <span class="method-name">resource_behaviors</span><span class="method-args">(parent = self)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">parent&lt;<a href="Behavior.html">Merb::Router::Behavior</a>&gt;:</td><td>The parent behavior for the generated <a
+href="Behavior.html#M000556">resource</a> behaviors.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>Behaviors for a singular RESTful <a
+href="Behavior.html#M000556">resource</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000566" class="method-detail">
+        <a name="M000566"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000566.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000566.html');return false;">
+          <span class="method-name">resources_behaviors</span><span class="method-args">(matched_keys = &quot;:id&quot;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Parameters</h4>
+<table>
+<tr><td valign="top">matched_keys&lt;<a href="../../String.html">String</a>&gt;:</td><td>The keys <a href="Behavior.html#M000551">to</a> <a
+href="Behavior.html#M000548">match</a>
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">Array:</td><td>Behaviors for a RESTful <a href="Behavior.html#M000556">resource</a>.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000569" class="method-detail">
+        <a name="M000569"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000569.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000569.html');return false;">
+          <span class="method-name">stringify_conditions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert conditions <a href="Behavior.html#M000551">to</a> regular
+expression string sources for consistency.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000574" class="method-detail">
+        <a name="M000574"></a>
+
+        <div class="method-heading">
+          <a href="Behavior.src/M000574.html" target="Code" class="method-signature"
+            onclick="popupCode('Behavior.src/M000574.html');return false;">
+          <span class="method-name">total_previous_captures</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Returns</h4>
+<table>
+<tr><td valign="top">Fixnum:</td><td>Total number of previous path captures.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

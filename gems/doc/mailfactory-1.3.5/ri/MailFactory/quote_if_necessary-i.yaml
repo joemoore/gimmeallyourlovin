@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Quote the given text if it contains any &quot;illegal&quot; characters
+full_name: MailFactory#quote_if_necessary
+is_singleton: false
+name: quote_if_necessary
+params: (text, charset, instruction = false)
+visibility: protected

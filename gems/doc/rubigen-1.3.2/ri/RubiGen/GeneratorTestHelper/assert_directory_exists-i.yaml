@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: asserts that the given directory exists
+full_name: RubiGen::GeneratorTestHelper#assert_directory_exists
+is_singleton: false
+name: assert_directory_exists
+params: (path)
+visibility: public

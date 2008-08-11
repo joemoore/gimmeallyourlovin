@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Base#migration_exists?
+is_singleton: false
+name: migration_exists?
+params: (file_name)
+visibility: protected

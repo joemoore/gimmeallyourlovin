@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates a new Action that will run <tt>block</tt> for <tt>task</tt>.
+full_name: Rake::RemoteTask::Action::new
+is_singleton: true
+name: new
+params: (task, block)
+visibility: public

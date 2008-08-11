@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Resets inheritable attributes to either EMPTY_INHERITABLE_ATTRIBUTES if it is defined or it's default value, new frozen Hash.
+full_name: Class#reset_inheritable_attributes
+is_singleton: false
+name: reset_inheritable_attributes
+params: ()
+visibility: public

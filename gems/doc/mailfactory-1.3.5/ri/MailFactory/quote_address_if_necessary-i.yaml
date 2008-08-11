@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Quote the given address if it needs to be. The address may be a regular email address, or it can be a phrase followed by an address in brackets. The phrase is the only part that will be quoted, and only if it needs to be. This allows extended characters to be used in the &quot;to&quot;, &quot;from&quot;, &quot;cc&quot;, and &quot;bcc&quot; headers.
+full_name: MailFactory#quote_address_if_necessary
+is_singleton: false
+name: quote_address_if_necessary
+params: (address, charset)
+visibility: protected

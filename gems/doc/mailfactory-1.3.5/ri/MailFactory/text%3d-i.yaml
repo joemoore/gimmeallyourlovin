@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: sets the plain text body of the message
+full_name: MailFactory#text=
+is_singleton: false
+name: text=
+params: (newtext)
+visibility: public

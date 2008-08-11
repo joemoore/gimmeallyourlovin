@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "params<Hash>:"
+    body: Configuration parameters for the MailController.
+  - !ruby/struct:SM::Flow::LI 
+    label: "controller<Merb::Controller>:"
+    body: The base controller.
+  type: :NOTE
+full_name: Merb::MailController::new
+is_singleton: true
+name: new
+params: (params = {}, controller = nil)
+visibility: public

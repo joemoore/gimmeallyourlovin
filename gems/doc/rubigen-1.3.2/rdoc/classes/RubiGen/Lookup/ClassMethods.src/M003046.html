@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>sources (RubiGen::Lookup::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/lookup.rb, line 62</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sources</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">read_inheritable_attribute</span>(<span class="ruby-identifier">:sources</span>).<span class="ruby-identifier">blank?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">superclass</span> <span class="ruby-operator">==</span> <span class="ruby-constant">RubiGen</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+            <span class="ruby-identifier">superclass_sources</span> = <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">sources</span>
+            <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">superclass_sources</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mem</span>, <span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">found</span> = <span class="ruby-keyword kw">false</span>
+              <span class="ruby-identifier">application_sources</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">app_source</span><span class="ruby-operator">|</span> <span class="ruby-identifier">found</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">app_source</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">source</span>}
+              <span class="ruby-identifier">mem</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">source</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">found</span>
+              <span class="ruby-identifier">mem</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">write_inheritable_attribute</span>(<span class="ruby-identifier">:sources</span>, <span class="ruby-identifier">diff</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">use_component_sources!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">read_inheritable_attribute</span>(<span class="ruby-identifier">:sources</span>).<span class="ruby-identifier">blank?</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">read_inheritable_attribute</span>(<span class="ruby-identifier">:sources</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

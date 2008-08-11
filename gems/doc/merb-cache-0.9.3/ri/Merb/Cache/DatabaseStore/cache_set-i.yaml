@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Store data to the database using the specified key
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<Sting>:"
+    body: The key identifying the cache entry
+  - !ruby/struct:SM::Flow::LI 
+    label: "data<String>:"
+    body: The data to be put in cache
+  - !ruby/struct:SM::Flow::LI 
+    label: "from_now<~minutes>:"
+    body: The number of minutes (from now) the cache should persist
+  type: :NOTE
+full_name: Merb::Cache::DatabaseStore#cache_set
+is_singleton: false
+name: cache_set
+params: (key, data, from_now = nil)
+visibility: public

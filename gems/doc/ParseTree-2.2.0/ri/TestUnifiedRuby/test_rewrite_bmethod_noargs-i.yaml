@@ -1,0 +1,19 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: proc { |x,y| x + y }
+- !ruby/struct:SM::Flow::H 
+  level: 1
+  text: ""
+- !ruby/struct:SM::Flow::P 
+  body: s(:iter,
+- !ruby/struct:SM::Flow::VERB 
+  body: " s(:fcall, :proc),\n s(:masgn, s(:array, s(:dasgn_curr, :x), s(:dasgn_curr, :y))),\n s(:call, s(:dvar, :x), :+, s(:array, s(:dvar, :y))))\n"
+full_name: TestUnifiedRuby#test_rewrite_bmethod_noargs
+is_singleton: false
+name: test_rewrite_bmethod_noargs
+params: ()
+visibility: public

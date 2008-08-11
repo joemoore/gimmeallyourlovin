@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Expires the entry identified by the key computed after the parameters
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameter
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "options<String,Hash>:"
+    body: "The options that will be passed to #key_for"
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  expire(&quot;my_key&quot;)\n  expire(:key =&gt; &quot;my_&quot;, :match =&gt; true)\n  expire(:key =&gt; &quot;my_key&quot;, :params =&gt; [session[:me], params[:ref]])\n"
+full_name: Merb::Cache::ControllerInstanceMethods#expire
+is_singleton: false
+name: expire
+params: (options)
+visibility: public

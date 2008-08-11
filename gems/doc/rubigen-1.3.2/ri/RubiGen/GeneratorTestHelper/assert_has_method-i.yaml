@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ( name, $1 )
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: asserts that the given methods are defined in the body. This does assume standard rails code conventions with regards to the source code. The body of each individual method is passed to a block.
+full_name: RubiGen::GeneratorTestHelper#assert_has_method
+is_singleton: false
+name: assert_has_method
+params: (body,*methods) {|name, $1| ...}
+visibility: public

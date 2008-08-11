@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: ActiveSupport::Cache::Store</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">ActiveSupport::Cache::Store</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/active_support/cache_rb.html">
+                lib/active_support/cache.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M002568">decrement</a>&nbsp;&nbsp;
+      <a href="#M002564">delete</a>&nbsp;&nbsp;
+      <a href="#M002565">delete_matched</a>&nbsp;&nbsp;
+      <a href="#M002566">exist?</a>&nbsp;&nbsp;
+      <a href="#M002561">fetch</a>&nbsp;&nbsp;
+      <a href="#M002567">increment</a>&nbsp;&nbsp;
+      <a href="#M002559">new</a>&nbsp;&nbsp;
+      <a href="#M002562">read</a>&nbsp;&nbsp;
+      <a href="#M002560">threadsafe!</a>&nbsp;&nbsp;
+      <a href="#M002563">write</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M002559" class="method-detail">
+        <a name="M002559"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002559.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002559.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M002568" class="method-detail">
+        <a name="M002568"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002568.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002568.html');return false;">
+          <span class="method-name">decrement</span><span class="method-args">(key, amount = 1)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002564" class="method-detail">
+        <a name="M002564"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002564.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002564.html');return false;">
+          <span class="method-name">delete</span><span class="method-args">(key, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002565" class="method-detail">
+        <a name="M002565"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002565.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002565.html');return false;">
+          <span class="method-name">delete_matched</span><span class="method-args">(matcher, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002566" class="method-detail">
+        <a name="M002566"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002566.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002566.html');return false;">
+          <span class="method-name">exist?</span><span class="method-args">(key, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002561" class="method-detail">
+        <a name="M002561"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002561.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002561.html');return false;">
+          <span class="method-name">fetch</span><span class="method-args">(key, options = {}) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Pass <tt>:force =&gt; true</tt> to force a cache miss.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M002567" class="method-detail">
+        <a name="M002567"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002567.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002567.html');return false;">
+          <span class="method-name">increment</span><span class="method-args">(key, amount = 1)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002562" class="method-detail">
+        <a name="M002562"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002562.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002562.html');return false;">
+          <span class="method-name">read</span><span class="method-args">(key, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002560" class="method-detail">
+        <a name="M002560"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002560.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002560.html');return false;">
+          <span class="method-name">threadsafe!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M002563" class="method-detail">
+        <a name="M002563"></a>
+
+        <div class="method-heading">
+          <a href="Store.src/M002563.html" target="Code" class="method-signature"
+            onclick="popupCode('Store.src/M002563.html');return false;">
+          <span class="method-name">write</span><span class="method-args">(key, value, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

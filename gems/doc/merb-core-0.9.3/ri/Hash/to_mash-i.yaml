@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Mash:"
+    body: This hash as a Mash for string or symbol key access.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: This class has semantics of ActiveSupport's HashWithIndifferentAccess and we only have it so that people can write params[:key] instead of params['key'].
+full_name: Hash#to_mash
+is_singleton: false
+name: to_mash
+params: ()
+visibility: public

@@ -1,0 +1,40 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: _provided_formats=
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the provided formats for this action. Usually, you would use a combination of provides, only_provides and does_not_provide to manage this, but you can set it directly.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*formats<Symbol>:"
+    body: A list of formats to be passed to provides.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Raises
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Merb::ResponderMixin::ContentTypeAlreadySet:"
+    body: Content negotiation already occured, and the content_type is set.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Array[Symbol]:"
+    body: List of formats passed in.
+  type: :NOTE
+full_name: Merb::ResponderMixin#_set_provided_formats
+is_singleton: false
+name: _set_provided_formats
+params: (*formats)
+visibility: public

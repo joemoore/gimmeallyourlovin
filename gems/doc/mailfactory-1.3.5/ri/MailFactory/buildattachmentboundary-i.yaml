@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: builds a boundary string for including attachments in the body, expects an attachment hash as built by add_attachment and add_attachment_as
+full_name: MailFactory#buildattachmentboundary
+is_singleton: false
+name: buildattachmentboundary
+params: (attachment)
+visibility: protected

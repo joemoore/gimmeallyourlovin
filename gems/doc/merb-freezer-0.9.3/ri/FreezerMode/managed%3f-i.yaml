@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: returns true if the component is in a submodule
+full_name: FreezerMode#managed?
+is_singleton: false
+name: managed?
+params: (component)
+visibility: protected

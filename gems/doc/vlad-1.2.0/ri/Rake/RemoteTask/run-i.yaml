@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use ssh to execute <tt>command</tt> on target_host. If <tt>command</tt> uses sudo, the sudo password will be prompted for then saved for subsequent sudo commands.
+full_name: Rake::RemoteTask#run
+is_singleton: false
+name: run
+params: (command)
+visibility: public

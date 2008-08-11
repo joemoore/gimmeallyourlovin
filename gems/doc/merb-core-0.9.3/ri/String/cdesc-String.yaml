@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: String
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: /
+- !ruby/object:RI::MethodSummary 
+  name: camel_case
+- !ruby/object:RI::MethodSummary 
+  name: escape_regexp
+- !ruby/object:RI::MethodSummary 
+  name: plural
+- !ruby/object:RI::MethodSummary 
+  name: pluralize
+- !ruby/object:RI::MethodSummary 
+  name: relative_path_from
+- !ruby/object:RI::MethodSummary 
+  name: singular
+- !ruby/object:RI::MethodSummary 
+  name: singularize
+- !ruby/object:RI::MethodSummary 
+  name: snake_case
+- !ruby/object:RI::MethodSummary 
+  name: to_const_path
+- !ruby/object:RI::MethodSummary 
+  name: to_const_string
+- !ruby/object:RI::MethodSummary 
+  name: unescape_regexp
+name: String
+superclass: Object

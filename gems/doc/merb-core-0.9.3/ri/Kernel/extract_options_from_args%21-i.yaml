@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Extracts an options hash if it is the last item in the args array. Used internally in methods that take *args.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "args<Array>:"
+    body: The arguments to extract the hash from.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  def render(*args,&amp;blk)\n    opts = extract_options_from_args!(args) || {}\n    # [...]\n  end\n"
+full_name: Kernel#extract_options_from_args!
+is_singleton: false
+name: extract_options_from_args!
+params: (args)
+visibility: public

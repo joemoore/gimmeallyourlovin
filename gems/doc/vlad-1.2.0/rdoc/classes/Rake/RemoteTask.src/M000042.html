@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>set_defaults (Rake::RemoteTask)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rake_remote_task.rb, line 408</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">set_defaults</span>
+    <span class="ruby-ivar">@@default_env</span> <span class="ruby-operator">||=</span> {}
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">reset</span>
+
+    <span class="ruby-identifier">mandatory</span> <span class="ruby-identifier">:repository</span>, <span class="ruby-value str">&quot;repository path&quot;</span>
+    <span class="ruby-identifier">mandatory</span> <span class="ruby-identifier">:deploy_to</span>,  <span class="ruby-value str">&quot;deploy path&quot;</span>
+    <span class="ruby-identifier">mandatory</span> <span class="ruby-identifier">:domain</span>,     <span class="ruby-value str">&quot;server domain&quot;</span>
+
+    <span class="ruby-identifier">simple_set</span>(<span class="ruby-identifier">:deploy_timestamped</span>, <span class="ruby-keyword kw">true</span>,
+               <span class="ruby-identifier">:deploy_via</span>,         <span class="ruby-identifier">:export</span>,
+               <span class="ruby-identifier">:keep_releases</span>,      <span class="ruby-value">5</span>,
+               <span class="ruby-identifier">:migrate_args</span>,       <span class="ruby-value str">&quot;&quot;</span>,
+               <span class="ruby-identifier">:migrate_target</span>,     <span class="ruby-identifier">:latest</span>,
+               <span class="ruby-identifier">:rails_env</span>,          <span class="ruby-value str">&quot;production&quot;</span>,
+               <span class="ruby-identifier">:rake_cmd</span>,           <span class="ruby-value str">&quot;rake&quot;</span>,
+               <span class="ruby-identifier">:revision</span>,           <span class="ruby-value str">&quot;head&quot;</span>,
+               <span class="ruby-identifier">:rsync_cmd</span>,          <span class="ruby-value str">&quot;rsync&quot;</span>,
+               <span class="ruby-identifier">:rsync_flags</span>,        [<span class="ruby-value str">'-azP'</span>, <span class="ruby-value str">'--delete'</span>],
+               <span class="ruby-identifier">:ssh_cmd</span>,            <span class="ruby-value str">&quot;ssh&quot;</span>,
+               <span class="ruby-identifier">:ssh_flags</span>,          <span class="ruby-keyword kw">nil</span>,
+               <span class="ruby-identifier">:sudo_cmd</span>,           <span class="ruby-value str">&quot;sudo&quot;</span>,
+               <span class="ruby-identifier">:sudo_flags</span>,         <span class="ruby-keyword kw">nil</span>)
+
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:current_release</span>)    { <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">releases_path</span>, <span class="ruby-identifier">releases</span>[<span class="ruby-value">-1</span>]) }
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:latest_release</span>)     { <span class="ruby-identifier">deploy_timestamped</span> <span class="ruby-operator">?</span><span class="ruby-identifier">release_path</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_release</span> }
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:previous_release</span>)   { <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">releases_path</span>, <span class="ruby-identifier">releases</span>[<span class="ruby-value">-2</span>]) }
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:release_name</span>)       { <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">&quot;%Y%m%d%H%M%S&quot;</span>) }
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:release_path</span>)       { <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">releases_path</span>, <span class="ruby-identifier">release_name</span>) }
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:releases</span>)           { <span class="ruby-identifier">task</span>.<span class="ruby-identifier">run</span>(<span class="ruby-node">&quot;ls -x #{releases_path}&quot;</span>).<span class="ruby-identifier">split</span>.<span class="ruby-identifier">sort</span> }
+
+    <span class="ruby-identifier">set_path</span> <span class="ruby-identifier">:current_path</span>,  <span class="ruby-value str">&quot;current&quot;</span>
+    <span class="ruby-identifier">set_path</span> <span class="ruby-identifier">:releases_path</span>, <span class="ruby-value str">&quot;releases&quot;</span>
+    <span class="ruby-identifier">set_path</span> <span class="ruby-identifier">:scm_path</span>,      <span class="ruby-value str">&quot;scm&quot;</span>
+    <span class="ruby-identifier">set_path</span> <span class="ruby-identifier">:shared_path</span>,   <span class="ruby-value str">&quot;shared&quot;</span>
+
+    <span class="ruby-identifier">set</span>(<span class="ruby-identifier">:sudo_password</span>) <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">state</span> = <span class="ruby-value">`stty -g`</span>
+
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Vlad</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;stty(1) not found&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">success?</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">system</span> <span class="ruby-value str">&quot;stty -echo&quot;</span>
+        <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;sudo password: &quot;</span>
+        <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">flush</span>
+        <span class="ruby-identifier">sudo_password</span> = <span class="ruby-identifier">$stdin</span>.<span class="ruby-identifier">gets</span>
+        <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+      <span class="ruby-keyword kw">ensure</span>
+        <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;stty #{state}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">sudo_password</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

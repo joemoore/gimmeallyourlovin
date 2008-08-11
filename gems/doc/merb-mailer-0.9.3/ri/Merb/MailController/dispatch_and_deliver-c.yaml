@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A convenience method that creates a blank copy of the MailController and runs dispatch_and_deliver on it.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "method<~to_s>:"
+    body: The method name to dispatch to.
+  - !ruby/struct:SM::Flow::LI 
+    label: "mail_params<Hash>:"
+    body: Parameters to send to MailFactory.
+  - !ruby/struct:SM::Flow::LI 
+    label: "send_params<Hash>:"
+    body: Configuration parameters for the MailController.
+  type: :NOTE
+full_name: Merb::MailController::dispatch_and_deliver
+is_singleton: true
+name: dispatch_and_deliver
+params: (method, mail_params, send_params = {})
+visibility: public

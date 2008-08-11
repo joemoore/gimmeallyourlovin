@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use to check whether given ORM already registred at generator scope
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "orm<~to_sym>:"
+    body: ORM alias, like :activerecord, :datamapper or :sequel.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Boolean:"
+    body: true if ORM is already registred, false otherwise
+  type: :NOTE
+full_name: Kernel#registred_orm?
+is_singleton: false
+name: registred_orm?
+params: (orm)
+visibility: public

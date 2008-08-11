@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Includes files into the class to allow it to minimally delegates to a web controller
+constants: []
+
+full_name: Merb
+includes: []
+
+instance_methods: []
+
+name: Merb
+superclass: 

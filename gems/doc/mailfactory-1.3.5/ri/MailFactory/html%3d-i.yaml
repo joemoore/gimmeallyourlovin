@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: sets the HTML body of the message. Only the body of the html should be provided
+full_name: MailFactory#html=
+is_singleton: false
+name: html=
+params: (newhtml)
+visibility: public

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "html_class<~to_s>:"
+    body: The HTML class to add to the :class key. The html_class will be concatenated to any existing classes.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  hash[:class] #=&gt; nil\n  hash.add_html_class!(:selected)\n  hash[:class] #=&gt; &quot;selected&quot;\n  hash.add_html_class!(&quot;class1 class2&quot;)\n  hash[:class] #=&gt; &quot;selected class1 class2&quot;\n"
+full_name: Hash#add_html_class!
+is_singleton: false
+name: add_html_class!
+params: (html_class)
+visibility: public

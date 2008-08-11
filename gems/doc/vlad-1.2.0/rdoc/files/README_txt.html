@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="../classes/Vlad.html">Vlad</a> the Deployer
+</p>
+<pre>
+    by the Ruby Hit Squad
+    http://rubyhitsquad.com/
+    http://rubyforge.org/projects/hitsquad/
+</pre>
+<h2>DESCRIPTION:</h2>
+<p>
+<a href="../classes/Vlad.html">Vlad</a> the Deployer is pragmatic
+application deployment automation, without mercy. Much like Capistrano, but
+with 1/10th the complexity. <a href="../classes/Vlad.html">Vlad</a>
+integrates seamlessly with <a href="../classes/Rake.html">Rake</a>, and
+uses familiar and standard tools like ssh and rsync.
+</p>
+<p>
+Impale your application on the heartless spike of the Deployer.
+</p>
+<h2>FEATURES/PROBLEMS:</h2>
+<ul>
+<li>Full deployment automation stack.
+
+</li>
+<li>Turnkey deployment for mongrel+apache+svn.
+
+</li>
+<li>Supports single server deployment with just 3 variables defined.
+
+</li>
+<li>Built on rake. Easy. Engine is small.
+
+</li>
+<li>Very few dependencies. All simple.
+
+</li>
+<li>Uses ssh with your ssh settings already in place.
+
+</li>
+<li>Uses rsync for efficient transfers.
+
+</li>
+<li>Run remote commands on one or more servers.
+
+</li>
+<li>Mix and match local and remote tasks.
+
+</li>
+<li>Compatible with all of your tab completion shell script rake-tastic
+goodness.
+
+</li>
+<li>Ships with tests that actually pass in 0.028 seconds!
+
+</li>
+<li>Does NOT support Windows right now (we think). Coming soon in 1.2.
+
+</li>
+</ul>
+<h2>SYNOPSIS:</h2>
+<pre>
+    % rake vlad:setup   # first time only
+    % rake vlad:update
+    % rake vlad:migrate # optional
+    % rake vlad:start
+</pre>
+<h2>REQUIREMENTS:</h2>
+<ul>
+<li><a href="../classes/Rake.html">Rake</a>
+
+</li>
+<li>Hoe
+
+</li>
+<li>Rubyforge
+
+</li>
+<li>open4
+
+</li>
+</ul>
+<h2>INSTALL:</h2>
+<ul>
+<li>sudo gem install -y vlad
+
+</li>
+</ul>
+<h2>SPECIAL THANKS:</h2>
+<ul>
+<li>First, of course, to Capistrano. For coming up with the idea and providing
+a lot of meat for the recipes.
+
+</li>
+<li>Scott Baron for coming up with one of the best project names evar.
+
+</li>
+<li>Bradley Taylor for giving us permission to use RailsMachine recipes
+sans-LGPL.
+
+</li>
+</ul>
+<h2>LICENSE:</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright (c) 2007 Ryan Davis and the rest of the Ruby Hit Squad
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

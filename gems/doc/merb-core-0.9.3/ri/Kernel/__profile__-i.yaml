@@ -1,0 +1,45 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Takes a block, profiles the results of running the block specified number of times and generates HTML report.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name<~to_s>:"
+    body: The file name. The result will be written out to Merb.root/&quot;log/#{name}.html&quot;.
+  - !ruby/struct:SM::Flow::LI 
+    label: "min<Fixnum>:"
+    body: Minimum percentage of the total time a method must take for it to be included in the result. Defaults to 1.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: The result of the profiling.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: Requires ruby-prof (<tt>sudo gem install ruby-prof</tt>)
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  <em>profile</em>(&quot;MyProfile&quot;, 5, 30) do\n    rand(10)**rand(10)\n    puts &quot;Profile run&quot;\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Assuming that the total time taken for #puts calls was less than 5% of the total time to run, #puts won't appear in the profile report. The code block will be run 30 times in the example above."
+full_name: Kernel#__profile__
+is_singleton: false
+name: __profile__
+params: (name, min=1, iter=100) {|| ...}
+visibility: public

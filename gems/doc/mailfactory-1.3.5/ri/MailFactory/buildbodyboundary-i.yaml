@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: builds a boundary string for inclusion in the body of a message
+full_name: MailFactory#buildbodyboundary
+is_singleton: false
+name: buildbodyboundary
+params: (type, encoding)
+visibility: protected

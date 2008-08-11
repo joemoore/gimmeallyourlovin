@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate a file using an ERuby template. Looks up and evalutes a template by name and writes the result.
+- !ruby/struct:SM::Flow::P 
+  body: The ERB template uses explicit trim mode to best control the proliferation of whitespace in generated code. &lt;%- trims leading whitespace; -%&gt; trims trailing whitespace including one newline.
+- !ruby/struct:SM::Flow::P 
+  body: "A hash of template options may be passed as the last argument. The options accepted by the file are accepted as well as :assigns, a hash of variable bindings. Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  template 'foo', 'bar', :assigns =&gt; { :action =&gt; 'view' }\n"
+- !ruby/struct:SM::Flow::P 
+  body: Template is implemented in terms of file. It calls file with a block which takes a file handle and returns its rendered contents.
+full_name: RubiGen::Commands::Create#template
+is_singleton: false
+name: template
+params: (relative_source, relative_destination, template_options = {})
+visibility: public

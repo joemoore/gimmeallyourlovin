@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the components to freeze a class variable is used so we could decide to add a setter and support custom components
+full_name: Freezer::components
+is_singleton: true
+name: components
+params: ()
+visibility: public

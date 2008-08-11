@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a source to the beginning of the list.
+full_name: RubiGen::Lookup::ClassMethods#prepend_sources
+is_singleton: false
+name: prepend_sources
+params: (*args)
+visibility: public

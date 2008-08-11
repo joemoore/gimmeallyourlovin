@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>body_to_s (MailFactory)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mailfactory.rb, line 321</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">body_to_s</span>()
+    <span class="ruby-identifier">body</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>()
+    
+    <span class="ruby-comment cmt"># simple message with one part</span>
+    <span class="ruby-keyword kw">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">multipart?</span>())
+      <span class="ruby-keyword kw">return</span>(<span class="ruby-ivar">@text</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;This is a multi-part message in MIME format.\r\n\r\n--#{@attachmentboundary}\r\nContent-Type: multipart/alternative; boundary=\&quot;#{@bodyboundary}\&quot;&quot;</span>
+      
+      <span class="ruby-keyword kw">if</span>(<span class="ruby-ivar">@attachments</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+        <span class="ruby-comment cmt"># text part</span>
+        <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{buildbodyboundary(&quot;text/plain; charset=#{@charset}; format=flowed&quot;, 'quoted-printable')}\r\n\r\n#{quote_if_necessary(@text, @charset)}&quot;</span>
+        
+        <span class="ruby-comment cmt"># html part if one is provided</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@html</span>
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{buildbodyboundary(&quot;text/html; charset=#{@charset}&quot;, 'quoted-printable')}\r\n\r\n#{quote_if_necessary(@html, @charset)}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--#{@bodyboundary}--&quot;</span>
+        
+        <span class="ruby-comment cmt"># and, the attachments</span>
+        <span class="ruby-keyword kw">if</span>(<span class="ruby-ivar">@attachments</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+          <span class="ruby-ivar">@attachments</span>.<span class="ruby-identifier">each</span>() { <span class="ruby-operator">|</span><span class="ruby-identifier">attachment</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{buildattachmentboundary(attachment)}\r\n\r\n#{attachment['attachment']}&quot;</span>
+          }
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\r\n--#{@attachmentboundary}--&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-comment cmt"># text part</span>
+        <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{buildbodyboundary(&quot;text/plain; charset=#{@charset}; format=flowed&quot;, 'quoted-printable')}\r\n\r\n#{quote_if_necessary(@text, @charset)}&quot;</span>
+        
+        <span class="ruby-comment cmt"># html part</span>
+        <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{buildbodyboundary(&quot;text/html; charset=#{@charset}&quot;, 'quoted-printable')}\r\n\r\n#{quote_if_necessary(@html, @charset)}&quot;</span>
+        
+        <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;--#{@bodyboundary}--&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">return</span>(<span class="ruby-identifier">body</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\r\n\r\n&quot;</span>))
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

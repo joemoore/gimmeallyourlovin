@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Attempts to convert all string keys into Class keys. We run this after reloading to convert protected hashes back into usable hashes.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # Provided that classes One and Two are declared in this scope:\n  hash = { &quot;One&quot; =&gt; 1, &quot;Two&quot; =&gt; 2 }.unproctect_keys!\n  hash # =&gt; { One =&gt; 1, Two =&gt; 2 }\n"
+full_name: Hash#unprotect_keys!
+is_singleton: false
+name: unprotect_keys!
+params: ()
+visibility: public

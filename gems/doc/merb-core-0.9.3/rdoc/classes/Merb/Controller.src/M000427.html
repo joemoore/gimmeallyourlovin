@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>callable_actions (Merb::Controller)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-core/controller/merb_controller.rb, line 103</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">callable_actions</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@callable_actions</span>
+        <span class="ruby-identifier">callables</span> = []
+        <span class="ruby-identifier">klass</span> = <span class="ruby-keyword kw">self</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">callables</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword kw">false</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">_shown_actions</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">_hidden_actions</span>
+          <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">superclass</span>
+        <span class="ruby-keyword kw">end</span> <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">klass</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractController</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">klass</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Object</span>
+        <span class="ruby-ivar">@callable_actions</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleSet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">callables</span>.<span class="ruby-identifier">flatten</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@callable_actions</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

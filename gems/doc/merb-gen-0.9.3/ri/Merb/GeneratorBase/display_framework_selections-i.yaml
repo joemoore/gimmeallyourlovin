@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Merb::GeneratorBase#display_framework_selections
+is_singleton: false
+name: display_framework_selections
+params: ()
+visibility: protected

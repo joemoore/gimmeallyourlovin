@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Maps revision <tt>revision</tt> into a Perforce revision.
+full_name: Vlad::Perforce#rev_no
+is_singleton: false
+name: rev_no
+params: (revision)
+visibility: public

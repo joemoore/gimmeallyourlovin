@@ -1,0 +1,41 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Store data to cache
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameter
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "options<String,Hash>:"
+    body: "The options that will be passed to #key_for"
+  - !ruby/struct:SM::Flow::LI 
+    label: "object<Object>:"
+    body: The object(s) to put in cache
+  - !ruby/struct:SM::Flow::LI 
+    label: "from_now<~minutes>:"
+    body: The number of minutes (from now) the cache should persist
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "data<Object,NilClass>:"
+    body: nil is returned if the cache entry is not found
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Example
+- !ruby/struct:SM::Flow::VERB 
+  body: "  if cache_data = cache_get(&quot;my_key&quot;)\n    @var1, @var2 = *cache_data\n  else\n    @var1 = MyModel.big_query1\n    @var2 = MyModel.big_query2\n    cache_set(&quot;my_key&quot;, nil, [@var1, @var2])\n  end\n"
+full_name: Merb::Cache::ControllerInstanceMethods#cache_set
+is_singleton: false
+name: cache_set
+params: (options, object, from_now = nil)
+visibility: public

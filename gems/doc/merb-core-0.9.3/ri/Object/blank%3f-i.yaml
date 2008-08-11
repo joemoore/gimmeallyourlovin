@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Boolean:"
+    body: True if the empty? is true or if the object responds to strip (e.g. a String) and strip.empty? is true, or if !self is true.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "   [].blank?         #=&gt;  true\n   [1].blank?        #=&gt;  false\n   [nil].blank?      #=&gt;  false\n   nil.blank?        #=&gt;  true\n   true.blank?       #=&gt;  false\n   false.blank?      #=&gt;  true\n   &quot;&quot;.blank?         #=&gt;  true\n   &quot;     &quot;.blank?    #=&gt;  true\n   &quot; hey ho &quot;.blank? #=&gt;  false\n"
+full_name: Object#blank?
+is_singleton: false
+name: blank?
+params: ()
+visibility: public

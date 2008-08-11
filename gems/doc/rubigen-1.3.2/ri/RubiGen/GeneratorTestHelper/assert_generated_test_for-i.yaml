@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: body if block_given?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: asserts that the given unit test was generated. It takes a name or symbol without the <tt>test_</tt> part and an optional super class. the contents of the class source file is passed to a block.
+full_name: RubiGen::GeneratorTestHelper#assert_generated_test_for
+is_singleton: false
+name: assert_generated_test_for
+params: (name, parent="Test::Unit::TestCase") {|body if block_given?| ...}
+visibility: public

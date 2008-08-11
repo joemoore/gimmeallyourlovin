@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets all the default values. Should only be called once. Use reset if you need to restore values.
+full_name: Rake::RemoteTask::set_defaults
+is_singleton: true
+name: set_defaults
+params: ()
+visibility: public

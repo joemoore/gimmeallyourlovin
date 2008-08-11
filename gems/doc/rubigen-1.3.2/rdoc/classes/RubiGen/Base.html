@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RubiGen::Base</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RubiGen::Base</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/rubigen/base_rb.html">
+                lib/rubigen/base.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The base code generator is bare-bones. It sets up the source and
+destination paths and tells the logger whether to keep its trap shut.
+</p>
+<p>
+It&#8216;s useful for copying files such as stylesheets, images, or
+javascripts.
+</p>
+<p>
+For more comprehensive template-based passive code generation with
+arguments, you&#8216;ll want RubiGen::NamedBase.
+</p>
+<p>
+Generators create a <a href="Base.html#M003100">manifest</a> of the actions
+they perform then hand the <a href="Base.html#M003100">manifest</a> to a
+command which replays the actions to do the heavy lifting (such as checking
+for existing files or creating directories if needed). Create, destroy, and
+list commands are included. Since a single <a
+href="Base.html#M003100">manifest</a> may be used by any command, creating
+<a href="Base.html#M003099">new</a> generators is as simple as writing some
+code templates and declaring what you&#8216;d like to do with them.
+</p>
+<p>
+The <a href="Base.html#M003100">manifest</a> method must be implemented by
+subclasses, returning a <a href="Manifest.html">RubiGen::Manifest</a>. The
+<tt><a href="Base.html#M003104">record</a></tt> method is provided as a
+convenience for <a href="Base.html#M003100">manifest</a> creation. Example:
+</p>
+<pre>
+  class StylesheetGenerator &lt; RubiGen::Base
+    def manifest
+      record do |m|
+        m.directory('public/stylesheets')
+        m.file('application.css', 'public/stylesheets/application.css')
+      end
+    end
+  end
+</pre>
+<p>
+See <a href="Commands/Create.html">RubiGen::Commands::Create</a> for a list
+of methods available to the <a href="Base.html#M003100">manifest</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003105">banner</a>&nbsp;&nbsp;
+      <a href="#M003103">base_name</a>&nbsp;&nbsp;
+      <a href="#M003102">destination_path</a>&nbsp;&nbsp;
+      <a href="#M003100">manifest</a>&nbsp;&nbsp;
+      <a href="#M003099">new</a>&nbsp;&nbsp;
+      <a href="#M003104">record</a>&nbsp;&nbsp;
+      <a href="#M003101">source_path</a>&nbsp;&nbsp;
+      <a href="#M003106">usage_message</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Options.html">Options</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">args</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">destination_root</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">source_root</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M003099" class="method-detail">
+        <a name="M003099"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003099.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003099.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(runtime_args, runtime_options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003103" class="method-detail">
+        <a name="M003103"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003103.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003103.html');return false;">
+          <span class="method-name">base_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the basename of the destination_root, BUT, if it is trunk, tags, or
+branches, it continues to the parent path for the name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003102" class="method-detail">
+        <a name="M003102"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003102.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003102.html');return false;">
+          <span class="method-name">destination_path</span><span class="method-args">(relative_destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the full path from the destination root for the given path. Example
+for destination_root = &#8217;/dest&#8217;:
+</p>
+<pre>
+  destination_path('some/path.rb') == '/dest/some/path.rb'
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003100" class="method-detail">
+        <a name="M003100"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003100.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003100.html');return false;">
+          <span class="method-name">manifest</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generators must provide a <a href="Base.html#M003100">manifest</a>. Use the
+<tt><a href="Base.html#M003104">record</a></tt> method to create a <a
+href="Base.html#M003099">new</a> <a href="Base.html#M003100">manifest</a>
+and <a href="Base.html#M003104">record</a> your generator&#8216;s actions.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003101" class="method-detail">
+        <a name="M003101"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003101.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003101.html');return false;">
+          <span class="method-name">source_path</span><span class="method-args">(relative_source)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the full path from the source root for the given path. Example for
+source_root = &#8217;/source&#8217;:
+</p>
+<pre>
+  source_path('some/path.rb') == '/source/some/path.rb'
+</pre>
+<p>
+The given path may include a colon &#8217;:&#8217; character to indicate
+that the file belongs to another generator. This notation allows any
+generator to borrow files from another. Example:
+</p>
+<pre>
+  source_path('model:fixture.yml') = '/model/source/path/fixture.yml'
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M003105" class="method-detail">
+        <a name="M003105"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003105.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003105.html');return false;">
+          <span class="method-name">banner</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Override with your own usage <a href="Base.html#M003105">banner</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003104" class="method-detail">
+        <a name="M003104"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003104.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003104.html');return false;">
+          <span class="method-name">record</span><span class="method-args">() {|m| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convenience method for generator subclasses to <a
+href="Base.html#M003104">record</a> a <a
+href="Base.html#M003100">manifest</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003106" class="method-detail">
+        <a name="M003106"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M003106.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M003106.html');return false;">
+          <span class="method-name">usage_message</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Read USAGE from file in generator base path.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "constructor<Object>:"
+    body: The default value for the mash. Defaults to an empty hash.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Alternatives
+- !ruby/struct:SM::Flow::P 
+  body: If constructor is a Hash, a new mash will be created based on the keys of the hash and no default value will be set.
+full_name: Mash::new
+is_singleton: true
+name: new
+params: (constructor = {})
+visibility: public

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Overwrite this so that gems in the gems directory get preferred over gems from any other location. If there are two gems of different versions in the gems directory, the later one will load as usual.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Array[Array]:"
+    body: The object used for sorting gem specs.
+  type: :NOTE
+full_name: Gem::Specification#sort_obj
+is_singleton: false
+name: sort_obj
+params: ()
+visibility: public

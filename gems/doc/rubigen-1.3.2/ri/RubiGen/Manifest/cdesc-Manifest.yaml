@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: target
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Manifest captures the actions a generator performs. Instantiate a manifest with an optional target object, hammer it with actions, then replay or rewind on the object of your choice.
+- !ruby/struct:SM::Flow::P 
+  body: "Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  manifest = Manifest.new { |m|\n    m.make_directory '/foo'\n    m.create_file '/foo/bar.txt'\n  }\n  manifest.replay(creator)\n  manifest.rewind(destroyer)\n"
+constants: []
+
+full_name: RubiGen::Manifest
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: erase
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: replay
+- !ruby/object:RI::MethodSummary 
+  name: rewind
+name: Manifest
+superclass: Object

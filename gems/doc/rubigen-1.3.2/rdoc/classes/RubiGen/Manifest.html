@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RubiGen::Manifest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RubiGen::Manifest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/rubigen/manifest_rb.html">
+                lib/rubigen/manifest.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Manifest.html">Manifest</a> captures the actions a generator
+performs. Instantiate a manifest with an optional target object, hammer it
+with actions, then <a href="Manifest.html#M003078">replay</a> or <a
+href="Manifest.html#M003079">rewind</a> on the object of your choice.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  manifest = Manifest.new { |m|
+    m.make_directory '/foo'
+    m.create_file '/foo/bar.txt'
+  }
+  manifest.replay(creator)
+  manifest.rewind(destroyer)
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003080">erase</a>&nbsp;&nbsp;
+      <a href="#M003077">method_missing</a>&nbsp;&nbsp;
+      <a href="#M003076">new</a>&nbsp;&nbsp;
+      <a href="#M003078">replay</a>&nbsp;&nbsp;
+      <a href="#M003079">rewind</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">target</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M003076" class="method-detail">
+        <a name="M003076"></a>
+
+        <div class="method-heading">
+          <a href="Manifest.src/M003076.html" target="Code" class="method-signature"
+            onclick="popupCode('Manifest.src/M003076.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(target = nil) {|self if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Take a default action target. Yield self if block given.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003080" class="method-detail">
+        <a name="M003080"></a>
+
+        <div class="method-heading">
+          <a href="Manifest.src/M003080.html" target="Code" class="method-signature"
+            onclick="popupCode('Manifest.src/M003080.html');return false;">
+          <span class="method-name">erase</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Erase recorded actions.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003077" class="method-detail">
+        <a name="M003077"></a>
+
+        <div class="method-heading">
+          <a href="Manifest.src/M003077.html" target="Code" class="method-signature"
+            onclick="popupCode('Manifest.src/M003077.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(action, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Record an action.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003078" class="method-detail">
+        <a name="M003078"></a>
+
+        <div class="method-heading">
+          <a href="Manifest.src/M003078.html" target="Code" class="method-signature"
+            onclick="popupCode('Manifest.src/M003078.html');return false;">
+          <span class="method-name">replay</span><span class="method-args">(target = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Replay recorded actions.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003079" class="method-detail">
+        <a name="M003079"></a>
+
+        <div class="method-heading">
+          <a href="Manifest.src/M003079.html" target="Code" class="method-signature"
+            onclick="popupCode('Manifest.src/M003079.html');return false;">
+          <span class="method-name">rewind</span><span class="method-args">(target = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Rewind recorded actions.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Jul 30 21:54:02 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/ParseTree.html">ParseTree</a></h1>
+<ul>
+<li><a
+href="http://rubyforge.org/projects/parsetree">rubyforge.org/projects/parsetree</a>/
+
+</li>
+<li><a
+href="http://www.zenspider.com/ZSS/Products/ParseTree">www.zenspider.com/ZSS/Products/ParseTree</a>/
+
+</li>
+<li>ryand-ruby@zenspider.com
+
+</li>
+</ul>
+<h2>DESCRIPTION:</h2>
+<p>
+<a href="../classes/ParseTree.html">ParseTree</a> is a C extension (using
+RubyInline) that extracts the parse tree for an entire class or a specific
+method and returns it as a s-expression (aka sexp) using ruby&#8216;s
+arrays, strings, symbols, and integers.
+</p>
+<p>
+As an example:
+</p>
+<pre>
+  def conditional1(arg1)
+    if arg1 == 0 then
+      return 1
+    end
+    return 0
+  end
+</pre>
+<p>
+becomes:
+</p>
+<pre>
+  [:defn,
+    :conditional1,
+    [:scope,
+     [:block,
+      [:args, :arg1],
+      [:if,
+       [:call, [:lvar, :arg1], :==, [:array, [:lit, 0]]],
+       [:return, [:lit, 1]],
+       nil],
+      [:return, [:lit, 0]]]]]
+</pre>
+<h2>FEATURES/PROBLEMS:</h2>
+<ul>
+<li>Uses RubyInline, so it just drops in.
+
+</li>
+<li>Includes <a href="../classes/SexpProcessor.html">SexpProcessor</a> and <a
+href="../classes/CompositeSexpProcessor.html">CompositeSexpProcessor</a>.
+
+<ul>
+<li>Allows you to write very clean filters.
+
+</li>
+</ul>
+</li>
+<li>Includes <a href="../classes/UnifiedRuby.html">UnifiedRuby</a>, allowing
+you to automatically rewrite ruby quirks.
+
+</li>
+<li><a
+href="../classes/ParseTree.html#M002111">ParseTree#parse_tree_for_string</a>
+lets you parse arbitrary strings of ruby.
+
+</li>
+<li>Includes parse_tree_show, which lets you quickly snoop code.
+
+<ul>
+<li>echo &quot;1+1&quot; | parse_tree_show -f for quick snippet output.
+
+</li>
+</ul>
+</li>
+<li>Includes parse_tree_abc, which lets you get abc metrics on code.
+
+<ul>
+<li>abc metrics = numbers of assignments, branches, and calls.
+
+</li>
+<li>whitespace independent metric for method complexity.
+
+</li>
+</ul>
+</li>
+<li>Includes parse_tree_deps, which shows you basic class level dependencies.
+
+</li>
+<li>Does not work on the core classes, as they are not ruby (yet).
+
+</li>
+</ul>
+<h2>SYNOPSYS:</h2>
+<pre>
+  sexp_array = ParseTree.translate(klass)
+  sexp_array = ParseTree.translate(klass, :method)
+  sexp_array = ParseTree.translate(&quot;1+1&quot;)
+</pre>
+<p>
+or:
+</p>
+<pre>
+  class MyProcessor &lt; SexpProcessor
+    def initialize
+      super
+      self.strict = false
+    end
+    def process_lit(exp)
+      val = exp.shift
+      return val
+    end
+  end
+</pre>
+<p>
+or:
+</p>
+<pre>
+  % ./parse_tree_show myfile.rb
+</pre>
+<p>
+or:
+</p>
+<pre>
+  % echo &quot;1+1&quot; | ./parse_tree_show -f
+</pre>
+<p>
+or:
+</p>
+<pre>
+  % ./parse_tree_abc myfile.rb
+</pre>
+<h2>REQUIREMENTS:</h2>
+<ul>
+<li>RubyInline 3.6 or better.
+
+</li>
+</ul>
+<h2>INSTALL:</h2>
+<ul>
+<li>rake install_gem
+
+</li>
+<li>sudo rake install
+
+</li>
+<li>sudo gem install <a href="../classes/ParseTree.html">ParseTree</a>
+
+</li>
+</ul>
+<h2>LICENSE:</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright (c) 2001-2007 Ryan Davis, Zen Spider Software
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

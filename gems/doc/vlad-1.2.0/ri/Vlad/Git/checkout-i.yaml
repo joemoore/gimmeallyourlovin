@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the command that will check out <tt>revision</tt> from the repository into directory <tt>destination</tt>. <tt>revision</tt> can be any SHA1 or equivalent (e.g. branch, tag, etc...)
+full_name: Vlad::Git#checkout
+is_singleton: false
+name: checkout
+params: (revision, destination)
+visibility: public

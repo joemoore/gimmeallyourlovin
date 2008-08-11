@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Update#file
+is_singleton: false
+name: file
+params: (relative_source, relative_destination, options = {})
+visibility: public

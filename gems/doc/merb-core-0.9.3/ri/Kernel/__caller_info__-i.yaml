@@ -1,0 +1,33 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "i<Fixnum>:"
+    body: The caller number. Defaults to 1.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Array[Array]:"
+    body: The file, line and method of the caller.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  <em>caller_info</em>(1)\n    # =&gt; ['/usr/lib/ruby/1.8/irb/workspace.rb', '52', 'irb_binding']\n"
+full_name: Kernel#__caller_info__
+is_singleton: false
+name: __caller_info__
+params: (i = 1)
+visibility: public

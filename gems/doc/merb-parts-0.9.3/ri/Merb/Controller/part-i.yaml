@@ -1,0 +1,45 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Dispatches a PartController.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "opts<Hash>:"
+    body: A Hash of Options. (see below)
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Options
+- !ruby/struct:SM::Flow::P 
+  body: An option hash has two parts.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "1."
+    body: keys that are Merb::PartControllers with values that are action names (as symbols)
+  - !ruby/struct:SM::Flow::LI 
+    label: "2."
+    body: key value pairs that will become available in the PartController as params merged with the web controllers params
+  type: :NUMBER
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Example
+- !ruby/struct:SM::Flow::VERB 
+  body: " Calling a part controller\n {{{\n   part TodoPart =&gt; :list\n  }}}\n\n Calling a part with additional options\n {{{\n   part TodoPart =&gt; :list, :limit =&gt; 20, :user =&gt; current_user\n }}}\n"
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Returns the result of the PartControllers action, which is a string.\n"
+full_name: Merb::Controller#part
+is_singleton: false
+name: part
+params: (opts = {})
+visibility: public

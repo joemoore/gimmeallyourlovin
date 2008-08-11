@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Base#next_migration_number
+is_singleton: false
+name: next_migration_number
+params: ()
+visibility: protected

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>handle (Merb::Dispatcher)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-core/dispatch/dispatcher.rb, line 27</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">handle</span>(<span class="ruby-identifier">rack_env</span>)
+      <span class="ruby-identifier">start</span>   = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+      <span class="ruby-identifier">request</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rack_env</span>)
+      
+      <span class="ruby-identifier">route_index</span>, <span class="ruby-identifier">route_params</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Router</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">request</span>)
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">route_params</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-operator">::</span><span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">ControllerExceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NotFound</span>, <span class="ruby-node">&quot;No routes match the request, #{request.uri}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">route_params</span> = <span class="ruby-identifier">route_params</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">route_params</span>
+            
+      <span class="ruby-identifier">controller_name</span> = (<span class="ruby-identifier">route_params</span>[<span class="ruby-identifier">:namespace</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">route_params</span>[<span class="ruby-identifier">:namespace</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">route_params</span>[<span class="ruby-identifier">:controller</span>]
+      
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">controller_name</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">ControllerExceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NotFound</span>, <span class="ruby-value str">&quot;Route matched, but route did not specify a controller&quot;</span> 
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;Routed to: #{request.route_params.inspect}&quot;</span>)
+
+      <span class="ruby-identifier">cnt</span> = <span class="ruby-identifier">controller_name</span>.<span class="ruby-identifier">snake_case</span>.<span class="ruby-identifier">to_const_string</span>
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>.<span class="ruby-identifier">_subclasses</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">cnt</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">ControllerExceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NotFound</span>, <span class="ruby-node">&quot;Controller '#{cnt}' not found&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cnt</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;Application&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">ControllerExceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NotFound</span>, <span class="ruby-value str">&quot;The 'Application' controller has no public actions&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">klass</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">full_const_get</span>(<span class="ruby-identifier">cnt</span>)
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NameError</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">ControllerExceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NotFound</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;Params: #{klass._filter_params(request.params).inspect}&quot;</span>)
+
+      <span class="ruby-identifier">action</span> = <span class="ruby-identifier">route_params</span>[<span class="ruby-identifier">:action</span>]
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">route_index</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">route</span> = <span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Router</span>.<span class="ruby-identifier">routes</span>[<span class="ruby-identifier">route_index</span>]
+        <span class="ruby-comment cmt">#Fixate the session ID if it is enabled on the route</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">allow_fixation?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>.<span class="ruby-identifier">_session_id_key</span>)
+          <span class="ruby-identifier">request</span>.<span class="ruby-identifier">cookies</span>[<span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>.<span class="ruby-identifier">_session_id_key</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>[<span class="ruby-constant">Merb</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>.<span class="ruby-identifier">_session_id_key</span>]
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>      
+
+      <span class="ruby-identifier">controller</span> = <span class="ruby-identifier">dispatch_action</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">action</span>, <span class="ruby-identifier">request</span>)
+      <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">_benchmarks</span>[<span class="ruby-identifier">:dispatch_time</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>  
+      <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">_benchmarks</span>.<span class="ruby-identifier">inspect</span>
+      <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">flush</span>
+
+      <span class="ruby-identifier">controller</span>
+    <span class="ruby-comment cmt"># this is the custom dispatch_exception; it allows failures to still be dispatched</span>
+    <span class="ruby-comment cmt"># to the error controller</span>
+    <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>
+      <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span>(<span class="ruby-constant">Merb</span>.<span class="ruby-identifier">exception</span>(<span class="ruby-identifier">exception</span>))
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">xhr?</span>
+        <span class="ruby-identifier">exception</span> = <span class="ruby-identifier">controller_exception</span>(<span class="ruby-identifier">exception</span>)
+        <span class="ruby-identifier">dispatch_exception</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">exception</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:headers</span>, <span class="ruby-identifier">:status</span>, <span class="ruby-identifier">:body</span>).<span class="ruby-identifier">new</span>({}, <span class="ruby-value">500</span>,
+          <span class="ruby-value str">&quot;\#{exception.message}\n\nParams:\n\#{(request.params || {}).map { |p,v| \&quot;  \#{p}: \#{v}\\n\&quot;}.join(\&quot;\\n\&quot;)}\n\nSession:\n\#{(request.session || {}).map { |p,v| \&quot;  \#{p}: \#{v}\\n\&quot;}.join(\&quot;\\n\&quot;)}\n\nCookies:\n\#{(request.cookies || {}).map { |p,v| \&quot;  \#{p}: \#{v}\\n\&quot;}.join(\&quot;\\n\&quot;)}\n\nStacktrace:\n\#{exception.backtrace.join(\&quot;\\n\&quot;)}\n&quot;</span>
+        )
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

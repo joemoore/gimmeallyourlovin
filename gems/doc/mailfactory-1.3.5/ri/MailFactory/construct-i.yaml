@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "builds an email and returns it as a string. Takes the following options:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:messageid</tt>:"
+    body: Adds a message id to the message based on the from header (defaults to false)
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:date</tt>:"
+    body: Adds a date to the message if one is not present (defaults to true)
+  type: :NOTE
+full_name: MailFactory#construct
+is_singleton: false
+name: construct
+params: (options = Hash.new)
+visibility: public

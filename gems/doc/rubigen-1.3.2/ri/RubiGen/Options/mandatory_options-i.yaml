@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convenient access to class mandatory options.
+full_name: RubiGen::Options#mandatory_options
+is_singleton: false
+name: mandatory_options
+params: ()
+visibility: protected

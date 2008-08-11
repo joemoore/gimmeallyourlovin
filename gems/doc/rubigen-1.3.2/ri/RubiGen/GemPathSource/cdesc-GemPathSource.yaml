@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: filters
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: GemPathSource looks for generators within any RubyGem's /{filter_}generators/**/&lt;generator_name&gt;_generator.rb file.
+constants: []
+
+full_name: RubiGen::GemPathSource
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: each
+name: GemPathSource
+superclass: AbstractGemSource

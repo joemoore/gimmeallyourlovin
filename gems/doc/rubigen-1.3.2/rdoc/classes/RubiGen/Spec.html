@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RubiGen::Spec</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RubiGen::Spec</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/rubigen/spec_rb.html">
+                lib/rubigen/spec.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A spec knows where a generator was found and how to instantiate it.
+Metadata include the generator&#8216;s name, its base path, and the source
+which yielded it (<a href="PathSource.html">PathSource</a>, <a
+href="GemPathSource.html">GemPathSource</a>, etc.)
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003086">class_file</a>&nbsp;&nbsp;
+      <a href="#M003087">class_name</a>&nbsp;&nbsp;
+      <a href="#M003085">klass</a>&nbsp;&nbsp;
+      <a href="#M003084">new</a>&nbsp;&nbsp;
+      <a href="#M003088">usage_file</a>&nbsp;&nbsp;
+      <a href="#M003089">visible?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">source</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M003084" class="method-detail">
+        <a name="M003084"></a>
+
+        <div class="method-heading">
+          <a href="Spec.src/M003084.html" target="Code" class="method-signature"
+            onclick="popupCode('Spec.src/M003084.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(name, path, source)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003086" class="method-detail">
+        <a name="M003086"></a>
+
+        <div class="method-heading">
+          <a href="Spec.src/M003086.html" target="Code" class="method-signature"
+            onclick="popupCode('Spec.src/M003086.html');return false;">
+          <span class="method-name">class_file</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003087" class="method-detail">
+        <a name="M003087"></a>
+
+        <div class="method-heading">
+          <a href="Spec.src/M003087.html" target="Code" class="method-signature"
+            onclick="popupCode('Spec.src/M003087.html');return false;">
+          <span class="method-name">class_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003085" class="method-detail">
+        <a name="M003085"></a>
+
+        <div class="method-heading">
+          <a href="Spec.src/M003085.html" target="Code" class="method-signature"
+            onclick="popupCode('Spec.src/M003085.html');return false;">
+          <span class="method-name">klass</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Look up the generator class. Require its class file, find the class in
+ObjectSpace, tag it with this spec, and return.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003088" class="method-detail">
+        <a name="M003088"></a>
+
+        <div class="method-heading">
+          <a href="Spec.src/M003088.html" target="Code" class="method-signature"
+            onclick="popupCode('Spec.src/M003088.html');return false;">
+          <span class="method-name">usage_file</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M003089" class="method-detail">
+        <a name="M003089"></a>
+
+        <div class="method-heading">
+          <a href="Spec.src/M003089.html" target="Code" class="method-signature"
+            onclick="popupCode('Spec.src/M003089.html');return false;">
+          <span class="method-name">visible?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

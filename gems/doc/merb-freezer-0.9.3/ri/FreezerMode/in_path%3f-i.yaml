@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FreezerMode#in_path?
+is_singleton: false
+name: in_path?
+params: (bin)
+visibility: protected

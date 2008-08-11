@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Merb::Template</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Merb::Template</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/merb-core/controller/template_rb.html">
+                lib/merb-core/controller/template.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000375">engine_for</a>&nbsp;&nbsp;
+      <a href="#M000374">inline_template</a>&nbsp;&nbsp;
+      <a href="#M000376">register_extensions</a>&nbsp;&nbsp;
+      <a href="#M000373">template_for</a>&nbsp;&nbsp;
+      <a href="#M000372">template_name</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Template/Erubis.html" class="link">Merb::Template::Erubis</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXTENSIONS</td>
+          <td>=</td>
+          <td class="context-item-value">{} unless defined?(EXTENSIONS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">METHOD_LIST</td>
+          <td>=</td>
+          <td class="context-item-value">{} unless defined?(METHOD_LIST)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MTIMES</td>
+          <td>=</td>
+          <td class="context-item-value">{} unless defined?(MTIMES)</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000375" class="method-detail">
+        <a name="M000375"></a>
+
+        <div class="method-heading">
+          <a href="Template.src/M000375.html" target="Code" class="method-signature"
+            onclick="popupCode('Template.src/M000375.html');return false;">
+          <span class="method-name">engine_for</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Finds the engine for a particular path.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">path&lt;<a href="../String.html">String</a>&gt;:</td><td>The path of the file to find an engine for.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../Class.html">Class</a>:</td><td>The engine.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000374" class="method-detail">
+        <a name="M000374"></a>
+
+        <div class="method-heading">
+          <a href="Template.src/M000374.html" target="Code" class="method-signature"
+            onclick="popupCode('Template.src/M000374.html');return false;">
+          <span class="method-name">inline_template</span><span class="method-args">(path, mod = Merb::InlineTemplates)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Takes a template at a particular path and inlines it into a module and adds
+it to the METHOD_LIST table to speed lookup later.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">path&lt;<a href="../String.html">String</a>&gt;:</td><td>The full path of the template (minus the templating specifier) to inline.
+
+</td></tr>
+<tr><td valign="top">mod&lt;Module&gt;:</td><td>The module to put the compiled method into. Defaults to <a
+href="InlineTemplates.html">Merb::InlineTemplates</a>
+
+</td></tr>
+</table>
+<h4>Notes</h4>
+<p>
+Even though this method supports inlining into any module, the method must
+be available to instances of <a
+href="AbstractController.html">AbstractController</a> that will use it.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000376" class="method-detail">
+        <a name="M000376"></a>
+
+        <div class="method-heading">
+          <a href="Template.src/M000376.html" target="Code" class="method-signature"
+            onclick="popupCode('Template.src/M000376.html');return false;">
+          <span class="method-name">register_extensions</span><span class="method-args">(engine, extensions)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Registers the extensions that will trigger a particular templating engine.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">engine&lt;<a href="../Class.html">Class</a>&gt;:</td><td>The class of the engine that is being registered
+
+</td></tr>
+<tr><td valign="top">extensions&lt;Array[<a href="../String.html">String</a>]&gt;:</td><td>The list of extensions that will be registered with this templating
+language
+
+</td></tr>
+</table>
+<h4>Raises</h4>
+<table>
+<tr><td valign="top">ArgumentError:</td><td>engine does not have a compile_template method.
+
+</td></tr>
+</table>
+<h4>Example</h4>
+<pre>
+  Merb::Template.register_extensions(Merb::Template::Erubis, [&quot;erb&quot;])
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000373" class="method-detail">
+        <a name="M000373"></a>
+
+        <div class="method-heading">
+          <a href="Template.src/M000373.html" target="Code" class="method-signature"
+            onclick="popupCode('Template.src/M000373.html');return false;">
+          <span class="method-name">template_for</span><span class="method-args">(path, template_stack = [])</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the name of the template method for a particular path.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">path&lt;<a href="../String.html">String</a>&gt;:</td><td>A full path to find a template method for.
+
+</td></tr>
+<tr><td valign="top">template_stack&lt;Array&gt;:</td><td>The template stack. Not used.
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<p>
+DOC
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000372" class="method-detail">
+        <a name="M000372"></a>
+
+        <div class="method-heading">
+          <a href="Template.src/M000372.html" target="Code" class="method-signature"
+            onclick="popupCode('Template.src/M000372.html');return false;">
+          <span class="method-name">template_name</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the template&#8216;s method name from a full path. This replaces
+non-alphanumeric characters with __ and &quot;.&quot; with &quot;_&quot;
+</p>
+<p>
+Collisions are potentially possible with something like: ~foo.bar and
+__foo.bar or !foo.bar.
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">path&lt;<a href="../String.html">String</a>&gt;:</td><td>A full path to convert to a valid Ruby method name
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="../String.html">String</a>:</td><td>The template name.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

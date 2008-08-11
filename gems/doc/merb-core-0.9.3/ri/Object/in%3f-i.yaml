@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "arrayish<Array>:"
+    body: Container to check, to see if it includes the object.
+  - !ruby/struct:SM::Flow::LI 
+    label: "more<Objects>:"
+    body: additional args, will be flattened into arrayish
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/struct:SM::Flow::P 
+  body: "Boolean: True if the object is included in arrayish (+ more)"
+full_name: Object#in?
+is_singleton: false
+name: in?
+params: (arrayish,*more)
+visibility: public

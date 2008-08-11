@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: append
+- !ruby/object:RI::MethodSummary 
+  name: compile
+- !ruby/object:RI::MethodSummary 
+  name: compiled_statement
+- !ruby/object:RI::MethodSummary 
+  name: generate
+- !ruby/object:RI::MethodSummary 
+  name: generate_for_default_route
+- !ruby/object:RI::MethodSummary 
+  name: prepare
+- !ruby/object:RI::MethodSummary 
+  name: prepend
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SEGMENT_REGEXP
+  value: /(:([a-z_][a-z0-9_]*|:))/
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SEGMENT_REGEXP_WITH_BRACKETS
+  value: /(:[a-z_]+)(\[(\d+)\])?/
+- !ruby/object:RI::Constant 
+  comment: 
+  name: JUST_BRACKETS
+  value: /\[(\d+)\]/
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PARENTHETICAL_SEGMENT_STRING
+  value: "\"([^\\/.,;?]+)\".freeze"
+full_name: Merb::Router
+includes: []
+
+instance_methods: []
+
+name: Router
+superclass: Object

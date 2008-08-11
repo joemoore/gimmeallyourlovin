@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Merb::Rack::Application
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: deferred?
+- !ruby/object:RI::MethodSummary 
+  name: file_exist?
+- !ruby/object:RI::MethodSummary 
+  name: serve_static
+- !ruby/object:RI::MethodSummary 
+  name: strip_path_prefix
+name: Application
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (sf)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Checks if the source and the destination file are identical. If passed a block then the source file is a template that needs to first be evaluated before being compared to the destination.
+full_name: RubiGen::Commands::Create#identical?
+is_singleton: false
+name: identical?
+params: (source, destination, &block) {|sf| ...}
+visibility: public

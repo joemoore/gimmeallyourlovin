@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: sets a header (removing any other versions of that header)
+full_name: MailFactory#set_header
+is_singleton: false
+name: set_header
+params: (header, value)
+visibility: public

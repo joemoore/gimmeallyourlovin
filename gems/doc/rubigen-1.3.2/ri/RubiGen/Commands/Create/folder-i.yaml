@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Create#folder
+is_singleton: false
+name: folder
+params: (template_path, path=nil, options = {})
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return the full path from the destination root for the given path. Example for destination_root = '/dest':"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  destination_path('some/path.rb') == '/dest/some/path.rb'\n"
+full_name: RubiGen::Base#destination_path
+is_singleton: false
+name: destination_path
+params: (relative_destination)
+visibility: public

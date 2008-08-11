@@ -1,0 +1,45 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "duck<Symbol, Class, Array>:"
+    body: The thing to compare the object to.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: "The behavior of the method depends on the type of duck as follows:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Symbol:"
+    body: Check whether the object respond_to?(duck).
+  - !ruby/struct:SM::Flow::LI 
+    label: "Class:"
+    body: Check whether the object is_a?(duck).
+  - !ruby/struct:SM::Flow::LI 
+    label: "Array:"
+    body: Check whether the object quacks_like? at least one of the options in the array.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Boolean:"
+    body: True if the object quacks like duck.
+  type: :NOTE
+full_name: Object#quacks_like?
+is_singleton: false
+name: quacks_like?
+params: (duck)
+visibility: public

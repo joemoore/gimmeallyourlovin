@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Here's a convenient way to get a handle on generator commands. Command.instance('destroy', my_generator) instantiates a Destroy delegate of my_generator ready to do your dirty work.
+full_name: RubiGen::Commands::instance
+is_singleton: true
+name: instance
+params: (command, generator)
+visibility: public

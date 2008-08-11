@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Base#dependency
+is_singleton: false
+name: dependency
+params: (generator_name, args, runtime_options = {})
+visibility: public

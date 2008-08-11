@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: This hash as a query string
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  { :name =&gt; &quot;Bob&quot;,\n    :address =&gt; {\n      :street =&gt; '111 Ruby Ave.',\n      :city =&gt; 'Ruby Central',\n      :phones =&gt; ['111-111-1111', '222-222-2222']\n    }\n  }.to_params\n    #=&gt; &quot;name=Bob&amp;address[city]=Ruby Central&amp;address[phones]=111-111-1111222-222-2222&amp;address[street]=111 Ruby Ave.&quot;\n"
+full_name: Hash#to_params
+is_singleton: false
+name: to_params
+params: ()
+visibility: public

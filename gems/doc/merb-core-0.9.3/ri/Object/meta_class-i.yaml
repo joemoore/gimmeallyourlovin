@@ -1,0 +1,32 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Extracts the singleton class, so that metaprogramming can be done on it.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Class:"
+    body: The meta class.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class MyString &lt; String; end\n\n  MyString.instance_eval do\n    define_method :foo do\n      puts self\n    end\n  end\n\n  MyString.meta_class.instance_eval do\n    define_method :bar do\n      puts self\n    end\n  end\n\n  def String.add_meta_var(var)\n    self.meta_class.instance_eval do\n      define_method var do\n        puts &quot;HELLO&quot;\n      end\n    end\n  end\n\n  MyString.new(&quot;Hello&quot;).foo #=&gt; &quot;Hello&quot;\n  MyString.new(&quot;Hello&quot;).bar\n    #=&gt; NoMethodError: undefined method `bar' for &quot;Hello&quot;:MyString\n  MyString.foo\n    #=&gt; NoMethodError: undefined method `foo' for MyString:Class\n  MyString.bar\n    #=&gt; MyString\n  String.bar\n    #=&gt; NoMethodError: undefined method `bar' for String:Class\n\n  MyString.add_meta_var(:x)\n  MyString.x #=&gt; HELLO\n"
+- !ruby/struct:SM::Flow::P 
+  body: "As you can see, using #meta_class allows you to execute code (and here, define a method) on the metaclass itself. It also allows you to define class methods that can be run on subclasses, and then be able to execute code on the metaclass of the subclass (here MyString)."
+- !ruby/struct:SM::Flow::P 
+  body: In this case, we were able to define a class method (add_meta_var) on String that was executable by the MyString subclass. It was then able to define a method on the subclass by adding it to the MyString metaclass.
+- !ruby/struct:SM::Flow::P 
+  body: "For more information, you can check out _why's excellent article at: http://whytheluckystiff.net/articles/seeingMetaclassesClearly.html"
+full_name: Object#meta_class
+is_singleton: false
+name: meta_class
+params: ()
+visibility: public

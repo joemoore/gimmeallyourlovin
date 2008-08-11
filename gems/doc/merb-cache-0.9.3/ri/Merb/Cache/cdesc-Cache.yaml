@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: config
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: store
+  rw: R
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_CONFIG
+  value: "{     :cache_html_directory => Merb.dir_for(:public) / \"cache\",      #:store => \"database\",     #:table_name => \"merb_cache\",      #:disable => \"development\", # disable merb-cache in development     #:disable => true, # disable merb-cache in all environments      :store => \"file\",     :cache_directory => Merb.root_path(\"tmp/cache\"),      #:store => \"memcache\",     #:host => \"127.0.0.1:11211\",     #:namespace => \"merb_cache\",     #:track_keys => true,      #:store => \"memory\",     # store could be: file, memcache, memory, database, dummy, ...   }"
+full_name: Merb::Cache
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: expire_key_for
+- !ruby/object:RI::MethodSummary 
+  name: key_for
+- !ruby/object:RI::MethodSummary 
+  name: start
+name: Cache
+superclass: Object

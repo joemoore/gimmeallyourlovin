@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Replay recorded actions.
+full_name: RubiGen::Manifest#replay
+is_singleton: false
+name: replay
+params: (target = nil)
+visibility: public

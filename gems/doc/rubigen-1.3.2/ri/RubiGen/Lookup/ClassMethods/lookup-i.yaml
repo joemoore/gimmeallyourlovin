@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Lookup knows how to find generators' Specs from a list of Sources. Searches the sources, in order, for the first matching name.
+full_name: RubiGen::Lookup::ClassMethods#lookup
+is_singleton: false
+name: lookup
+params: (generator_name)
+visibility: public

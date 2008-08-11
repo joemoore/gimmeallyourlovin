@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: load
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Vlad the Deployer - Pragmatic application deployment automation, without mercy.
+- !ruby/struct:SM::Flow::P 
+  body: Please read doco/getting_started.txt or http://rubyhitsquad.com/
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: "Basic scenario:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "1."
+    body: rake vlad:setup (first time only)
+  - !ruby/struct:SM::Flow::LI 
+    label: "2."
+    body: rake vlad:update
+  - !ruby/struct:SM::Flow::LI 
+    label: "3."
+    body: rake vlad:migrate (optional)
+  - !ruby/struct:SM::Flow::LI 
+    label: "4."
+    body: rake vlad:start
+  type: :NUMBER
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This is the version of Vlad you are running.
+  name: VERSION
+  value: "'1.2.0'"
+full_name: Vlad
+includes: []
+
+instance_methods: []
+
+name: Vlad
+superclass: 

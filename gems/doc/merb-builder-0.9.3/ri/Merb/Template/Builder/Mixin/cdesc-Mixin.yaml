@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Merb::Template::Builder::Mixin
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: _builder_buffer
+- !ruby/object:RI::MethodSummary 
+  name: capture_builder
+- !ruby/object:RI::MethodSummary 
+  name: concat_builder
+name: Mixin
+superclass: 

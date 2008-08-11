@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Expire the cache entry identified by the given key
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameter
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<Sting>:"
+    body: The key identifying the cache entry
+  type: :NOTE
+full_name: Merb::Cache::FileStore#expire
+is_singleton: false
+name: expire
+params: (key)
+visibility: public

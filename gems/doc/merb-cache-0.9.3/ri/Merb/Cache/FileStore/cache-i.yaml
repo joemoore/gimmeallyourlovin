@@ -1,0 +1,35 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Capture or restore the data in cache. If the cache entry expired or does not exist, the data are taken from the execution of the block, marshalled and stored in cache. Otherwise, the data are loaded from the cache and returned unmarshalled
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "_controller<Merb::Controller>:"
+    body: The instance of the current controller
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<String>:"
+    body: The key identifying the cache entry
+  - !ruby/struct:SM::Flow::LI 
+    label: "from_now<~minutes>:"
+    body: The number of minutes (from now) the cache should persist
+  - !ruby/struct:SM::Flow::LI 
+    label: "&block:"
+    body: The template to be used or not
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Additional information
+- !ruby/struct:SM::Flow::P 
+  body: "When fetching data (the cache entry exists and has not expired) The data are loaded from the cache and returned unmarshalled. Otherwise: The controller is used to capture the rendered template (from the block). It uses the capture_#{engine} and concat_#{engine} methods to do so. The captured data are then marshalled and stored."
+full_name: Merb::Cache::FileStore#cache
+is_singleton: false
+name: cache
+params: (_controller, key, from_now = nil, &block)
+visibility: public

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Called in the after_app_loads loop and instantiate the right backend
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Raises
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Store#NotFound:"
+    body: If the cache_store mentionned in the config is unknown
+  type: :NOTE
+full_name: Merb::Cache#start
+is_singleton: false
+name: start
+params: ()
+visibility: public

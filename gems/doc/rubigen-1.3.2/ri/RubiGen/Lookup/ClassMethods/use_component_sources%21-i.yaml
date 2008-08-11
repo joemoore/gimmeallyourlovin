@@ -1,0 +1,38 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use component generators (test_unit, etc).
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "1."
+    body: Current application. If APP_ROOT is defined we know we're generating in the context of this application, so search APP_ROOT/generators.
+  - !ruby/struct:SM::Flow::LI 
+    label: "2."
+    body: User home directory. Search ~/.rubigen/generators.
+  - !ruby/struct:SM::Flow::LI 
+    label: "3."
+    body: RubyGems. Search for gems containing /{scope}_generators folder.
+  - !ruby/struct:SM::Flow::LI 
+    label: "4."
+    body: Builtins. None currently.
+  type: :NUMBER
+- !ruby/struct:SM::Flow::P 
+  body: "Search can be filtered by passing one or more prefixes. e.g. use_component_sources!(:rubygems) means it will also search in the following folders:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "5."
+    body: User home directory. Search ~/.rubigen/rubygems_generators.
+  - !ruby/struct:SM::Flow::LI 
+    label: "6."
+    body: RubyGems. Search for gems containing /rubygems_generators folder.
+  type: :NUMBER
+full_name: RubiGen::Lookup::ClassMethods#use_component_sources!
+is_singleton: false
+name: use_component_sources!
+params: (*filters)
+visibility: public

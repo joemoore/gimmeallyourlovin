@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generator scripts handle command-line invocation. Each script responds to an invoke! class method which handles option parsing and generator invocation.
+constants: []
+
+full_name: RubiGen::Scripts::Base
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Options
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: banner
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: usage_message
+name: Base
+superclass: Object

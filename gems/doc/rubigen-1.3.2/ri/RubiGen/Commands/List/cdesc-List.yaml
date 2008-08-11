@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: List a generator's action manifest.
+constants: []
+
+full_name: RubiGen::Commands::List
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: class_collisions
+- !ruby/object:RI::MethodSummary 
+  name: complex_template
+- !ruby/object:RI::MethodSummary 
+  name: dependency
+- !ruby/object:RI::MethodSummary 
+  name: directory
+- !ruby/object:RI::MethodSummary 
+  name: file
+- !ruby/object:RI::MethodSummary 
+  name: migration_template
+- !ruby/object:RI::MethodSummary 
+  name: readme
+- !ruby/object:RI::MethodSummary 
+  name: route_resources
+- !ruby/object:RI::MethodSummary 
+  name: template
+name: List
+superclass: Base

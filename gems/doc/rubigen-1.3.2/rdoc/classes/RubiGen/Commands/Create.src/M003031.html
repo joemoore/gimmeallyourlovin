@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>class_collisions (RubiGen::Commands::Create)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/commands.rb, line 161</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">class_collisions</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">class_names</span>)
+        <span class="ruby-identifier">class_names</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">class_name</span><span class="ruby-operator">|</span>
+          <span class="ruby-comment cmt"># Convert to string to allow symbol arguments.</span>
+          <span class="ruby-identifier">class_name</span> = <span class="ruby-identifier">class_name</span>.<span class="ruby-identifier">to_s</span>
+
+          <span class="ruby-comment cmt"># Skip empty strings.</span>
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">class_name</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
+
+          <span class="ruby-comment cmt"># Split the class from its module nesting.</span>
+          <span class="ruby-identifier">nesting</span> = <span class="ruby-identifier">class_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'::'</span>)
+          <span class="ruby-identifier">name</span> = <span class="ruby-identifier">nesting</span>.<span class="ruby-identifier">pop</span>
+
+          <span class="ruby-comment cmt"># Extract the last Module in the nesting.</span>
+          <span class="ruby-identifier">last</span> = <span class="ruby-identifier">nesting</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-constant">Object</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">last</span>, <span class="ruby-identifier">nest</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">last</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">nest</span>)
+            <span class="ruby-identifier">last</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">nest</span>)
+          }
+
+          <span class="ruby-comment cmt"># If the last Module exists, check whether the given</span>
+          <span class="ruby-comment cmt"># class exists and raise a collision if so.</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">last</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">last</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">camelize</span>)
+            <span class="ruby-identifier">raise_class_collision</span>(<span class="ruby-identifier">class_name</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

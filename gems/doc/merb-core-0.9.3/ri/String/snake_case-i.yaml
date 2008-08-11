@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: The string converted to snake case.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &quot;FooBar&quot;.snake_case #=&gt; &quot;foo_bar&quot;\n  &quot;HeadlineCNNNews&quot;.snake_case #=&gt; &quot;headline_cnn_news&quot;\n  &quot;CNN&quot;.snake_case #=&gt; &quot;cnn&quot;\n"
+full_name: String#snake_case
+is_singleton: false
+name: snake_case
+params: ()
+visibility: public

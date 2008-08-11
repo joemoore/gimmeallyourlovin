@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: variables.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>variables.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doco/variables.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 10 21:38:29 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Core Variables</h2>
+<table>
+<tr><td valign="top">repository:</td><td>REQUIRED: Repository path: e.g. <a
+href="http://repo.example.com/svn">repo.example.com/svn</a>
+
+</td></tr>
+<tr><td valign="top">deploy_to:</td><td>REQUIRED: Deploy path on target machines. e.g. /var/www/app
+
+</td></tr>
+<tr><td valign="top">domain:</td><td>REQUIRED: Used for the common case of a single target server. e.g.
+example.com
+
+</td></tr>
+<tr><td valign="top">current_path:</td><td>The full path on the remote host that will be symlinked as
+&#8216;current&#8217;. Defaults to &quot;#{deploy_to}/current&quot;.
+
+</td></tr>
+<tr><td valign="top">current_release:</td><td>The full path to the current release&#8216;s actual location. Defaults to
+&quot;#{releases_path}/#{releases.last}&quot;.
+
+</td></tr>
+<tr><td valign="top">deploy_timestamped:</td><td>Create timestamped release directories instead of using revision numbers.
+Defaults to true.
+
+</td></tr>
+<tr><td valign="top">deploy_via:</td><td>Which SCM command should be used when deploying the app. Defaults to
+&quot;export&quot;.
+
+</td></tr>
+<tr><td valign="top">latest_release:</td><td>The most recent release, which may not yet have been symlinked. Defaults to
+release_path.
+
+</td></tr>
+<tr><td valign="top">migrate_args:</td><td>Set this to change the RAILS_ENV that &#8216;rake db:migrate&#8217; will
+run under. Defaults to &quot;&quot;.
+
+</td></tr>
+<tr><td valign="top">migrate_target:</td><td>Set this if you need to specify a particular migration
+&#8216;VERSION&#8217; number. Defaults to &quot;latest&quot;.
+
+</td></tr>
+<tr><td valign="top">rails_env:</td><td>Specifies the RAILS_ENV environment variable that will be used. Defaults to
+&quot;production&quot;.
+
+</td></tr>
+<tr><td valign="top">rake:</td><td>Set this if you need to specify an alternate path to &#8216;rake&#8217;.
+Defaults to &quot;rake&quot;.
+
+</td></tr>
+<tr><td valign="top">release_name:</td><td>Name of the release directory, if deploy_timestamped is true. Defaults to
+timestamp: &quot;YYYYMMDDHHMMSS&quot;.
+
+</td></tr>
+<tr><td valign="top">release_path:</td><td>Path to this release, which may not have been created yet. Defaults to
+&quot;#{releases_path}/#{release_name}&quot;.
+
+</td></tr>
+<tr><td valign="top">releases:</td><td>An array of all existing releases, oldest first. Defaults to latest release
+directory name.
+
+</td></tr>
+<tr><td valign="top">releases_path:</td><td>Full path to the &#8216;releases&#8217; directory on the remote host.
+Defaults to &quot;#{deploy_to}/releases&quot;.
+
+</td></tr>
+<tr><td valign="top">revision:</td><td>Revision to use for release. Defaults to &#8216;head&#8217;.
+
+</td></tr>
+<tr><td valign="top">rsync_cmd:</td><td>Path to rsync command. Defaults to &quot;rsync&quot;.
+
+</td></tr>
+<tr><td valign="top">rsync_flags:</td><td>Flags for rsync. Defaults to [&#8217;-azP&#8217;,
+&#8217;&#8212;delete&#8217;].
+
+</td></tr>
+<tr><td valign="top">scm_path:</td><td>Path on the remote host that will be used as &#8216;working space&#8217;
+for SCM tasks. Defaults to &quot;#{deploy_to}/scm&quot;.
+
+</td></tr>
+<tr><td valign="top">shared_path:</td><td>Full path to remote &#8216;shared&#8217; directory, symlinked into your app
+by default. Defaults to &quot;#{deploy_to}/shared&quot;.
+
+</td></tr>
+<tr><td valign="top">ssh_cmd:</td><td>Path to ssh. Defaults to &quot;ssh&quot;.
+
+</td></tr>
+<tr><td valign="top">ssh_flags:</td><td>Flags for ssh. Defaults to &quot;&quot;.
+
+</td></tr>
+<tr><td valign="top">sudo_cmd:</td><td>Path to sudo command. Defaults to &quot;sudo&quot;.
+
+</td></tr>
+<tr><td valign="top">sudo_flags:</td><td>Flogs for sudo. Defaults to nil.
+
+</td></tr>
+<tr><td valign="top">sudo_password:</td><td>Asks for password when referenced.
+
+</td></tr>
+</table>
+<h2>Apache Web Variables:</h2>
+<table>
+<tr><td valign="top">web_command:</td><td>Command to execute when controlling the web server. Defaults to
+&quot;apachectl&quot;.
+
+</td></tr>
+</table>
+<h2>Mongrel App Variables:</h2>
+<table>
+<tr><td valign="top">mongrel_address:</td><td>Defaults to &quot;127.0.0.1&quot;
+
+</td></tr>
+<tr><td valign="top">mongrel_clean:</td><td>Defaults to false
+
+</td></tr>
+<tr><td valign="top">mongrel_command:</td><td>Defaults to &#8216;mongrel_rails&#8216;
+
+</td></tr>
+<tr><td valign="top">mongrel_conf:</td><td>Defaults to &quot;#{shared_path}/mongrel_cluster.conf&quot;
+
+</td></tr>
+<tr><td valign="top">mongrel_config_script:</td><td>Defaults to nil
+
+</td></tr>
+<tr><td valign="top">mongrel_environment:</td><td>Defaults to &quot;production&quot;
+
+</td></tr>
+<tr><td valign="top">mongrel_group:</td><td>Defaults to nil
+
+</td></tr>
+<tr><td valign="top">mongrel_log_file:</td><td>Defaults to nil
+
+</td></tr>
+<tr><td valign="top">mongrel_pid_file:</td><td>Defaults to nil
+
+</td></tr>
+<tr><td valign="top">mongrel_port:</td><td>Defaults to 8000
+
+</td></tr>
+<tr><td valign="top">mongrel_prefix:</td><td>Defaults to nil
+
+</td></tr>
+<tr><td valign="top">mongrel_servers:</td><td>Defaults to 2
+
+</td></tr>
+<tr><td valign="top">mongrel_user:</td><td>Defaults to nil
+
+</td></tr>
+</table>
+<h2>Perforce SCM Variables:</h2>
+<table>
+<tr><td valign="top">p4_cmd:</td><td>The perforce command to use. Defaults to &quot;p4&quot;
+
+</td></tr>
+<tr><td valign="top">source:</td><td>A perforce SCM worker instance.
+
+</td></tr>
+</table>
+<h2>Subversion SCM Variables:</h2>
+<table>
+<tr><td valign="top">source:</td><td>A subversion SCM worker instance.
+
+</td></tr>
+<tr><td valign="top">svn_cmd:</td><td>The subversion command to use. Defaults to &quot;svn&quot;
+
+</td></tr>
+</table>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

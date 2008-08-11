@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::List#class_collisions
+is_singleton: false
+name: class_collisions
+params: (*class_names)
+visibility: public

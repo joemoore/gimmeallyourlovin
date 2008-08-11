@@ -1,0 +1,55 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: args
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: destination_root
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: source_root
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The base code generator is bare-bones. It sets up the source and destination paths and tells the logger whether to keep its trap shut.
+- !ruby/struct:SM::Flow::P 
+  body: It's useful for copying files such as stylesheets, images, or javascripts.
+- !ruby/struct:SM::Flow::P 
+  body: For more comprehensive template-based passive code generation with arguments, you'll want RubiGen::NamedBase.
+- !ruby/struct:SM::Flow::P 
+  body: Generators create a manifest of the actions they perform then hand the manifest to a command which replays the actions to do the heavy lifting (such as checking for existing files or creating directories if needed). Create, destroy, and list commands are included. Since a single manifest may be used by any command, creating new generators is as simple as writing some code templates and declaring what you'd like to do with them.
+- !ruby/struct:SM::Flow::P 
+  body: "The manifest method must be implemented by subclasses, returning a RubiGen::Manifest. The <tt>record</tt> method is provided as a convenience for manifest creation. Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class StylesheetGenerator &lt; RubiGen::Base\n    def manifest\n      record do |m|\n        m.directory('public/stylesheets')\n        m.file('application.css', 'public/stylesheets/application.css')\n      end\n    end\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: See RubiGen::Commands::Create for a list of methods available to the manifest.
+constants: []
+
+full_name: RubiGen::Base
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Options
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: banner
+- !ruby/object:RI::MethodSummary 
+  name: base_name
+- !ruby/object:RI::MethodSummary 
+  name: destination_path
+- !ruby/object:RI::MethodSummary 
+  name: manifest
+- !ruby/object:RI::MethodSummary 
+  name: record
+- !ruby/object:RI::MethodSummary 
+  name: source_path
+- !ruby/object:RI::MethodSummary 
+  name: usage_message
+name: Base
+superclass: Object

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>generate_boundary (MailFactory)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mailfactory.rb, line 219</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_boundary</span>()
+    <span class="ruby-identifier">randomstring</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-value">25</span>) {
+      <span class="ruby-identifier">whichglyph</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+      <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">whichglyph</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">40</span>)
+        <span class="ruby-identifier">randomstring</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">rand</span>(<span class="ruby-value">25</span>) <span class="ruby-operator">+</span> <span class="ruby-value">65</span>).<span class="ruby-identifier">chr</span>()
+      <span class="ruby-keyword kw">elsif</span>(<span class="ruby-identifier">whichglyph</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">70</span>)
+        <span class="ruby-identifier">randomstring</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">rand</span>(<span class="ruby-value">25</span>) <span class="ruby-operator">+</span> <span class="ruby-value">97</span>).<span class="ruby-identifier">chr</span>()
+      <span class="ruby-keyword kw">elsif</span>(<span class="ruby-identifier">whichglyph</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">90</span>)
+        <span class="ruby-identifier">randomstring</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">rand</span>(<span class="ruby-value">10</span>) <span class="ruby-operator">+</span> <span class="ruby-value">48</span>).<span class="ruby-identifier">chr</span>()
+      <span class="ruby-keyword kw">elsif</span>(<span class="ruby-identifier">whichglyph</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">95</span>)
+        <span class="ruby-identifier">randomstring</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'.'</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">randomstring</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'_'</span>
+      <span class="ruby-keyword kw">end</span>
+    }
+    <span class="ruby-keyword kw">return</span>(<span class="ruby-node">&quot;----=_NextPart_#{randomstring.join()}&quot;</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

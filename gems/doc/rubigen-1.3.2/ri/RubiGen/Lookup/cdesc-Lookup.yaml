@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: included
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Generator lookup is managed by a list of sources which return specs describing where to find and how to create generators. This module provides class methods for manipulating the source list and looking up generator specs, and an #instance wrapper for quickly instantiating generators by name."
+- !ruby/struct:SM::Flow::P 
+  body: "A spec is not a generator: it's a description of where to find the generator and how to create it. A source is anything that yields generators from #each. PathSource and GemGeneratorSource are provided."
+constants: []
+
+full_name: RubiGen::Lookup
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: instance
+name: Lookup
+superclass: 

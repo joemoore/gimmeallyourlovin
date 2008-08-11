@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Mimic the behavior of absolute_url in AbstractController but use @base_controller.request
+full_name: Merb::MailController#absolute_url
+is_singleton: false
+name: absolute_url
+params: (name, rparams={})
+visibility: public

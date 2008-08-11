@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Merb::Template::Builder::Mixin#concat_builder
+is_singleton: false
+name: concat_builder
+params: (string, binding)
+visibility: public

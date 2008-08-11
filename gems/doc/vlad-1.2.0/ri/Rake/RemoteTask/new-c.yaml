@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new task named <tt>task_name</tt> attached to Rake::Application <tt>app</tt>.
+full_name: Rake::RemoteTask::new
+is_singleton: true
+name: new
+params: (task_name, app)
+visibility: public

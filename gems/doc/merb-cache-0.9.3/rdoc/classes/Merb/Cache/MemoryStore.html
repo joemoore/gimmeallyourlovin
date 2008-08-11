@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Merb::Cache::MemoryStore</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Merb::Cache::MemoryStore</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/merb-cache/cache-store/memory_rb.html">
+                lib/merb-cache/cache-store/memory.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003336">cache</a>&nbsp;&nbsp;
+      <a href="#M003338">cache_get</a>&nbsp;&nbsp;
+      <a href="#M003337">cache_set</a>&nbsp;&nbsp;
+      <a href="#M003342">cache_store_type</a>&nbsp;&nbsp;
+      <a href="#M003335">cached?</a>&nbsp;&nbsp;
+      <a href="#M003339">expire</a>&nbsp;&nbsp;
+      <a href="#M003341">expire_all</a>&nbsp;&nbsp;
+      <a href="#M003340">expire_match</a>&nbsp;&nbsp;
+      <a href="#M003333">new</a>&nbsp;&nbsp;
+      <a href="#M003334">prepare</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M003333" class="method-detail">
+        <a name="M003333"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003333.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003333.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Provides the memory <a href="MemoryStore.html#M003336">cache</a> store for
+merb-<a href="MemoryStore.html#M003336">cache</a>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003336" class="method-detail">
+        <a name="M003336"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003336.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003336.html');return false;">
+          <span class="method-name">cache</span><span class="method-args">(_controller, key, from_now = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Capture or restore the data in <a
+href="MemoryStore.html#M003336">cache</a>. If the <a
+href="MemoryStore.html#M003336">cache</a> entry expired or does not exist,
+the data are taken from the execution of the block, marshalled and stored
+in <a href="MemoryStore.html#M003336">cache</a>. Otherwise, the data are
+loaded from the <a href="MemoryStore.html#M003336">cache</a> and returned
+unmarshalled
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">_controller&lt;Merb::Controller&gt;:</td><td>The instance of the current controller
+
+</td></tr>
+<tr><td valign="top">key&lt;String&gt;:</td><td>The key identifying the <a href="MemoryStore.html#M003336">cache</a> entry
+
+</td></tr>
+<tr><td valign="top">from_now&lt;~minutes&gt;:</td><td>The number of minutes (from now) the <a
+href="MemoryStore.html#M003336">cache</a> should persist
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>The template to be used or not
+
+</td></tr>
+</table>
+<h4>Additional information</h4>
+<p>
+When fetching data (the <a href="MemoryStore.html#M003336">cache</a> entry
+exists and has not expired) The data are loaded from the <a
+href="MemoryStore.html#M003336">cache</a> and returned unmarshalled.
+Otherwise: The controller is used to capture the rendered template (from
+the block). It uses the capture_#{engine} and concat_#{engine} methods to
+do so. The captured data are then marshalled and stored.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003338" class="method-detail">
+        <a name="M003338"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003338.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003338.html');return false;">
+          <span class="method-name">cache_get</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Fetch data from the file using the specified key The entry is deleted if it
+has expired
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">key&lt;Sting&gt;:</td><td>The key identifying the <a href="MemoryStore.html#M003336">cache</a> entry
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">data&lt;String, NilClass&gt;:</td><td>nil is returned whether the entry expired or was not found
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M003337" class="method-detail">
+        <a name="M003337"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003337.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003337.html');return false;">
+          <span class="method-name">cache_set</span><span class="method-args">(key, data, from_now = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store data to the file using the specified key
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">key&lt;Sting&gt;:</td><td>The key identifying the <a href="MemoryStore.html#M003336">cache</a> entry
+
+</td></tr>
+<tr><td valign="top">data&lt;String&gt;:</td><td>The data to be put in <a href="MemoryStore.html#M003336">cache</a>
+
+</td></tr>
+<tr><td valign="top">from_now&lt;~minutes&gt;:</td><td>The number of minutes (from now) the <a
+href="MemoryStore.html#M003336">cache</a> should persist
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M003342" class="method-detail">
+        <a name="M003342"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003342.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003342.html');return false;">
+          <span class="method-name">cache_store_type</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gives info on the current <a href="MemoryStore.html#M003336">cache</a>
+store
+</p>
+<h4>Returns</h4>
+<pre>
+  The type of the current cache store
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003335" class="method-detail">
+        <a name="M003335"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003335.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003335.html');return false;">
+          <span class="method-name">cached?</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks whether a <a href="MemoryStore.html#M003336">cache</a> entry exists
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">key&lt;String&gt;:</td><td>The key identifying the <a href="MemoryStore.html#M003336">cache</a> entry
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<p>
+true if the <a href="MemoryStore.html#M003336">cache</a> entry exists,
+false otherwise
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003339" class="method-detail">
+        <a name="M003339"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003339.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003339.html');return false;">
+          <span class="method-name">expire</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expire the <a href="MemoryStore.html#M003336">cache</a> entry identified by
+the given key
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">key&lt;Sting&gt;:</td><td>The key identifying the <a href="MemoryStore.html#M003336">cache</a> entry
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M003341" class="method-detail">
+        <a name="M003341"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003341.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003341.html');return false;">
+          <span class="method-name">expire_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expire all the <a href="MemoryStore.html#M003336">cache</a> entries
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003340" class="method-detail">
+        <a name="M003340"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003340.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003340.html');return false;">
+          <span class="method-name">expire_match</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expire the <a href="MemoryStore.html#M003336">cache</a> entries matching
+the given key
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">key&lt;Sting&gt;:</td><td>The key matching the <a href="MemoryStore.html#M003336">cache</a> entries
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M003334" class="method-detail">
+        <a name="M003334"></a>
+
+        <div class="method-heading">
+          <a href="MemoryStore.src/M003334.html" target="Code" class="method-signature"
+            onclick="popupCode('MemoryStore.src/M003334.html');return false;">
+          <span class="method-name">prepare</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is there to ensure minimal requirements are met (directories
+are accessible, table exists, connected to server, &#8230;)
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

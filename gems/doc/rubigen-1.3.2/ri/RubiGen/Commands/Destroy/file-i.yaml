@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: template
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Remove a file if it exists and is a file.
+full_name: RubiGen::Commands::Destroy#file
+is_singleton: false
+name: file
+params: (relative_source, relative_destination, file_options = {})
+visibility: public

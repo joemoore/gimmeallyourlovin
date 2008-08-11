@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: included
+comment: 
+constants: []
+
+full_name: RubiGen::Options
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_general_options!
+- !ruby/object:RI::MethodSummary 
+  name: add_options!
+- !ruby/object:RI::MethodSummary 
+  name: banner
+- !ruby/object:RI::MethodSummary 
+  name: default_options
+- !ruby/object:RI::MethodSummary 
+  name: full_options
+- !ruby/object:RI::MethodSummary 
+  name: mandatory_options
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: parse!
+- !ruby/object:RI::MethodSummary 
+  name: usage
+- !ruby/object:RI::MethodSummary 
+  name: usage_message
+name: Options
+superclass: 

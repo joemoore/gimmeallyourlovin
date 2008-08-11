@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Merge together our instance options. In increasing precedence:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  default_options   (class default options)\n  options           (instance options)\n  runtime_options   (provided as argument)\n  mandatory_options (class mandatory options)\n"
+full_name: RubiGen::Options#full_options
+is_singleton: false
+name: full_options
+params: (runtime_options = {})
+visibility: protected

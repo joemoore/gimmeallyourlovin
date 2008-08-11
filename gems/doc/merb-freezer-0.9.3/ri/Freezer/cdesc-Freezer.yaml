@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: component
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: freezer_dir
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mode
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: update
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: components
+- !ruby/object:RI::MethodSummary 
+  name: framework_dir
+- !ruby/object:RI::MethodSummary 
+  name: freeze
+- !ruby/object:RI::MethodSummary 
+  name: gems_dir
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Freezer
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: FreezerMode
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: framework_component?
+- !ruby/object:RI::MethodSummary 
+  name: freeze
+name: Freezer
+superclass: Object

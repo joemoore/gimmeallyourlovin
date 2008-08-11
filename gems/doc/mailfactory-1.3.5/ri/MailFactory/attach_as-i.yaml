@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #add_attachment_as"
+full_name: MailFactory#attach_as
+is_singleton: false
+name: attach_as
+params: (file, emailfilename, type=nil, attachmentheaders = nil)
+visibility: public

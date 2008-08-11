@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Check whether the given class names are already taken. In the future, expand to check other namespaces such as the rest of the user's app.
+full_name: RubiGen::Commands::Create#class_collisions
+is_singleton: false
+name: class_collisions
+params: (*class_names)
+visibility: public

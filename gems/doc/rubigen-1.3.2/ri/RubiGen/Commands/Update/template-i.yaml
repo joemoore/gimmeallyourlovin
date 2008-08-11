@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Commands::Update#template
+is_singleton: false
+name: template
+params: (relative_source, relative_destination, options = {})
+visibility: public

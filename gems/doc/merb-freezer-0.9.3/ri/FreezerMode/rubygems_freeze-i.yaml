@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Uses rubygems to freeze the components locally
+full_name: FreezerMode#rubygems_freeze
+is_singleton: false
+name: rubygems_freeze
+params: ()
+visibility: public

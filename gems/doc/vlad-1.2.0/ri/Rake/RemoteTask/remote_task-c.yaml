@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Adds a remote task named <tt>name</tt> with options <tt>options</tt> that will execute <tt>block</tt>.
+full_name: Rake::RemoteTask::remote_task
+is_singleton: true
+name: remote_task
+params: (name, options = {})
+visibility: public

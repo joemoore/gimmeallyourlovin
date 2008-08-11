@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name<~to_s>:"
+    body: The text in the link.
+  - !ruby/struct:SM::Flow::LI 
+    label: "function<~to_s>:"
+    body: The onClick event in JavaScript.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  link_to_function('Click me', &quot;alert('hi!')&quot;)\n    # =&gt; &lt;a href=&quot;#&quot; onclick=&quot;alert('hi!'); return false;&quot;&gt;Click me&lt;/a&gt;\n\n  link_to_function('Add to cart', &quot;item_total += 1; alert('Item added!');&quot;)\n    # =&gt; &lt;a href=&quot;#&quot; onclick=&quot;item_total += 1; alert('Item added!'); return false;&quot;&gt;Add to cart&lt;/a&gt;\n"
+full_name: Merb::AssetsMixin#link_to_function
+is_singleton: false
+name: link_to_function
+params: (name, function)
+visibility: public

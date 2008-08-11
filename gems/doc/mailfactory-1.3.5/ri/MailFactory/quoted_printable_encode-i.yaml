@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: rfc2045 compatible. use rfc2047 for headers (such as the Subject line) instead
+full_name: MailFactory#quoted_printable_encode
+is_singleton: false
+name: quoted_printable_encode
+params: (text)
+visibility: protected

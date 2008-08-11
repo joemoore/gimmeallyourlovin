@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (Rake::RemoteTask)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rake_remote_task.rb, line 188</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-identifier">cmd</span> = [<span class="ruby-identifier">ssh_cmd</span>, <span class="ruby-identifier">ssh_flags</span>, <span class="ruby-identifier">target_host</span>, <span class="ruby-identifier">command</span>].<span class="ruby-identifier">compact</span>
+    <span class="ruby-identifier">result</span> = []
+
+    <span class="ruby-identifier">warn</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$TRACE</span>
+
+    <span class="ruby-identifier">pid</span>, <span class="ruby-identifier">inn</span>, <span class="ruby-identifier">out</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">popen4</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">cmd</span>)
+
+    <span class="ruby-identifier">inn</span>.<span class="ruby-identifier">sync</span>   = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-identifier">streams</span>    = [<span class="ruby-identifier">out</span>, <span class="ruby-identifier">err</span>]
+    <span class="ruby-identifier">out_stream</span> = {
+      <span class="ruby-identifier">out</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">$stdout</span>,
+      <span class="ruby-identifier">err</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">$stderr</span>,
+    }
+
+    <span class="ruby-comment cmt"># Handle process termination ourselves</span>
+    <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">status</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid2</span>(<span class="ruby-identifier">pid</span>).<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">streams</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-comment cmt"># don't busy loop</span>
+      <span class="ruby-identifier">selected</span>, = <span class="ruby-identifier">select</span> <span class="ruby-identifier">streams</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value">0</span><span class="ruby-value">.1</span>
+
+      <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">selected</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">selected</span>.<span class="ruby-identifier">empty?</span>
+
+      <span class="ruby-identifier">selected</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stream</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">eof?</span> <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">streams</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">stream</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">status</span> <span class="ruby-comment cmt"># we've quit, so no more writing</span>
+          <span class="ruby-keyword kw">next</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">data</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">1024</span>)
+        <span class="ruby-identifier">out_stream</span>[<span class="ruby-identifier">stream</span>].<span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stream</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">err</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^Password:/</span> <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">inn</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">sudo_password</span>
+          <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;\n&quot;</span>
+          <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">write</span> <span class="ruby-value str">&quot;\n&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">success?</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">raise</span>(<span class="ruby-constant">Vlad</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandFailedError</span>,
+            <span class="ruby-node">&quot;execution failed with status #{status.exitstatus}: #{cmd.join ' '}&quot;</span>)
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

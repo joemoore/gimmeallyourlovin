@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Returns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "String:"
+    body: The path that is associated with the constantized string, assuming a conventional structure.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &quot;FooBar::Baz&quot;.to_const_path # =&gt; &quot;foo_bar/baz&quot;\n"
+full_name: String#to_const_path
+is_singleton: false
+name: to_const_path
+params: ()
+visibility: public

@@ -1,0 +1,70 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows you to render various types of things into the text and HTML parts of an email If you include just text, the email will be sent as plain-text. If you include HTML, the email will be sent as a multi-part email.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "options<~to_s, Hash>:"
+    body: Options for rendering the email or an action name. See examples below for usage.
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Examples
+- !ruby/struct:SM::Flow::P 
+  body: There are a lot of ways to use render_mail, but it works similarly to the default Merb render method.
+- !ruby/struct:SM::Flow::P 
+  body: First of all, you'll need to store email files in your app/mailers/views directory. They should be under a directory that matches the name of your mailer (e.g. TestMailer's views would be stored under test_mailer).
+- !ruby/struct:SM::Flow::P 
+  body: The files themselves should be named action_name.mime_type.extension. For example, an erb template that should be the HTML part of the email, and rendered from the &quot;foo&quot; action would be named foo.html.erb.
+- !ruby/struct:SM::Flow::P 
+  body: The only mime-types currently supported are &quot;html&quot; and &quot;text&quot;, which correspond to text/html and text/plain respectively. All template systems supported by your app are available to MailController, and the extensions are the same as they are throughout the rest of Merb.
+- !ruby/struct:SM::Flow::P 
+  body: "render_mail can take any of the following option patterns:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail\n"
+- !ruby/struct:SM::Flow::P 
+  body: will attempt to render the current action. If the current action is &quot;foo&quot;, this is identical to render_mail :foo.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :foo\n"
+- !ruby/struct:SM::Flow::P 
+  body: checks for foo.html.ext and foo.text.ext and applies them as appropriate.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :action =&gt; {:html =&gt; :foo, :text =&gt; :bar}\n"
+- !ruby/struct:SM::Flow::P 
+  body: checks for foo.html.ext and bar.text.ext in the view directory of the current controller and adds them to the mail object if found
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :template =&gt; {:html =&gt; &quot;foo/bar&quot;, :text =&gt; &quot;foo/baz&quot;}\n"
+- !ruby/struct:SM::Flow::P 
+  body: checks for bar.html.ext and baz.text.ext in the foo directory and adds them to the mail object if found.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :html =&gt; :foo, :text =&gt; :bar\n"
+- !ruby/struct:SM::Flow::P 
+  body: the same as render_mail :action =&gt; {html =&gt; :foo, :text =&gt; :bar }
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :html =&gt; &quot;FOO&quot;, :text =&gt; &quot;BAR&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "adds the text &quot;FOO&quot; as the html part of the email and the text &quot;BAR&quot; as the text part of the email. The difference between the last two examples is that symbols represent actions to render, while string represent the literal text to render. Note that you can use regular render methods instead of literal strings here, like:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :html =&gt; render(:action =&gt; :foo)\n"
+- !ruby/struct:SM::Flow::P 
+  body: but you're probably better off just using render_mail :action at that point.
+- !ruby/struct:SM::Flow::P 
+  body: "You can also mix and match:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :action =&gt; {:html =&gt; :foo}, :text =&gt; &quot;BAR&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "which would be identical to:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  render_mail :html =&gt; :foo, :text =&gt; &quot;BAR&quot;\n"
+full_name: Merb::MailController#render_mail
+is_singleton: false
+name: render_mail
+params: (options = @method)
+visibility: public

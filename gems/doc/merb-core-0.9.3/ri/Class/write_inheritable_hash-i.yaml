@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the hash attribute which copy is available to subclasses.
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "key<~to_s, String, Symbol>:"
+    body: inheritable attribute name
+  - !ruby/struct:SM::Flow::LI 
+    label: "value<Hash>:"
+    body: value of inheritable attribute
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: Inheritable hash is re-created on each write.
+full_name: Class#write_inheritable_hash
+is_singleton: false
+name: write_inheritable_hash
+params: (key, hash)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: adds a header to the bottom of the headers
+full_name: MailFactory#add_header
+is_singleton: false
+name: add_header
+params: (header, value)
+visibility: public

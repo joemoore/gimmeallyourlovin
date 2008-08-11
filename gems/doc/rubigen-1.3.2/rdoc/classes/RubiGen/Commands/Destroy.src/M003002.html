@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>directory (RubiGen::Commands::Destroy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubigen/commands.rb, line 505</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">directory</span>(<span class="ruby-identifier">relative_path</span>)
+        <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">relative_path</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>)
+        <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">partial</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">parts</span>)
+          <span class="ruby-identifier">path</span> = <span class="ruby-identifier">destination_path</span>(<span class="ruby-identifier">partial</span>)
+          <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">path</span>)
+            <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value str">'*'</span>)].<span class="ruby-identifier">empty?</span>
+              <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">rmdir</span> <span class="ruby-identifier">partial</span>
+              <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:pretend</span>]
+                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:svn</span>]
+                  <span class="ruby-comment cmt"># If the directory has been marked to be added</span>
+                  <span class="ruby-comment cmt"># but has not yet been checked in, revert and delete</span>
+                  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:svn</span>][<span class="ruby-identifier">relative_path</span>]
+                    <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;svn revert #{path}&quot;</span>)
+                    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rmdir</span>(<span class="ruby-identifier">path</span>)
+                  <span class="ruby-keyword kw">else</span>
+                  <span class="ruby-comment cmt"># If the directory is not in the status list, it</span>
+                  <span class="ruby-comment cmt"># has no modifications so we can simply remove it</span>
+                    <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;svn rm #{path}&quot;</span>)
+                  <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">else</span>
+                  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rmdir</span>(<span class="ruby-identifier">path</span>)
+                <span class="ruby-keyword kw">end</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">notempty</span> <span class="ruby-identifier">partial</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">missing</span> <span class="ruby-identifier">partial</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

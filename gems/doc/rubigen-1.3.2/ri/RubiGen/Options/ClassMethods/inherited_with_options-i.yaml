@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubiGen::Options::ClassMethods#inherited_with_options
+is_singleton: false
+name: inherited_with_options
+params: (sub)
+visibility: public

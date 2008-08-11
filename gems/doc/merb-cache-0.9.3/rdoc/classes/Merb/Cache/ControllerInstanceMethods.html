@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Merb::Cache::ControllerInstanceMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Merb::Cache::ControllerInstanceMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/merb-cache/cache-action_rb.html">
+                lib/merb-cache/cache-action.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/merb-cache/cache-fragment_rb.html">
+                lib/merb-cache/cache-fragment.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/merb-cache/cache-page_rb.html">
+                lib/merb-cache/cache-page.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/merb-cache/merb-cache_rb.html">
+                lib/merb-cache/merb-cache.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M003292">abort_cache_action</a>&nbsp;&nbsp;
+      <a href="#M003301">abort_cache_page</a>&nbsp;&nbsp;
+      <a href="#M003294">cache</a>&nbsp;&nbsp;
+      <a href="#M003295">cache_get</a>&nbsp;&nbsp;
+      <a href="#M003296">cache_set</a>&nbsp;&nbsp;
+      <a href="#M003293">cached?</a>&nbsp;&nbsp;
+      <a href="#M003290">cached_action?</a>&nbsp;&nbsp;
+      <a href="#M003298">cached_page?</a>&nbsp;&nbsp;
+      <a href="#M003297">expire</a>&nbsp;&nbsp;
+      <a href="#M003291">expire_action</a>&nbsp;&nbsp;
+      <a href="#M003302">expire_all</a>&nbsp;&nbsp;
+      <a href="#M003300">expire_all_pages</a>&nbsp;&nbsp;
+      <a href="#M003299">expire_page</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_PAGE_EXTENSION</td>
+          <td>=</td>
+          <td class="context-item-value">'html'</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Mixed in Merb::Controller. Provides methods related to page caching
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M003292" class="method-detail">
+        <a name="M003292"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003292.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003292.html');return false;">
+          <span class="method-name">abort_cache_action</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+You can call this method if you need to prevent caching the action after it
+has been rendered.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003301" class="method-detail">
+        <a name="M003301"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003301.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003301.html');return false;">
+          <span class="method-name">abort_cache_page</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+You can call this method if you need to prevent caching the page after it
+has been rendered.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003294" class="method-detail">
+        <a name="M003294"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003294.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003294.html');return false;">
+          <span class="method-name">cache</span><span class="method-args">(options, from_now = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h4>Example</h4>
+<pre>
+  In your view:
+  &lt;%- cache(&quot;my_key&quot;) do -%&gt;
+    &lt;%= partial :test, :collection =&gt; @test %&gt;
+  &lt;%- end -%&gt;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003295" class="method-detail">
+        <a name="M003295"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003295.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003295.html');return false;">
+          <span class="method-name">cache_get</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Fetch data from <a href="ControllerInstanceMethods.html#M003294">cache</a>
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to key_for
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">data&lt;Object,NilClass&gt;:</td><td>nil is returned if the <a
+href="ControllerInstanceMethods.html#M003294">cache</a> entry is not found
+
+</td></tr>
+</table>
+<h4>Example</h4>
+<pre>
+  if cache_data = cache_get(&quot;my_key&quot;)
+    @var1, @var2 = *cache_data
+  else
+    @var1 = MyModel.big_query1
+    @var2 = MyModel.big_query2
+    cache_set(&quot;my_key&quot;, nil, [@var1, @var2])
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003296" class="method-detail">
+        <a name="M003296"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003296.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003296.html');return false;">
+          <span class="method-name">cache_set</span><span class="method-args">(options, object, from_now = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store data to <a href="ControllerInstanceMethods.html#M003294">cache</a>
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to key_for
+
+</td></tr>
+<tr><td valign="top">object&lt;Object&gt;:</td><td>The object(s) to put in <a
+href="ControllerInstanceMethods.html#M003294">cache</a>
+
+</td></tr>
+<tr><td valign="top">from_now&lt;~minutes&gt;:</td><td>The number of minutes (from now) the <a
+href="ControllerInstanceMethods.html#M003294">cache</a> should persist
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top">data&lt;Object,NilClass&gt;:</td><td>nil is returned if the <a
+href="ControllerInstanceMethods.html#M003294">cache</a> entry is not found
+
+</td></tr>
+</table>
+<h4>Example</h4>
+<pre>
+  if cache_data = cache_get(&quot;my_key&quot;)
+    @var1, @var2 = *cache_data
+  else
+    @var1 = MyModel.big_query1
+    @var2 = MyModel.big_query2
+    cache_set(&quot;my_key&quot;, nil, [@var1, @var2])
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003293" class="method-detail">
+        <a name="M003293"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003293.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003293.html');return false;">
+          <span class="method-name">cached?</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks whether a <a href="ControllerInstanceMethods.html#M003294">cache</a>
+entry exists
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to key_for
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<p>
+true if the <a href="ControllerInstanceMethods.html#M003294">cache</a>
+entry exists, false otherwise
+</p>
+<h4>Example</h4>
+<pre>
+  cached_action?(&quot;my_key&quot;)
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003290" class="method-detail">
+        <a name="M003290"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003290.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003290.html');return false;">
+          <span class="method-name">cached_action?</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks whether a <a href="ControllerInstanceMethods.html#M003294">cache</a>
+entry exists
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to key_for
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<p>
+true if the <a href="ControllerInstanceMethods.html#M003294">cache</a>
+entry exists, false otherwise
+</p>
+<h4>Example</h4>
+<pre>
+  cached_action?(:action =&gt; 'show', :params =&gt; [params[:page]])
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003298" class="method-detail">
+        <a name="M003298"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003298.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003298.html');return false;">
+          <span class="method-name">cached_page?</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks whether a <a href="ControllerInstanceMethods.html#M003294">cache</a>
+entry exists
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to key_for
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<p>
+true if the <a href="ControllerInstanceMethods.html#M003294">cache</a>
+entry exists, false otherwise
+</p>
+<h4>Example</h4>
+<pre>
+  cached_page?(:action =&gt; 'show', :params =&gt; [params[:page]])
+  cached_page?(:action =&gt; 'show', :extension =&gt; 'js')
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003297" class="method-detail">
+        <a name="M003297"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003297.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003297.html');return false;">
+          <span class="method-name">expire</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expires the entry identified by the key computed after the parameters
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to key_for
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  expire(&quot;my_key&quot;)
+  expire(:key =&gt; &quot;my_&quot;, :match =&gt; true)
+  expire(:key =&gt; &quot;my_key&quot;, :params =&gt; [session[:me], params[:ref]])
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003291" class="method-detail">
+        <a name="M003291"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003291.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003291.html');return false;">
+          <span class="method-name">expire_action</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expires the action identified by the key computed after the parameters
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to expire_key_for
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  expire_action(:action =&gt; 'show', :controller =&gt; 'news')
+  expire_action(:action =&gt; 'show', :match =&gt; true)
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M003302" class="method-detail">
+        <a name="M003302"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003302.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003302.html');return false;">
+          <span class="method-name">expire_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Mixed in Merb::Controller and provides <a
+href="ControllerInstanceMethods.html#M003302">expire_all</a> for action and
+fragment caching.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003300" class="method-detail">
+        <a name="M003300"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003300.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003300.html');return false;">
+          <span class="method-name">expire_all_pages</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expires all the pages stored in config[:cache_html_directory]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M003299" class="method-detail">
+        <a name="M003299"></a>
+
+        <div class="method-heading">
+          <a href="ControllerInstanceMethods.src/M003299.html" target="Code" class="method-signature"
+            onclick="popupCode('ControllerInstanceMethods.src/M003299.html');return false;">
+          <span class="method-name">expire_page</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Expires the page identified by the key computed after the parameters
+</p>
+<h4>Parameter</h4>
+<table>
+<tr><td valign="top">options&lt;String,Hash&gt;:</td><td>The options that will be passed to expire_key_for
+
+</td></tr>
+</table>
+<h4>Examples</h4>
+<pre>
+  expire_page(:action =&gt; 'show', :controller =&gt; 'news')
+  expire_page(:action =&gt; 'show', :match =&gt; true)
+  expire_page(:action =&gt; 'show', :extension =&gt; 'js')
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

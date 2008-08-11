@@ -1,0 +1,50 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Parameters
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "method<~to_s>:"
+    body: The method name to dispatch to.
+  - !ruby/struct:SM::Flow::LI 
+    label: "mail_params<Hash>:"
+    body: Parameters to send to MailFactory (see below).
+  type: :NOTE
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Options (mail_params)
+- !ruby/struct:SM::Flow::P 
+  body: "MailFactory recognizes the following parameters:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":to"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":from"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":replyto"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":subject"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":body"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":cc"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: Other parameters passed in will be interpreted as email headers, with underscores converted to dashes.
+full_name: Merb::MailController#dispatch_and_deliver
+is_singleton: false
+name: dispatch_and_deliver
+params: (method, mail_params)
+visibility: public

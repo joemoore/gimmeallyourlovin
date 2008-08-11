@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Instatiates the Generator
+full_name: RubiGen::GeneratorTestHelper#build_generator
+is_singleton: false
+name: build_generator
+params: (name, params, sources, options)
+visibility: public

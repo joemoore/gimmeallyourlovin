@@ -1,0 +1,19 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: all other options options that will be pass to serialization method
+- !ruby/struct:SM::Flow::VERB 
+  body: "                         like #to_json or #to_xml\n"
+- !ruby/struct:SM::Flow::H 
+  level: 4
+  text: Notes
+- !ruby/struct:SM::Flow::P 
+  body: The transformed object will not be used in a layout unless a :layout is explicitly passed in the opts.
+full_name: Merb::RenderMixin#display
+is_singleton: false
+name: display
+params: (object, thing = nil, opts = {})
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Execute <tt>command</tt> under sudo using run.
+full_name: Rake::RemoteTask#sudo
+is_singleton: false
+name: sudo
+params: (command)
+visibility: public

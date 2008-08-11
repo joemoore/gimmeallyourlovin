@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Object
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: assigns
+- !ruby/object:RI::MethodSummary 
+  name: blank?
+- !ruby/object:RI::MethodSummary 
+  name: full_const_get
+- !ruby/object:RI::MethodSummary 
+  name: in?
+- !ruby/object:RI::MethodSummary 
+  name: make_module
+- !ruby/object:RI::MethodSummary 
+  name: meta_class
+- !ruby/object:RI::MethodSummary 
+  name: quacks_like?
+name: Object
+superclass: Object

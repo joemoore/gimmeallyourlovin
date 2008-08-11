@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generators must provide a manifest. Use the <tt>record</tt> method to create a new manifest and record your generator's actions.
+full_name: RubiGen::Base#manifest
+is_singleton: false
+name: manifest
+params: ()
+visibility: public

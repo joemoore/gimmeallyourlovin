@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if the gem is part of the Merb components
+full_name: Freezer#framework_component?
+is_singleton: false
+name: framework_component?
+params: ()
+visibility: public

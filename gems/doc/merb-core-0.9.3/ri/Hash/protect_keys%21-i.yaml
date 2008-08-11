@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Converts all keys into string values. This is used during reloading to prevent problems when classes are no longer declared.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  hash = { One =&gt; 1, Two =&gt; 2 }.proctect_keys!\n  hash # =&gt; { &quot;One&quot; =&gt; 1, &quot;Two&quot; =&gt; 2 }\n"
+full_name: Hash#protect_keys!
+is_singleton: false
+name: protect_keys!
+params: ()
+visibility: public

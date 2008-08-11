@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: assigns
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: base
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: choices
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: m
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_SHEBANG
+  value: File.join(Config::CONFIG['bindir'],                               Config::CONFIG['ruby_install_name']) unless defined?(DEFAULT_SHEBANG)
+full_name: Merb::GeneratorBase
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Merb::GeneratorHelpers
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_options!
+- !ruby/object:RI::MethodSummary 
+  name: banner
+- !ruby/object:RI::MethodSummary 
+  name: create_dirs
+- !ruby/object:RI::MethodSummary 
+  name: display_framework_selections
+- !ruby/object:RI::MethodSummary 
+  name: manifest
+name: GeneratorBase
+superclass: RubiGen::Base
