@@ -3,16 +3,13 @@
     <h1 id='title' class="center">Gimme All Your Lovin!</h1>
   </div>
   <div id="main-container">
-    <% @videos.each_with_index do |video, index| %>
-      <%  if index % 2 == 0 %>
-        <div class="row">  
-          <%=  partial :video, :with => video, :as => :vid %>
-        <% else %>
-          <%=  partial :video, :with => video, :as => :vid %>
-          <div style="clear:both"></div>
-        <div class="ad"> ad goes here</div>
-        </div>
-      <% end %>
+    <% first_row = @videos.slice!(0..1) %>
+    <%= partial :video_row, :videos => first_row %>
+    
+    <%= partial :youtube_ad %>
+    
+    <% @videos.each_slice(2) do | videos | %>
+      <%= partial :video_row, :videos => videos %>
     <% end %>
   </div>
 </div>

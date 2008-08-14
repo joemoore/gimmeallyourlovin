@@ -111,8 +111,9 @@ a:hover {
 }
 
 .row {
+    clear:both;
     width: 1000px;
-    height: 530px;
+    /*height: 530px;*/
 }
 
 .video {
