@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Capistrano::Configuration::Callbacks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Capistrano::Configuration::Callbacks</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/capistrano/configuration/callbacks_rb.html">
+                lib/capistrano/configuration/callbacks.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/capistrano/configuration/callbacks_rb.html">
+                lib/capistrano/configuration/callbacks.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001545">after</a>&nbsp;&nbsp;
+      <a href="#M001541">after</a>&nbsp;&nbsp;
+      <a href="#M001540">before</a>&nbsp;&nbsp;
+      <a href="#M001544">before</a>&nbsp;&nbsp;
+      <a href="#M001546">on</a>&nbsp;&nbsp;
+      <a href="#M001542">on</a>&nbsp;&nbsp;
+      <a href="#M001543">trigger</a>&nbsp;&nbsp;
+      <a href="#M001547">trigger</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">callbacks</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of callbacks that have been registered for this configuration
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">callbacks</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of callbacks that have been registered for this configuration
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001545" class="method-detail">
+        <a name="M001545"></a>
+
+        <div class="method-heading">
+          <a href="#M001545" class="method-signature">
+          <span class="method-name">after</span><span class="method-args">(task_name, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines a callback to be invoked <a href="Callbacks.html#M001541">after</a>
+the given task. You must specify the fully-qualified task name, both for
+the primary task, and for the task(s) to be executed <a
+href="Callbacks.html#M001541">after</a>. Alternatively, you can pass a
+block to be executed <a href="Callbacks.html#M001541">after</a> the given
+task.
+</p>
+<pre>
+  after &quot;deploy:update_code&quot;, :log_difference
+  after :deploy, &quot;custom:announce&quot;
+  after :deploy, :this, &quot;then:this&quot;, &quot;and:then:this&quot;
+  after :some_task do
+    puts &quot;an anonymous hook!&quot;
+  end
+</pre>
+<p>
+This just provides a convenient interface to the more general <a
+href="Callbacks.html#M001542">on</a> method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001545-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001545-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 69</span>
+69:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-identifier">task_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+70:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+71:         <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task_name</span>)
+72:         <span class="ruby-identifier">on</span> <span class="ruby-identifier">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+73:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001541" class="method-detail">
+        <a name="M001541"></a>
+
+        <div class="method-heading">
+          <a href="#M001541" class="method-signature">
+          <span class="method-name">after</span><span class="method-args">(task_name, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines a callback to be invoked <a href="Callbacks.html#M001541">after</a>
+the given task. You must specify the fully-qualified task name, both for
+the primary task, and for the task(s) to be executed <a
+href="Callbacks.html#M001541">after</a>. Alternatively, you can pass a
+block to be executed <a href="Callbacks.html#M001541">after</a> the given
+task.
+</p>
+<pre>
+  after &quot;deploy:update_code&quot;, :log_difference
+  after :deploy, &quot;custom:announce&quot;
+  after :deploy, :this, &quot;then:this&quot;, &quot;and:then:this&quot;
+  after :some_task do
+    puts &quot;an anonymous hook!&quot;
+  end
+</pre>
+<p>
+This just provides a convenient interface to the more general <a
+href="Callbacks.html#M001542">on</a> method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001541-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001541-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 69</span>
+69:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-identifier">task_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+70:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+71:         <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task_name</span>)
+72:         <span class="ruby-identifier">on</span> <span class="ruby-identifier">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+73:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001540" class="method-detail">
+        <a name="M001540"></a>
+
+        <div class="method-heading">
+          <a href="#M001540" class="method-signature">
+          <span class="method-name">before</span><span class="method-args">(task_name, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines a callback to be invoked <a
+href="Callbacks.html#M001540">before</a> the given task. You must specify
+the fully-qualified task name, both for the primary task, and for the
+task(s) to be executed <a href="Callbacks.html#M001540">before</a>.
+Alternatively, you can pass a block to be executed <a
+href="Callbacks.html#M001540">before</a> the given task.
+</p>
+<pre>
+  before &quot;deploy:update_code&quot;, :record_difference
+  before :deploy, &quot;custom:log_deploy&quot;
+  before :deploy, :this, &quot;then:this&quot;, &quot;and:then:this&quot;
+  before :some_task do
+    puts &quot;an anonymous hook!&quot;
+  end
+</pre>
+<p>
+This just provides a convenient interface to the more general <a
+href="Callbacks.html#M001542">on</a> method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001540-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001540-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 50</span>
+50:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">task_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+51:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+52:         <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task_name</span>)
+53:         <span class="ruby-identifier">on</span> <span class="ruby-identifier">:before</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+54:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001544" class="method-detail">
+        <a name="M001544"></a>
+
+        <div class="method-heading">
+          <a href="#M001544" class="method-signature">
+          <span class="method-name">before</span><span class="method-args">(task_name, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines a callback to be invoked <a
+href="Callbacks.html#M001540">before</a> the given task. You must specify
+the fully-qualified task name, both for the primary task, and for the
+task(s) to be executed <a href="Callbacks.html#M001540">before</a>.
+Alternatively, you can pass a block to be executed <a
+href="Callbacks.html#M001540">before</a> the given task.
+</p>
+<pre>
+  before &quot;deploy:update_code&quot;, :record_difference
+  before :deploy, &quot;custom:log_deploy&quot;
+  before :deploy, :this, &quot;then:this&quot;, &quot;and:then:this&quot;
+  before :some_task do
+    puts &quot;an anonymous hook!&quot;
+  end
+</pre>
+<p>
+This just provides a convenient interface to the more general <a
+href="Callbacks.html#M001542">on</a> method.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001544-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001544-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 50</span>
+50:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">task_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+51:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+52:         <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task_name</span>)
+53:         <span class="ruby-identifier">on</span> <span class="ruby-identifier">:before</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+54:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001546" class="method-detail">
+        <a name="M001546"></a>
+
+        <div class="method-heading">
+          <a href="#M001546" class="method-signature">
+          <span class="method-name">on</span><span class="method-args">(event, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines one or more callbacks to be invoked in response to some event. <a
+href="../../Capistrano.html">Capistrano</a> currently understands the
+following events:
+</p>
+<ul>
+<li>:<a href="Callbacks.html#M001540">before</a>, triggered <a
+href="Callbacks.html#M001540">before</a> a task is invoked
+
+</li>
+<li>:<a href="Callbacks.html#M001541">after</a>, triggered <a
+href="Callbacks.html#M001541">after</a> a task is invoked
+
+</li>
+<li>:start, triggered <a href="Callbacks.html#M001540">before</a> a top-level
+task is invoked via the command-line
+
+</li>
+<li>:finish, triggered when a top-level task completes
+
+</li>
+<li>:load, triggered <a href="Callbacks.html#M001541">after</a> all recipes
+have loaded
+
+</li>
+<li>:exit, triggered <a href="Callbacks.html#M001541">after</a> all tasks have
+completed
+
+</li>
+</ul>
+<p>
+Specify the (fully-qualified) task names that you want invoked in response
+to the event. Alternatively, you can specify a block to invoke when the
+event is triggered. You can also pass a hash of options as the last
+parameter, which may include either of two keys:
+</p>
+<ul>
+<li>:only, should specify an array of task names. Restricts this callback so
+that it will only fire when the event applies to those tasks.
+
+</li>
+<li>:except, should specify an array of task names. Restricts this callback so
+that it will never fire when the event applies to those tasks.
+
+</li>
+</ul>
+<p>
+Usage:
+</p>
+<pre>
+ on :before, &quot;some:hook&quot;, &quot;another:hook&quot;, :only =&gt; &quot;deploy:update&quot;
+ on :after, &quot;some:hook&quot;, :except =&gt; &quot;deploy:symlink&quot;
+ on :before, &quot;global:hook&quot;
+ on :after, :only =&gt; :deploy do
+   puts &quot;after deploy here&quot;
+ end
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001546-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001546-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 103</span>
+103:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on</span>(<span class="ruby-identifier">event</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+104:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+105:         <span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>] <span class="ruby-operator">||=</span> []
+106: 
+107:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>
+108:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;please specify either a task name or a block to invoke&quot;</span>
+109:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block</span>
+110:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;please specify only a task name or a block, but not both&quot;</span>
+111:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">block</span>
+112:           <span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ProcCallback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">block</span>, <span class="ruby-identifier">options</span>)
+113:         <span class="ruby-keyword kw">else</span>
+114:           <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+115:             <span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">TaskCallback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+116:           <span class="ruby-keyword kw">end</span>
+117:         <span class="ruby-keyword kw">end</span>
+118:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001542" class="method-detail">
+        <a name="M001542"></a>
+
+        <div class="method-heading">
+          <a href="#M001542" class="method-signature">
+          <span class="method-name">on</span><span class="method-args">(event, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines one or more callbacks to be invoked in response to some event. <a
+href="../../Capistrano.html">Capistrano</a> currently understands the
+following events:
+</p>
+<ul>
+<li>:<a href="Callbacks.html#M001540">before</a>, triggered <a
+href="Callbacks.html#M001540">before</a> a task is invoked
+
+</li>
+<li>:<a href="Callbacks.html#M001541">after</a>, triggered <a
+href="Callbacks.html#M001541">after</a> a task is invoked
+
+</li>
+<li>:start, triggered <a href="Callbacks.html#M001540">before</a> a top-level
+task is invoked via the command-line
+
+</li>
+<li>:finish, triggered when a top-level task completes
+
+</li>
+<li>:load, triggered <a href="Callbacks.html#M001541">after</a> all recipes
+have loaded
+
+</li>
+<li>:exit, triggered <a href="Callbacks.html#M001541">after</a> all tasks have
+completed
+
+</li>
+</ul>
+<p>
+Specify the (fully-qualified) task names that you want invoked in response
+to the event. Alternatively, you can specify a block to invoke when the
+event is triggered. You can also pass a hash of options as the last
+parameter, which may include either of two keys:
+</p>
+<ul>
+<li>:only, should specify an array of task names. Restricts this callback so
+that it will only fire when the event applies to those tasks.
+
+</li>
+<li>:except, should specify an array of task names. Restricts this callback so
+that it will never fire when the event applies to those tasks.
+
+</li>
+</ul>
+<p>
+Usage:
+</p>
+<pre>
+ on :before, &quot;some:hook&quot;, &quot;another:hook&quot;, :only =&gt; &quot;deploy:update&quot;
+ on :after, &quot;some:hook&quot;, :except =&gt; &quot;deploy:symlink&quot;
+ on :before, &quot;global:hook&quot;
+ on :after, :only =&gt; :deploy do
+   puts &quot;after deploy here&quot;
+ end
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001542-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001542-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 103</span>
+103:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on</span>(<span class="ruby-identifier">event</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+104:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+105:         <span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>] <span class="ruby-operator">||=</span> []
+106: 
+107:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>
+108:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;please specify either a task name or a block to invoke&quot;</span>
+109:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block</span>
+110:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;please specify only a task name or a block, but not both&quot;</span>
+111:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">block</span>
+112:           <span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ProcCallback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">block</span>, <span class="ruby-identifier">options</span>)
+113:         <span class="ruby-keyword kw">else</span>
+114:           <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+115:             <span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">TaskCallback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+116:           <span class="ruby-keyword kw">end</span>
+117:         <span class="ruby-keyword kw">end</span>
+118:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001543" class="method-detail">
+        <a name="M001543"></a>
+
+        <div class="method-heading">
+          <a href="#M001543" class="method-signature">
+          <span class="method-name">trigger</span><span class="method-args">(event, task=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Trigger the named event for the named task. All associated callbacks will
+be fired, in the order they were defined.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001543-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001543-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 122</span>
+122:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trigger</span>(<span class="ruby-identifier">event</span>, <span class="ruby-identifier">task</span>=<span class="ruby-keyword kw">nil</span>)
+123:         <span class="ruby-identifier">pending</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>]).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">applies_to?</span>(<span class="ruby-identifier">task</span>) }
+124:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">pending</span>.<span class="ruby-identifier">any?</span>
+125:           <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;triggering #{event} callbacks&quot;</span>
+126:           <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; for `#{task.fully_qualified_name}'&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">task</span>
+127:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">trace</span>(<span class="ruby-identifier">msg</span>)
+128:           <span class="ruby-identifier">pending</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">callback</span><span class="ruby-operator">|</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span> }
+129:         <span class="ruby-keyword kw">end</span>
+130:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001547" class="method-detail">
+        <a name="M001547"></a>
+
+        <div class="method-heading">
+          <a href="#M001547" class="method-signature">
+          <span class="method-name">trigger</span><span class="method-args">(event, task=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Trigger the named event for the named task. All associated callbacks will
+be fired, in the order they were defined.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001547-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001547-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/callbacks.rb, line 122</span>
+122:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trigger</span>(<span class="ruby-identifier">event</span>, <span class="ruby-identifier">task</span>=<span class="ruby-keyword kw">nil</span>)
+123:         <span class="ruby-identifier">pending</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">callbacks</span>[<span class="ruby-identifier">event</span>]).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">applies_to?</span>(<span class="ruby-identifier">task</span>) }
+124:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">pending</span>.<span class="ruby-identifier">any?</span>
+125:           <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;triggering #{event} callbacks&quot;</span>
+126:           <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; for `#{task.fully_qualified_name}'&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">task</span>
+127:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">trace</span>(<span class="ruby-identifier">msg</span>)
+128:           <span class="ruby-identifier">pending</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">callback</span><span class="ruby-operator">|</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span> }
+129:         <span class="ruby-keyword kw">end</span>
+130:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

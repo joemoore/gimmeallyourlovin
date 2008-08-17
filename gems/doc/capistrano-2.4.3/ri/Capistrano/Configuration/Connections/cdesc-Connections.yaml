@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A hash of the SSH sessions that are currently open and available. Because sessions are constructed lazily, this will only contain connections to those servers that have been the targets of one or more executed tasks.
+  name: sessions
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A hash of the SSH sessions that are currently open and available. Because sessions are constructed lazily, this will only contain connections to those servers that have been the targets of one or more executed tasks.
+  name: sessions
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Capistrano::Configuration::Connections
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: connect!
+- !ruby/object:RI::MethodSummary 
+  name: connect!
+- !ruby/object:RI::MethodSummary 
+  name: connection_factory
+- !ruby/object:RI::MethodSummary 
+  name: connection_factory
+- !ruby/object:RI::MethodSummary 
+  name: establish_connections_to
+- !ruby/object:RI::MethodSummary 
+  name: establish_connections_to
+- !ruby/object:RI::MethodSummary 
+  name: execute_on_servers
+- !ruby/object:RI::MethodSummary 
+  name: execute_on_servers
+- !ruby/object:RI::MethodSummary 
+  name: failed!
+- !ruby/object:RI::MethodSummary 
+  name: failed!
+- !ruby/object:RI::MethodSummary 
+  name: has_failed?
+- !ruby/object:RI::MethodSummary 
+  name: has_failed?
+- !ruby/object:RI::MethodSummary 
+  name: teardown_connections_to
+- !ruby/object:RI::MethodSummary 
+  name: teardown_connections_to
+name: Connections
+superclass: 

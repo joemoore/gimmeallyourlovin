@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Pops a copy of the code for the specified Accurev revision identifier. The revision identifier is represented as a stream &amp; transaction ID combo. Accurev can only pop a particular transaction if a stream is created on the server with a time basis of that transaction id. Therefore, we will create a stream with the required criteria and pop that.
+full_name: Capistrano::Deploy::SCM::Accurev#export
+is_singleton: false
+name: export
+params: (revision_id, destination)
+visibility: public

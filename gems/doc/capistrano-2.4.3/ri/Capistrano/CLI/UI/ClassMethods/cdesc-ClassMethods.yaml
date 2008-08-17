@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Capistrano::CLI::UI::ClassMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: debug_prompt
+- !ruby/object:RI::MethodSummary 
+  name: debug_prompt
+- !ruby/object:RI::MethodSummary 
+  name: password_prompt
+- !ruby/object:RI::MethodSummary 
+  name: password_prompt
+- !ruby/object:RI::MethodSummary 
+  name: ui
+- !ruby/object:RI::MethodSummary 
+  name: ui
+name: ClassMethods
+superclass: 

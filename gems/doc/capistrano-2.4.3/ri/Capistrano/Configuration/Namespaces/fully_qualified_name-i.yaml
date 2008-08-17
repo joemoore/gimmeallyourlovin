@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the fully-qualified name of this namespace, or nil if the namespace is at the top-level.
+full_name: Capistrano::Configuration::Namespaces#fully_qualified_name
+is_singleton: false
+name: fully_qualified_name
+params: ()
+visibility: public

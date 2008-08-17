@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of callbacks that have been registered for this configuration
+  name: callbacks
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of callbacks that have been registered for this configuration
+  name: callbacks
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Capistrano::Configuration::Callbacks
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: after
+- !ruby/object:RI::MethodSummary 
+  name: after
+- !ruby/object:RI::MethodSummary 
+  name: before
+- !ruby/object:RI::MethodSummary 
+  name: before
+- !ruby/object:RI::MethodSummary 
+  name: "on"
+- !ruby/object:RI::MethodSummary 
+  name: "on"
+- !ruby/object:RI::MethodSummary 
+  name: trigger
+- !ruby/object:RI::MethodSummary 
+  name: trigger
+name: Callbacks
+superclass: 

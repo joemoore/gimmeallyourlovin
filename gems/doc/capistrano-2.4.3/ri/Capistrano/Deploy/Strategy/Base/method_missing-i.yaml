@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This is to allow helper methods like &quot;run&quot; and &quot;put&quot; to be more easily accessible to strategy implementations.
+full_name: Capistrano::Deploy::Strategy::Base#method_missing
+is_singleton: false
+name: method_missing
+params: (sym, *args, &block)
+visibility: protected

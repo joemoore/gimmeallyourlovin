@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: local_port
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Opens a new port on the local host and forwards it to the given host/port via the gateway host. If a block is given, the newly allocated port number will be yielded to the block, and the port automatically closed (see #close) when the block finishes. Otherwise, the port number will be returned, and the caller is responsible for closing the port (#close)."
+- !ruby/struct:SM::Flow::VERB 
+  body: "  gateway.open('host', 80) do |port|\n    # ...\n  end\n\n  port = gateway.open('host', 80)\n  # ...\n  gateway.close(port)\n"
+full_name: Net::SSH::Gateway#open
+is_singleton: false
+name: open
+params: (host, port) {|local_port| ...}
+visibility: public

@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: session
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: session
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "on"
+- !ruby/object:RI::MethodSummary 
+  name: "on"
+comment: 
+constants: []
+
+full_name: Capistrano::Processable::SessionAssociation
+includes: []
+
+instance_methods: []
+
+name: SessionAssociation
+superclass: 

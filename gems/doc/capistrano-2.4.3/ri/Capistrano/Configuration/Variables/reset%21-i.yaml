@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If the variable was originally a proc value, it will be reset to it's original proc value. Otherwise, this method does nothing. It returns true if the variable was actually reset.
+full_name: Capistrano::Configuration::Variables#reset!
+is_singleton: false
+name: reset!
+params: (variable)
+visibility: public

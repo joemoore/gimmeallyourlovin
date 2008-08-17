@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_io_proc
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_io_proc
+  rw: RW
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Capistrano::Configuration::Actions::Invocation::ClassMethods
+includes: []
+
+instance_methods: []
+
+name: ClassMethods
+superclass: 

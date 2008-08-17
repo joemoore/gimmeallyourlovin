@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Because darcs does not have any support for pseudo-ids, we'll just return something here that we can use in the helpers below for determining whether we need to look up the latest revision.
+full_name: Capistrano::Deploy::SCM::Darcs#head
+is_singleton: false
+name: head
+params: ()
+visibility: public

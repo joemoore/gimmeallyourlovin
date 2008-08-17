@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Capistrano::Configuration::Roles</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Capistrano::Configuration::Roles</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/capistrano/configuration/roles_rb.html">
+                lib/capistrano/configuration/roles.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/capistrano/configuration/roles_rb.html">
+                lib/capistrano/configuration/roles.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001536">role</a>&nbsp;&nbsp;
+      <a href="#M001538">role</a>&nbsp;&nbsp;
+      <a href="#M001537">server</a>&nbsp;&nbsp;
+      <a href="#M001539">server</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">roles</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of roles defined for this configuration. Each entry in the hash
+points to an array of <a href="Roles.html#M001537">server</a> definitions
+that belong in that <a href="Roles.html#M001536">role</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">roles</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of roles defined for this configuration. Each entry in the hash
+points to an array of <a href="Roles.html#M001537">server</a> definitions
+that belong in that <a href="Roles.html#M001536">role</a>.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001536" class="method-detail">
+        <a name="M001536"></a>
+
+        <div class="method-heading">
+          <a href="#M001536" class="method-signature">
+          <span class="method-name">role</span><span class="method-args">(which, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Define a new <a href="Roles.html#M001536">role</a> and its associated
+servers. You must specify at least one host for each <a
+href="Roles.html#M001536">role</a>. Also, you can specify additional
+information (in the form of a Hash) which can be used to more uniquely
+specify the subset of servers specified by this specific <a
+href="Roles.html#M001536">role</a> definition.
+</p>
+<p>
+Usage:
+</p>
+<pre>
+  role :db,  &quot;db1.example.com&quot;, &quot;db2.example.com&quot;
+  role :db,  &quot;master.example.com&quot;, :primary =&gt; true
+  role :app, &quot;app1.example.com&quot;, &quot;app2.example.com&quot;
+</pre>
+<p>
+You can also encode the username and port number for each host in the <a
+href="Roles.html#M001537">server</a> string, if needed:
+</p>
+<pre>
+  role :web,  &quot;www@web1.example.com&quot;
+  role :file, &quot;files.example.com:4144&quot;
+  role :db,   &quot;admin@db3.example.com:1234&quot;
+</pre>
+<p>
+Lastly, username and port number may be passed as options, if that is
+preferred; note that the options apply to all servers defined in that call
+to &quot;<a href="Roles.html#M001536">role</a>&quot;:
+</p>
+<pre>
+  role :web, &quot;web2&quot;, &quot;web3&quot;, :user =&gt; &quot;www&quot;, :port =&gt; 2345
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001536-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001536-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/roles.rb, line 45</span>
+45:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">role</span>(<span class="ruby-identifier">which</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+46:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+47:         <span class="ruby-identifier">which</span> = <span class="ruby-identifier">which</span>.<span class="ruby-identifier">to_sym</span>
+48:         <span class="ruby-identifier">roles</span>[<span class="ruby-identifier">which</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">block</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+49:         <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">host</span><span class="ruby-operator">|</span> <span class="ruby-identifier">roles</span>[<span class="ruby-identifier">which</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ServerDefinition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">options</span>) }
+50:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001538" class="method-detail">
+        <a name="M001538"></a>
+
+        <div class="method-heading">
+          <a href="#M001538" class="method-signature">
+          <span class="method-name">role</span><span class="method-args">(which, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Define a new <a href="Roles.html#M001536">role</a> and its associated
+servers. You must specify at least one host for each <a
+href="Roles.html#M001536">role</a>. Also, you can specify additional
+information (in the form of a Hash) which can be used to more uniquely
+specify the subset of servers specified by this specific <a
+href="Roles.html#M001536">role</a> definition.
+</p>
+<p>
+Usage:
+</p>
+<pre>
+  role :db,  &quot;db1.example.com&quot;, &quot;db2.example.com&quot;
+  role :db,  &quot;master.example.com&quot;, :primary =&gt; true
+  role :app, &quot;app1.example.com&quot;, &quot;app2.example.com&quot;
+</pre>
+<p>
+You can also encode the username and port number for each host in the <a
+href="Roles.html#M001537">server</a> string, if needed:
+</p>
+<pre>
+  role :web,  &quot;www@web1.example.com&quot;
+  role :file, &quot;files.example.com:4144&quot;
+  role :db,   &quot;admin@db3.example.com:1234&quot;
+</pre>
+<p>
+Lastly, username and port number may be passed as options, if that is
+preferred; note that the options apply to all servers defined in that call
+to &quot;<a href="Roles.html#M001536">role</a>&quot;:
+</p>
+<pre>
+  role :web, &quot;web2&quot;, &quot;web3&quot;, :user =&gt; &quot;www&quot;, :port =&gt; 2345
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001538-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001538-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/roles.rb, line 45</span>
+45:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">role</span>(<span class="ruby-identifier">which</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+46:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+47:         <span class="ruby-identifier">which</span> = <span class="ruby-identifier">which</span>.<span class="ruby-identifier">to_sym</span>
+48:         <span class="ruby-identifier">roles</span>[<span class="ruby-identifier">which</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">block</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+49:         <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">host</span><span class="ruby-operator">|</span> <span class="ruby-identifier">roles</span>[<span class="ruby-identifier">which</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ServerDefinition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">options</span>) }
+50:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001537" class="method-detail">
+        <a name="M001537"></a>
+
+        <div class="method-heading">
+          <a href="#M001537" class="method-signature">
+          <span class="method-name">server</span><span class="method-args">(host, *roles)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+An alternative way to associate servers with roles. If you have a <a
+href="Roles.html#M001537">server</a> that participates in multiple roles,
+this can be a DRYer way to describe the relationships. Pass the host
+definition as the first parameter, and the roles as the remaining
+parameters:
+</p>
+<pre>
+  server &quot;master.example.com&quot;, :web, :app
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001537-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001537-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/roles.rb, line 58</span>
+58:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server</span>(<span class="ruby-identifier">host</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">roles</span>)
+59:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+60:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;you must associate a server with at least one role&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">empty?</span>
+61:         <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">role</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">options</span>) }
+62:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001539" class="method-detail">
+        <a name="M001539"></a>
+
+        <div class="method-heading">
+          <a href="#M001539" class="method-signature">
+          <span class="method-name">server</span><span class="method-args">(host, *roles)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+An alternative way to associate servers with roles. If you have a <a
+href="Roles.html#M001537">server</a> that participates in multiple roles,
+this can be a DRYer way to describe the relationships. Pass the host
+definition as the first parameter, and the roles as the remaining
+parameters:
+</p>
+<pre>
+  server &quot;master.example.com&quot;, :web, :app
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001539-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001539-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/roles.rb, line 58</span>
+58:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server</span>(<span class="ruby-identifier">host</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">roles</span>)
+59:         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+60:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;you must associate a server with at least one role&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">empty?</span>
+61:         <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">role</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">options</span>) }
+62:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

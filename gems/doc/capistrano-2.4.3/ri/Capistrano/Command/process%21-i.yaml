@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Processes the command in parallel on all specified hosts. If the command fails (non-zero return code) on any of the hosts, this will raise a Capistrano::CommandError.
+full_name: Capistrano::Command#process!
+is_singleton: false
+name: process!
+params: ()
+visibility: public

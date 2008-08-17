@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Open a namespace in which to define new tasks. If the namespace was defined previously, it will be reopened, otherwise a new namespace will be created for the given name.
+full_name: Capistrano::Configuration::Namespaces#namespace
+is_singleton: false
+name: namespace
+params: (name, &block)
+visibility: public

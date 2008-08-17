@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Capistrano::Configuration::Loading::ClassMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Capistrano::Configuration::Loading::ClassMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/capistrano/configuration/loading_rb.html">
+                lib/capistrano/configuration/loading.rb
+                </a>
+        <br />
+                <a href="../../../../files/lib/capistrano/configuration/loading_rb.html">
+                lib/capistrano/configuration/loading.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001509">current_feature</a>&nbsp;&nbsp;
+      <a href="#M001514">current_feature</a>&nbsp;&nbsp;
+      <a href="#M001510">current_feature=</a>&nbsp;&nbsp;
+      <a href="#M001515">current_feature=</a>&nbsp;&nbsp;
+      <a href="#M001511">instance</a>&nbsp;&nbsp;
+      <a href="#M001506">instance</a>&nbsp;&nbsp;
+      <a href="#M001512">instance=</a>&nbsp;&nbsp;
+      <a href="#M001507">instance=</a>&nbsp;&nbsp;
+      <a href="#M001513">recipes_per_feature</a>&nbsp;&nbsp;
+      <a href="#M001508">recipes_per_feature</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001509" class="method-detail">
+        <a name="M001509"></a>
+
+        <div class="method-heading">
+          <a href="#M001509" class="method-signature">
+          <span class="method-name">current_feature</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally to determine what the current &quot;feature&quot; being
+required is. This is used to track which files load which recipes via
+require.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001509-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001509-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 39</span>
+39:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_feature</span>
+40:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_current_feature</span>]
+41:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001514" class="method-detail">
+        <a name="M001514"></a>
+
+        <div class="method-heading">
+          <a href="#M001514" class="method-signature">
+          <span class="method-name">current_feature</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally to determine what the current &quot;feature&quot; being
+required is. This is used to track which files load which recipes via
+require.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001514-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001514-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 39</span>
+39:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_feature</span>
+40:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_current_feature</span>]
+41:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001510" class="method-detail">
+        <a name="M001510"></a>
+
+        <div class="method-heading">
+          <a href="#M001510" class="method-signature">
+          <span class="method-name">current_feature=</span><span class="method-args">(feature)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally to specify the current file being required, so that any
+recipes loaded by that file can be remembered. This allows recipes loaded
+via require to be correctly reloaded in different <a
+href="../../Configuration.html">Configuration</a> instances in the same
+Ruby <a href="ClassMethods.html#M001506">instance</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001510-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001510-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 47</span>
+47:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_feature=</span>(<span class="ruby-identifier">feature</span>)
+48:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_current_feature</span>] = <span class="ruby-identifier">feature</span>
+49:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001515" class="method-detail">
+        <a name="M001515"></a>
+
+        <div class="method-heading">
+          <a href="#M001515" class="method-signature">
+          <span class="method-name">current_feature=</span><span class="method-args">(feature)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally to specify the current file being required, so that any
+recipes loaded by that file can be remembered. This allows recipes loaded
+via require to be correctly reloaded in different <a
+href="../../Configuration.html">Configuration</a> instances in the same
+Ruby <a href="ClassMethods.html#M001506">instance</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001515-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001515-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 47</span>
+47:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_feature=</span>(<span class="ruby-identifier">feature</span>)
+48:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_current_feature</span>] = <span class="ruby-identifier">feature</span>
+49:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001511" class="method-detail">
+        <a name="M001511"></a>
+
+        <div class="method-heading">
+          <a href="#M001511" class="method-signature">
+          <span class="method-name">instance</span><span class="method-args">(require_config=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used by third-party task bundles to identify the capistrano configuration
+that is loading them. Its return value is not reliable in other contexts.
+If <tt>require_config</tt> is not false, an exception will be raised if the
+current configuration is not set.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001511-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001511-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 15</span>
+15:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">instance</span>(<span class="ruby-identifier">require_config</span>=<span class="ruby-keyword kw">false</span>)
+16:           <span class="ruby-identifier">config</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_configuration</span>]
+17:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">require_config</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">nil?</span>
+18:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">LoadError</span>, <span class="ruby-value str">&quot;Please require this file from within a Capistrano recipe&quot;</span>
+19:           <span class="ruby-keyword kw">end</span>
+20:           <span class="ruby-identifier">config</span>
+21:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001506" class="method-detail">
+        <a name="M001506"></a>
+
+        <div class="method-heading">
+          <a href="#M001506" class="method-signature">
+          <span class="method-name">instance</span><span class="method-args">(require_config=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used by third-party task bundles to identify the capistrano configuration
+that is loading them. Its return value is not reliable in other contexts.
+If <tt>require_config</tt> is not false, an exception will be raised if the
+current configuration is not set.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001506-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001506-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 15</span>
+15:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">instance</span>(<span class="ruby-identifier">require_config</span>=<span class="ruby-keyword kw">false</span>)
+16:           <span class="ruby-identifier">config</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_configuration</span>]
+17:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">require_config</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">nil?</span>
+18:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">LoadError</span>, <span class="ruby-value str">&quot;Please require this file from within a Capistrano recipe&quot;</span>
+19:           <span class="ruby-keyword kw">end</span>
+20:           <span class="ruby-identifier">config</span>
+21:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001512" class="method-detail">
+        <a name="M001512"></a>
+
+        <div class="method-heading">
+          <a href="#M001512" class="method-signature">
+          <span class="method-name">instance=</span><span class="method-args">(config)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally by <a href="../../../Capistrano.html">Capistrano</a> to
+specify the current configuration before loading a third-party task bundle.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001512-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001512-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 25</span>
+25:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">instance=</span>(<span class="ruby-identifier">config</span>)
+26:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_configuration</span>] = <span class="ruby-identifier">config</span>
+27:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001507" class="method-detail">
+        <a name="M001507"></a>
+
+        <div class="method-heading">
+          <a href="#M001507" class="method-signature">
+          <span class="method-name">instance=</span><span class="method-args">(config)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally by <a href="../../../Capistrano.html">Capistrano</a> to
+specify the current configuration before loading a third-party task bundle.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001507-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001507-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 25</span>
+25:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">instance=</span>(<span class="ruby-identifier">config</span>)
+26:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-identifier">:capistrano_configuration</span>] = <span class="ruby-identifier">config</span>
+27:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001513" class="method-detail">
+        <a name="M001513"></a>
+
+        <div class="method-heading">
+          <a href="#M001513" class="method-signature">
+          <span class="method-name">recipes_per_feature</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally by <a href="../../../Capistrano.html">Capistrano</a> to
+track which recipes have been loaded via require, so that they may be
+successfully reloaded when require is called again.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001513-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001513-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 32</span>
+32:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recipes_per_feature</span>
+33:           <span class="ruby-ivar">@recipes_per_feature</span> <span class="ruby-operator">||=</span> {}
+34:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001508" class="method-detail">
+        <a name="M001508"></a>
+
+        <div class="method-heading">
+          <a href="#M001508" class="method-signature">
+          <span class="method-name">recipes_per_feature</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used internally by <a href="../../../Capistrano.html">Capistrano</a> to
+track which recipes have been loaded via require, so that they may be
+successfully reloaded when require is called again.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001508-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001508-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/loading.rb, line 32</span>
+32:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recipes_per_feature</span>
+33:           <span class="ruby-ivar">@recipes_per_feature</span> <span class="ruby-operator">||=</span> {}
+34:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

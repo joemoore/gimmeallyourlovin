@@ -1,0 +1,147 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Wraps the low-level SFTP calls for version 1 of the SFTP protocol. Also implements the packet parsing as defined by version 1 of the protocol.
+- !ruby/struct:SM::Flow::P 
+  body: None of these protocol methods block--all of them return immediately, requiring the SSH event loop to be run while the server response is pending.
+- !ruby/struct:SM::Flow::P 
+  body: You will almost certainly never need to use this driver directly. Please see Net::SFTP::Session for the recommended interface.
+constants: []
+
+full_name: Net::SFTP::Protocol::V01::Base
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Net::SFTP::Constants::OpenFlags
+- !ruby/object:RI::IncludedModule 
+  name: Net::SFTP::Constants::OpenFlags
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: attribute_factory
+- !ruby/object:RI::MethodSummary 
+  name: attribute_factory
+- !ruby/object:RI::MethodSummary 
+  name: block
+- !ruby/object:RI::MethodSummary 
+  name: block
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: fsetstat
+- !ruby/object:RI::MethodSummary 
+  name: fsetstat
+- !ruby/object:RI::MethodSummary 
+  name: fstat
+- !ruby/object:RI::MethodSummary 
+  name: fstat
+- !ruby/object:RI::MethodSummary 
+  name: link
+- !ruby/object:RI::MethodSummary 
+  name: link
+- !ruby/object:RI::MethodSummary 
+  name: lstat
+- !ruby/object:RI::MethodSummary 
+  name: lstat
+- !ruby/object:RI::MethodSummary 
+  name: mkdir
+- !ruby/object:RI::MethodSummary 
+  name: mkdir
+- !ruby/object:RI::MethodSummary 
+  name: name_factory
+- !ruby/object:RI::MethodSummary 
+  name: name_factory
+- !ruby/object:RI::MethodSummary 
+  name: normalize_open_flags
+- !ruby/object:RI::MethodSummary 
+  name: normalize_open_flags
+- !ruby/object:RI::MethodSummary 
+  name: not_implemented!
+- !ruby/object:RI::MethodSummary 
+  name: not_implemented!
+- !ruby/object:RI::MethodSummary 
+  name: open
+- !ruby/object:RI::MethodSummary 
+  name: open
+- !ruby/object:RI::MethodSummary 
+  name: opendir
+- !ruby/object:RI::MethodSummary 
+  name: opendir
+- !ruby/object:RI::MethodSummary 
+  name: parse_attrs_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_attrs_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_data_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_data_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_handle_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_handle_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_name_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_name_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_status_packet
+- !ruby/object:RI::MethodSummary 
+  name: parse_status_packet
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: readdir
+- !ruby/object:RI::MethodSummary 
+  name: readdir
+- !ruby/object:RI::MethodSummary 
+  name: readlink
+- !ruby/object:RI::MethodSummary 
+  name: readlink
+- !ruby/object:RI::MethodSummary 
+  name: realpath
+- !ruby/object:RI::MethodSummary 
+  name: realpath
+- !ruby/object:RI::MethodSummary 
+  name: remove
+- !ruby/object:RI::MethodSummary 
+  name: remove
+- !ruby/object:RI::MethodSummary 
+  name: rename
+- !ruby/object:RI::MethodSummary 
+  name: rename
+- !ruby/object:RI::MethodSummary 
+  name: rmdir
+- !ruby/object:RI::MethodSummary 
+  name: rmdir
+- !ruby/object:RI::MethodSummary 
+  name: setstat
+- !ruby/object:RI::MethodSummary 
+  name: setstat
+- !ruby/object:RI::MethodSummary 
+  name: stat
+- !ruby/object:RI::MethodSummary 
+  name: stat
+- !ruby/object:RI::MethodSummary 
+  name: symlink
+- !ruby/object:RI::MethodSummary 
+  name: symlink
+- !ruby/object:RI::MethodSummary 
+  name: unblock
+- !ruby/object:RI::MethodSummary 
+  name: unblock
+- !ruby/object:RI::MethodSummary 
+  name: version
+- !ruby/object:RI::MethodSummary 
+  name: version
+- !ruby/object:RI::MethodSummary 
+  name: write
+- !ruby/object:RI::MethodSummary 
+  name: write
+name: Base
+superclass: Protocol::Base

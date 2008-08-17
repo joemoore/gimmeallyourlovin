@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Capistrano::Configuration</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Capistrano::Configuration</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/capistrano/configuration/actions/file_transfer_rb.html">
+                lib/capistrano/configuration/actions/file_transfer.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/actions/inspect_rb.html">
+                lib/capistrano/configuration/actions/inspect.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/actions/invocation_rb.html">
+                lib/capistrano/configuration/actions/invocation.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/callbacks_rb.html">
+                lib/capistrano/configuration/callbacks.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/connections_rb.html">
+                lib/capistrano/configuration/connections.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/execution_rb.html">
+                lib/capistrano/configuration/execution.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/loading_rb.html">
+                lib/capistrano/configuration/loading.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/namespaces_rb.html">
+                lib/capistrano/configuration/namespaces.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/roles_rb.html">
+                lib/capistrano/configuration/roles.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/servers_rb.html">
+                lib/capistrano/configuration/servers.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/variables_rb.html">
+                lib/capistrano/configuration/variables.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration_rb.html">
+                lib/capistrano/configuration.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/actions/file_transfer_rb.html">
+                lib/capistrano/configuration/actions/file_transfer.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/actions/inspect_rb.html">
+                lib/capistrano/configuration/actions/inspect.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/actions/invocation_rb.html">
+                lib/capistrano/configuration/actions/invocation.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/callbacks_rb.html">
+                lib/capistrano/configuration/callbacks.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/connections_rb.html">
+                lib/capistrano/configuration/connections.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/execution_rb.html">
+                lib/capistrano/configuration/execution.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/loading_rb.html">
+                lib/capistrano/configuration/loading.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/namespaces_rb.html">
+                lib/capistrano/configuration/namespaces.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/roles_rb.html">
+                lib/capistrano/configuration/roles.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/servers_rb.html">
+                lib/capistrano/configuration/servers.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration/variables_rb.html">
+                lib/capistrano/configuration/variables.rb
+                </a>
+        <br />
+                <a href="../../files/lib/capistrano/configuration_rb.html">
+                lib/capistrano/configuration.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Represents a specific <a href="../Capistrano.html">Capistrano</a>
+configuration. A <a href="Configuration.html">Configuration</a> instance
+may be used to load multiple recipe files, define and describe tasks,
+define roles, and set configuration variables.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Configuration/Connections.html">Connections</a></span>
+        <span class="include-name"><a href="Configuration/Execution.html">Execution</a></span>
+        <span class="include-name"><a href="Configuration/Loading.html">Loading</a></span>
+        <span class="include-name"><a href="Configuration/Namespaces.html">Namespaces</a></span>
+        <span class="include-name"><a href="Configuration/Roles.html">Roles</a></span>
+        <span class="include-name"><a href="Configuration/Servers.html">Servers</a></span>
+        <span class="include-name"><a href="Configuration/Variables.html">Variables</a></span>
+        <span class="include-name"><a href="Configuration/Actions/FileTransfer.html">Actions::FileTransfer</a></span>
+        <span class="include-name"><a href="Configuration/Actions/Inspect.html">Actions::Inspect</a></span>
+        <span class="include-name"><a href="Configuration/Actions/Invocation.html">Actions::Invocation</a></span>
+        <span class="include-name"><a href="Configuration/Callbacks.html">Callbacks</a></span>
+        <span class="include-name"><a href="Configuration/Connections.html">Connections</a></span>
+        <span class="include-name"><a href="Configuration/Execution.html">Execution</a></span>
+        <span class="include-name"><a href="Configuration/Loading.html">Loading</a></span>
+        <span class="include-name"><a href="Configuration/Namespaces.html">Namespaces</a></span>
+        <span class="include-name"><a href="Configuration/Roles.html">Roles</a></span>
+        <span class="include-name"><a href="Configuration/Servers.html">Servers</a></span>
+        <span class="include-name"><a href="Configuration/Variables.html">Variables</a></span>
+        <span class="include-name"><a href="Configuration/Actions/FileTransfer.html">Actions::FileTransfer</a></span>
+        <span class="include-name"><a href="Configuration/Actions/Inspect.html">Actions::Inspect</a></span>
+        <span class="include-name"><a href="Configuration/Actions/Invocation.html">Actions::Invocation</a></span>
+        <span class="include-name"><a href="Configuration/Callbacks.html">Callbacks</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Configuration/Actions.html" class="link">Capistrano::Configuration::Actions</a><br />
+Module <a href="Configuration/Callbacks.html" class="link">Capistrano::Configuration::Callbacks</a><br />
+Module <a href="Configuration/Connections.html" class="link">Capistrano::Configuration::Connections</a><br />
+Module <a href="Configuration/Execution.html" class="link">Capistrano::Configuration::Execution</a><br />
+Module <a href="Configuration/Loading.html" class="link">Capistrano::Configuration::Loading</a><br />
+Module <a href="Configuration/Namespaces.html" class="link">Capistrano::Configuration::Namespaces</a><br />
+Module <a href="Configuration/Roles.html" class="link">Capistrano::Configuration::Roles</a><br />
+Module <a href="Configuration/Servers.html" class="link">Capistrano::Configuration::Servers</a><br />
+Module <a href="Configuration/Variables.html" class="link">Capistrano::Configuration::Variables</a><br />
+
+    </div>
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">lambda</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">defer</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+make the DSL easier to read when using lazy evaluation via lambdas
+
+</td>
+      </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">lambda</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">defer</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+make the DSL easier to read when using lazy evaluation via lambdas
+
+</td>
+      </tr>
+                        </table>
+      </div>
+    </div>
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">debug</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The logger instance defined for this configuration.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">debug</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The logger instance defined for this configuration.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">logger</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The logger instance defined for this configuration.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">logger</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The logger instance defined for this configuration.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

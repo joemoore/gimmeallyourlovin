@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: session
+comment: 
+full_name: Capistrano::Processable#ensure_each_session
+is_singleton: false
+name: ensure_each_session
+params: () {|session| ...}
+visibility: public

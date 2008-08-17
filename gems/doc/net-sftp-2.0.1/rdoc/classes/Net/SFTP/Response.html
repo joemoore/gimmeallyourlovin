@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Net::SFTP::Response</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Net::SFTP::Response</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/net/sftp/response_rb.html">
+                lib/net/sftp/response.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/net/sftp/response_rb.html">
+                lib/net/sftp/response.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Encapsulates a response from the remote server, to a specific client
+request. <a href="Response.html">Response</a> objects are passed as
+parameters to callbacks when you are performing asynchronous operations;
+when you call <a href="Request.html#M000977">Net::SFTP::Request#wait</a>,
+you can get the corresponding response object via
+Net::SFTP::Request#response.
+</p>
+<pre>
+  sftp.open(&quot;/path/to/file&quot;) do |response|
+    p response.ok?
+    p response[:handle]
+  end
+
+  sftp.loop
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000964">[]</a>&nbsp;&nbsp;
+      <a href="#M000969">[]</a>&nbsp;&nbsp;
+      <a href="#M000973">eof?</a>&nbsp;&nbsp;
+      <a href="#M000968">eof?</a>&nbsp;&nbsp;
+      <a href="#M000967">ok?</a>&nbsp;&nbsp;
+      <a href="#M000972">ok?</a>&nbsp;&nbsp;
+      <a href="#M000965">to_s</a>&nbsp;&nbsp;
+      <a href="#M000970">to_s</a>&nbsp;&nbsp;
+      <a href="#M000971">to_str</a>&nbsp;&nbsp;
+      <a href="#M000966">to_str</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Constants/StatusCodes.html">Net::SFTP::Constants::StatusCodes</a></span>
+        <span class="include-name"><a href="Constants/StatusCodes.html">Net::SFTP::Constants::StatusCodes</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MAP</td>
+          <td>=</td>
+          <td class="context-item-value">constants.inject({}) do |memo, name|       next memo unless name =~ /^FX_(.*)/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MAP</td>
+          <td>=</td>
+          <td class="context-item-value">constants.inject({}) do |memo, name|       next memo unless name =~ /^FX_(.*)/</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">code</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The numeric code, one of the FX_* constants
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">code</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The numeric code, one of the FX_* constants
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">data</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+A hash of request-specific data, such as a file handle or attribute
+information
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">data</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+A hash of request-specific data, such as a file handle or attribute
+information
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">message</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The textual message for this response (possibly blank)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">message</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The textual message for this response (possibly blank)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">request</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The request object that this object is in response to
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">request</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The request object that this object is in response to
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000964" class="method-detail">
+        <a name="M000964"></a>
+
+        <div class="method-heading">
+          <a href="#M000964" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieve the data item with the given <tt>key</tt>. The key is converted to
+a symbol before being used to lookup the value.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000964-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000964-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 41</span>
+41:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+42:       <span class="ruby-identifier">data</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
+43:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000969" class="method-detail">
+        <a name="M000969"></a>
+
+        <div class="method-heading">
+          <a href="#M000969" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieve the data item with the given <tt>key</tt>. The key is converted to
+a symbol before being used to lookup the value.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000969-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000969-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 41</span>
+41:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+42:       <span class="ruby-identifier">data</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
+43:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000973" class="method-detail">
+        <a name="M000973"></a>
+
+        <div class="method-heading">
+          <a href="#M000973" class="method-signature">
+          <span class="method-name">eof?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if the status code is FX_EOF; <tt>false</tt>
+otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000973-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000973-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 63</span>
+63:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eof?</span>
+64:       <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FX_EOF</span>
+65:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000968" class="method-detail">
+        <a name="M000968"></a>
+
+        <div class="method-heading">
+          <a href="#M000968" class="method-signature">
+          <span class="method-name">eof?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if the status code is FX_EOF; <tt>false</tt>
+otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000968-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000968-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 63</span>
+63:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eof?</span>
+64:       <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FX_EOF</span>
+65:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000967" class="method-detail">
+        <a name="M000967"></a>
+
+        <div class="method-heading">
+          <a href="#M000967" class="method-signature">
+          <span class="method-name">ok?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if the status code is FX_OK; <tt>false</tt>
+otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000967-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000967-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 58</span>
+58:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ok?</span>
+59:       <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FX_OK</span>
+60:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000972" class="method-detail">
+        <a name="M000972"></a>
+
+        <div class="method-heading">
+          <a href="#M000972" class="method-signature">
+          <span class="method-name">ok?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if the status code is FX_OK; <tt>false</tt>
+otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000972-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000972-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 58</span>
+58:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ok?</span>
+59:       <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FX_OK</span>
+60:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000965" class="method-detail">
+        <a name="M000965"></a>
+
+        <div class="method-heading">
+          <a href="#M000965" class="method-signature">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a textual description of this response, including the status code
+and name.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000965-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000965-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 47</span>
+47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+48:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">message</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">MAP</span>[<span class="ruby-identifier">code</span>]
+49:         <span class="ruby-node">&quot;#{message} (#{MAP[code]}, #{code})&quot;</span>
+50:       <span class="ruby-keyword kw">else</span>
+51:         <span class="ruby-node">&quot;#{MAP[code]} (#{code})&quot;</span>
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000970" class="method-detail">
+        <a name="M000970"></a>
+
+        <div class="method-heading">
+          <a href="#M000970" class="method-signature">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a textual description of this response, including the status code
+and name.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000970-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000970-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/sftp/response.rb, line 47</span>
+47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+48:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">message</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">MAP</span>[<span class="ruby-identifier">code</span>]
+49:         <span class="ruby-node">&quot;#{message} (#{MAP[code]}, #{code})&quot;</span>
+50:       <span class="ruby-keyword kw">else</span>
+51:         <span class="ruby-node">&quot;#{MAP[code]} (#{code})&quot;</span>
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000971" class="method-detail">
+        <a name="M000971"></a>
+
+        <div class="method-heading">
+          <span class="method-name">to_str</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Response.html#M000965">to_s</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000966" class="method-detail">
+        <a name="M000966"></a>
+
+        <div class="method-heading">
+          <span class="method-name">to_str</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Response.html#M000965">to_s</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

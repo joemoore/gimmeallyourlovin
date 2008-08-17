@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: self
+comment: 
+full_name: Capistrano::Deploy::Dependencies#check
+is_singleton: false
+name: check
+params: () {|self| ...}
+visibility: public

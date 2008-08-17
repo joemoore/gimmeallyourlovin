@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Checkout a copy of the repository, at the given <tt>revision</tt>, to the given <tt>destination</tt>. The checkout is suitable for doing development work in, e.g. allowing subsequent commits and updates.
+full_name: Capistrano::Deploy::SCM::Base#checkout
+is_singleton: false
+name: checkout
+params: (revision, destination)
+visibility: public

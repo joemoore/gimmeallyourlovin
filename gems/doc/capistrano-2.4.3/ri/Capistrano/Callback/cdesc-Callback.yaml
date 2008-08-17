@@ -1,0 +1,52 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: except
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: except
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: only
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: only
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: source
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: source
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Capistrano::Callback
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: applies_to?
+- !ruby/object:RI::MethodSummary 
+  name: applies_to?
+name: Callback
+superclass: Object

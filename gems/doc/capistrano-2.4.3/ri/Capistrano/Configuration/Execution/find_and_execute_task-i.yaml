@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Attempts to locate the task at the given fully-qualified path, and execute it. If no such task exists, a Capistrano::NoSuchTaskError will be raised.
+full_name: Capistrano::Configuration::Execution#find_and_execute_task
+is_singleton: false
+name: find_and_execute_task
+params: (path, hooks={})
+visibility: public

@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The packet types and other general constants used by the SFTP protocol. See the specification for the SFTP protocol for a full discussion of their meaning and usage.
+constants: []
+
+full_name: Net::SFTP::Constants
+includes: []
+
+instance_methods: []
+
+name: Constants
+superclass: 

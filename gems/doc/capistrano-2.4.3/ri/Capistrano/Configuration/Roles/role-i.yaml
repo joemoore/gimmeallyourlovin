@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Define a new role and its associated servers. You must specify at least one host for each role. Also, you can specify additional information (in the form of a Hash) which can be used to more uniquely specify the subset of servers specified by this specific role definition.
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  role :db,  &quot;db1.example.com&quot;, &quot;db2.example.com&quot;\n  role :db,  &quot;master.example.com&quot;, :primary =&gt; true\n  role :app, &quot;app1.example.com&quot;, &quot;app2.example.com&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "You can also encode the username and port number for each host in the server string, if needed:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  role :web,  &quot;www@web1.example.com&quot;\n  role :file, &quot;files.example.com:4144&quot;\n  role :db,   &quot;admin@db3.example.com:1234&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Lastly, username and port number may be passed as options, if that is preferred; note that the options apply to all servers defined in that call to &quot;role&quot;:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  role :web, &quot;web2&quot;, &quot;web3&quot;, :user =&gt; &quot;www&quot;, :port =&gt; 2345\n"
+full_name: Capistrano::Configuration::Roles#role
+is_singleton: false
+name: role
+params: (which, *args, &block)
+visibility: public

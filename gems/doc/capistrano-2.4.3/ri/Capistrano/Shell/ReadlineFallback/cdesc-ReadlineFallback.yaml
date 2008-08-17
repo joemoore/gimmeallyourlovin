@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Readline replacement for platforms where readline is either unavailable, or has not been installed.
+constants: []
+
+full_name: Capistrano::Shell::ReadlineFallback
+includes: []
+
+instance_methods: []
+
+name: ReadlineFallback
+superclass: Object

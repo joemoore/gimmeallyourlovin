@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Load a configuration file or string into this configuration.
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  load(&quot;recipe&quot;):\n    Look for and load the contents of 'recipe.rb' into this\n    configuration.\n\n  load(:file =&gt; &quot;recipe&quot;):\n    same as above\n\n  load(:string =&gt; &quot;set :scm, :subversion&quot;):\n    Load the given string as a configuration specification.\n\n  load { ... }\n    Load the block in the context of the configuration.\n"
+full_name: Capistrano::Configuration::Loading#load
+is_singleton: false
+name: load
+params: (*args, &block)
+visibility: public

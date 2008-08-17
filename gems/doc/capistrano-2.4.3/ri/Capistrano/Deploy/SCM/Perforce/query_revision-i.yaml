@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (command)
+comment: 
+full_name: Capistrano::Deploy::SCM::Perforce#query_revision
+is_singleton: false
+name: query_revision
+params: (revision) {|command| ...}
+visibility: public

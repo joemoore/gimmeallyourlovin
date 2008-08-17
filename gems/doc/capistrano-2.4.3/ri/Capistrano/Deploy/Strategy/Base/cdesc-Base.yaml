@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configuration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configuration
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "This class defines the abstract interface for all Capistrano deployment strategies. Subclasses must implement at least the #deploy! method."
+constants: []
+
+full_name: Capistrano::Deploy::Strategy::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: check!
+- !ruby/object:RI::MethodSummary 
+  name: check!
+- !ruby/object:RI::MethodSummary 
+  name: deploy!
+- !ruby/object:RI::MethodSummary 
+  name: deploy!
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: system
+- !ruby/object:RI::MethodSummary 
+  name: system
+name: Base
+superclass: Object

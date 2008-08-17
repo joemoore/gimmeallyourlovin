@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Merges the various default command options into the options hash and returns the result. The default command options that are understand are:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":default_environment: If the :env key already exists, the :env key is merged into default_environment and then added back into options."
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":default_shell: if the :shell key already exists, it will be used. Otherwise, if the :default_shell key exists in the configuration, it will be used. Otherwise, no :shell key is added."
+  type: :BULLET
+full_name: Capistrano::Configuration::Actions::Invocation#add_default_command_options
+is_singleton: false
+name: add_default_command_options
+params: (options)
+visibility: public

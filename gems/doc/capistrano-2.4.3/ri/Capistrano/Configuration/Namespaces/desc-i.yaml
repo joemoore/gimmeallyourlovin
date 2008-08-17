@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Describe the next task to be defined. The given text will be attached to the next task that is defined and used as its description.
+full_name: Capistrano::Configuration::Namespaces#desc
+is_singleton: false
+name: desc
+params: (text)
+visibility: public

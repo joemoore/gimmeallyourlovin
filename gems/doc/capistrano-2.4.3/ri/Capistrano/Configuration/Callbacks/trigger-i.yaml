@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Trigger the named event for the named task. All associated callbacks will be fired, in the order they were defined.
+full_name: Capistrano::Configuration::Callbacks#trigger
+is_singleton: false
+name: trigger
+params: (event, task=nil)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the revision number immediately following revision, if at all possible. A block should always be passed to this method, which accepts a command to invoke and returns the result, although a particular SCM's implementation is not required to invoke the block.
+- !ruby/struct:SM::Flow::P 
+  body: By default, this method simply returns the revision itself. If a particular SCM is able to determine a subsequent revision given a revision identifier, it should override this method.
+full_name: Capistrano::Deploy::SCM::Base#next_revision
+is_singleton: false
+name: next_revision
+params: (revision)
+visibility: public

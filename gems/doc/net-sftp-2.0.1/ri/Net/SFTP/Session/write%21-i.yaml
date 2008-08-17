@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Identical to #write, but blocks until the server responds. It will raise a StatusException if the request was unsuccessful, or the end of the file was reached. Otherwise, it returns the Response object for this request."
+- !ruby/struct:SM::Flow::VERB 
+  body: "  sftp.write!(handle, 0, &quot;hello, world!\\n&quot;)\n"
+full_name: Net::SFTP::Session#write!
+is_singleton: false
+name: write!
+params: (handle, offset, data, &callback)
+visibility: public

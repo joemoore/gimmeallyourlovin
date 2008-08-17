@@ -1,0 +1,303 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The last access time of the file
+  name: atime
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The last access time of the file
+  name: atime
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of name/value pairs that backs this Attributes instance
+  name: attributes
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of name/value pairs that backs this Attributes instance
+  name: attributes
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of name/value pairs identifying extended information about the file
+  name: extended
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of name/value pairs identifying extended information about the file
+  name: extended
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The group-id of the user that owns the file
+  name: gid
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The group-id of the user that owns the file
+  name: gid
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The modification time of the file
+  name: mtime
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The modification time of the file
+  name: mtime
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The permissions on the file
+  name: permissions
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The permissions on the file
+  name: permissions
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The size of the file.
+  name: size
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The size of the file.
+  name: size
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The user-id of the user that owns the file
+  name: uid
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The user-id of the user that owns the file
+  name: uid
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_buffer
+- !ruby/object:RI::MethodSummary 
+  name: from_buffer
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A class representing the attributes of a file or directory on the server. It may be used to specify new attributes, or to query existing attributes.
+- !ruby/struct:SM::Flow::P 
+  body: "To specify new attributes, just pass a hash as the argument to the constructor. The following keys are supported:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":size:: the size of the file"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":uid:: the user-id that owns the file (integer)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":gid:: the group-id that owns the file (integer)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":owner:: the name of the user that owns the file (string)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":group:: the name of the group that owns the file (string)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":permissions:: the permissions on the file (integer, e.g. 0755)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":atime:: the access time of the file (integer, seconds since epoch)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":mtime:: the modification time of the file (integer, seconds since epoch)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":extended:: a hash of name/value pairs identifying extended info"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: Likewise, when the server sends an Attributes object, all of the above attributes are exposed as methods (though not all will be set with non-nil values from the server).
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_SIZE
+  value: "0x00000001"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_UIDGID
+  value: "0x00000002"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_PERMISSIONS
+  value: "0x00000004"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_ACMODTIME
+  value: "0x00000008"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_EXTENDED
+  value: "0x80000000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_REGULAR
+  value: "1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_DIRECTORY
+  value: "2"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_SYMLINK
+  value: "3"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_SPECIAL
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_UNKNOWN
+  value: "5"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_SOCKET
+  value: "6"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_CHAR_DEVICE
+  value: "7"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_BLOCK_DEVICE
+  value: "8"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_FIFO
+  value: "9"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_SIZE
+  value: "0x00000001"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_UIDGID
+  value: "0x00000002"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_PERMISSIONS
+  value: "0x00000004"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_ACMODTIME
+  value: "0x00000008"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: F_EXTENDED
+  value: "0x80000000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_REGULAR
+  value: "1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_DIRECTORY
+  value: "2"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_SYMLINK
+  value: "3"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_SPECIAL
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_UNKNOWN
+  value: "5"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_SOCKET
+  value: "6"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_CHAR_DEVICE
+  value: "7"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_BLOCK_DEVICE
+  value: "8"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: T_FIFO
+  value: "9"
+full_name: Net::SFTP::Protocol::V01::Attributes
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: directory?
+- !ruby/object:RI::MethodSummary 
+  name: directory?
+- !ruby/object:RI::MethodSummary 
+  name: file?
+- !ruby/object:RI::MethodSummary 
+  name: file?
+- !ruby/object:RI::MethodSummary 
+  name: gid
+- !ruby/object:RI::MethodSummary 
+  name: gid
+- !ruby/object:RI::MethodSummary 
+  name: group
+- !ruby/object:RI::MethodSummary 
+  name: group
+- !ruby/object:RI::MethodSummary 
+  name: owner
+- !ruby/object:RI::MethodSummary 
+  name: owner
+- !ruby/object:RI::MethodSummary 
+  name: symbolic_type
+- !ruby/object:RI::MethodSummary 
+  name: symbolic_type
+- !ruby/object:RI::MethodSummary 
+  name: symlink?
+- !ruby/object:RI::MethodSummary 
+  name: symlink?
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: uid
+- !ruby/object:RI::MethodSummary 
+  name: uid
+name: Attributes
+superclass: Object

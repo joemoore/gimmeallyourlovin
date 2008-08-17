@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the command that will check out the given revision to the given destination. The 'revision' parameter must be the 'hash' value for the revision in question, as given by 'darcs changes --xml-output'.
+full_name: Capistrano::Deploy::SCM::Darcs#checkout
+is_singleton: false
+name: checkout
+params: (revision, destination)
+visibility: public

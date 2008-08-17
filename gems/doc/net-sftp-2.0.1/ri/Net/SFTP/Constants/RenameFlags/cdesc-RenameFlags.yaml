@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Beginning in version 5 of the protocol, Net::SFTP::Session#rename accepts an optional <tt>flags</tt> argument that must be either 0 or a combination of these constants.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OVERWRITE
+  value: "0x00000001"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATOMIC
+  value: "0x00000002"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NATIVE
+  value: "0x00000004"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OVERWRITE
+  value: "0x00000001"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATOMIC
+  value: "0x00000002"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NATIVE
+  value: "0x00000004"
+full_name: Net::SFTP::Constants::RenameFlags
+includes: []
+
+instance_methods: []
+
+name: RenameFlags
+superclass: 

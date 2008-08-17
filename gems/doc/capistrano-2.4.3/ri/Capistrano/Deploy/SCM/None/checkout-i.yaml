@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: export
+- !ruby/object:RI::AliasName 
+  name: export
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Simply does a copy from the :repository directory to the :destination directory.
+full_name: Capistrano::Deploy::SCM::None#checkout
+is_singleton: false
+name: checkout
+params: (revision, destination)
+visibility: public

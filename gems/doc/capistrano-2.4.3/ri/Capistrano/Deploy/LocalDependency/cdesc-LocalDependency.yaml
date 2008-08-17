@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configuration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configuration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: message
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: message
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Capistrano::Deploy::LocalDependency
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: pass?
+- !ruby/object:RI::MethodSummary 
+  name: pass?
+name: LocalDependency
+superclass: Object

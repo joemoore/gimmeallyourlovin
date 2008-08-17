@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (variable)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Access a named variable. If the value of the variable responds_to? :call, #call will be invoked (without parameters) and the return value cached and returned."
+full_name: Capistrano::Configuration::Variables#fetch
+is_singleton: false
+name: fetch
+params: (variable, *args) {|variable| ...}
+visibility: public

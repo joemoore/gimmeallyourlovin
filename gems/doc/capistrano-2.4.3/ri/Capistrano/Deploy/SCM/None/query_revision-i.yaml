@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: No versioning, so this just returns the argument, with no modification.
+full_name: Capistrano::Deploy::SCM::None#query_revision
+is_singleton: false
+name: query_revision
+params: (revision)
+visibility: public

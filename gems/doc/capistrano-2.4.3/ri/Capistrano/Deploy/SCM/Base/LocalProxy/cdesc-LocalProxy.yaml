@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Wraps an SCM instance and forces all messages sent to it to be relayed to the underlying SCM instance, in &quot;local&quot; mode. See Base#local.
+constants: []
+
+full_name: Capistrano::Deploy::SCM::Base::LocalProxy
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+name: LocalProxy
+superclass: Object

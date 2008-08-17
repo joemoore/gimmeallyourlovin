@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Executes the necessary commands to deploy the revision of the source code identified by the <tt>revision</tt> variable. Additionally, this should write the value of the <tt>revision</tt> variable to a file called REVISION, in the base of the deployed revision. This file is used by other tasks, to perform diffs and such.
+full_name: Capistrano::Deploy::Strategy::Base#deploy!
+is_singleton: false
+name: deploy!
+params: ()
+visibility: public

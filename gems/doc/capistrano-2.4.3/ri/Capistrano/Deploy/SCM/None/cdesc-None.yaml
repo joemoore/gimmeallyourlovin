@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A trivial SCM wrapper for representing the current working directory as a repository. Obviously, not all operations are available for this SCM, but it works sufficiently for use with the &quot;copy&quot; deployment strategy.
+- !ruby/struct:SM::Flow::P 
+  body: Use of this module is <em>not</em> recommended; in general, it is good practice to use some kind of source code management even for anything you are wanting to deploy. However, this module is provided in acknowledgement of the cases where trivial deployment of your current working directory is desired.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :repository, &quot;.&quot;\n  set :scm, :none\n  set :deploy_via, :copy\n"
+constants: []
+
+full_name: Capistrano::Deploy::SCM::None
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+name: None
+superclass: Base

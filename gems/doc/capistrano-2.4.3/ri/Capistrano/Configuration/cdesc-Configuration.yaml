@@ -1,0 +1,83 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The logger instance defined for this configuration.
+  name: debug
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The logger instance defined for this configuration.
+  name: debug
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The logger instance defined for this configuration.
+  name: logger
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The logger instance defined for this configuration.
+  name: logger
+  rw: RW
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Represents a specific Capistrano configuration. A Configuration instance may be used to load multiple recipe files, define and describe tasks, define roles, and set configuration variables.
+constants: []
+
+full_name: Capistrano::Configuration
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Connections
+- !ruby/object:RI::IncludedModule 
+  name: Execution
+- !ruby/object:RI::IncludedModule 
+  name: Loading
+- !ruby/object:RI::IncludedModule 
+  name: Namespaces
+- !ruby/object:RI::IncludedModule 
+  name: Roles
+- !ruby/object:RI::IncludedModule 
+  name: Servers
+- !ruby/object:RI::IncludedModule 
+  name: Variables
+- !ruby/object:RI::IncludedModule 
+  name: Actions::FileTransfer
+- !ruby/object:RI::IncludedModule 
+  name: Actions::Inspect
+- !ruby/object:RI::IncludedModule 
+  name: Actions::Invocation
+- !ruby/object:RI::IncludedModule 
+  name: Callbacks
+- !ruby/object:RI::IncludedModule 
+  name: Connections
+- !ruby/object:RI::IncludedModule 
+  name: Execution
+- !ruby/object:RI::IncludedModule 
+  name: Loading
+- !ruby/object:RI::IncludedModule 
+  name: Namespaces
+- !ruby/object:RI::IncludedModule 
+  name: Roles
+- !ruby/object:RI::IncludedModule 
+  name: Servers
+- !ruby/object:RI::IncludedModule 
+  name: Variables
+- !ruby/object:RI::IncludedModule 
+  name: Actions::FileTransfer
+- !ruby/object:RI::IncludedModule 
+  name: Actions::Inspect
+- !ruby/object:RI::IncludedModule 
+  name: Actions::Invocation
+- !ruby/object:RI::IncludedModule 
+  name: Callbacks
+instance_methods: []
+
+name: Configuration
+superclass: Object

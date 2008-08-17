@@ -1,0 +1,90 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: body
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: body
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: desc
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: desc
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: max_hosts
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: max_hosts
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: namespace
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: namespace
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: on_error
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: on_error
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Represents the definition of a single task.
+constants: []
+
+full_name: Capistrano::TaskDefinition
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: brief_description
+- !ruby/object:RI::MethodSummary 
+  name: brief_description
+- !ruby/object:RI::MethodSummary 
+  name: continue_on_error?
+- !ruby/object:RI::MethodSummary 
+  name: continue_on_error?
+- !ruby/object:RI::MethodSummary 
+  name: description
+- !ruby/object:RI::MethodSummary 
+  name: description
+- !ruby/object:RI::MethodSummary 
+  name: fully_qualified_name
+- !ruby/object:RI::MethodSummary 
+  name: fully_qualified_name
+name: TaskDefinition
+superclass: Object

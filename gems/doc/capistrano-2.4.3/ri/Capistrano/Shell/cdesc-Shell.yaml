@@ -1,0 +1,45 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The configuration instance employed by this shell
+  name: configuration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The configuration instance employed by this shell
+  name: configuration
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: run
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Capistrano::Shell class is the guts of the &quot;shell&quot; task. It implements an interactive REPL interface that users can employ to execute tasks and commands. It makes for a GREAT way to monitor systems, and perform quick maintenance on one or more machines.
+constants: []
+
+full_name: Capistrano::Shell
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Processable
+- !ruby/object:RI::IncludedModule 
+  name: Processable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: read_and_execute
+- !ruby/object:RI::MethodSummary 
+  name: read_and_execute
+- !ruby/object:RI::MethodSummary 
+  name: run!
+- !ruby/object:RI::MethodSummary 
+  name: run!
+name: Shell
+superclass: Object

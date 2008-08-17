@@ -1,0 +1,108 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The callback (if any) associated with this request. When the response is recieved for this request, the callback will be invoked.
+  name: callback
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The callback (if any) associated with this request. When the response is recieved for this request, the callback will be invoked.
+  name: callback
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The SFTP packet identifier for this request
+  name: id
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The SFTP packet identifier for this request
+  name: id
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of properties associated with this request. Properties allow programmers to associate arbitrary data with a request, making state machines richer.
+  name: properties
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of properties associated with this request. Properties allow programmers to associate arbitrary data with a request, making state machines richer.
+  name: properties
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The response that was received for this request (see Net::SFTP::Response)
+  name: response
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The response that was received for this request (see Net::SFTP::Response)
+  name: response
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The Net::SFTP session object that is servicing this request
+  name: session
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The Net::SFTP session object that is servicing this request
+  name: session
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The type of this request (e.g., :open, :symlink, etc.)
+  name: type
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The type of this request (e.g., :open, :symlink, etc.)
+  name: type
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Encapsulates a single active SFTP request. This is instantiated automatically by the Net::SFTP::Session class when an operation is executed.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  request = sftp.open(&quot;/path/to/file&quot;)\n  puts request.pending? #-&gt; true\n  request.wait\n  puts request.pending? #-&gt; false\n  result = request.response\n"
+constants: []
+
+full_name: Net::SFTP::Request
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Constants::PacketTypes
+- !ruby/object:RI::IncludedModule 
+  name: Constants::PacketTypes
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: pending?
+- !ruby/object:RI::MethodSummary 
+  name: pending?
+- !ruby/object:RI::MethodSummary 
+  name: wait
+- !ruby/object:RI::MethodSummary 
+  name: wait
+name: Request
+superclass: Object

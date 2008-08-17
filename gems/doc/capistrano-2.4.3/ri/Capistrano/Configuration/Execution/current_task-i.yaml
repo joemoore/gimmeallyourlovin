@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the TaskDefinition object for the currently executing task. It returns nil if there is no task being executed.
+full_name: Capistrano::Configuration::Execution#current_task
+is_singleton: false
+name: current_task
+params: ()
+visibility: public

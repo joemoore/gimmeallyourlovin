@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the SCM's export command for the revision to deploy.
+full_name: Capistrano::Deploy::Strategy::Export#command
+is_singleton: false
+name: command
+params: ()
+visibility: protected

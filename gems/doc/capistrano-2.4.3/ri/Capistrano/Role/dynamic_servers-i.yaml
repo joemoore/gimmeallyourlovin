@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Attribute reader for the cached results of executing the blocks in turn
+full_name: Capistrano::Role#dynamic_servers
+is_singleton: false
+name: dynamic_servers
+params: ()
+visibility: protected

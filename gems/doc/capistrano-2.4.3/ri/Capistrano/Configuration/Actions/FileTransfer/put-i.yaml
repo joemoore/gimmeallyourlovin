@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Store the given data at the given location on all servers targetted by the current task. If <tt>:mode</tt> is specified it is used to set the mode on the file.
+full_name: Capistrano::Configuration::Actions::FileTransfer#put
+is_singleton: false
+name: put
+params: (data, path, options={})
+visibility: public

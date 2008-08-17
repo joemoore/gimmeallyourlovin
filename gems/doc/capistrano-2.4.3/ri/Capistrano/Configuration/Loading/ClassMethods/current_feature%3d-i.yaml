@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used internally to specify the current file being required, so that any recipes loaded by that file can be remembered. This allows recipes loaded via require to be correctly reloaded in different Configuration instances in the same Ruby instance.
+full_name: Capistrano::Configuration::Loading::ClassMethods#current_feature=
+is_singleton: false
+name: current_feature=
+params: (feature)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used internally by Capistrano to specify the current configuration before loading a third-party task bundle.
+full_name: Capistrano::Configuration::Loading::ClassMethods#instance=
+is_singleton: false
+name: instance=
+params: (config)
+visibility: public

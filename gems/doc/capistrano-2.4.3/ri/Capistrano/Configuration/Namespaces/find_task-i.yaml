@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Find the task with the given name, where name is the fully-qualified name of the task. This will search into the namespaces and return the referenced task, or nil if no such task can be found. If the name refers to a namespace, the task in that namespace named &quot;default&quot; will be returned instead, if one exists.
+full_name: Capistrano::Configuration::Namespaces#find_task
+is_singleton: false
+name: find_task
+params: (name)
+visibility: public

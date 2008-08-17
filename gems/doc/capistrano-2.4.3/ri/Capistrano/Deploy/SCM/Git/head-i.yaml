@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: When referencing &quot;head&quot;, use the branch we want to deploy or, by default, Git's reference of HEAD (the latest changeset in the default branch, usually called &quot;master&quot;).
+full_name: Capistrano::Deploy::SCM::Git#head
+is_singleton: false
+name: head
+params: ()
+visibility: public

@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LINE_PADDING
+  value: "7"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MIN_MAX_LEN
+  value: "30"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HEADER_LEN
+  value: "60"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LINE_PADDING
+  value: "7"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MIN_MAX_LEN
+  value: "30"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HEADER_LEN
+  value: "60"
+full_name: Capistrano::CLI::Help
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: execute_requested_actions_with_help
+- !ruby/object:RI::MethodSummary 
+  name: execute_requested_actions_with_help
+name: Help
+superclass: 

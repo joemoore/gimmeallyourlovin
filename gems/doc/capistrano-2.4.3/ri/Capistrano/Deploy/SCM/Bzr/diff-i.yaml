@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The bzr &quot;diff&quot; command doesn't accept a repository argument, so it must be run from within a working tree.
+full_name: Capistrano::Deploy::SCM::Bzr#diff
+is_singleton: false
+name: diff
+params: (from, to=nil)
+visibility: public

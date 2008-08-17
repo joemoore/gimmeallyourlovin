@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Executes the SCM command for this strategy and writes the REVISION mark file to each host.
+full_name: Capistrano::Deploy::Strategy::Remote#deploy!
+is_singleton: false
+name: deploy!
+params: ()
+visibility: public

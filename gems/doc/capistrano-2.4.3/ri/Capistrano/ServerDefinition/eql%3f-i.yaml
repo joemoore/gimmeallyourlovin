@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: ==
+- !ruby/object:RI::AliasName 
+  name: ==
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Redefined, so that Array#uniq will work to remove duplicate server definitions, based solely on their host names.
+full_name: Capistrano::ServerDefinition#eql?
+is_singleton: false
+name: eql?
+params: (server)
+visibility: public

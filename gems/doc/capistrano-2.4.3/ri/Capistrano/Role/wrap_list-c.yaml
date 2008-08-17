@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Turns a list, or something resembling a list, into a properly-formatted ServerDefinition list. Keep an eye on this one -- it's entirely too magical for its own good. In particular, if ServerDefinition ever inherits from Array, this will break.
+full_name: Capistrano::Role::wrap_list
+is_singleton: true
+name: wrap_list
+params: (*list)
+visibility: protected

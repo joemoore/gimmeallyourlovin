@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Capistrano::Configuration::Namespaces</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Capistrano::Configuration::Namespaces</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/capistrano/configuration/namespaces_rb.html">
+                lib/capistrano/configuration/namespaces.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/capistrano/configuration/namespaces_rb.html">
+                lib/capistrano/configuration/namespaces.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001446">default_task</a>&nbsp;&nbsp;
+      <a href="#M001456">default_task</a>&nbsp;&nbsp;
+      <a href="#M001440">desc</a>&nbsp;&nbsp;
+      <a href="#M001450">desc</a>&nbsp;&nbsp;
+      <a href="#M001454">find_task</a>&nbsp;&nbsp;
+      <a href="#M001444">find_task</a>&nbsp;&nbsp;
+      <a href="#M001449">fully_qualified_name</a>&nbsp;&nbsp;
+      <a href="#M001439">fully_qualified_name</a>&nbsp;&nbsp;
+      <a href="#M001442">namespace</a>&nbsp;&nbsp;
+      <a href="#M001452">namespace</a>&nbsp;&nbsp;
+      <a href="#M001451">next_description</a>&nbsp;&nbsp;
+      <a href="#M001441">next_description</a>&nbsp;&nbsp;
+      <a href="#M001455">search_task</a>&nbsp;&nbsp;
+      <a href="#M001445">search_task</a>&nbsp;&nbsp;
+      <a href="#M001443">task</a>&nbsp;&nbsp;
+      <a href="#M001453">task</a>&nbsp;&nbsp;
+      <a href="#M001447">task_list</a>&nbsp;&nbsp;
+      <a href="#M001457">task_list</a>&nbsp;&nbsp;
+      <a href="#M001448">top</a>&nbsp;&nbsp;
+      <a href="#M001438">top</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Namespaces/Namespace.html" class="link">Capistrano::Configuration::Namespaces::Namespace</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_TASK</td>
+          <td>=</td>
+          <td class="context-item-value">:default</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_TASK</td>
+          <td>=</td>
+          <td class="context-item-value">:default</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The name of this <a href="Namespaces.html#M001442">namespace</a>. Defaults
+to <tt>nil</tt> for the <a href="Namespaces.html#M001438">top</a>-level <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The name of this <a href="Namespaces.html#M001442">namespace</a>. Defaults
+to <tt>nil</tt> for the <a href="Namespaces.html#M001438">top</a>-level <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">namespaces</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of namespaces defined for this <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">namespaces</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of namespaces defined for this <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parent</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The parent <a href="Namespaces.html#M001442">namespace</a> of this <a
+href="Namespaces.html#M001442">namespace</a>. Returns <tt>nil</tt> for the
+<a href="Namespaces.html#M001438">top</a>-level <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parent</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The parent <a href="Namespaces.html#M001442">namespace</a> of this <a
+href="Namespaces.html#M001442">namespace</a>. Returns <tt>nil</tt> for the
+<a href="Namespaces.html#M001438">top</a>-level <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">tasks</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of tasks defined for this <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">tasks</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The hash of tasks defined for this <a
+href="Namespaces.html#M001442">namespace</a>.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001446" class="method-detail">
+        <a name="M001446"></a>
+
+        <div class="method-heading">
+          <a href="#M001446" class="method-signature">
+          <span class="method-name">default_task</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the default <a href="Namespaces.html#M001443">task</a> for this <a
+href="Namespaces.html#M001442">namespace</a>. This will be <tt>nil</tt> if
+the <a href="Namespaces.html#M001442">namespace</a> is at the <a
+href="Namespaces.html#M001438">top</a>-level, and will otherwise return the
+<a href="Namespaces.html#M001443">task</a> named &quot;default&quot;. If no
+such <a href="Namespaces.html#M001443">task</a> exists, <tt>nil</tt> will
+be returned.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001446-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001446-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 150</span>
+150:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_task</span>
+151:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>
+152:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">tasks</span>[<span class="ruby-constant">DEFAULT_TASK</span>]
+153:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001456" class="method-detail">
+        <a name="M001456"></a>
+
+        <div class="method-heading">
+          <a href="#M001456" class="method-signature">
+          <span class="method-name">default_task</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the default <a href="Namespaces.html#M001443">task</a> for this <a
+href="Namespaces.html#M001442">namespace</a>. This will be <tt>nil</tt> if
+the <a href="Namespaces.html#M001442">namespace</a> is at the <a
+href="Namespaces.html#M001438">top</a>-level, and will otherwise return the
+<a href="Namespaces.html#M001443">task</a> named &quot;default&quot;. If no
+such <a href="Namespaces.html#M001443">task</a> exists, <tt>nil</tt> will
+be returned.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001456-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001456-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 150</span>
+150:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_task</span>
+151:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>
+152:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">tasks</span>[<span class="ruby-constant">DEFAULT_TASK</span>]
+153:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001440" class="method-detail">
+        <a name="M001440"></a>
+
+        <div class="method-heading">
+          <a href="#M001440" class="method-signature">
+          <span class="method-name">desc</span><span class="method-args">(text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Describe the next <a href="Namespaces.html#M001443">task</a> to be defined.
+The given text will be attached to the next <a
+href="Namespaces.html#M001443">task</a> that is defined and used as its
+description.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001440-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001440-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 50</span>
+50:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">desc</span>(<span class="ruby-identifier">text</span>)
+51:         <span class="ruby-ivar">@next_description</span> = <span class="ruby-identifier">text</span>
+52:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001450" class="method-detail">
+        <a name="M001450"></a>
+
+        <div class="method-heading">
+          <a href="#M001450" class="method-signature">
+          <span class="method-name">desc</span><span class="method-args">(text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Describe the next <a href="Namespaces.html#M001443">task</a> to be defined.
+The given text will be attached to the next <a
+href="Namespaces.html#M001443">task</a> that is defined and used as its
+description.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001450-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001450-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 50</span>
+50:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">desc</span>(<span class="ruby-identifier">text</span>)
+51:         <span class="ruby-ivar">@next_description</span> = <span class="ruby-identifier">text</span>
+52:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001454" class="method-detail">
+        <a name="M001454"></a>
+
+        <div class="method-heading">
+          <a href="#M001454" class="method-signature">
+          <span class="method-name">find_task</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Find the <a href="Namespaces.html#M001443">task</a> with the given name,
+where name is the fully-qualified name of the <a
+href="Namespaces.html#M001443">task</a>. This will search into the
+namespaces and return the referenced <a
+href="Namespaces.html#M001443">task</a>, or nil if no such <a
+href="Namespaces.html#M001443">task</a> can be found. If the name refers to
+a <a href="Namespaces.html#M001442">namespace</a>, the <a
+href="Namespaces.html#M001443">task</a> in that <a
+href="Namespaces.html#M001442">namespace</a> named &quot;default&quot; will
+be returned instead, if one exists.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001454-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001454-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 113</span>
+113:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_task</span>(<span class="ruby-identifier">name</span>)
+114:         <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/:/</span>)
+115:         <span class="ruby-identifier">tail</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">to_sym</span>
+116: 
+117:         <span class="ruby-identifier">ns</span> = <span class="ruby-keyword kw">self</span>
+118:         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">empty?</span>
+119:           <span class="ruby-identifier">next_part</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">shift</span>
+120:           <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">next_part</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">next_part</span>.<span class="ruby-identifier">to_sym</span>]
+121:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">nil?</span>
+122:         <span class="ruby-keyword kw">end</span>
+123: 
+124:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">tail</span>)
+125:           <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">tail</span>]
+126:           <span class="ruby-identifier">tail</span> = <span class="ruby-constant">DEFAULT_TASK</span>
+127:         <span class="ruby-keyword kw">end</span>
+128: 
+129:         <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">tail</span>]
+130:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001444" class="method-detail">
+        <a name="M001444"></a>
+
+        <div class="method-heading">
+          <a href="#M001444" class="method-signature">
+          <span class="method-name">find_task</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Find the <a href="Namespaces.html#M001443">task</a> with the given name,
+where name is the fully-qualified name of the <a
+href="Namespaces.html#M001443">task</a>. This will search into the
+namespaces and return the referenced <a
+href="Namespaces.html#M001443">task</a>, or nil if no such <a
+href="Namespaces.html#M001443">task</a> can be found. If the name refers to
+a <a href="Namespaces.html#M001442">namespace</a>, the <a
+href="Namespaces.html#M001443">task</a> in that <a
+href="Namespaces.html#M001442">namespace</a> named &quot;default&quot; will
+be returned instead, if one exists.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001444-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001444-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 113</span>
+113:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_task</span>(<span class="ruby-identifier">name</span>)
+114:         <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/:/</span>)
+115:         <span class="ruby-identifier">tail</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">to_sym</span>
+116: 
+117:         <span class="ruby-identifier">ns</span> = <span class="ruby-keyword kw">self</span>
+118:         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">empty?</span>
+119:           <span class="ruby-identifier">next_part</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">shift</span>
+120:           <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">next_part</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">next_part</span>.<span class="ruby-identifier">to_sym</span>]
+121:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">nil?</span>
+122:         <span class="ruby-keyword kw">end</span>
+123: 
+124:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">tail</span>)
+125:           <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">tail</span>]
+126:           <span class="ruby-identifier">tail</span> = <span class="ruby-constant">DEFAULT_TASK</span>
+127:         <span class="ruby-keyword kw">end</span>
+128: 
+129:         <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">tail</span>]
+130:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001449" class="method-detail">
+        <a name="M001449"></a>
+
+        <div class="method-heading">
+          <a href="#M001449" class="method-signature">
+          <span class="method-name">fully_qualified_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the fully-qualified name of this <a
+href="Namespaces.html#M001442">namespace</a>, or nil if the <a
+href="Namespaces.html#M001442">namespace</a> is at the <a
+href="Namespaces.html#M001438">top</a>-level.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001449-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001449-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 43</span>
+43:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fully_qualified_name</span>
+44:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+45:         [<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">fully_qualified_name</span>, <span class="ruby-identifier">name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;:&quot;</span>)
+46:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001439" class="method-detail">
+        <a name="M001439"></a>
+
+        <div class="method-heading">
+          <a href="#M001439" class="method-signature">
+          <span class="method-name">fully_qualified_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the fully-qualified name of this <a
+href="Namespaces.html#M001442">namespace</a>, or nil if the <a
+href="Namespaces.html#M001442">namespace</a> is at the <a
+href="Namespaces.html#M001438">top</a>-level.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001439-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001439-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 43</span>
+43:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fully_qualified_name</span>
+44:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+45:         [<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">fully_qualified_name</span>, <span class="ruby-identifier">name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;:&quot;</span>)
+46:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001442" class="method-detail">
+        <a name="M001442"></a>
+
+        <div class="method-heading">
+          <a href="#M001442" class="method-signature">
+          <span class="method-name">namespace</span><span class="method-args">(name, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Open a <a href="Namespaces.html#M001442">namespace</a> in which to define
+new tasks. If the <a href="Namespaces.html#M001442">namespace</a> was
+defined previously, it will be reopened, otherwise a new <a
+href="Namespaces.html#M001442">namespace</a> will be created for the given
+name.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001442-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001442-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 65</span>
+65:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">namespace</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+66:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+67:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;expected a block&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">block_given?</span>
+68: 
+69:         <span class="ruby-identifier">namespace_already_defined</span> = <span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+70:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">all_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">namespace_already_defined</span>
+71:           <span class="ruby-identifier">thing</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;task&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;method&quot;</span>
+72:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;defining a namespace named `#{name}' would shadow an existing #{thing} with that name&quot;</span>
+73:         <span class="ruby-keyword kw">end</span>
+74: 
+75:         <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Namespace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">self</span>)
+76:         <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+77: 
+78:         <span class="ruby-comment cmt"># make sure any open description gets terminated</span>
+79:         <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">desc</span>(<span class="ruby-keyword kw">nil</span>)
+80: 
+81:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">namespace_already_defined</span>
+82:           <span class="ruby-identifier">metaclass</span> = <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>
+83:           <span class="ruby-identifier">metaclass</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:define_method</span>, <span class="ruby-identifier">name</span>) { <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>] }
+84:         <span class="ruby-keyword kw">end</span>
+85:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001452" class="method-detail">
+        <a name="M001452"></a>
+
+        <div class="method-heading">
+          <a href="#M001452" class="method-signature">
+          <span class="method-name">namespace</span><span class="method-args">(name, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Open a <a href="Namespaces.html#M001442">namespace</a> in which to define
+new tasks. If the <a href="Namespaces.html#M001442">namespace</a> was
+defined previously, it will be reopened, otherwise a new <a
+href="Namespaces.html#M001442">namespace</a> will be created for the given
+name.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001452-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001452-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 65</span>
+65:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">namespace</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+66:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+67:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;expected a block&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">block_given?</span>
+68: 
+69:         <span class="ruby-identifier">namespace_already_defined</span> = <span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+70:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">all_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">namespace_already_defined</span>
+71:           <span class="ruby-identifier">thing</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;task&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;method&quot;</span>
+72:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;defining a namespace named `#{name}' would shadow an existing #{thing} with that name&quot;</span>
+73:         <span class="ruby-keyword kw">end</span>
+74: 
+75:         <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Namespace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">self</span>)
+76:         <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+77: 
+78:         <span class="ruby-comment cmt"># make sure any open description gets terminated</span>
+79:         <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">desc</span>(<span class="ruby-keyword kw">nil</span>)
+80: 
+81:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">namespace_already_defined</span>
+82:           <span class="ruby-identifier">metaclass</span> = <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>
+83:           <span class="ruby-identifier">metaclass</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:define_method</span>, <span class="ruby-identifier">name</span>) { <span class="ruby-identifier">namespaces</span>[<span class="ruby-identifier">name</span>] }
+84:         <span class="ruby-keyword kw">end</span>
+85:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001451" class="method-detail">
+        <a name="M001451"></a>
+
+        <div class="method-heading">
+          <a href="#M001451" class="method-signature">
+          <span class="method-name">next_description</span><span class="method-args">(reset=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the value set by the last, pending &quot;<a
+href="Namespaces.html#M001440">desc</a>&quot; call. If <tt>reset</tt> is
+not false, the value will be reset immediately afterwards.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001451-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001451-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 56</span>
+56:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">next_description</span>(<span class="ruby-identifier">reset</span>=<span class="ruby-keyword kw">false</span>)
+57:         <span class="ruby-ivar">@next_description</span>
+58:       <span class="ruby-keyword kw">ensure</span>
+59:         <span class="ruby-ivar">@next_description</span> = <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reset</span>
+60:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001441" class="method-detail">
+        <a name="M001441"></a>
+
+        <div class="method-heading">
+          <a href="#M001441" class="method-signature">
+          <span class="method-name">next_description</span><span class="method-args">(reset=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the value set by the last, pending &quot;<a
+href="Namespaces.html#M001440">desc</a>&quot; call. If <tt>reset</tt> is
+not false, the value will be reset immediately afterwards.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001441-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001441-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 56</span>
+56:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">next_description</span>(<span class="ruby-identifier">reset</span>=<span class="ruby-keyword kw">false</span>)
+57:         <span class="ruby-ivar">@next_description</span>
+58:       <span class="ruby-keyword kw">ensure</span>
+59:         <span class="ruby-ivar">@next_description</span> = <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reset</span>
+60:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001455" class="method-detail">
+        <a name="M001455"></a>
+
+        <div class="method-heading">
+          <a href="#M001455" class="method-signature">
+          <span class="method-name">search_task</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Given a <a href="Namespaces.html#M001443">task</a> name, this will search
+the current <a href="Namespaces.html#M001442">namespace</a>, and all parent
+namespaces, looking for a <a href="Namespaces.html#M001443">task</a> that
+matches the name, exactly. It returns the <a
+href="Namespaces.html#M001443">task</a>, if found, or nil, if not.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001455-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001455-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 135</span>
+135:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_task</span>(<span class="ruby-identifier">name</span>)
+136:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+137:         <span class="ruby-identifier">ns</span> = <span class="ruby-keyword kw">self</span>
+138: 
+139:         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">nil?</span>
+140:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">name</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+141:           <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">parent</span>
+142:         <span class="ruby-keyword kw">end</span>
+143: 
+144:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+145:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001445" class="method-detail">
+        <a name="M001445"></a>
+
+        <div class="method-heading">
+          <a href="#M001445" class="method-signature">
+          <span class="method-name">search_task</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Given a <a href="Namespaces.html#M001443">task</a> name, this will search
+the current <a href="Namespaces.html#M001442">namespace</a>, and all parent
+namespaces, looking for a <a href="Namespaces.html#M001443">task</a> that
+matches the name, exactly. It returns the <a
+href="Namespaces.html#M001443">task</a>, if found, or nil, if not.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001445-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001445-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 135</span>
+135:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_task</span>(<span class="ruby-identifier">name</span>)
+136:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+137:         <span class="ruby-identifier">ns</span> = <span class="ruby-keyword kw">self</span>
+138: 
+139:         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">nil?</span>
+140:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">name</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+141:           <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">parent</span>
+142:         <span class="ruby-keyword kw">end</span>
+143: 
+144:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+145:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001443" class="method-detail">
+        <a name="M001443"></a>
+
+        <div class="method-heading">
+          <a href="#M001443" class="method-signature">
+          <span class="method-name">task</span><span class="method-args">(name, options={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Describe a new <a href="Namespaces.html#M001443">task</a>. If a description
+is active (see <a href="Namespaces.html#M001440">desc</a>), it is added to
+the options under the <tt>:<a href="Namespaces.html#M001440">desc</a></tt>
+key. The new <a href="Namespaces.html#M001443">task</a> is added to the <a
+href="Namespaces.html#M001442">namespace</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001443-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001443-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 90</span>
+ 90:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">task</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+ 91:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+ 92:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;expected a block&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">block_given?</span>
+ 93: 
+ 94:         <span class="ruby-identifier">task_already_defined</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+ 95:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">all_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">task_already_defined</span>
+ 96:           <span class="ruby-identifier">thing</span> = <span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;namespace&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;method&quot;</span>
+ 97:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;defining a task named `#{name}' would shadow an existing #{thing} with that name&quot;</span>
+ 98:         <span class="ruby-keyword kw">end</span>
+ 99: 
+100:         <span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-constant">TaskDefinition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">self</span>, {<span class="ruby-identifier">:desc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">next_description</span>(<span class="ruby-identifier">:reset</span>)}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>), <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+101: 
+102:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">task_already_defined</span>
+103:           <span class="ruby-identifier">metaclass</span> = <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>
+104:           <span class="ruby-identifier">metaclass</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:define_method</span>, <span class="ruby-identifier">name</span>) { <span class="ruby-identifier">execute_task</span>(<span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">name</span>]) }
+105:         <span class="ruby-keyword kw">end</span>
+106:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001453" class="method-detail">
+        <a name="M001453"></a>
+
+        <div class="method-heading">
+          <a href="#M001453" class="method-signature">
+          <span class="method-name">task</span><span class="method-args">(name, options={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Describe a new <a href="Namespaces.html#M001443">task</a>. If a description
+is active (see <a href="Namespaces.html#M001440">desc</a>), it is added to
+the options under the <tt>:<a href="Namespaces.html#M001440">desc</a></tt>
+key. The new <a href="Namespaces.html#M001443">task</a> is added to the <a
+href="Namespaces.html#M001442">namespace</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001453-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001453-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 90</span>
+ 90:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">task</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+ 91:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+ 92:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;expected a block&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">block_given?</span>
+ 93: 
+ 94:         <span class="ruby-identifier">task_already_defined</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+ 95:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">all_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">task_already_defined</span>
+ 96:           <span class="ruby-identifier">thing</span> = <span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;namespace&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;method&quot;</span>
+ 97:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;defining a task named `#{name}' would shadow an existing #{thing} with that name&quot;</span>
+ 98:         <span class="ruby-keyword kw">end</span>
+ 99: 
+100:         <span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-constant">TaskDefinition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">self</span>, {<span class="ruby-identifier">:desc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">next_description</span>(<span class="ruby-identifier">:reset</span>)}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>), <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+101: 
+102:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">task_already_defined</span>
+103:           <span class="ruby-identifier">metaclass</span> = <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>
+104:           <span class="ruby-identifier">metaclass</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:define_method</span>, <span class="ruby-identifier">name</span>) { <span class="ruby-identifier">execute_task</span>(<span class="ruby-identifier">tasks</span>[<span class="ruby-identifier">name</span>]) }
+105:         <span class="ruby-keyword kw">end</span>
+106:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001447" class="method-detail">
+        <a name="M001447"></a>
+
+        <div class="method-heading">
+          <a href="#M001447" class="method-signature">
+          <span class="method-name">task_list</span><span class="method-args">(all=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the tasks in this <a href="Namespaces.html#M001442">namespace</a>
+as an array of <a href="../TaskDefinition.html">TaskDefinition</a> objects.
+If a non-false parameter is given, all tasks in all namespaces under this
+<a href="Namespaces.html#M001442">namespace</a> will be returned as well.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001447-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001447-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 158</span>
+158:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">task_list</span>(<span class="ruby-identifier">all</span>=<span class="ruby-keyword kw">false</span>)
+159:         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">values</span>
+160:         <span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>,<span class="ruby-identifier">space</span><span class="ruby-operator">|</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">space</span>.<span class="ruby-identifier">task_list</span>(<span class="ruby-identifier">:all</span>)) } <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">all</span>
+161:         <span class="ruby-identifier">list</span>
+162:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001457" class="method-detail">
+        <a name="M001457"></a>
+
+        <div class="method-heading">
+          <a href="#M001457" class="method-signature">
+          <span class="method-name">task_list</span><span class="method-args">(all=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the tasks in this <a href="Namespaces.html#M001442">namespace</a>
+as an array of <a href="../TaskDefinition.html">TaskDefinition</a> objects.
+If a non-false parameter is given, all tasks in all namespaces under this
+<a href="Namespaces.html#M001442">namespace</a> will be returned as well.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001457-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001457-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 158</span>
+158:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">task_list</span>(<span class="ruby-identifier">all</span>=<span class="ruby-keyword kw">false</span>)
+159:         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">values</span>
+160:         <span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>,<span class="ruby-identifier">space</span><span class="ruby-operator">|</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">space</span>.<span class="ruby-identifier">task_list</span>(<span class="ruby-identifier">:all</span>)) } <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">all</span>
+161:         <span class="ruby-identifier">list</span>
+162:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001448" class="method-detail">
+        <a name="M001448"></a>
+
+        <div class="method-heading">
+          <a href="#M001448" class="method-signature">
+          <span class="method-name">top</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Namespaces.html#M001438">top</a>-level <a
+href="Namespaces.html#M001442">namespace</a> (the one with no parent).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001448-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001448-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 36</span>
+36:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">top</span>
+37:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">top</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">parent</span>
+38:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>
+39:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001438" class="method-detail">
+        <a name="M001438"></a>
+
+        <div class="method-heading">
+          <a href="#M001438" class="method-signature">
+          <span class="method-name">top</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Namespaces.html#M001438">top</a>-level <a
+href="Namespaces.html#M001442">namespace</a> (the one with no parent).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001438-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001438-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/configuration/namespaces.rb, line 36</span>
+36:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">top</span>
+37:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">top</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">parent</span>
+38:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>
+39:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Invoke capistrano using the ARGV array as the option parameters. This is what the command-line capistrano utility does.
+full_name: Capistrano::CLI::Execute::ClassMethods#execute
+is_singleton: false
+name: execute
+params: ()
+visibility: public

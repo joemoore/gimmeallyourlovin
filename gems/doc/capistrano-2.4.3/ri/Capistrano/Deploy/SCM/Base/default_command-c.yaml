@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If no parameters are given, it returns the current configured name of the command-line utility of this SCM. If a parameter is given, the defeault command is set to that value.
+full_name: Capistrano::Deploy::SCM::Base::default_command
+is_singleton: true
+name: default_command
+params: (value=nil)
+visibility: public

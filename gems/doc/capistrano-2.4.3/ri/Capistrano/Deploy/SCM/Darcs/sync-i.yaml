@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Tries to update the destination repository in-place, to bring it up to the given revision. Note that because darcs' &quot;pull&quot; operation does not support a &quot;to-match&quot; argument (or similar), this basically nukes the destination directory and re-gets it.
+full_name: Capistrano::Deploy::SCM::Darcs#sync
+is_singleton: false
+name: sync
+params: (revision, destination)
+visibility: public

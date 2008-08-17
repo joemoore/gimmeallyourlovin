@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Forwards a new connection to the given <tt>host</tt> and opens a new Net::SSH connection to that host over the forwarded port. If a block is given, the new SSH connection will be yielded to the block, and autoclosed when the block terminates. The forwarded port will be autoclosed as well. If no block was given, the new SSH connection will be returned, and it is up to the caller to terminate both the connection and the forwarded port when done.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  gateway.ssh('host', 'user') do |ssh|\n    # ...\n  end\n\n  ssh = gateway.ssh('host', 'user')\n  # ...\n  ssh.close\n  gateway.close(ssh.transport.port)\n"
+full_name: Net::SSH::Gateway#ssh
+is_singleton: false
+name: ssh
+params: (host, user, options={}, &block)
+visibility: public

@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: plugin
+- !ruby/object:RI::MethodSummary 
+  name: plugin
+- !ruby/object:RI::MethodSummary 
+  name: remove_plugin
+- !ruby/object:RI::MethodSummary 
+  name: remove_plugin
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Notes:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " no global verbose flag for scm_verbose\n sync, checkout and export are just sync in p4\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Holds the set of registered plugins, keyed by name (where the name is a symbol).
+  name: EXTENSIONS
+  value: "{}"
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Holds the set of registered plugins, keyed by name (where the name is a symbol).
+  name: EXTENSIONS
+  value: "{}"
+full_name: Capistrano
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: sessions
+- !ruby/object:RI::MethodSummary 
+  name: sessions
+name: Capistrano
+superclass: 

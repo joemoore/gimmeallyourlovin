@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Start the shell running. This method will block until the shell terminates.
+full_name: Capistrano::Shell#run!
+is_singleton: false
+name: run!
+params: ()
+visibility: public

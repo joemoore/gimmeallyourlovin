@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Should analyze the given text and determine whether or not a response is expected, and if so, return the appropriate response. If no response is expected, return nil. The <tt>state</tt> parameter is a hash that may be used to preserve state between calls. This method is used to define how Capistrano should respond to common prompts and messages from the SCM, like password prompts and such. By default, the output is simply displayed.
+full_name: Capistrano::Deploy::SCM::Base#handle_data
+is_singleton: false
+name: handle_data
+params: (state, stream, text)
+visibility: public

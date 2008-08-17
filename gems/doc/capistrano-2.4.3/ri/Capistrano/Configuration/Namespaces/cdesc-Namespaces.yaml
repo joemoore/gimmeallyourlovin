@@ -1,0 +1,108 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The name of this namespace. Defaults to <tt>nil</tt> for the top-level namespace.
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The name of this namespace. Defaults to <tt>nil</tt> for the top-level namespace.
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of namespaces defined for this namespace.
+  name: namespaces
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of namespaces defined for this namespace.
+  name: namespaces
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The parent namespace of this namespace. Returns <tt>nil</tt> for the top-level namespace.
+  name: parent
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The parent namespace of this namespace. Returns <tt>nil</tt> for the top-level namespace.
+  name: parent
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of tasks defined for this namespace.
+  name: tasks
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The hash of tasks defined for this namespace.
+  name: tasks
+  rw: R
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_TASK
+  value: ":default"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_TASK
+  value: ":default"
+full_name: Capistrano::Configuration::Namespaces
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: default_task
+- !ruby/object:RI::MethodSummary 
+  name: default_task
+- !ruby/object:RI::MethodSummary 
+  name: desc
+- !ruby/object:RI::MethodSummary 
+  name: desc
+- !ruby/object:RI::MethodSummary 
+  name: find_task
+- !ruby/object:RI::MethodSummary 
+  name: find_task
+- !ruby/object:RI::MethodSummary 
+  name: fully_qualified_name
+- !ruby/object:RI::MethodSummary 
+  name: fully_qualified_name
+- !ruby/object:RI::MethodSummary 
+  name: namespace
+- !ruby/object:RI::MethodSummary 
+  name: namespace
+- !ruby/object:RI::MethodSummary 
+  name: next_description
+- !ruby/object:RI::MethodSummary 
+  name: next_description
+- !ruby/object:RI::MethodSummary 
+  name: search_task
+- !ruby/object:RI::MethodSummary 
+  name: search_task
+- !ruby/object:RI::MethodSummary 
+  name: task
+- !ruby/object:RI::MethodSummary 
+  name: task
+- !ruby/object:RI::MethodSummary 
+  name: task_list
+- !ruby/object:RI::MethodSummary 
+  name: task_list
+- !ruby/object:RI::MethodSummary 
+  name: top
+- !ruby/object:RI::MethodSummary 
+  name: top
+name: Namespaces
+superclass: 

@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Accurev bridge for use by Capistrano. This implementation does not implement all features of a Capistrano SCM module. The ones that are left out are either exceedingly difficult to implement with Accurev or are considered bad form.
+- !ruby/struct:SM::Flow::P 
+  body: "When using this module in a project, the following variables are used:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " * :repository - This should match the depot that code lives in. If your code\n                 exists in a subdirectory, you can append the path depot.\n                 eg. foo-depot/bar_dir\n * :stream - The stream in the depot that code should be pulled from. If\n             left blank, the depot stream will be used\n * :revision - Should be in the form 'stream/transaction'.\n"
+constants: []
+
+full_name: Capistrano::Deploy::SCM::Accurev
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: REXML
+- !ruby/object:RI::IncludedModule 
+  name: REXML
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: diff
+- !ruby/object:RI::MethodSummary 
+  name: diff
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+name: Accurev
+superclass: Base

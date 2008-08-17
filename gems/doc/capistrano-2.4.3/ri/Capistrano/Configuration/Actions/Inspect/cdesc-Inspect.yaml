@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Capistrano::Configuration::Actions::Inspect
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: capture
+- !ruby/object:RI::MethodSummary 
+  name: capture
+- !ruby/object:RI::MethodSummary 
+  name: stream
+- !ruby/object:RI::MethodSummary 
+  name: stream
+name: Inspect
+superclass: 

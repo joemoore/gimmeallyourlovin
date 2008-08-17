@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Capistrano::Configuration::Namespaces::Namespace
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Capistrano::Configuration::Namespaces
+- !ruby/object:RI::IncludedModule 
+  name: Capistrano::Configuration::Namespaces
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: respond_to?
+- !ruby/object:RI::MethodSummary 
+  name: respond_to?
+- !ruby/object:RI::MethodSummary 
+  name: role
+- !ruby/object:RI::MethodSummary 
+  name: role
+name: Namespace
+superclass: Object

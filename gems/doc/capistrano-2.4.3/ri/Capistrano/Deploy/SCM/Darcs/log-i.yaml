@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the log of changes between the two revisions. Each revision must be the 'hash' identifier of a darcs revision.
+full_name: Capistrano::Deploy::SCM::Darcs#log
+is_singleton: false
+name: log
+params: (from, to=nil)
+visibility: public

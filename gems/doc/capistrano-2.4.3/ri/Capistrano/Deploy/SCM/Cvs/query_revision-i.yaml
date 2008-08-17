@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (scm(cvs_root, :log, "-r
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Unfortunately, cvs doesn't support the concept of a revision number like subversion and other SCM's do. For now, we'll rely on getting the timestamp of the latest checkin under the revision that's passed to us.
+full_name: Capistrano::Deploy::SCM::Cvs#query_revision
+is_singleton: false
+name: query_revision
+params: (revision) {|scm(cvs_root, :log, "-r| ...}
+visibility: public

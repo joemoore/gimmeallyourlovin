@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Capistrano::Configuration::Actions::Invocation#continue_execution
+is_singleton: false
+name: continue_execution
+params: (cmd)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An expensive export. Performs a checkout as above, then removes the repo.
+full_name: Capistrano::Deploy::SCM::Git#export
+is_singleton: false
+name: export
+params: (revision, destination)
+visibility: public

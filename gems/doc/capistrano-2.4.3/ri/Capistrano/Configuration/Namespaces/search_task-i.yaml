@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Given a task name, this will search the current namespace, and all parent namespaces, looking for a task that matches the name, exactly. It returns the task, if found, or nil, if not.
+full_name: Capistrano::Configuration::Namespaces#search_task
+is_singleton: false
+name: search_task
+params: (name)
+visibility: public

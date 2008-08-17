@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Patch an accessor onto an SSH connection so that we can record the server definition object that defines the connection. This is useful because the gateway returns connections whose &quot;host&quot; is 127.0.0.1, instead of the host on the other side of the tunnel.
+constants: []
+
+full_name: Capistrano::SSH::Server
+includes: []
+
+instance_methods: []
+
+name: Server
+superclass: 

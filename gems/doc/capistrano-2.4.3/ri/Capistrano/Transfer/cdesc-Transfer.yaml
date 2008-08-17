@@ -1,0 +1,115 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: callback
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: callback
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: direction
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: direction
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: from
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: from
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: logger
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: logger
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: sessions
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: sessions
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: to
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: to
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: transfers
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: transfers
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: transport
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: transport
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: process
+- !ruby/object:RI::MethodSummary 
+  name: process
+comment: 
+constants: []
+
+full_name: Capistrano::Transfer
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Processable
+- !ruby/object:RI::IncludedModule 
+  name: Processable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: active?
+- !ruby/object:RI::MethodSummary 
+  name: active?
+- !ruby/object:RI::MethodSummary 
+  name: operation
+- !ruby/object:RI::MethodSummary 
+  name: operation
+- !ruby/object:RI::MethodSummary 
+  name: process!
+- !ruby/object:RI::MethodSummary 
+  name: process!
+- !ruby/object:RI::MethodSummary 
+  name: sanitized_from
+- !ruby/object:RI::MethodSummary 
+  name: sanitized_from
+- !ruby/object:RI::MethodSummary 
+  name: sanitized_to
+- !ruby/object:RI::MethodSummary 
+  name: sanitized_to
+name: Transfer
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Compute the difference between the two changesets <tt>from</tt> and <tt>to</tt> as a unified diff.
+full_name: Capistrano::Deploy::SCM::Mercurial#diff
+is_singleton: false
+name: diff
+params: (from, to=nil)
+visibility: public

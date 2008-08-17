@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the command string used by capistrano to invoke a comamnd via sudo.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  run &quot;#{sudo :as =&gt; 'bob'} mkdir /path/to/dir&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "It can also be invoked like #run, but executing the command via sudo. This assumes that the sudo password (if required) is the same as the password for logging in to the server."
+- !ruby/struct:SM::Flow::VERB 
+  body: "  sudo &quot;mkdir /path/to/dir&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Also, this method understands a <tt>:sudo</tt> configuration variable, which (if specified) will be used as the full path to the sudo executable on the remote machine:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :sudo, &quot;/opt/local/bin/sudo&quot;\n"
+full_name: Capistrano::Configuration::Actions::Invocation#sudo
+is_singleton: false
+name: sudo
+params: (*parameters, &block)
+visibility: public

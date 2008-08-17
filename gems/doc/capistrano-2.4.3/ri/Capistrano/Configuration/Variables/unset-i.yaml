@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Removes any trace of the given variable.
+full_name: Capistrano::Configuration::Variables#unset
+is_singleton: false
+name: unset
+params: (variable)
+visibility: public

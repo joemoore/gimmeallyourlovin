@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Register the given module as a plugin with the given name. It will henceforth be available via a proxy object on Configuration instances, accessible by a method with the given name.
+full_name: Capistrano::plugin
+is_singleton: true
+name: plugin
+params: (name, mod)
+visibility: public

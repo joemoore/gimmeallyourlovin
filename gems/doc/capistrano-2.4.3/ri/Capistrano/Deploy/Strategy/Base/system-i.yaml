@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A wrapper for Kernel#system that logs the command being executed.
+full_name: Capistrano::Deploy::Strategy::Base#system
+is_singleton: false
+name: system
+params: (*args)
+visibility: protected

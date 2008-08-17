@@ -1,0 +1,88 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The stack of tasks that have registered rollback handlers within the current transaction. If this is nil, then there is no transaction that is currently active.
+  name: rollback_requests
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The stack of tasks that have registered rollback handlers within the current transaction. If this is nil, then there is no transaction that is currently active.
+  name: rollback_requests
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The call stack of the tasks. The currently executing task may inspect this to see who its caller was. The current task is always the last element of this stack.
+  name: task_call_frames
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The call stack of the tasks. The currently executing task may inspect this to see who its caller was. The current task is always the last element of this stack.
+  name: task_call_frames
+  rw: R
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A struct for representing a single instance of an invoked task.
+  name: TaskCallFrame
+  value: Struct.new(:task, :rollback)
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A struct for representing a single instance of an invoked task.
+  name: TaskCallFrame
+  value: Struct.new(:task, :rollback)
+full_name: Capistrano::Configuration::Execution
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: current_task
+- !ruby/object:RI::MethodSummary 
+  name: current_task
+- !ruby/object:RI::MethodSummary 
+  name: execute_task
+- !ruby/object:RI::MethodSummary 
+  name: execute_task
+- !ruby/object:RI::MethodSummary 
+  name: find_and_execute_task
+- !ruby/object:RI::MethodSummary 
+  name: find_and_execute_task
+- !ruby/object:RI::MethodSummary 
+  name: invoke_task_directly
+- !ruby/object:RI::MethodSummary 
+  name: invoke_task_directly
+- !ruby/object:RI::MethodSummary 
+  name: on_rollback
+- !ruby/object:RI::MethodSummary 
+  name: on_rollback
+- !ruby/object:RI::MethodSummary 
+  name: pop_task_call_frame
+- !ruby/object:RI::MethodSummary 
+  name: pop_task_call_frame
+- !ruby/object:RI::MethodSummary 
+  name: push_task_call_frame
+- !ruby/object:RI::MethodSummary 
+  name: push_task_call_frame
+- !ruby/object:RI::MethodSummary 
+  name: rollback!
+- !ruby/object:RI::MethodSummary 
+  name: rollback!
+- !ruby/object:RI::MethodSummary 
+  name: transaction
+- !ruby/object:RI::MethodSummary 
+  name: transaction
+- !ruby/object:RI::MethodSummary 
+  name: transaction?
+- !ruby/object:RI::MethodSummary 
+  name: transaction?
+name: Execution
+superclass: 

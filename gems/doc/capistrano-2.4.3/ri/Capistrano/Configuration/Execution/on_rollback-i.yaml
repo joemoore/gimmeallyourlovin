@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Specifies an on_rollback hook for the currently executing task. If this or any subsequent task then fails, and a transaction is active, this hook will be executed.
+full_name: Capistrano::Configuration::Execution#on_rollback
+is_singleton: false
+name: on_rollback
+params: (&block)
+visibility: public

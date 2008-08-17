@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Returns <tt>true</tt> if the gateway is currently open and accepting connections. This will be the case unless #shutdown! has been invoked."
+full_name: Net::SSH::Gateway#active?
+is_singleton: false
+name: active?
+params: ()
+visibility: public

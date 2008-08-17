@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Gateway is an object that allows you to tunnel network connections through a publicly visible host to a host hidden behind it. This is particularly useful when dealing with hosts behind a firewall. One host will generally be visible (and accessible) outside the firewall, while the others will all be behind the firewall, and the only way to access those restricted hosts is by first logging into the publicly visible host, and from thence logging into the restricted ones.
+- !ruby/struct:SM::Flow::P 
+  body: This class makes it easy to programmatically connect to these restricted hosts via SSH. You can either simply forward a port from the local host to the remote host, or you can open a new Net::SSH connection to the remote host via a forwarded port.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  require 'net/ssh/gateway'\n\n  gateway = Net::SSH::Gateway.new('host.name', 'user')\n\n  gateway.open('hidden.host', 80) do |port|\n    Net::HTTP.get_print '127.0.0.1', '/path', port\n  end\n\n  gateway.ssh('hidden.host', 'user') do |ssh|\n    puts ssh.exec!(&quot;hostname&quot;)\n  end\n\n  gateway.shutdown!\n"
+- !ruby/struct:SM::Flow::P 
+  body: Port numbers are allocated automatically, beginning at MAX_PORT and decrementing on each request for a new port until MIN_PORT is reached. If a port is already in use, this is detected and a different port will be assigned.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The maximum port number that the gateway will attempt to use to forward connections from.
+  name: MAX_PORT
+  value: "65535"
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The minimum port number that the gateway will attempt to use to forward connections from.
+  name: MIN_PORT
+  value: "1024"
+full_name: Net::SSH::Gateway
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: active?
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: open
+- !ruby/object:RI::MethodSummary 
+  name: shutdown!
+- !ruby/object:RI::MethodSummary 
+  name: ssh
+name: Gateway
+superclass: Object

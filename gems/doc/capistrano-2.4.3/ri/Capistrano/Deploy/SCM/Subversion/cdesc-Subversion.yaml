@@ -1,0 +1,52 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implements the Capistrano SCM interface for the Subversion revision control system (http://subversion.tigris.org).
+constants: []
+
+full_name: Capistrano::Deploy::SCM::Subversion
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: diff
+- !ruby/object:RI::MethodSummary 
+  name: diff
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: handle_data
+- !ruby/object:RI::MethodSummary 
+  name: handle_data
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: next_revision
+- !ruby/object:RI::MethodSummary 
+  name: next_revision
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: sync
+name: Subversion
+superclass: Base

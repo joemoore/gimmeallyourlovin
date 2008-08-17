@@ -1,0 +1,68 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configuration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configuration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: hosts
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: hosts
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Capistrano::Deploy::RemoteDependency
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: directory
+- !ruby/object:RI::MethodSummary 
+  name: directory
+- !ruby/object:RI::MethodSummary 
+  name: file
+- !ruby/object:RI::MethodSummary 
+  name: file
+- !ruby/object:RI::MethodSummary 
+  name: gem
+- !ruby/object:RI::MethodSummary 
+  name: gem
+- !ruby/object:RI::MethodSummary 
+  name: match
+- !ruby/object:RI::MethodSummary 
+  name: match
+- !ruby/object:RI::MethodSummary 
+  name: message
+- !ruby/object:RI::MethodSummary 
+  name: message
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: pass?
+- !ruby/object:RI::MethodSummary 
+  name: pass?
+- !ruby/object:RI::MethodSummary 
+  name: writable
+- !ruby/object:RI::MethodSummary 
+  name: writable
+name: RemoteDependency
+superclass: Object

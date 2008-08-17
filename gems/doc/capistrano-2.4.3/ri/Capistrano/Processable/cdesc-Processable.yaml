@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Capistrano::Processable
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ensure_each_session
+- !ruby/object:RI::MethodSummary 
+  name: ensure_each_session
+- !ruby/object:RI::MethodSummary 
+  name: process_iteration
+- !ruby/object:RI::MethodSummary 
+  name: process_iteration
+name: Processable
+superclass: 

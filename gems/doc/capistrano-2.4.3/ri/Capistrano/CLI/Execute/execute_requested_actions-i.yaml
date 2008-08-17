@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Capistrano::CLI::Execute#execute_requested_actions
+is_singleton: false
+name: execute_requested_actions
+params: (config)
+visibility: public

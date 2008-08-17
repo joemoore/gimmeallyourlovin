@@ -1,0 +1,136 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "An SCM module for using Git as your source control tool with Capistrano 2.0. If you are using Capistrano 1.x, use this plugin instead:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  http://scie.nti.st/2007/3/16/capistrano-with-git-shared-repository\n"
+- !ruby/struct:SM::Flow::P 
+  body: Assumes you are using a shared Git repository.
+- !ruby/struct:SM::Flow::P 
+  body: Parts of this plugin borrowed from Scott Chacon's version, which I found on the Capistrano mailing list but failed to be able to get working.
+- !ruby/struct:SM::Flow::P 
+  body: "FEATURES:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  * Very simple, only requiring 2 lines in your deploy.rb.\n  * Can deploy different branches, tags, or any SHA1 easily.\n  * Supports prompting for password / passphrase upon checkout.\n    (I am amazed at how some plugins don't do this)\n  * Supports :scm_command, :scm_password, :scm_passphrase Capistrano\n    directives.\n"
+- !ruby/struct:SM::Flow::P 
+  body: CONFIGURATION
+- !ruby/struct:SM::Flow::RULE 
+  width: 10
+- !ruby/struct:SM::Flow::P 
+  body: "Use this plugin by adding the following line in your config/deploy.rb:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :scm, :git\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Set <tt>:repository</tt> to the path of your Git repo:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :repository, &quot;someuser@somehost:/home/myproject&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: The above two options are required to be set, the ones below are optional.
+- !ruby/struct:SM::Flow::P 
+  body: "You may set <tt>:branch</tt>, which is the reference to the branch, tag, or any SHA1 you are deploying, for example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :branch, &quot;master&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: Otherwise, HEAD is assumed. I strongly suggest you set this. HEAD is not always the best assumption.
+- !ruby/struct:SM::Flow::P 
+  body: You may also set <tt>:remote</tt>, which will be used as a name for remote tracking of repositories. This option is intended for use with the <tt>:remote_cache</tt> strategy in a distributed git environment.
+- !ruby/struct:SM::Flow::P 
+  body: "For example in the projects <tt>config/deploy.rb</tt>:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :repository, &quot;#{scm_user}@somehost:~/projects/project.git&quot;\n  set :remote, &quot;#{scm_user}&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Then each person with deploy priveledges can add the following to their local <tt>~/.caprc</tt> file:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :scm_user, 'someuser'\n"
+- !ruby/struct:SM::Flow::P 
+  body: Now any time a person deploys the project, their repository will be setup as a remote git repository within the cached repository.
+- !ruby/struct:SM::Flow::P 
+  body: "The <tt>:scm_command</tt> configuration variable, if specified, will be used as the full path to the git executable on the <b>remote</b> machine:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :scm_command, &quot;/opt/local/bin/git&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: For compatibility with deploy scripts that may have used the 1.x version of this plugin before upgrading, <tt>:git</tt> is still recognized as an alias for :scm_command.
+- !ruby/struct:SM::Flow::P 
+  body: "Set <tt>:scm_password</tt> to the password needed to clone your repo if you don't have password-less (public key) entry:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :scm_password, &quot;my_secret'\n"
+- !ruby/struct:SM::Flow::P 
+  body: Otherwise, you will be prompted for a password.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:scm_passphrase</tt> is also supported.
+- !ruby/struct:SM::Flow::P 
+  body: The remote cache strategy is also supported.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :repository_cache, &quot;git_master&quot;\n  set :deploy_via, :remote_cache\n"
+- !ruby/struct:SM::Flow::P 
+  body: For faster clone, you can also use shallow cloning. This will set the '--depth' flag using the depth specified. This <b>cannot</b> be used together with the :remote_cache strategy
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :git_shallow_clone, 1\n"
+- !ruby/struct:SM::Flow::P 
+  body: "For those that don't like to leave your entire repository on your production server you can:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :deploy_via, :export\n"
+- !ruby/struct:SM::Flow::P 
+  body: "To deploy from a local repository:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  set :repository, &quot;file://.&quot;\n  set :deploy_via, :copy\n"
+- !ruby/struct:SM::Flow::P 
+  body: AUTHORS
+- !ruby/struct:SM::Flow::RULE 
+  width: 5
+- !ruby/struct:SM::Flow::P 
+  body: Garry Dolley http://scie.nti.st Contributions by Geoffrey Grosenbach http://topfunky.com
+- !ruby/struct:SM::Flow::VERB 
+  body: "             Scott Chacon http://jointheconversation.org\n                         Alex Arnell http://twologic.com\n                                  and Phillip Goldenburg\n"
+constants: []
+
+full_name: Capistrano::Deploy::SCM::Git
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: diff
+- !ruby/object:RI::MethodSummary 
+  name: diff
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: export
+- !ruby/object:RI::MethodSummary 
+  name: handle_data
+- !ruby/object:RI::MethodSummary 
+  name: handle_data
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: origin
+- !ruby/object:RI::MethodSummary 
+  name: origin
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+- !ruby/object:RI::MethodSummary 
+  name: query_revision
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: sync
+name: Git
+superclass: Base

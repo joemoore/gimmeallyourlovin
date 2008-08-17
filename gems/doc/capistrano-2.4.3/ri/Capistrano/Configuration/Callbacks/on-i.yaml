@@ -1,0 +1,48 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Defines one or more callbacks to be invoked in response to some event. Capistrano currently understands the following events:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":before, triggered before a task is invoked"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":after, triggered after a task is invoked"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":start, triggered before a top-level task is invoked via the command-line"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":finish, triggered when a top-level task completes"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":load, triggered after all recipes have loaded"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":exit, triggered after all tasks have completed"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "Specify the (fully-qualified) task names that you want invoked in response to the event. Alternatively, you can specify a block to invoke when the event is triggered. You can also pass a hash of options as the last parameter, which may include either of two keys:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":only, should specify an array of task names. Restricts this callback so that it will only fire when the event applies to those tasks."
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":except, should specify an array of task names. Restricts this callback so that it will never fire when the event applies to those tasks."
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " on :before, &quot;some:hook&quot;, &quot;another:hook&quot;, :only =&gt; &quot;deploy:update&quot;\n on :after, &quot;some:hook&quot;, :except =&gt; &quot;deploy:symlink&quot;\n on :before, &quot;global:hook&quot;\n on :after, :only =&gt; :deploy do\n   puts &quot;after deploy here&quot;\n end\n"
+full_name: Capistrano::Configuration::Callbacks#on
+is_singleton: false
+name: "on"
+params: (event, *args, &block)
+visibility: public

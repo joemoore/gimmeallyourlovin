@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Bazaar-NG doesn't support any pseudo-id's, so we'll use the convention in this adapter that the :head symbol means the most recently committed revision.
+full_name: Capistrano::Deploy::SCM::Bzr#head
+is_singleton: false
+name: head
+params: ()
+visibility: public

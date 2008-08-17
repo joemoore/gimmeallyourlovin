@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Attempts to translate the given revision identifier to a &quot;real&quot; revision. If the identifier is :head, the &quot;bzr revno&quot; command will be yielded, and the block must execute the command and return the output. The revision will be extracted from the output and returned. If the 'revision' argument, on the other hand, is not :head, it is simply returned.
+full_name: Capistrano::Deploy::SCM::Bzr#query_revision
+is_singleton: false
+name: query_revision
+params: (revision)
+visibility: public

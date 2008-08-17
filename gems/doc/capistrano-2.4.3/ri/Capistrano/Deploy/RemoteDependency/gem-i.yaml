@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Capistrano::Deploy::RemoteDependency#gem
+is_singleton: false
+name: gem
+params: (name, version, options={})
+visibility: public

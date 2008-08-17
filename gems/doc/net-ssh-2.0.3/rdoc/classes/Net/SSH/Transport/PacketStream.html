@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Net::SSH::Transport::PacketStream</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Net::SSH::Transport::PacketStream</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/net/ssh/transport/packet_stream_rb.html">
+                lib/net/ssh/transport/packet_stream.rb
+                </a>
+        <br />
+                <a href="../../../../files/lib/net/ssh/transport/packet_stream_rb.html">
+                lib/net/ssh/transport/packet_stream.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A module that builds additional functionality onto the <a
+href="../BufferedIo.html">Net::SSH::BufferedIo</a> module. It adds <a
+href="../../SSH.html">SSH</a> encryption, compression, and packet
+validation, as per the SSH2 protocol. It also adds an abstraction for
+polling packets, to allow for both blocking and non-blocking reads.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000040">available_for_read?</a>&nbsp;&nbsp;
+      <a href="#M000051">available_for_read?</a>&nbsp;&nbsp;
+      <a href="#M000055">cleanup</a>&nbsp;&nbsp;
+      <a href="#M000044">cleanup</a>&nbsp;&nbsp;
+      <a href="#M000049">client_name</a>&nbsp;&nbsp;
+      <a href="#M000038">client_name</a>&nbsp;&nbsp;
+      <a href="#M000043">enqueue_packet</a>&nbsp;&nbsp;
+      <a href="#M000054">enqueue_packet</a>&nbsp;&nbsp;
+      <a href="#M000037">extended</a>&nbsp;&nbsp;
+      <a href="#M000048">extended</a>&nbsp;&nbsp;
+      <a href="#M000056">if_needs_rekey?</a>&nbsp;&nbsp;
+      <a href="#M000045">if_needs_rekey?</a>&nbsp;&nbsp;
+      <a href="#M000046">initialize_ssh</a>&nbsp;&nbsp;
+      <a href="#M000057">initialize_ssh</a>&nbsp;&nbsp;
+      <a href="#M000041">next_packet</a>&nbsp;&nbsp;
+      <a href="#M000052">next_packet</a>&nbsp;&nbsp;
+      <a href="#M000050">peer_ip</a>&nbsp;&nbsp;
+      <a href="#M000039">peer_ip</a>&nbsp;&nbsp;
+      <a href="#M000047">poll_next_packet</a>&nbsp;&nbsp;
+      <a href="#M000058">poll_next_packet</a>&nbsp;&nbsp;
+      <a href="#M000042">send_packet</a>&nbsp;&nbsp;
+      <a href="#M000053">send_packet</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../BufferedIo.html">BufferedIo</a></span>
+        <span class="include-name"><a href="../BufferedIo.html">BufferedIo</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">client</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The client state object, which encapsulates the algorithms used to build
+packets to send to the server.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">client</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The client state object, which encapsulates the algorithms used to build
+packets to send to the server.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">hints</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The map of &quot;hints&quot; that can be used to modify the behavior of the
+packet stream. For instance, when authentication succeeds, an
+&quot;authenticated&quot; hint is set, which is used to determine whether
+or not to compress the data when using the &quot;delayed&quot; compression
+algorithm.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">hints</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The map of &quot;hints&quot; that can be used to modify the behavior of the
+packet stream. For instance, when authentication succeeds, an
+&quot;authenticated&quot; hint is set, which is used to determine whether
+or not to compress the data when using the &quot;delayed&quot; compression
+algorithm.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">server</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The server state object, which encapsulates the algorithms used to
+interpret packets coming from the server.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">server</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The server state object, which encapsulates the algorithms used to
+interpret packets coming from the server.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="#M000037" class="method-signature">
+          <span class="method-name">extended</span><span class="method-args">(object)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 17</span>
+17:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">object</span>)
+18:       <span class="ruby-identifier">object</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">:initialize_ssh</span>)
+19:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="#M000048" class="method-signature">
+          <span class="method-name">extended</span><span class="method-args">(object)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000048-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 17</span>
+17:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">object</span>)
+18:       <span class="ruby-identifier">object</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">:initialize_ssh</span>)
+19:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="#M000040" class="method-signature">
+          <span class="method-name">available_for_read?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if the IO is available for reading, and false otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 67</span>
+67:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">available_for_read?</span>
+68:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">select</span>([<span class="ruby-keyword kw">self</span>], <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value">0</span>)
+69:       <span class="ruby-identifier">result</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">any?</span>
+70:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="#M000051" class="method-signature">
+          <span class="method-name">available_for_read?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if the IO is available for reading, and false otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000051-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 67</span>
+67:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">available_for_read?</span>
+68:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">select</span>([<span class="ruby-keyword kw">self</span>], <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value">0</span>)
+69:       <span class="ruby-identifier">result</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">any?</span>
+70:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="#M000055" class="method-signature">
+          <span class="method-name">cleanup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Performs any pending <a href="PacketStream.html#M000044">cleanup</a>
+necessary on the IO and its associated state objects. (See <a
+href="State.html#M000106">State#cleanup</a>).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000055-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000055-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 150</span>
+150:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cleanup</span>
+151:       <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cleanup</span>
+152:       <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cleanup</span>
+153:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="#M000044" class="method-signature">
+          <span class="method-name">cleanup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Performs any pending <a href="PacketStream.html#M000044">cleanup</a>
+necessary on the IO and its associated state objects. (See <a
+href="State.html#M000106">State#cleanup</a>).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000044-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 150</span>
+150:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cleanup</span>
+151:       <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cleanup</span>
+152:       <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cleanup</span>
+153:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">client_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The name of the client (local) end of the socket, as reported by the
+socket.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">client_name</span>
+38:       <span class="ruby-ivar">@client_name</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">begin</span>
+39:         <span class="ruby-identifier">sockaddr</span> = <span class="ruby-identifier">getsockname</span>
+40:         <span class="ruby-keyword kw">begin</span>
+41:           <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">getnameinfo</span>(<span class="ruby-identifier">sockaddr</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">NI_NAMEREQD</span>).<span class="ruby-identifier">first</span>
+42:         <span class="ruby-keyword kw">rescue</span>
+43:           <span class="ruby-keyword kw">begin</span>
+44:             <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">getnameinfo</span>(<span class="ruby-identifier">sockaddr</span>).<span class="ruby-identifier">first</span>
+45:           <span class="ruby-keyword kw">rescue</span>
+46:             <span class="ruby-keyword kw">begin</span>
+47:               <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">gethostbyname</span>(<span class="ruby-constant">Socket</span>.<span class="ruby-identifier">gethostname</span>).<span class="ruby-identifier">first</span>
+48:             <span class="ruby-keyword kw">rescue</span>
+49:               <span class="ruby-identifier">lwarn</span> { <span class="ruby-value str">&quot;the client ipaddr/name could not be determined&quot;</span> }
+50:               <span class="ruby-value str">&quot;unknown&quot;</span>
+51:             <span class="ruby-keyword kw">end</span>
+52:           <span class="ruby-keyword kw">end</span>
+53:         <span class="ruby-keyword kw">end</span>
+54:       <span class="ruby-keyword kw">end</span>
+55:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="#M000038" class="method-signature">
+          <span class="method-name">client_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The name of the client (local) end of the socket, as reported by the
+socket.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">client_name</span>
+38:       <span class="ruby-ivar">@client_name</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">begin</span>
+39:         <span class="ruby-identifier">sockaddr</span> = <span class="ruby-identifier">getsockname</span>
+40:         <span class="ruby-keyword kw">begin</span>
+41:           <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">getnameinfo</span>(<span class="ruby-identifier">sockaddr</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">NI_NAMEREQD</span>).<span class="ruby-identifier">first</span>
+42:         <span class="ruby-keyword kw">rescue</span>
+43:           <span class="ruby-keyword kw">begin</span>
+44:             <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">getnameinfo</span>(<span class="ruby-identifier">sockaddr</span>).<span class="ruby-identifier">first</span>
+45:           <span class="ruby-keyword kw">rescue</span>
+46:             <span class="ruby-keyword kw">begin</span>
+47:               <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">gethostbyname</span>(<span class="ruby-constant">Socket</span>.<span class="ruby-identifier">gethostname</span>).<span class="ruby-identifier">first</span>
+48:             <span class="ruby-keyword kw">rescue</span>
+49:               <span class="ruby-identifier">lwarn</span> { <span class="ruby-value str">&quot;the client ipaddr/name could not be determined&quot;</span> }
+50:               <span class="ruby-value str">&quot;unknown&quot;</span>
+51:             <span class="ruby-keyword kw">end</span>
+52:           <span class="ruby-keyword kw">end</span>
+53:         <span class="ruby-keyword kw">end</span>
+54:       <span class="ruby-keyword kw">end</span>
+55:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="#M000043" class="method-signature">
+          <span class="method-name">enqueue_packet</span><span class="method-args">(payload)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Enqueues a packet to be sent, but does not immediately send the packet. The
+given payload is pre-processed according to the algorithms specified in the
+client state (compression, cipher, and hmac).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000043-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 113</span>
+113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enqueue_packet</span>(<span class="ruby-identifier">payload</span>)
+114:       <span class="ruby-comment cmt"># try to compress the packet</span>
+115:       <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">compress</span>(<span class="ruby-identifier">payload</span>)
+116: 
+117:       <span class="ruby-comment cmt"># the length of the packet, minus the padding</span>
+118:       <span class="ruby-identifier">actual_length</span> = <span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+119: 
+120:       <span class="ruby-comment cmt"># compute the padding length</span>
+121:       <span class="ruby-identifier">padding_length</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">actual_length</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>)
+122:       <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span>
+123: 
+124:       <span class="ruby-comment cmt"># compute the packet length (sans the length field itself)</span>
+125:       <span class="ruby-identifier">packet_length</span> = <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+126: 
+127:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">packet_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">16</span>
+128:         <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>
+129:         <span class="ruby-identifier">packet_length</span> = <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+130:       <span class="ruby-keyword kw">end</span>
+131: 
+132:       <span class="ruby-identifier">padding</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">padding_length</span>) { <span class="ruby-identifier">rand</span>(<span class="ruby-value">256</span>) }.<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;C*&quot;</span>)
+133: 
+134:       <span class="ruby-identifier">unencrypted_data</span> = [<span class="ruby-identifier">packet_length</span>, <span class="ruby-identifier">padding_length</span>, <span class="ruby-identifier">payload</span>, <span class="ruby-identifier">padding</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;NCA*A*&quot;</span>)
+135:       <span class="ruby-identifier">mac</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">digest</span>([<span class="ruby-identifier">client</span>.<span class="ruby-identifier">sequence_number</span>, <span class="ruby-identifier">unencrypted_data</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;NA*&quot;</span>))
+136: 
+137:       <span class="ruby-identifier">encrypted_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">unencrypted_data</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">final</span>
+138:       <span class="ruby-identifier">message</span> = <span class="ruby-identifier">encrypted_data</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">mac</span>
+139: 
+140:       <span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;queueing packet nr #{client.sequence_number} type #{payload[0]} len #{packet_length}&quot;</span> }
+141:       <span class="ruby-identifier">enqueue</span>(<span class="ruby-identifier">message</span>)
+142: 
+143:       <span class="ruby-identifier">client</span>.<span class="ruby-identifier">increment</span>(<span class="ruby-identifier">packet_length</span>)
+144: 
+145:       <span class="ruby-keyword kw">self</span>
+146:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="#M000054" class="method-signature">
+          <span class="method-name">enqueue_packet</span><span class="method-args">(payload)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Enqueues a packet to be sent, but does not immediately send the packet. The
+given payload is pre-processed according to the algorithms specified in the
+client state (compression, cipher, and hmac).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000054-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000054-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 113</span>
+113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enqueue_packet</span>(<span class="ruby-identifier">payload</span>)
+114:       <span class="ruby-comment cmt"># try to compress the packet</span>
+115:       <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">compress</span>(<span class="ruby-identifier">payload</span>)
+116: 
+117:       <span class="ruby-comment cmt"># the length of the packet, minus the padding</span>
+118:       <span class="ruby-identifier">actual_length</span> = <span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+119: 
+120:       <span class="ruby-comment cmt"># compute the padding length</span>
+121:       <span class="ruby-identifier">padding_length</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">actual_length</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>)
+122:       <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span>
+123: 
+124:       <span class="ruby-comment cmt"># compute the packet length (sans the length field itself)</span>
+125:       <span class="ruby-identifier">packet_length</span> = <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+126: 
+127:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">packet_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">16</span>
+128:         <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>
+129:         <span class="ruby-identifier">packet_length</span> = <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+130:       <span class="ruby-keyword kw">end</span>
+131: 
+132:       <span class="ruby-identifier">padding</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">padding_length</span>) { <span class="ruby-identifier">rand</span>(<span class="ruby-value">256</span>) }.<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;C*&quot;</span>)
+133: 
+134:       <span class="ruby-identifier">unencrypted_data</span> = [<span class="ruby-identifier">packet_length</span>, <span class="ruby-identifier">padding_length</span>, <span class="ruby-identifier">payload</span>, <span class="ruby-identifier">padding</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;NCA*A*&quot;</span>)
+135:       <span class="ruby-identifier">mac</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">digest</span>([<span class="ruby-identifier">client</span>.<span class="ruby-identifier">sequence_number</span>, <span class="ruby-identifier">unencrypted_data</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;NA*&quot;</span>))
+136: 
+137:       <span class="ruby-identifier">encrypted_data</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">unencrypted_data</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">final</span>
+138:       <span class="ruby-identifier">message</span> = <span class="ruby-identifier">encrypted_data</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">mac</span>
+139: 
+140:       <span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;queueing packet nr #{client.sequence_number} type #{payload[0]} len #{packet_length}&quot;</span> }
+141:       <span class="ruby-identifier">enqueue</span>(<span class="ruby-identifier">message</span>)
+142: 
+143:       <span class="ruby-identifier">client</span>.<span class="ruby-identifier">increment</span>(<span class="ruby-identifier">packet_length</span>)
+144: 
+145:       <span class="ruby-keyword kw">self</span>
+146:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="#M000056" class="method-signature">
+          <span class="method-name">if_needs_rekey?</span><span class="method-args">() {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+If the IO object requires a rekey operation (as indicated by either its
+client or server state objects, see State#needs_rekey?), this will yield.
+Otherwise, this does nothing.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000056-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000056-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 158</span>
+158:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">if_needs_rekey?</span>
+159:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">needs_rekey?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">needs_rekey?</span>
+160:         <span class="ruby-keyword kw">yield</span>
+161:         <span class="ruby-identifier">client</span>.<span class="ruby-identifier">reset!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">needs_rekey?</span>
+162:         <span class="ruby-identifier">server</span>.<span class="ruby-identifier">reset!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">needs_rekey?</span>
+163:       <span class="ruby-keyword kw">end</span>
+164:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="#M000045" class="method-signature">
+          <span class="method-name">if_needs_rekey?</span><span class="method-args">() {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+If the IO object requires a rekey operation (as indicated by either its
+client or server state objects, see State#needs_rekey?), this will yield.
+Otherwise, this does nothing.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000045-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000045-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 158</span>
+158:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">if_needs_rekey?</span>
+159:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">needs_rekey?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">needs_rekey?</span>
+160:         <span class="ruby-keyword kw">yield</span>
+161:         <span class="ruby-identifier">client</span>.<span class="ruby-identifier">reset!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">needs_rekey?</span>
+162:         <span class="ruby-identifier">server</span>.<span class="ruby-identifier">reset!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">needs_rekey?</span>
+163:       <span class="ruby-keyword kw">end</span>
+164:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="#M000041" class="method-signature">
+          <span class="method-name">next_packet</span><span class="method-args">(mode=:nonblock)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the next full packet. If the mode parameter is :nonblock (the
+default), then this will return immediately, whether a packet is available
+or not, and will return nil if there is no packet ready to be returned. If
+the mode parameter is :block, then this method will block until a packet is
+available.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 77</span>
+ 77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">next_packet</span>(<span class="ruby-identifier">mode</span>=<span class="ruby-identifier">:nonblock</span>)
+ 78:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">mode</span>
+ 79:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:nonblock</span> <span class="ruby-keyword kw">then</span>
+ 80:         <span class="ruby-identifier">fill</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available_for_read?</span>
+ 81:         <span class="ruby-identifier">poll_next_packet</span>
+ 82: 
+ 83:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:block</span> <span class="ruby-keyword kw">then</span>
+ 84:         <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+ 85:           <span class="ruby-identifier">packet</span> = <span class="ruby-identifier">poll_next_packet</span>
+ 86:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">packet</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">packet</span>
+ 87: 
+ 88:           <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+ 89:             <span class="ruby-identifier">result</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">select</span>([<span class="ruby-keyword kw">self</span>]) <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">next</span>
+ 90:             <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">any?</span>
+ 91:           <span class="ruby-keyword kw">end</span>
+ 92: 
+ 93:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">fill</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+ 94:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Disconnect</span>, <span class="ruby-value str">&quot;connection closed by remote host&quot;</span>
+ 95:           <span class="ruby-keyword kw">end</span>
+ 96:         <span class="ruby-keyword kw">end</span>
+ 97: 
+ 98:       <span class="ruby-keyword kw">else</span>
+ 99:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;expected :block or :nonblock, got #{mode.inspect}&quot;</span>
+100:       <span class="ruby-keyword kw">end</span>
+101:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="#M000052" class="method-signature">
+          <span class="method-name">next_packet</span><span class="method-args">(mode=:nonblock)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the next full packet. If the mode parameter is :nonblock (the
+default), then this will return immediately, whether a packet is available
+or not, and will return nil if there is no packet ready to be returned. If
+the mode parameter is :block, then this method will block until a packet is
+available.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000052-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 77</span>
+ 77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">next_packet</span>(<span class="ruby-identifier">mode</span>=<span class="ruby-identifier">:nonblock</span>)
+ 78:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">mode</span>
+ 79:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:nonblock</span> <span class="ruby-keyword kw">then</span>
+ 80:         <span class="ruby-identifier">fill</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available_for_read?</span>
+ 81:         <span class="ruby-identifier">poll_next_packet</span>
+ 82: 
+ 83:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:block</span> <span class="ruby-keyword kw">then</span>
+ 84:         <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+ 85:           <span class="ruby-identifier">packet</span> = <span class="ruby-identifier">poll_next_packet</span>
+ 86:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">packet</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">packet</span>
+ 87: 
+ 88:           <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+ 89:             <span class="ruby-identifier">result</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">select</span>([<span class="ruby-keyword kw">self</span>]) <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">next</span>
+ 90:             <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">any?</span>
+ 91:           <span class="ruby-keyword kw">end</span>
+ 92: 
+ 93:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">fill</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+ 94:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Disconnect</span>, <span class="ruby-value str">&quot;connection closed by remote host&quot;</span>
+ 95:           <span class="ruby-keyword kw">end</span>
+ 96:         <span class="ruby-keyword kw">end</span>
+ 97: 
+ 98:       <span class="ruby-keyword kw">else</span>
+ 99:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;expected :block or :nonblock, got #{mode.inspect}&quot;</span>
+100:       <span class="ruby-keyword kw">end</span>
+101:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">peer_ip</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The IP address of the peer (remote) end of the socket, as reported by the
+socket.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 59</span>
+59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">peer_ip</span>
+60:       <span class="ruby-ivar">@peer_ip</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">begin</span>
+61:         <span class="ruby-identifier">addr</span> = <span class="ruby-identifier">getpeername</span>
+62:         <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">getnameinfo</span>(<span class="ruby-identifier">addr</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">NI_NUMERICHOST</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">NI_NUMERICSERV</span>).<span class="ruby-identifier">first</span>
+63:       <span class="ruby-keyword kw">end</span>
+64:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="#M000039" class="method-signature">
+          <span class="method-name">peer_ip</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The IP address of the peer (remote) end of the socket, as reported by the
+socket.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 59</span>
+59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">peer_ip</span>
+60:       <span class="ruby-ivar">@peer_ip</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">begin</span>
+61:         <span class="ruby-identifier">addr</span> = <span class="ruby-identifier">getpeername</span>
+62:         <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">getnameinfo</span>(<span class="ruby-identifier">addr</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">NI_NUMERICHOST</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">NI_NUMERICSERV</span>).<span class="ruby-identifier">first</span>
+63:       <span class="ruby-keyword kw">end</span>
+64:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="#M000042" class="method-signature">
+          <span class="method-name">send_packet</span><span class="method-args">(payload)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Enqueues a packet to be sent, and blocks until the entire packet is sent.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 105</span>
+105:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_packet</span>(<span class="ruby-identifier">payload</span>)
+106:       <span class="ruby-identifier">enqueue_packet</span>(<span class="ruby-identifier">payload</span>)
+107:       <span class="ruby-identifier">wait_for_pending_sends</span>
+108:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="#M000053" class="method-signature">
+          <span class="method-name">send_packet</span><span class="method-args">(payload)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Enqueues a packet to be sent, and blocks until the entire packet is sent.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000053-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 105</span>
+105:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_packet</span>(<span class="ruby-identifier">payload</span>)
+106:       <span class="ruby-identifier">enqueue_packet</span>(<span class="ruby-identifier">payload</span>)
+107:       <span class="ruby-identifier">wait_for_pending_sends</span>
+108:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="#M000046" class="method-signature">
+          <span class="method-name">initialize_ssh</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called when this module is used to extend an object. It initializes the
+states and generally prepares the object for use as a packet stream.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000046-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 170</span>
+170:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_ssh</span>
+171:         <span class="ruby-ivar">@hints</span>  = {}
+172:         <span class="ruby-ivar">@server</span> = <span class="ruby-constant">State</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>)
+173:         <span class="ruby-ivar">@client</span> = <span class="ruby-constant">State</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>)
+174:         <span class="ruby-ivar">@packet</span> = <span class="ruby-keyword kw">nil</span>
+175:         <span class="ruby-identifier">initialize_buffered_io</span>
+176:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="#M000057" class="method-signature">
+          <span class="method-name">initialize_ssh</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called when this module is used to extend an object. It initializes the
+states and generally prepares the object for use as a packet stream.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000057-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000057-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 170</span>
+170:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_ssh</span>
+171:         <span class="ruby-ivar">@hints</span>  = {}
+172:         <span class="ruby-ivar">@server</span> = <span class="ruby-constant">State</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>)
+173:         <span class="ruby-ivar">@client</span> = <span class="ruby-constant">State</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>)
+174:         <span class="ruby-ivar">@packet</span> = <span class="ruby-keyword kw">nil</span>
+175:         <span class="ruby-identifier">initialize_buffered_io</span>
+176:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="#M000047" class="method-signature">
+          <span class="method-name">poll_next_packet</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Tries to read the next packet. If there is insufficient data to read an
+entire packet, this returns immediately, otherwise the packet is read,
+post-processed according to the cipher, hmac, and compression algorithms
+specified in the server state object, and returned as a new <a
+href="../Packet.html">Packet</a> object.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000047-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 183</span>
+183:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poll_next_packet</span>
+184:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">nil?</span>
+185:           <span class="ruby-identifier">minimum</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span> <span class="ruby-operator">?</span> <span class="ruby-value">4</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>
+186:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">minimum</span>
+187:           <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_available</span>(<span class="ruby-identifier">minimum</span>)
+188: 
+189:           <span class="ruby-comment cmt"># decipher it</span>
+190:           <span class="ruby-ivar">@packet</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">data</span>))
+191:           <span class="ruby-ivar">@packet_length</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read_long</span>
+192:         <span class="ruby-keyword kw">end</span>
+193: 
+194:         <span class="ruby-identifier">need</span> = <span class="ruby-ivar">@packet_length</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>
+195:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;padding error, need #{need} block #{server.cipher.block_size}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">need</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+196: 
+197:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">need</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">mac_length</span>
+198: 
+199:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">need</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+200:           <span class="ruby-comment cmt"># read the remainder of the packet and decrypt it.</span>
+201:           <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_available</span>(<span class="ruby-identifier">need</span>)
+202:           <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">data</span>))
+203:         <span class="ruby-keyword kw">end</span>
+204: 
+205:         <span class="ruby-comment cmt"># get the hmac from the tail of the packet (if one exists), and</span>
+206:         <span class="ruby-comment cmt"># then validate it.</span>
+207:         <span class="ruby-identifier">real_hmac</span> = <span class="ruby-identifier">read_available</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">mac_length</span>) <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>
+208: 
+209:         <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">final</span>)
+210:         <span class="ruby-identifier">padding_length</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read_byte</span>
+211: 
+212:         <span class="ruby-identifier">payload</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read</span>(<span class="ruby-ivar">@packet_length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+213:         <span class="ruby-identifier">padding</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">padding_length</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+214: 
+215:         <span class="ruby-identifier">my_computed_hmac</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">digest</span>([<span class="ruby-identifier">server</span>.<span class="ruby-identifier">sequence_number</span>, <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">content</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;NA*&quot;</span>))
+216:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span>, <span class="ruby-value str">&quot;corrupted mac detected&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">real_hmac</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">my_computed_hmac</span>
+217: 
+218:         <span class="ruby-comment cmt"># try to decompress the payload, in case compression is active</span>
+219:         <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">decompress</span>(<span class="ruby-identifier">payload</span>)
+220: 
+221:         <span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;received packet nr #{server.sequence_number} type #{payload[0]} len #{@packet_length}&quot;</span> }
+222: 
+223:         <span class="ruby-identifier">server</span>.<span class="ruby-identifier">increment</span>(<span class="ruby-ivar">@packet_length</span>)
+224:         <span class="ruby-ivar">@packet</span> = <span class="ruby-keyword kw">nil</span>
+225: 
+226:         <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Packet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">payload</span>)
+227:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="#M000058" class="method-signature">
+          <span class="method-name">poll_next_packet</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Tries to read the next packet. If there is insufficient data to read an
+entire packet, this returns immediately, otherwise the packet is read,
+post-processed according to the cipher, hmac, and compression algorithms
+specified in the server state object, and returned as a new <a
+href="../Packet.html">Packet</a> object.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000058-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000058-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 183</span>
+183:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poll_next_packet</span>
+184:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">nil?</span>
+185:           <span class="ruby-identifier">minimum</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span> <span class="ruby-operator">?</span> <span class="ruby-value">4</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>
+186:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">minimum</span>
+187:           <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_available</span>(<span class="ruby-identifier">minimum</span>)
+188: 
+189:           <span class="ruby-comment cmt"># decipher it</span>
+190:           <span class="ruby-ivar">@packet</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">data</span>))
+191:           <span class="ruby-ivar">@packet_length</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read_long</span>
+192:         <span class="ruby-keyword kw">end</span>
+193: 
+194:         <span class="ruby-identifier">need</span> = <span class="ruby-ivar">@packet_length</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span>
+195:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;padding error, need #{need} block #{server.cipher.block_size}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">need</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">block_size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+196: 
+197:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">available</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">need</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">mac_length</span>
+198: 
+199:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">need</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+200:           <span class="ruby-comment cmt"># read the remainder of the packet and decrypt it.</span>
+201:           <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_available</span>(<span class="ruby-identifier">need</span>)
+202:           <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">data</span>))
+203:         <span class="ruby-keyword kw">end</span>
+204: 
+205:         <span class="ruby-comment cmt"># get the hmac from the tail of the packet (if one exists), and</span>
+206:         <span class="ruby-comment cmt"># then validate it.</span>
+207:         <span class="ruby-identifier">real_hmac</span> = <span class="ruby-identifier">read_available</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">mac_length</span>) <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>
+208: 
+209:         <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">final</span>)
+210:         <span class="ruby-identifier">padding_length</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read_byte</span>
+211: 
+212:         <span class="ruby-identifier">payload</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read</span>(<span class="ruby-ivar">@packet_length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+213:         <span class="ruby-identifier">padding</span> = <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">padding_length</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">padding_length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+214: 
+215:         <span class="ruby-identifier">my_computed_hmac</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">hmac</span>.<span class="ruby-identifier">digest</span>([<span class="ruby-identifier">server</span>.<span class="ruby-identifier">sequence_number</span>, <span class="ruby-ivar">@packet</span>.<span class="ruby-identifier">content</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;NA*&quot;</span>))
+216:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SSH</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span>, <span class="ruby-value str">&quot;corrupted mac detected&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">real_hmac</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">my_computed_hmac</span>
+217: 
+218:         <span class="ruby-comment cmt"># try to decompress the payload, in case compression is active</span>
+219:         <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">decompress</span>(<span class="ruby-identifier">payload</span>)
+220: 
+221:         <span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;received packet nr #{server.sequence_number} type #{payload[0]} len #{@packet_length}&quot;</span> }
+222: 
+223:         <span class="ruby-identifier">server</span>.<span class="ruby-identifier">increment</span>(<span class="ruby-ivar">@packet_length</span>)
+224:         <span class="ruby-ivar">@packet</span> = <span class="ruby-keyword kw">nil</span>
+225: 
+226:         <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Packet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">payload</span>)
+227:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

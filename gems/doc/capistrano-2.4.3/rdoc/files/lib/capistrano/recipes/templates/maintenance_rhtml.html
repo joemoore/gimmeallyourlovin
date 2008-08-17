@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: maintenance.rhtml</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>maintenance.rhtml</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>lib/capistrano/recipes/templates/maintenance.rhtml
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sat Aug 16 23:07:08 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+</p>
+<pre>
+       &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+</pre>
+<p>
+&lt;html xmlns=&quot;<a
+href="http://www.w3.org/1999/xhtml">www.w3.org/1999/xhtml</a>&quot;
+xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+</p>
+<p>
+&lt;head&gt;
+</p>
+<pre>
+  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
+  &lt;title&gt;System down for maintenance&lt;/title&gt;
+
+  &lt;style type=&quot;text/css&quot;&gt;
+    div.outer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 500px;
+      height: 300px;
+      margin-left: -260px;
+      margin-top: -150px;
+    }
+
+    .DialogBody {
+      margin: 0;
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ccc;
+      border-right: 1px solid #999;
+      border-bottom: 1px solid #999;
+      background-color: #fff;
+    }
+
+    body { background-color: #fff; }
+  &lt;/style&gt;
+</pre>
+<p>
+&lt;/head&gt;
+</p>
+<p>
+&lt;body&gt;
+</p>
+<pre>
+  &lt;div class=&quot;outer&quot;&gt;
+     &lt;div class=&quot;DialogBody&quot; style=&quot;text-align: center;&quot;&gt;
+       &lt;div style=&quot;text-align: center; width: 200px; margin: 0 auto;&quot;&gt;
+         &lt;p style=&quot;color: red; font-size: 16px; line-height: 20px;&quot;&gt;
+           The system is down for &lt;%= reason ? reason : &quot;maintenance&quot; %&gt;
+           as of &lt;%= Time.now.strftime(&quot;%H:%M %Z&quot;) %&gt;.
+         &lt;/p&gt;
+         &lt;p style=&quot;color: #666;&quot;&gt;
+           It'll be back &lt;%= deadline ? deadline : &quot;shortly&quot; %&gt;.
+         &lt;/p&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+<p>
+&lt;/body&gt; &lt;/html&gt;
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

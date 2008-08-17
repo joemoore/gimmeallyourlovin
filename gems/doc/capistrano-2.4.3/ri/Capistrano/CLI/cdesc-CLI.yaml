@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The array of (unparsed) command-line options
+  name: args
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The array of (unparsed) command-line options
+  name: args
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CLI class encapsulates the behavior of capistrano when it is invoked as a command-line utility. This allows other programs to embed Capistrano and preserve its command-line semantics.
+constants: []
+
+full_name: Capistrano::CLI
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Execute
+- !ruby/object:RI::IncludedModule 
+  name: Options
+- !ruby/object:RI::IncludedModule 
+  name: UI
+- !ruby/object:RI::IncludedModule 
+  name: Help
+- !ruby/object:RI::IncludedModule 
+  name: Execute
+- !ruby/object:RI::IncludedModule 
+  name: Options
+- !ruby/object:RI::IncludedModule 
+  name: UI
+- !ruby/object:RI::IncludedModule 
+  name: Help
+instance_methods: []
+
+name: CLI
+superclass: Object

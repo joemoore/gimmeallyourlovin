@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: servers_slice
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Determines the set of servers within the current task's scope and establishes connections to them, and then yields that list of servers.
+full_name: Capistrano::Configuration::Connections#execute_on_servers
+is_singleton: false
+name: execute_on_servers
+params: (options={}) {|servers_slice| ...}
+visibility: public

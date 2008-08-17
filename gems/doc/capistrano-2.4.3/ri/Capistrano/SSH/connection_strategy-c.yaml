@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: server.host, user, connection_options
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Abstracts the logic for establishing an SSH connection (which includes testing for connection failures and retrying with a password, and so forth, mostly made complicated because of the fact that some of these variables might be lazily evaluated and try to do something like prompt the user, which should only happen when absolutely necessary.
+- !ruby/struct:SM::Flow::P 
+  body: This will yield the hostname, username, and a hash of connection options to the given block, which should return a new connection.
+full_name: Capistrano::SSH::connection_strategy
+is_singleton: true
+name: connection_strategy
+params: (server, options={}, &block) {|server.host, user, connection_options| ...}
+visibility: public

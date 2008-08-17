@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: show_streams_for(rev_stream)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Given an Accurev revision identifier, this method returns an identifier that can be used for later SCM calls. This returned identifier will not change as a result of further SCM activity.
+full_name: Capistrano::Deploy::SCM::Accurev#query_revision
+is_singleton: false
+name: query_revision
+params: (revision) {|show_streams_for(rev_stream)| ...}
+visibility: public

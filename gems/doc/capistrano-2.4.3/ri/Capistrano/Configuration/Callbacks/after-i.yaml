@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Defines a callback to be invoked after the given task. You must specify the fully-qualified task name, both for the primary task, and for the task(s) to be executed after. Alternatively, you can pass a block to be executed after the given task.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  after &quot;deploy:update_code&quot;, :log_difference\n  after :deploy, &quot;custom:announce&quot;\n  after :deploy, :this, &quot;then:this&quot;, &quot;and:then:this&quot;\n  after :some_task do\n    puts &quot;an anonymous hook!&quot;\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "This just provides a convenient interface to the more general #on method."
+full_name: Capistrano::Configuration::Callbacks#after
+is_singleton: false
+name: after
+params: (task_name, *args, &block)
+visibility: public

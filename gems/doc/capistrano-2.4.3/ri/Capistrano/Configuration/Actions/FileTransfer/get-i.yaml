@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get file remote_path from FIRST server targeted by the current task and transfer it to local machine as path.
+- !ruby/struct:SM::Flow::P 
+  body: get &quot;#{deploy_to}/current/log/production.log&quot;, &quot;log/production.log.web&quot;
+full_name: Capistrano::Configuration::Actions::FileTransfer#get
+is_singleton: false
+name: get
+params: (remote_path, path, options={}, &block)
+visibility: public

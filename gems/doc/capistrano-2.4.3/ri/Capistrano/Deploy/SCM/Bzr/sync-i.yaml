@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The bzr 'update' command does not support updating to a specific revision, so this just does update, followed by revert (unless updating to head).
+full_name: Capistrano::Deploy::SCM::Bzr#sync
+is_singleton: false
+name: sync
+params: (revision, destination)
+visibility: public

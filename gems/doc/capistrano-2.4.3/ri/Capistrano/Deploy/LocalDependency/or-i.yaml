@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Capistrano::Deploy::LocalDependency#or
+is_singleton: false
+name: or
+params: (message)
+visibility: public

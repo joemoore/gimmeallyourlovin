@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Repositions the file pointer to the given offset (relative to the start of the file). This will also reset the EOF flag.
+full_name: Net::SFTP::Operations::File#pos=
+is_singleton: false
+name: pos=
+params: (offset)
+visibility: public

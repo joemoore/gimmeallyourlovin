@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the location of the local copy cache, if the strategy should use a local cache + copy instead of a new checkout/export every time. Returns <tt>nil</tt> unless :copy_cache has been set. If :copy_cache is <tt>true</tt>, a default cache location will be returned.
+full_name: Capistrano::Deploy::Strategy::Copy#copy_cache
+is_singleton: false
+name: copy_cache
+params: ()
+visibility: public

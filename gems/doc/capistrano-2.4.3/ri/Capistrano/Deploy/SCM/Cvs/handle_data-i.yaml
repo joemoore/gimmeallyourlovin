@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Determines what the response should be for a particular bit of text from the SCM. Password prompts, connection requests, passphrases, etc. are handled here.
+full_name: Capistrano::Deploy::SCM::Cvs#handle_data
+is_singleton: false
+name: handle_data
+params: (state, stream, text)
+visibility: public

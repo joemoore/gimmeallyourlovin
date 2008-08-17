@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: cmd
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Translates a tag to a changeset if needed or just returns changeset.
+full_name: Capistrano::Deploy::SCM::Mercurial#query_revision
+is_singleton: false
+name: query_revision
+params: (changeset) {|cmd| ...}
+visibility: public

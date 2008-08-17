@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used to force connections to be made to the current task's servers. Connections are normally made lazily in Capistrano--you can use this to force them open before performing some operation that might be time-sensitive.
+full_name: Capistrano::Configuration::Connections#connect!
+is_singleton: false
+name: connect!
+params: (options={})
+visibility: public

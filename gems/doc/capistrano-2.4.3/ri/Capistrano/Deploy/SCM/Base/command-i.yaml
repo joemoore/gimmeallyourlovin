@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the name of the command-line utility for this SCM. It first looks at the :scm_command variable, and if it does not exist, it then falls back to whatever was defined by <tt>default_command</tt>.
+- !ruby/struct:SM::Flow::P 
+  body: If scm_command is set to :default, the default_command will be returned.
+full_name: Capistrano::Deploy::SCM::Base#command
+is_singleton: false
+name: command
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Merges the changes to 'head' since the last fetch, for remote_cache deployment strategy
+full_name: Capistrano::Deploy::SCM::Git#sync
+is_singleton: false
+name: sync
+params: (revision, destination)
+visibility: public

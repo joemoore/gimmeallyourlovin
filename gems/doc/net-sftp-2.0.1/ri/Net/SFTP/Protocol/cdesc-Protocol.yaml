@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: load
+- !ruby/object:RI::MethodSummary 
+  name: load
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Protocol module contains the definitions for all supported SFTP protocol versions.
+constants: []
+
+full_name: Net::SFTP::Protocol
+includes: []
+
+instance_methods: []
+
+name: Protocol
+superclass: 

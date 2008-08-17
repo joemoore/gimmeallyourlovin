@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Capistrano::Deploy::SCM::Perforce</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Capistrano::Deploy::SCM::Perforce</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/capistrano/recipes/deploy/scm/perforce_rb.html">
+                lib/capistrano/recipes/deploy/scm/perforce.rb
+                </a>
+        <br />
+                <a href="../../../../files/lib/capistrano/recipes/deploy/scm/perforce_rb.html">
+                lib/capistrano/recipes/deploy/scm/perforce.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Base.html">
+                Base
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Implements the <a href="../../../Capistrano.html">Capistrano</a> <a
+href="../SCM.html">SCM</a> interface for the <a
+href="Perforce.html">Perforce</a> revision control system (<a
+href="http://www.perforce.com">www.perforce.com</a>).
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001223">checkout</a>&nbsp;&nbsp;
+      <a href="#M001215">checkout</a>&nbsp;&nbsp;
+      <a href="#M001226">diff</a>&nbsp;&nbsp;
+      <a href="#M001218">diff</a>&nbsp;&nbsp;
+      <a href="#M001217">export</a>&nbsp;&nbsp;
+      <a href="#M001225">export</a>&nbsp;&nbsp;
+      <a href="#M001229">handle_data</a>&nbsp;&nbsp;
+      <a href="#M001221">handle_data</a>&nbsp;&nbsp;
+      <a href="#M001222">head</a>&nbsp;&nbsp;
+      <a href="#M001214">head</a>&nbsp;&nbsp;
+      <a href="#M001219">log</a>&nbsp;&nbsp;
+      <a href="#M001227">log</a>&nbsp;&nbsp;
+      <a href="#M001228">query_revision</a>&nbsp;&nbsp;
+      <a href="#M001220">query_revision</a>&nbsp;&nbsp;
+      <a href="#M001224">sync</a>&nbsp;&nbsp;
+      <a href="#M001216">sync</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001223" class="method-detail">
+        <a name="M001223"></a>
+
+        <div class="method-heading">
+          <a href="#M001223" class="method-signature">
+          <span class="method-name">checkout</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will <a href="Perforce.html#M001216">sync</a> the
+given revision to the given destination directory. The perforce client has
+a fixed destination so the files must be copied from there to their
+intended resting place.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001223-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001223-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 27</span>
+27:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+28:           <span class="ruby-identifier">p4_sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">p4sync_flags</span>)
+29:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001215" class="method-detail">
+        <a name="M001215"></a>
+
+        <div class="method-heading">
+          <a href="#M001215" class="method-signature">
+          <span class="method-name">checkout</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will <a href="Perforce.html#M001216">sync</a> the
+given revision to the given destination directory. The perforce client has
+a fixed destination so the files must be copied from there to their
+intended resting place.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001215-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001215-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 27</span>
+27:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+28:           <span class="ruby-identifier">p4_sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">p4sync_flags</span>)
+29:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001226" class="method-detail">
+        <a name="M001226"></a>
+
+        <div class="method-heading">
+          <a href="#M001226" class="method-signature">
+          <span class="method-name">diff</span><span class="method-args">(from, to=head)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will do an &quot;p4 diff2&quot; for the two
+revisions.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001226-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001226-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 46</span>
+46:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">diff</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>=<span class="ruby-identifier">head</span>)
+47:           <span class="ruby-identifier">scm</span> <span class="ruby-identifier">authentication</span>, <span class="ruby-identifier">:diff2</span>, <span class="ruby-value str">&quot;-u -db&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(from)}&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(to)}&quot;</span>
+48:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001218" class="method-detail">
+        <a name="M001218"></a>
+
+        <div class="method-heading">
+          <a href="#M001218" class="method-signature">
+          <span class="method-name">diff</span><span class="method-args">(from, to=head)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will do an &quot;p4 diff2&quot; for the two
+revisions.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001218-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001218-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 46</span>
+46:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">diff</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>=<span class="ruby-identifier">head</span>)
+47:           <span class="ruby-identifier">scm</span> <span class="ruby-identifier">authentication</span>, <span class="ruby-identifier">:diff2</span>, <span class="ruby-value str">&quot;-u -db&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(from)}&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(to)}&quot;</span>
+48:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001217" class="method-detail">
+        <a name="M001217"></a>
+
+        <div class="method-heading">
+          <a href="#M001217" class="method-signature">
+          <span class="method-name">export</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will <a href="Perforce.html#M001216">sync</a> the
+given revision to the given destination directory. The perforce client has
+a fixed destination so the files must be copied from there to their
+intended resting place.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001217-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001217-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 41</span>
+41:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+42:           <span class="ruby-identifier">p4_sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">p4sync_flags</span>)
+43:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001225" class="method-detail">
+        <a name="M001225"></a>
+
+        <div class="method-heading">
+          <a href="#M001225" class="method-signature">
+          <span class="method-name">export</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will <a href="Perforce.html#M001216">sync</a> the
+given revision to the given destination directory. The perforce client has
+a fixed destination so the files must be copied from there to their
+intended resting place.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001225-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001225-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 41</span>
+41:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+42:           <span class="ruby-identifier">p4_sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">p4sync_flags</span>)
+43:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001229" class="method-detail">
+        <a name="M001229"></a>
+
+        <div class="method-heading">
+          <a href="#M001229" class="method-signature">
+          <span class="method-name">handle_data</span><span class="method-args">(state, stream, text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines what the response should be for a particular bit of text from
+the <a href="../SCM.html">SCM</a>. Password prompts, connection requests,
+passphrases, etc. are handled here.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001229-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001229-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 64</span>
+64:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">handle_data</span>(<span class="ruby-identifier">state</span>, <span class="ruby-identifier">stream</span>, <span class="ruby-identifier">text</span>)
+65:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">text</span>
+66:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/\(P4PASSWD\) invalid or unset\./i</span>
+67:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;scm_password (or p4passwd) is incorrect or unset&quot;</span>
+68:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/Can.t create a new user.*/i</span>
+69:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;scm_username (or p4user) is incorrect or unset&quot;</span>
+70:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/Perforce client error\:/i</span>        
+71:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;p4port is incorrect or unset&quot;</span>
+72:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/Client \'[\w\-\_\.]+\' unknown.*/i</span>
+73:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;p4client is incorrect or unset&quot;</span>
+74:           <span class="ruby-keyword kw">end</span>                
+75:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001221" class="method-detail">
+        <a name="M001221"></a>
+
+        <div class="method-heading">
+          <a href="#M001221" class="method-signature">
+          <span class="method-name">handle_data</span><span class="method-args">(state, stream, text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines what the response should be for a particular bit of text from
+the <a href="../SCM.html">SCM</a>. Password prompts, connection requests,
+passphrases, etc. are handled here.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001221-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001221-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 64</span>
+64:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">handle_data</span>(<span class="ruby-identifier">state</span>, <span class="ruby-identifier">stream</span>, <span class="ruby-identifier">text</span>)
+65:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">text</span>
+66:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/\(P4PASSWD\) invalid or unset\./i</span>
+67:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;scm_password (or p4passwd) is incorrect or unset&quot;</span>
+68:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/Can.t create a new user.*/i</span>
+69:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;scm_username (or p4user) is incorrect or unset&quot;</span>
+70:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/Perforce client error\:/i</span>        
+71:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;p4port is incorrect or unset&quot;</span>
+72:           <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/Client \'[\w\-\_\.]+\' unknown.*/i</span>
+73:                   <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capistrano</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-value str">&quot;p4client is incorrect or unset&quot;</span>
+74:           <span class="ruby-keyword kw">end</span>                
+75:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001222" class="method-detail">
+        <a name="M001222"></a>
+
+        <div class="method-heading">
+          <a href="#M001222" class="method-signature">
+          <span class="method-name">head</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Perforce.html">Perforce</a> understands &#8216;<a
+href="Perforce.html#M001214">head</a>&#8217; to refer to the latest
+revision in the depot.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001222-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001222-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 20</span>
+20:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">head</span>
+21:           <span class="ruby-value str">'head'</span>
+22:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001214" class="method-detail">
+        <a name="M001214"></a>
+
+        <div class="method-heading">
+          <a href="#M001214" class="method-signature">
+          <span class="method-name">head</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Perforce.html">Perforce</a> understands &#8216;<a
+href="Perforce.html#M001214">head</a>&#8217; to refer to the latest
+revision in the depot.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001214-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001214-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 20</span>
+20:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">head</span>
+21:           <span class="ruby-value str">'head'</span>
+22:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001219" class="method-detail">
+        <a name="M001219"></a>
+
+        <div class="method-heading">
+          <a href="#M001219" class="method-signature">
+          <span class="method-name">log</span><span class="method-args">(from=1, to=head)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a &quot;p4 changes&quot; command for the two revisions.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001219-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001219-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 51</span>
+51:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log</span>(<span class="ruby-identifier">from</span>=<span class="ruby-value">1</span>, <span class="ruby-identifier">to</span>=<span class="ruby-identifier">head</span>)
+52:           <span class="ruby-identifier">scm</span> <span class="ruby-identifier">authentication</span>, <span class="ruby-identifier">:changes</span>, <span class="ruby-value str">&quot;-s submitted&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(from)},#(rev_no(to)}&quot;</span>
+53:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001227" class="method-detail">
+        <a name="M001227"></a>
+
+        <div class="method-heading">
+          <a href="#M001227" class="method-signature">
+          <span class="method-name">log</span><span class="method-args">(from=1, to=head)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a &quot;p4 changes&quot; command for the two revisions.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001227-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001227-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 51</span>
+51:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log</span>(<span class="ruby-identifier">from</span>=<span class="ruby-value">1</span>, <span class="ruby-identifier">to</span>=<span class="ruby-identifier">head</span>)
+52:           <span class="ruby-identifier">scm</span> <span class="ruby-identifier">authentication</span>, <span class="ruby-identifier">:changes</span>, <span class="ruby-value str">&quot;-s submitted&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(from)},#(rev_no(to)}&quot;</span>
+53:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001228" class="method-detail">
+        <a name="M001228"></a>
+
+        <div class="method-heading">
+          <a href="#M001228" class="method-signature">
+          <span class="method-name">query_revision</span><span class="method-args">(revision) {|command| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001228-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001228-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 55</span>
+55:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">query_revision</span>(<span class="ruby-identifier">revision</span>)
+56:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">revision</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">revision</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\d+$/</span>
+57:           <span class="ruby-identifier">command</span> = <span class="ruby-identifier">scm</span>(<span class="ruby-identifier">authentication</span>, <span class="ruby-identifier">:changes</span>, <span class="ruby-value str">&quot;-s submitted&quot;</span>, <span class="ruby-value str">&quot;-m 1&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(revision)}&quot;</span>)
+58:           <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">command</span>)[<span class="ruby-regexp re">/Change (\d+) on/</span>, <span class="ruby-value">1</span>]
+59:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001220" class="method-detail">
+        <a name="M001220"></a>
+
+        <div class="method-heading">
+          <a href="#M001220" class="method-signature">
+          <span class="method-name">query_revision</span><span class="method-args">(revision) {|command| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001220-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001220-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 55</span>
+55:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">query_revision</span>(<span class="ruby-identifier">revision</span>)
+56:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">revision</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">revision</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\d+$/</span>
+57:           <span class="ruby-identifier">command</span> = <span class="ruby-identifier">scm</span>(<span class="ruby-identifier">authentication</span>, <span class="ruby-identifier">:changes</span>, <span class="ruby-value str">&quot;-s submitted&quot;</span>, <span class="ruby-value str">&quot;-m 1&quot;</span>, <span class="ruby-node">&quot;//#{p4client}/...#{rev_no(revision)}&quot;</span>)
+58:           <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">command</span>)[<span class="ruby-regexp re">/Change (\d+) on/</span>, <span class="ruby-value">1</span>]
+59:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001224" class="method-detail">
+        <a name="M001224"></a>
+
+        <div class="method-heading">
+          <a href="#M001224" class="method-signature">
+          <span class="method-name">sync</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will <a href="Perforce.html#M001216">sync</a> the
+given revision to the given destination directory. The perforce client has
+a fixed destination so the files must be copied from there to their
+intended resting place.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001224-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001224-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 34</span>
+34:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+35:           <span class="ruby-identifier">p4_sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">p4sync_flags</span>)
+36:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001216" class="method-detail">
+        <a name="M001216"></a>
+
+        <div class="method-heading">
+          <a href="#M001216" class="method-signature">
+          <span class="method-name">sync</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the command that will <a href="Perforce.html#M001216">sync</a> the
+given revision to the given destination directory. The perforce client has
+a fixed destination so the files must be copied from there to their
+intended resting place.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001216-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001216-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/scm/perforce.rb, line 34</span>
+34:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+35:           <span class="ruby-identifier">p4_sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">p4sync_flags</span>)
+36:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

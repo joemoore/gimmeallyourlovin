@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used internally to determine what the current &quot;feature&quot; being required is. This is used to track which files load which recipes via require.
+full_name: Capistrano::Configuration::Loading::ClassMethods#current_feature
+is_singleton: false
+name: current_feature
+params: ()
+visibility: public

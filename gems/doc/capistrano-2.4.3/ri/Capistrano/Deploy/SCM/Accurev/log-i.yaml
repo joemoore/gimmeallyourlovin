@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the command needed to show the changes that exist between the two revisions.
+full_name: Capistrano::Deploy::SCM::Accurev#log
+is_singleton: false
+name: log
+params: (from, to=head)
+visibility: public

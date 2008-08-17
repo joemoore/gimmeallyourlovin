@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Identifies all servers that the given task should be executed on. The options hash accepts the same arguments as #find_servers, and any preexisting options there will take precedence over the options in the task."
+full_name: Capistrano::Configuration::Servers#find_servers_for_task
+is_singleton: false
+name: find_servers_for_task
+params: (task, options={})
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If the given revision represents a &quot;real&quot; revision, this should simply return the revision value. If it represends a pseudo-revision (like Subversions &quot;HEAD&quot; identifier), it should yield a string containing the commands that, when executed will return a string that this method can then extract the real revision from.
+full_name: Capistrano::Deploy::SCM::Base#query_revision
+is_singleton: false
+name: query_revision
+params: (revision)
+visibility: public

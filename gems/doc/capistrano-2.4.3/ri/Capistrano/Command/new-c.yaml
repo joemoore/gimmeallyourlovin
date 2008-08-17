@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Instantiates a new command object. The <tt>command</tt> must be a string containing the command to execute. <tt>sessions</tt> is an array of Net::SSH session instances, and <tt>options</tt> must be a hash containing any of the following keys:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "<tt>logger</tt>: (optional), a Capistrano::Logger instance"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "<tt>data</tt>: (optional), a string to be sent to the command via it's stdin"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "<tt>env</tt>: (optional), a string or hash to be interpreted as environment variables that should be defined for this command invocation."
+  type: :BULLET
+full_name: Capistrano::Command::new
+is_singleton: true
+name: new
+params: (command, sessions, options={}, &block)
+visibility: public

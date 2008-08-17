@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used by third-party task bundles to identify the capistrano configuration that is loading them. Its return value is not reliable in other contexts. If <tt>require_config</tt> is not false, an exception will be raised if the current configuration is not set.
+full_name: Capistrano::Configuration::Loading::ClassMethods#instance
+is_singleton: false
+name: instance
+params: (require_config=false)
+visibility: public

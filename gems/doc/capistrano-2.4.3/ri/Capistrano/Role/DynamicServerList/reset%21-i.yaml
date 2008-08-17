@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Clear the cached value
+full_name: Capistrano::Role::DynamicServerList#reset!
+is_singleton: false
+name: reset!
+params: ()
+visibility: public

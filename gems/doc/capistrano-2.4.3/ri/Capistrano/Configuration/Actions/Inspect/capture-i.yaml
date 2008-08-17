@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Executes the given command on the first server targetted by the current task, collects it's stdout into a string, and returns the string. The command is invoked via #invoke_command."
+full_name: Capistrano::Configuration::Actions::Inspect#capture
+is_singleton: false
+name: capture
+params: (command, options={})
+visibility: public

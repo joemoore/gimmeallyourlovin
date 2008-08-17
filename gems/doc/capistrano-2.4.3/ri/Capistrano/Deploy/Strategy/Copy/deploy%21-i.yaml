@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Obtains a copy of the source code locally (via the #command method), compresses it to a single file, copies that file to all target servers, and uncompresses it on each of them into the deployment directory."
+full_name: Capistrano::Deploy::Strategy::Copy#deploy!
+is_singleton: false
+name: deploy!
+params: ()
+visibility: public

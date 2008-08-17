@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (scm(:changes, "--last 1", "--xml-output", "--repo=
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Attempts to translate the given revision identifier to a &quot;real&quot; revision. If the identifier is a symbol, it is assumed to be a pseudo-id. Otherwise, it will be immediately returned. If it is a pseudo-id, a set of commands to execute will be yielded, and the result of executing those commands must be returned by the block. This method will then extract the actual revision hash from the returned data.
+full_name: Capistrano::Deploy::SCM::Darcs#query_revision
+is_singleton: false
+name: query_revision
+params: (revision) {|scm(:changes, "--last 1", "--xml-output", "--repo=| ...}
+visibility: public

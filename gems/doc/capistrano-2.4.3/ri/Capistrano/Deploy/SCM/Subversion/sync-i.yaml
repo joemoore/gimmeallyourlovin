@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the command that will do an &quot;svn update&quot; to the given revision, for the working copy at the given destination.
+full_name: Capistrano::Deploy::SCM::Subversion#sync
+is_singleton: false
+name: sync
+params: (revision, destination)
+visibility: public

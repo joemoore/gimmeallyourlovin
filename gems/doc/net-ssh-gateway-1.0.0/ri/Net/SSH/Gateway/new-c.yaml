@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Instantiate a new Gateway object, using the given remote host as the tunnel. The arguments here are identical to those for Net::SSH.start, and are passed as given to that method to start up the gateway connection.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  gateway = Net::SSH::Gateway.new('host', 'user', :password =&gt; &quot;password&quot;)\n"
+full_name: Net::SSH::Gateway::new
+is_singleton: true
+name: new
+params: (host, user, options={})
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Capistrano::Deploy::SCM::Accurev::InternalRevision#psuedo_revision?
+is_singleton: false
+name: psuedo_revision?
+params: ()
+visibility: public

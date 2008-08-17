@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: stream
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: stream
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: transaction_id
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: transaction_id
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: parse
+- !ruby/object:RI::MethodSummary 
+  name: parse
+comment: 
+constants: []
+
+full_name: Capistrano::Deploy::SCM::Accurev::InternalRevision
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: psuedo_revision?
+- !ruby/object:RI::MethodSummary 
+  name: psuedo_revision?
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: InternalRevision
+superclass: Object

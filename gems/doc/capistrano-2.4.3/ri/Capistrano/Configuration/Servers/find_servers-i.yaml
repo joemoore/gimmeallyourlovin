@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Attempts to find all defined servers that match the given criteria. The options hash may include a :hosts option (which should specify an array of host names or ServerDefinition instances), a :roles option (specifying an array of roles), an :only option (specifying a hash of key/value pairs that any matching server must match), and an :exception option (like :only, but the inverse).
+- !ruby/struct:SM::Flow::P 
+  body: Additionally, if the HOSTS environment variable is set, it will take precedence over any other options. Similarly, the ROLES environment variable will take precedence over other options. If both HOSTS and ROLES are given, HOSTS wins.
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # return all known servers\n  servers = find_servers\n\n  # find all servers in the app role that are not exempted from\n  # deployment\n  servers = find_servers :roles =&gt; :app,\n               :except =&gt; { :no_release =&gt; true }\n\n  # returns the given hosts, translated to ServerDefinition objects\n  servers = find_servers :hosts =&gt; &quot;jamis@example.host.com&quot;\n"
+full_name: Capistrano::Configuration::Servers#find_servers
+is_singleton: false
+name: find_servers
+params: (options={})
+visibility: public

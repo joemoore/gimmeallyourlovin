@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Capistrano::TaskCallback#applies_to?
+is_singleton: false
+name: applies_to?
+params: (task)
+visibility: public

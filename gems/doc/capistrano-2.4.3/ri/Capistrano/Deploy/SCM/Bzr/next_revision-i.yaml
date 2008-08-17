@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Increments the given revision number and returns it.
+full_name: Capistrano::Deploy::SCM::Bzr#next_revision
+is_singleton: false
+name: next_revision
+params: (revision)
+visibility: public

@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The SFTP session object that drives this directory factory.
+  name: sftp
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The SFTP session object that drives this directory factory.
+  name: sftp
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A convenience class for working with remote directories. It provides methods for searching and enumerating directory entries, similarly to the standard ::Dir class.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  sftp.dir.foreach(&quot;/remote/path&quot;) do |entry|\n    puts entry.name\n  end\n\n  p sftp.dir.entries(&quot;/remote/path&quot;).map { |e| e.name }\n\n  sftp.dir.glob(&quot;/remote/path&quot;, &quot;**/*.rb&quot;) do |entry|\n    puts entry.name\n  end\n"
+constants: []
+
+full_name: Net::SFTP::Operations::Dir
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: entries
+- !ruby/object:RI::MethodSummary 
+  name: entries
+- !ruby/object:RI::MethodSummary 
+  name: foreach
+- !ruby/object:RI::MethodSummary 
+  name: foreach
+- !ruby/object:RI::MethodSummary 
+  name: glob
+- !ruby/object:RI::MethodSummary 
+  name: glob
+name: Dir
+superclass: Object

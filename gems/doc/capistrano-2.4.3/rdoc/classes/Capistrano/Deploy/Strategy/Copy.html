@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Capistrano::Deploy::Strategy::Copy</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Capistrano::Deploy::Strategy::Copy</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/capistrano/recipes/deploy/strategy/copy_rb.html">
+                lib/capistrano/recipes/deploy/strategy/copy.rb
+                </a>
+        <br />
+                <a href="../../../../files/lib/capistrano/recipes/deploy/strategy/copy_rb.html">
+                lib/capistrano/recipes/deploy/strategy/copy.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Base.html">
+                Base
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This class implements the strategy for deployments which work by preparing
+the source code locally, compressing it, copying the file to each target
+host, and uncompressing it to the deployment directory.
+</p>
+<p>
+By default, the <a href="../SCM.html">SCM</a> checkout command is used to
+obtain the local copy of the source code. If you would rather use the
+export operation, you can set the :copy_strategy variable to :export.
+</p>
+<pre>
+  set :copy_strategy, :export
+</pre>
+<p>
+For even faster deployments, you can set the :<a
+href="Copy.html#M001120">copy_cache</a> variable to true. This will cause
+deployments to do a new checkout of your repository to a new directory, and
+then copy that checkout. Subsequent deploys will just resync that copy,
+rather than doing an entirely new checkout. Additionally, you can specify
+file patterns to exclude from the copy when using :<a
+href="Copy.html#M001120">copy_cache</a>; just set the :copy_exclude
+variable to a file glob (or an array of globs).
+</p>
+<pre>
+  set :copy_cache, true
+  set :copy_exclude, &quot;.git/*&quot;
+</pre>
+<p>
+Note that :copy_strategy is ignored when :<a
+href="Copy.html#M001120">copy_cache</a> is set. Also, if you want the copy
+cache put somewhere specific, you can set the variable to the path you
+want, instead of merely &#8216;true&#8217;:
+</p>
+<pre>
+  set :copy_cache, &quot;/tmp/caches/myapp&quot;
+</pre>
+<p>
+This deployment strategy also supports a special variable,
+:copy_compression, which must be one of :gzip, :bz2, or :zip, and which
+specifies how the source should be compressed for transmission to each
+host.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001122">check!</a>&nbsp;&nbsp;
+      <a href="#M001119">check!</a>&nbsp;&nbsp;
+      <a href="#M001120">copy_cache</a>&nbsp;&nbsp;
+      <a href="#M001123">copy_cache</a>&nbsp;&nbsp;
+      <a href="#M001121">deploy!</a>&nbsp;&nbsp;
+      <a href="#M001118">deploy!</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Compression</td>
+          <td>=</td>
+          <td class="context-item-value">Struct.new(:extension, :compress_command, :decompress_command)</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+A struct for representing the specifics of a compression type. Commands are
+arrays, where the first element is the utility to be used to perform the
+compression or decompression.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Compression</td>
+          <td>=</td>
+          <td class="context-item-value">Struct.new(:extension, :compress_command, :decompress_command)</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+A struct for representing the specifics of a compression type. Commands are
+arrays, where the first element is the utility to be used to perform the
+compression or decompression.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001122" class="method-detail">
+        <a name="M001122"></a>
+
+        <div class="method-heading">
+          <a href="#M001122" class="method-signature">
+          <span class="method-name">check!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001122-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001122-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/strategy/copy.rb, line 99</span>
+ 99:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check!</span>
+100:           <span class="ruby-keyword kw">super</span>.<span class="ruby-identifier">check</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+101:             <span class="ruby-identifier">d</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>
+102:             <span class="ruby-identifier">d</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">compress</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>).<span class="ruby-identifier">first</span>)
+103:             <span class="ruby-identifier">d</span>.<span class="ruby-identifier">remote</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">decompress</span>(<span class="ruby-keyword kw">nil</span>).<span class="ruby-identifier">first</span>)
+104:           <span class="ruby-keyword kw">end</span>
+105:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001119" class="method-detail">
+        <a name="M001119"></a>
+
+        <div class="method-heading">
+          <a href="#M001119" class="method-signature">
+          <span class="method-name">check!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001119-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001119-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/strategy/copy.rb, line 99</span>
+ 99:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check!</span>
+100:           <span class="ruby-keyword kw">super</span>.<span class="ruby-identifier">check</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+101:             <span class="ruby-identifier">d</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>
+102:             <span class="ruby-identifier">d</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">compress</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>).<span class="ruby-identifier">first</span>)
+103:             <span class="ruby-identifier">d</span>.<span class="ruby-identifier">remote</span>.<span class="ruby-identifier">command</span>(<span class="ruby-identifier">decompress</span>(<span class="ruby-keyword kw">nil</span>).<span class="ruby-identifier">first</span>)
+104:           <span class="ruby-keyword kw">end</span>
+105:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001120" class="method-detail">
+        <a name="M001120"></a>
+
+        <div class="method-heading">
+          <a href="#M001120" class="method-signature">
+          <span class="method-name">copy_cache</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the location of the local copy cache, if the strategy should use a
+local cache + copy instead of a new checkout/export every time. Returns
+<tt>nil</tt> unless :<a href="Copy.html#M001120">copy_cache</a> has been
+set. If :<a href="Copy.html#M001120">copy_cache</a> is <tt>true</tt>, a
+default cache location will be returned.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001120-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001120-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/strategy/copy.rb, line 111</span>
+111:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_cache</span>
+112:           <span class="ruby-ivar">@copy_cache</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">configuration</span>[<span class="ruby-identifier">:copy_cache</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">?</span>
+113:             <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">tmpdir</span>, <span class="ruby-identifier">configuration</span>[<span class="ruby-identifier">:application</span>]) <span class="ruby-operator">:</span>
+114:             <span class="ruby-identifier">configuration</span>[<span class="ruby-identifier">:copy_cache</span>]
+115:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001123" class="method-detail">
+        <a name="M001123"></a>
+
+        <div class="method-heading">
+          <a href="#M001123" class="method-signature">
+          <span class="method-name">copy_cache</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the location of the local copy cache, if the strategy should use a
+local cache + copy instead of a new checkout/export every time. Returns
+<tt>nil</tt> unless :<a href="Copy.html#M001120">copy_cache</a> has been
+set. If :<a href="Copy.html#M001120">copy_cache</a> is <tt>true</tt>, a
+default cache location will be returned.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001123-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001123-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/strategy/copy.rb, line 111</span>
+111:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_cache</span>
+112:           <span class="ruby-ivar">@copy_cache</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">configuration</span>[<span class="ruby-identifier">:copy_cache</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">?</span>
+113:             <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">tmpdir</span>, <span class="ruby-identifier">configuration</span>[<span class="ruby-identifier">:application</span>]) <span class="ruby-operator">:</span>
+114:             <span class="ruby-identifier">configuration</span>[<span class="ruby-identifier">:copy_cache</span>]
+115:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001121" class="method-detail">
+        <a name="M001121"></a>
+
+        <div class="method-heading">
+          <a href="#M001121" class="method-signature">
+          <span class="method-name">deploy!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Obtains a copy of the source code locally (via the command method),
+compresses it to a single file, copies that file to all target servers, and
+uncompresses it on each of them into the deployment directory.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001121-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001121-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/strategy/copy.rb, line 46</span>
+46:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deploy!</span>
+47:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copy_cache</span>
+48:             <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">copy_cache</span>)
+49:               <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;refreshing local cache to revision #{revision} at #{copy_cache}&quot;</span>
+50:               <span class="ruby-identifier">system</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">copy_cache</span>))
+51:             <span class="ruby-keyword kw">else</span>
+52:               <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;preparing local cache at #{copy_cache}&quot;</span>
+53:               <span class="ruby-identifier">system</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">copy_cache</span>))
+54:             <span class="ruby-keyword kw">end</span>
+55: 
+56:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;copying cache to deployment staging area #{destination}&quot;</span>
+57:             <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">copy_cache</span>) <span class="ruby-keyword kw">do</span>
+58:               <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">destination</span>)
+59:               <span class="ruby-identifier">queue</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-value str">&quot;*&quot;</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_DOTMATCH</span>)
+60:               <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">any?</span>
+61:                 <span class="ruby-identifier">item</span> = <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">shift</span>
+62:                 <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">item</span>)
+63: 
+64:                 <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;.&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;..&quot;</span>
+65:                 <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copy_exclude</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">fnmatch</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">item</span>) }
+66: 
+67:                 <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink?</span>(<span class="ruby-identifier">item</span>)
+68:                   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">ln_s</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">readlink</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">copy_cache</span>, <span class="ruby-identifier">item</span>)), <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">item</span>))
+69:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">item</span>)
+70:                   <span class="ruby-identifier">queue</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-node">&quot;#{item}/*&quot;</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_DOTMATCH</span>)
+71:                   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">item</span>))
+72:                 <span class="ruby-keyword kw">else</span>
+73:                   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">ln</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">copy_cache</span>, <span class="ruby-identifier">item</span>), <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">item</span>))
+74:                 <span class="ruby-keyword kw">end</span>
+75:               <span class="ruby-keyword kw">end</span>
+76:             <span class="ruby-keyword kw">end</span>
+77:           <span class="ruby-keyword kw">else</span>
+78:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;getting (via #{copy_strategy}) revision #{revision} to #{destination}&quot;</span>
+79:             <span class="ruby-identifier">system</span>(<span class="ruby-identifier">command</span>)
+80: 
+81:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copy_exclude</span>.<span class="ruby-identifier">any?</span>
+82:               <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;processing exclusions...&quot;</span>
+83:               <span class="ruby-identifier">copy_exclude</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">pattern</span>)) }
+84:             <span class="ruby-keyword kw">end</span>
+85:           <span class="ruby-keyword kw">end</span>
+86: 
+87:           <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-value str">&quot;REVISION&quot;</span>), <span class="ruby-value str">&quot;w&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">revision</span>) }
+88: 
+89:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">trace</span> <span class="ruby-node">&quot;compressing #{destination} to #{filename}&quot;</span>
+90:           <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">tmpdir</span>) { <span class="ruby-identifier">system</span>(<span class="ruby-identifier">compress</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">destination</span>), <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">filename</span>)).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)) }
+91: 
+92:           <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">remote_filename</span>)
+93:           <span class="ruby-identifier">run</span> <span class="ruby-node">&quot;cd #{configuration[:releases_path]} &amp;&amp; #{decompress(remote_filename).join(&quot; &quot;)} &amp;&amp; rm #{remote_filename}&quot;</span>
+94:         <span class="ruby-keyword kw">ensure</span>
+95:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span> <span class="ruby-identifier">filename</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+96:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">destination</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+97:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001118" class="method-detail">
+        <a name="M001118"></a>
+
+        <div class="method-heading">
+          <a href="#M001118" class="method-signature">
+          <span class="method-name">deploy!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Obtains a copy of the source code locally (via the command method),
+compresses it to a single file, copies that file to all target servers, and
+uncompresses it on each of them into the deployment directory.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001118-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001118-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/capistrano/recipes/deploy/strategy/copy.rb, line 46</span>
+46:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deploy!</span>
+47:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copy_cache</span>
+48:             <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">copy_cache</span>)
+49:               <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;refreshing local cache to revision #{revision} at #{copy_cache}&quot;</span>
+50:               <span class="ruby-identifier">system</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">sync</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">copy_cache</span>))
+51:             <span class="ruby-keyword kw">else</span>
+52:               <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;preparing local cache at #{copy_cache}&quot;</span>
+53:               <span class="ruby-identifier">system</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">copy_cache</span>))
+54:             <span class="ruby-keyword kw">end</span>
+55: 
+56:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;copying cache to deployment staging area #{destination}&quot;</span>
+57:             <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">copy_cache</span>) <span class="ruby-keyword kw">do</span>
+58:               <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">destination</span>)
+59:               <span class="ruby-identifier">queue</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-value str">&quot;*&quot;</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_DOTMATCH</span>)
+60:               <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">any?</span>
+61:                 <span class="ruby-identifier">item</span> = <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">shift</span>
+62:                 <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">item</span>)
+63: 
+64:                 <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;.&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;..&quot;</span>
+65:                 <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copy_exclude</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">fnmatch</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">item</span>) }
+66: 
+67:                 <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink?</span>(<span class="ruby-identifier">item</span>)
+68:                   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">ln_s</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">readlink</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">copy_cache</span>, <span class="ruby-identifier">item</span>)), <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">item</span>))
+69:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">item</span>)
+70:                   <span class="ruby-identifier">queue</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-node">&quot;#{item}/*&quot;</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_DOTMATCH</span>)
+71:                   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">item</span>))
+72:                 <span class="ruby-keyword kw">else</span>
+73:                   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">ln</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">copy_cache</span>, <span class="ruby-identifier">item</span>), <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">item</span>))
+74:                 <span class="ruby-keyword kw">end</span>
+75:               <span class="ruby-keyword kw">end</span>
+76:             <span class="ruby-keyword kw">end</span>
+77:           <span class="ruby-keyword kw">else</span>
+78:             <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;getting (via #{copy_strategy}) revision #{revision} to #{destination}&quot;</span>
+79:             <span class="ruby-identifier">system</span>(<span class="ruby-identifier">command</span>)
+80: 
+81:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copy_exclude</span>.<span class="ruby-identifier">any?</span>
+82:               <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;processing exclusions...&quot;</span>
+83:               <span class="ruby-identifier">copy_exclude</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">pattern</span>)) }
+84:             <span class="ruby-keyword kw">end</span>
+85:           <span class="ruby-keyword kw">end</span>
+86: 
+87:           <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-value str">&quot;REVISION&quot;</span>), <span class="ruby-value str">&quot;w&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">revision</span>) }
+88: 
+89:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">trace</span> <span class="ruby-node">&quot;compressing #{destination} to #{filename}&quot;</span>
+90:           <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">tmpdir</span>) { <span class="ruby-identifier">system</span>(<span class="ruby-identifier">compress</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">destination</span>), <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">filename</span>)).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)) }
+91: 
+92:           <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">remote_filename</span>)
+93:           <span class="ruby-identifier">run</span> <span class="ruby-node">&quot;cd #{configuration[:releases_path]} &amp;&amp; #{decompress(remote_filename).join(&quot; &quot;)} &amp;&amp; rm #{remote_filename}&quot;</span>
+94:         <span class="ruby-keyword kw">ensure</span>
+95:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span> <span class="ruby-identifier">filename</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+96:           <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">destination</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+97:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Cancels port-forwarding over an open port that was previously opened via #open."
+full_name: Net::SSH::Gateway#close
+is_singleton: false
+name: close
+params: (port)
+visibility: public

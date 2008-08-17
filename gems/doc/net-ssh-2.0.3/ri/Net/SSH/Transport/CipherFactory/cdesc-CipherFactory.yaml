@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: get_lengths
+- !ruby/object:RI::MethodSummary 
+  name: get_lengths
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implements a factory of OpenSSL cipher algorithms.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Maps the SSH name of a cipher to it's corresponding OpenSSL name
+  name: SSH_TO_OSSL
+  value: "{       \"3des-cbc\"                    => \"des-ede3-cbc\",       \"blowfish-cbc\"                => \"bf-cbc\",       \"aes256-cbc\"                  => \"aes-256-cbc\",       \"aes192-cbc\"                  => \"aes-192-cbc\",       \"aes128-cbc\"                  => \"aes-128-cbc\",       \"idea-cbc\"                    => \"idea-cbc\",       \"cast128-cbc\"                 => \"cast-cbc\",       \"rijndael-cbc@lysator.liu.se\" => \"aes-256-cbc\",       \"none\"                        => \"none\""
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Maps the SSH name of a cipher to it's corresponding OpenSSL name
+  name: SSH_TO_OSSL
+  value: "{       \"3des-cbc\"                    => \"des-ede3-cbc\",       \"blowfish-cbc\"                => \"bf-cbc\",       \"aes256-cbc\"                  => \"aes-256-cbc\",       \"aes192-cbc\"                  => \"aes-192-cbc\",       \"aes128-cbc\"                  => \"aes-128-cbc\",       \"idea-cbc\"                    => \"idea-cbc\",       \"cast128-cbc\"                 => \"cast-cbc\",       \"rijndael-cbc@lysator.liu.se\" => \"aes-256-cbc\",       \"none\"                        => \"none\""
+full_name: Net::SSH::Transport::CipherFactory
+includes: []
+
+instance_methods: []
+
+name: CipherFactory
+superclass: Object

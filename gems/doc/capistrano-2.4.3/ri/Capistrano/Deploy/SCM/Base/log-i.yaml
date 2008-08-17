@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return a log of all changes between the two specified revisions, <tt>from</tt> and <tt>to</tt>, inclusive.
+full_name: Capistrano::Deploy::SCM::Base#log
+is_singleton: false
+name: log
+params: (from, to=nil)
+visibility: public
