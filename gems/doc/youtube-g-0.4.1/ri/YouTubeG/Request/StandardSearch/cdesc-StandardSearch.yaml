@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TYPES
+  value: "[ :most_viewed, :top_rated, :recently_featured, :watch_on_mobile ]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TIMES
+  value: "[ :all_time, :today, :this_week, :this_month ]"
+full_name: YouTubeG::Request::StandardSearch
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: base_url
+name: StandardSearch
+superclass: BaseSearch

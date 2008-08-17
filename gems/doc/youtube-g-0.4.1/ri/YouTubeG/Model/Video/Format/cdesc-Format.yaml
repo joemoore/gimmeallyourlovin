@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: by_code
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Describes the various file formats in which a Youtube video may be made available and allows looking them up by format code number.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Flash format on YouTube site. All videos are available in this format.
+  name: FLASH
+  value: YouTubeG::Model::Video::Format.new(0, :flash)
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: RTSP streaming URL for mobile video playback. H.263 video (176x144) and AMR audio.
+  name: RTSP
+  value: YouTubeG::Model::Video::Format.new(1, :rtsp)
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: HTTP URL to the embeddable player (SWF) for this video. This format is not available for a video that is not embeddable.
+  name: SWF
+  value: YouTubeG::Model::Video::Format.new(5, :swf)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: THREE_GPP
+  value: YouTubeG::Model::Video::Format.new(6, :three_gpp)
+full_name: YouTubeG::Model::Video::Format
+includes: []
+
+instance_methods: []
+
+name: Format
+superclass: Object

@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Extension of the base ruby Logger class to restore the default log level and timestamp formatting which is so rudely taken forcibly away from us by the Rails app's use of the ActiveSupport library that wholesale-ly modifies the Logger's format_message method.
+constants: []
+
+full_name: YouTubeG::Logger
+includes: []
+
+instance_methods: []
+
+name: Logger
+superclass: "::Logger"

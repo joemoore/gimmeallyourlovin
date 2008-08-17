@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: YouTubeG::Model::Video#embed_html
+is_singleton: false
+name: embed_html
+params: (width = 425, height = 350)
+visibility: public

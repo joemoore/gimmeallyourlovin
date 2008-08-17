@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (YouTubeG::Request::VideoSearch)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/youtube_g/request/video_search.rb, line 58</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">params</span>={})
+        <span class="ruby-comment cmt"># XXX I think we want to delete the line below</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">nil?</span>
+
+        <span class="ruby-comment cmt"># initialize our various member data to avoid warnings and so we'll</span>
+        <span class="ruby-comment cmt"># automatically fall back to the youtube api defaults</span>
+        <span class="ruby-ivar">@max_results</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@order_by</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@offset</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@query</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@response_format</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@video_format</span> = <span class="ruby-keyword kw">nil</span>
+
+        <span class="ruby-comment cmt"># build up the url corresponding to this request</span>
+        <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">base_url</span>
+        
+        <span class="ruby-comment cmt"># http://gdata.youtube.com/feeds/videos/T7YazwP8GtY</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:video_id</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:video_id</span>]
+        
+        <span class="ruby-ivar">@url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/-/&quot;</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:categories</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:tags</span>])
+        <span class="ruby-ivar">@url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">categories_to_params</span>(<span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:categories</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:categories</span>]
+        <span class="ruby-ivar">@url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tags_to_params</span>(<span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:tags</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:tags</span>]
+
+        <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> 
+          <span class="ruby-identifier">name</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+          <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@#{name}&quot;</span>, <span class="ruby-identifier">value</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-keyword kw">if</span>( <span class="ruby-identifier">params</span>[ <span class="ruby-identifier">:only_embeddable</span> ] )
+          <span class="ruby-ivar">@video_format</span> = <span class="ruby-constant">ONLY_EMBEDDABLE</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-ivar">@url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">build_query_params</span>(<span class="ruby-identifier">to_youtube_params</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

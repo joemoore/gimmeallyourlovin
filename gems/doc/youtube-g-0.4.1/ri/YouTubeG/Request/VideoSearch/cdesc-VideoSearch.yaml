@@ -1,0 +1,55 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: categories
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: max_results
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: offset
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: order_by
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: query
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: response_format
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: tags
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: video_format
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "From here: http://code.google.com/apis/youtube/reference.html#yt_format"
+  name: ONLY_EMBEDDABLE
+  value: "5"
+full_name: YouTubeG::Request::VideoSearch
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: base_url
+- !ruby/object:RI::MethodSummary 
+  name: to_youtube_params
+name: VideoSearch
+superclass: BaseSearch

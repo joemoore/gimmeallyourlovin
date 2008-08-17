@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_entry (YouTubeG::Parser::VideoFeedParser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/youtube_g/parser.rb, line 27</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_entry</span>(<span class="ruby-identifier">entry</span>)
+        <span class="ruby-identifier">video_id</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;id&quot;</span>].<span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">published_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;published&quot;</span>].<span class="ruby-identifier">text</span>)
+        <span class="ruby-identifier">updated_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;updated&quot;</span>].<span class="ruby-identifier">text</span>)
+
+        <span class="ruby-comment cmt"># parse the category and keyword lists</span>
+        <span class="ruby-identifier">categories</span> = []
+        <span class="ruby-identifier">keywords</span> = []
+        <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;category&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">category</span><span class="ruby-operator">|</span>
+          <span class="ruby-comment cmt"># determine if  it's really a category, or just a keyword</span>
+          <span class="ruby-identifier">scheme</span> = <span class="ruby-identifier">category</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;scheme&quot;</span>]
+          <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">scheme</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/categories\.cat$/</span>)
+            <span class="ruby-comment cmt"># it's a category</span>
+            <span class="ruby-identifier">categories</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Category</span>.<span class="ruby-identifier">new</span>(
+                            <span class="ruby-identifier">:term</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">category</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;term&quot;</span>],
+                            <span class="ruby-identifier">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">category</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;label&quot;</span>])
+
+          <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">scheme</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/keywords\.cat$/</span>)
+            <span class="ruby-comment cmt"># it's a keyword</span>
+            <span class="ruby-identifier">keywords</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">category</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;term&quot;</span>]
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">title</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;title&quot;</span>].<span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">html_content</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;content&quot;</span>].<span class="ruby-identifier">text</span>
+
+        <span class="ruby-comment cmt"># parse the author</span>
+        <span class="ruby-identifier">author_element</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;author&quot;</span>]
+        <span class="ruby-identifier">author</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">author_element</span>
+          <span class="ruby-identifier">author</span> = <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Author</span>.<span class="ruby-identifier">new</span>(
+                     <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">author_element</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;name&quot;</span>].<span class="ruby-identifier">text</span>,
+                     <span class="ruby-identifier">:uri</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">author_element</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;uri&quot;</span>].<span class="ruby-identifier">text</span>)
+        <span class="ruby-keyword kw">end</span>
+      
+        <span class="ruby-identifier">media_group</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;media:group&quot;</span>]
+        <span class="ruby-identifier">description</span> = <span class="ruby-identifier">media_group</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;media:description&quot;</span>].<span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">media_group</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;yt:duration&quot;</span>].<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;seconds&quot;</span>].<span class="ruby-identifier">to_i</span>
+
+        <span class="ruby-identifier">media_content</span> = []
+        <span class="ruby-identifier">media_group</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;media:content&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mce</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">media_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">parse_media_content</span>(<span class="ruby-identifier">mce</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">player_url</span> = <span class="ruby-identifier">media_group</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;media:player&quot;</span>].<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;url&quot;</span>]
+
+        <span class="ruby-comment cmt"># parse thumbnails</span>
+        <span class="ruby-identifier">thumbnails</span> = []
+        <span class="ruby-identifier">media_group</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;media:thumbnail&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">thumb_element</span><span class="ruby-operator">|</span>
+          <span class="ruby-comment cmt"># TODO: convert time HH:MM:ss string to seconds?</span>
+          <span class="ruby-identifier">thumbnails</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Thumbnail</span>.<span class="ruby-identifier">new</span>(
+                          <span class="ruby-identifier">:url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">thumb_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;url&quot;</span>],
+                          <span class="ruby-identifier">:height</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">thumb_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;height&quot;</span>].<span class="ruby-identifier">to_i</span>,
+                          <span class="ruby-identifier">:width</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">thumb_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;width&quot;</span>].<span class="ruby-identifier">to_i</span>,
+                          <span class="ruby-identifier">:time</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">thumb_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;time&quot;</span>])
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">rating_element</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;gd:rating&quot;</span>]
+        <span class="ruby-identifier">rating</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rating_element</span>
+          <span class="ruby-identifier">rating</span> = <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>(
+                     <span class="ruby-identifier">:min</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rating_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;min&quot;</span>].<span class="ruby-identifier">to_i</span>,
+                     <span class="ruby-identifier">:max</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rating_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;max&quot;</span>].<span class="ruby-identifier">to_i</span>,
+                     <span class="ruby-identifier">:rater_count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rating_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;numRaters&quot;</span>].<span class="ruby-identifier">to_i</span>,
+                     <span class="ruby-identifier">:average</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rating_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;average&quot;</span>].<span class="ruby-identifier">to_f</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">view_count</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;yt:statistics&quot;</span>].<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;viewCount&quot;</span>].<span class="ruby-identifier">to_i</span>
+
+        <span class="ruby-identifier">noembed</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;yt:noembed&quot;</span>] <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+
+        <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Video</span>.<span class="ruby-identifier">new</span>(
+          <span class="ruby-identifier">:video_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_id</span>,
+          <span class="ruby-identifier">:published_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">published_at</span>,
+          <span class="ruby-identifier">:updated_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">updated_at</span>,
+          <span class="ruby-identifier">:categories</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">categories</span>,
+          <span class="ruby-identifier">:keywords</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keywords</span>,
+          <span class="ruby-identifier">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>,
+          <span class="ruby-identifier">:html_content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_content</span>,
+          <span class="ruby-identifier">:author</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">author</span>,
+          <span class="ruby-identifier">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">description</span>,
+          <span class="ruby-identifier">:duration</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">duration</span>,
+          <span class="ruby-identifier">:media_content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">media_content</span>,
+          <span class="ruby-identifier">:player_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">player_url</span>,
+          <span class="ruby-identifier">:thumbnails</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">thumbnails</span>,
+          <span class="ruby-identifier">:rating</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rating</span>,
+          <span class="ruby-identifier">:view_count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">view_count</span>,
+          <span class="ruby-identifier">:noembed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">noembed</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

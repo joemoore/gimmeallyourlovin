@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: status
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: username
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: YouTubeG::Model::Contact
+includes: []
+
+instance_methods: []
+
+name: Contact
+superclass: YouTubeG::Record

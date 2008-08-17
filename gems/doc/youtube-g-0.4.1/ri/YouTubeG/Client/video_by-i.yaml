@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: YouTubeG::Client#video_by
+is_singleton: false
+name: video_by
+params: (video_id)
+visibility: public

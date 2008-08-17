@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_media_content (YouTubeG::Parser::VideoFeedParser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/youtube_g/parser.rb, line 117</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_media_content</span> (<span class="ruby-identifier">media_content_element</span>)
+        <span class="ruby-identifier">content_url</span> = <span class="ruby-identifier">media_content_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;url&quot;</span>]
+        <span class="ruby-identifier">format_code</span> = <span class="ruby-identifier">media_content_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;yt:format&quot;</span>].<span class="ruby-identifier">to_i</span>
+        <span class="ruby-identifier">format</span> = <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Video</span><span class="ruby-operator">::</span><span class="ruby-constant">Format</span>.<span class="ruby-identifier">by_code</span>(<span class="ruby-identifier">format_code</span>)
+        <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">media_content_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;duration&quot;</span>].<span class="ruby-identifier">to_i</span>
+        <span class="ruby-identifier">mime_type</span> = <span class="ruby-identifier">media_content_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;type&quot;</span>]
+        <span class="ruby-identifier">default</span> = (<span class="ruby-identifier">media_content_element</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">&quot;isDefault&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span>)
+
+        <span class="ruby-constant">YouTubeG</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span><span class="ruby-operator">::</span><span class="ruby-constant">Content</span>.<span class="ruby-identifier">new</span>(
+          <span class="ruby-identifier">:url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">content_url</span>,
+          <span class="ruby-identifier">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">format</span>,
+          <span class="ruby-identifier">:duration</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">duration</span>,
+          <span class="ruby-identifier">:mime_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">mime_type</span>,
+          <span class="ruby-identifier">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

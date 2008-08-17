@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: For convenience, the video_id with the URL stripped out, useful for searching for the video again without having to store it anywhere. A regular query search, with this id will return the same video. http://gdata.youtube.com/feeds/videos/ZTUVgYoeN_o
+full_name: YouTubeG::Model::Video#unique_id
+is_singleton: false
+name: unique_id
+params: ()
+visibility: public

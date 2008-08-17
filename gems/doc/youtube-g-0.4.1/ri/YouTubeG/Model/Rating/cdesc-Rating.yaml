@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: average
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: max
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: min
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: rater_count
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: YouTubeG::Model::Rating
+includes: []
+
+instance_methods: []
+
+name: Rating
+superclass: YouTubeG::Record

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Params can be one of :most_viewed, :top_rated, :recently_featured, :watch_on_mobile Or :tags, :categories, :query, :user
+full_name: YouTubeG::Client#videos_by
+is_singleton: false
+name: videos_by
+params: (params, options={})
+visibility: public

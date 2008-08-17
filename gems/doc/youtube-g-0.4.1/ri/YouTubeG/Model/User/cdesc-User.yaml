@@ -1,0 +1,70 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: age
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: books
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: company
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: description
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: gender
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: hobbies
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: hometown
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: location
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: movies
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: music
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: occupation
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: relationship
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: school
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: username
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: YouTubeG::Model::User
+includes: []
+
+instance_methods: []
+
+name: User
+superclass: YouTubeG::Record

@@ -1,5 +1,5 @@
 #!/usr/local/bin/ruby
-ENV["GEM_PATH"]="/home/josephm/gimme/gems"                                                               
+ENV["GEM_PATH"]="/home/josephm/gimme/current/gems"                                                               
 require 'rubygems'
 require 'merb-core'
 
@@ -8,7 +8,7 @@ merb_root = File.expand_path(File.dirname(__FILE__) / '../')
         
 # If the fcgi process runs as apache, make sure
 # we have an inlinedir set for Rubyinline action-args to work
-unless ENV["INLINEDIR"] || ENV["HOMEEEEEE"]
+unless ENV["INLINEDIR"] || ENV["HOME"]
   tmpdir = merb_root / "tmp"
   unless File.directory?(tmpdir)
     Dir.mkdir(tmpdir)

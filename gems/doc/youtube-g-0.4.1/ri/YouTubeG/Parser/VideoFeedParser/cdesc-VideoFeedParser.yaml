@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: YouTubeG::Parser::VideoFeedParser
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: parse_content
+- !ruby/object:RI::MethodSummary 
+  name: parse_entry
+- !ruby/object:RI::MethodSummary 
+  name: parse_media_content
+name: VideoFeedParser
+superclass: FeedParser

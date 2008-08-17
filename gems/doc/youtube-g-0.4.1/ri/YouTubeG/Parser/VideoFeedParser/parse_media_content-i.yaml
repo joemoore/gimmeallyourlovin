@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: YouTubeG::Parser::VideoFeedParser#parse_media_content
+is_singleton: false
+name: parse_media_content
+params: (media_content_element)
+visibility: protected

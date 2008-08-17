@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: uri
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: YouTubeG::Model::Author
+includes: []
+
+instance_methods: []
+
+name: Author
+superclass: YouTubeG::Record

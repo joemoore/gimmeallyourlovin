@@ -1,0 +1,97 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: author
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: categories
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: duration
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: html_content
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: keywords
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: YouTubeG::Model::Content records describing the individual media content data available for this video. Most, but not all, videos offer this.
+  name: media_content
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: noembed
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: player_url
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: position
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: published_at
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: racy
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: rating
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: statistics
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: thumbnails
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: title
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: updated_at
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: video_id
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: view_count
+  rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: YouTubeG::Model::Video
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: can_embed?
+- !ruby/object:RI::MethodSummary 
+  name: default_media_content
+- !ruby/object:RI::MethodSummary 
+  name: embed_html
+- !ruby/object:RI::MethodSummary 
+  name: embed_url
+- !ruby/object:RI::MethodSummary 
+  name: unique_id
+name: Video
+superclass: YouTubeG::Record
