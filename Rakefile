@@ -33,9 +33,3 @@ task :svn_add do
    system "svn status | grep '^\?' | sed -e 's/? *//' | sed -e 's/ /\ /g' | xargs svn add"
 end
 
-begin
-  require 'vlad'
-  Vlad.load
-rescue LoadError
-  # do nothing
-end
